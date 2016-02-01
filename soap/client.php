@@ -4,8 +4,8 @@
  */
 
 $options = array('location' => 'http://sandbox.dev/soap/server.php', 
-                  'uri' => 'http://sandbox.dev/soap/');
+                  'uri' => 'http://sandbox.dev/soap/index.html');
 //create an instante of the SOAPClient (the API will be available)
 $api = new SoapClient(NULL, $options);
 //call an API method
-echo $api->hello();
+echo $api->hello('Csaba az Isten');

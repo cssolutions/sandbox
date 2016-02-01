@@ -7,18 +7,13 @@
 
 <?php
 include 'source/lib/xmlrpc.inc';
-//include 'source/src/Autoloader.php';
-//var_dump(function_exists('xmlrpc_client'));exit();
-// Make an object to represent our server.
-$server = new xmlrpc_client('/xmlrpc/server.php','sandbox.dev', 80);
 
-// Send a message to the server.
+$server = new xmlrpc_client('/xmlrpc/server.php','sandbox.dev', 80);
 $message = new xmlrpcmsg('sample.sumAndDifference',
                          array(new xmlrpcval(5, 'int'),
                                new xmlrpcval(3, 'int')));
 $result = $server->send($message);
 
-// Process the response.
 if (!$result) {
     print "<p>Could not connect to HTTP server.</p>";
 } elseif ($result->faultCode()) {
