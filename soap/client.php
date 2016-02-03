@@ -3,9 +3,5 @@
  * PHP SOAP - How to create a SOAP Server and a SOAP Client
  */
 
-$options = array('location' => 'http://sandbox.dev/soap/server.php', 
-                  'uri' => 'http://sandbox.dev/soap/index.html');
-//create an instante of the SOAPClient (the API will be available)
-$api = new SoapClient(NULL, $options);
-//call an API method
+$api = new SoapClient(NULL, ['location' => 'http://sandbox.local/soap/server.php', 'uri' => 'http://sandbox.local/soap/index.html']);
 echo $api->hello('Csaba az Isten');

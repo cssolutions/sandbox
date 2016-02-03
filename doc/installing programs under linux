@@ -1,0 +1,44 @@
+INSTALL
+
+apt-get install pn
+apt-get remove pn
+apt-get update  				-> refresh local db
+apt-get upgrade 				-> upgrade packages
+add-apt-repository ppa:tualatrix/ppa
+sudo dpkg –list 				-> check what we have		
+dpkg --get-selections | grep -v deinstall    	-> get installed packages
+
+
+sudo dpkg -i <package_name>.deb
+
+
+
+
+install tar files:
+unpack
+got to that folder
+see for INSTALL file instructions
+./configure
+make
+sudo make install
+
+
+
+RUN
+
+file /path/file.bin 
+chmod +x /path/file.bin
+/path/file.bin
+sudo ./filename.bin
+
+
+
+
+chmod +x filename.sh
+./filename.sh
+
+
+
+
+
+

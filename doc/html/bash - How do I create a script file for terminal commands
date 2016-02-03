@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>bash - How do I create a script file for terminal commands? - Ask Ubuntu</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/askubuntu/img/favicon.ico?v=eff8fd315b9e">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/askubuntu/img/apple-touch-icon.png?v=e16e1315edd6">
+    <link rel="search" type="application/opensearchdescription+xml" title="Ask Ubuntu" href="http://askubuntu.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@AskUbuntu">
+    <meta name="twitter:domain" content="askubuntu.com">
+    <meta property="og:type" content="website">    
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/askubuntu/img/apple-touch-icon@2.png?v=c492c9229955&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How do I create a script file for terminal commands?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="In Windows I can write a file containing commands for cmd (usually .cmd or .bat files).  When I click on those files it will open cmd.exe and run them commands the file contains.
+
+How would I do th...">
+    <meta property="og:url" content="http://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands">
+    <link rel="canonical" href="http://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands">
+
+    
+    
+    <script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/ados_002.js" async="" type="text/javascript"></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/quant.js" async=""></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/beacon.js" async=""></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/analytics.js" async=""></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/ados.js" async="" type="text/javascript"></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/jquery.js"></script>
+    <script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'How do I create a script file for terminal commands?'" href="http://askubuntu.com/feeds/question/223691">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:223691});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('89', '223691');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com,ws://qa.sockets.stackexchange.com');
+            StackExchange.realtime.subscribeToReputationNotifications('89');
+                StackExchange.realtime.subscribeToTopBarNotifications('89');
+        });
+    </script>
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1454488370,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":false,"domain":"stacksnippets.net"},"site":{"name":"Ask Ubuntu","description":"Q&A for Ubuntu users and developers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdsB7sSAAAAAAzjgEF_Hd8vXv-C42sa_KyofaGR","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":89,"enableSocialMediaInSharePopup":true},"user":{"fkey":"8556ebccbf4e01bfab86c45fc770ce63","rep":0,"isAnonymous":true,"isAnonymousOnThisSite":true},"realtime":{"newest":true,"active":true,"tagged":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"0d5d4b79b3ec","js/moderator.en.js":"481e310df8f0","js/full-anon.en.js":"e937e1c567b0","js/full.en.js":"a53f1c27ea68","js/wmd.en.js":"80ff9eb7db5d","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"2457e27e36ce","js/help.en.js":"f58b9bbdda52","js/tageditor.en.js":"a5375c31ec6b","js/tageditornew.en.js":"4b21fd380ed3","js/inline-tag-editing.en.js":"0f5c6409438a","js/revisions.en.js":"c2bb6b44f707","js/review.en.js":"1216c9638904","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"3e6f5c7d927c","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"27ac32747b08","js/keyboard-shortcuts.en.js":"b097f1baac81","js/external-editor.en.js":"cf58cc6630ef"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/full-anon.js" async=""></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/post-validation.js" async=""></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/prettify-full.js" async=""></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/external-editor.js" async=""></script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/adFeedback.js" type="text/javascript"></script><link href="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/adFeedback.css" rel="stylesheet"></head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    
+
+
+
+
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"><div class="nav-global"><div class="nav-global-wrapper"><ul><li><a href="http://www.ubuntu.com/">Ubuntu</a></li><li><a href="http://community.ubuntu.com/">Community</a></li><li><a href="http://askubuntu.com/" class="active">Ask!</a></li><li><a href="http://developer.ubuntu.com/">Developer</a></li><li><a href="http://design.ubuntu.com/">Design</a></li><li></li><li><a href="http://discourse.ubuntu.com/">Discourse</a></li><li><a href="http://www.ubuntu.com/certification">Hardware</a></li><li><a href="http://insights.ubuntu.com/">Insights</a></li><li><a href="http://juju.ubuntu.com/">Juju</a></li><li><a href="http://shop.ubuntu.com/">Shop</a></li><li class="more"><a href="#">More <span>›</span></a><ul><li><a href="http://apps.ubuntu.com/">Apps</a></li><li><a href="https://help.ubuntu.com/">Help</a></li><li><a href="http://ubuntuforums.org/">Forum</a></li><li><a href="http://www.launchpad.net/">Launchpad</a></li><li><a href="http://maas.ubuntu.com/">MAAS</a></li><li><a href="http://www.canonical.com/">Canonical</a></li></ul></li></ul></div></div> <script> $(function() { $(".nav-global .more > a").click(function(e){ $(this).closest(".more").toggleClass("open"); return false; }); $(document).click(function(){ $(".nav-global .more.open").removeClass("open"); }); }); </script></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://askubuntu.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+                    <a href="http://chat.stackexchange.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://askubuntu.com/users/logout" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:8 })">log out</a>
+    </div>
+
+
+
+
+    <a href="http://askubuntu.com/" class="current-site-link site-link js-gps-track" data-id="89" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-askubuntu" title="Ask Ubuntu"></div>
+        Ask Ubuntu
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.askubuntu.com/" class="site-link js-gps-track" data-id="91" data-gps-track="
+            site.switch({ target_site:91, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-askubuntumeta" title="Ask Ubuntu Meta"></div>
+        Ask Ubuntu Meta
+    </a>
+
+                </li>
+                    </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+                <a href="http://stackexchange.com/users/1699694/?tab=accounts">your communities</a>
+        </h3>
+            
+            <a href="#" id="edit-pinned-sites">edit</a>
+            <a href="#" id="cancel-pinned-sites" style="display: none;">cancel</a>
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <ul class="my-sites">
+                    <li>
+                        
+
+
+
+    <a href="http://drupal.stackexchange.com/" class="site-link js-gps-track" data-id="220" data-gps-track="
+            site.switch({ target_site:220, item_type:3 }),
+        site_switcher.click({ item_type:1 })">
+        <div class="site-icon favicon favicon-drupal" title="Drupal Answers"></div>
+        Drupal Answers
+            <span class="rep-score">14</span>
+    </a>
+
+                    </li>
+                    <li>
+                        
+
+
+
+    <a href="http://stackoverflow.com/" class="site-link js-gps-track" data-id="1" data-gps-track="
+            site.switch({ target_site:1, item_type:3 }),
+        site_switcher.click({ item_type:1 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+            <span class="rep-score">14</span>
+    </a>
+
+                    </li>
+            </ul>
+                <div class="pinned-site-editor-container" style="display: none;">
+                    <input id="js-site-search-txt" class="site-filter-input" placeholder="Add a Stack Exchange community" type="text">
+                    <input id="pin-site-btn" value="Add" disabled="disabled" type="submit">
+                    <ul class="js-found-sites found-sites"></ul>
+                    <ul class="pinned-site-list sortable" data-custom-list="False">
+                    </ul>
+                    <input value="Save" id="save-pinned-sites-btn" disabled="disabled" type="submit">
+                    <a href="#" id="reset-pinned-sites">reset to default list</a>
+                </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+        <a href="http://blog.stackoverflow.com/" class="fr">company blog</a>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 153 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+    <a href="#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="#" class="topbar-icon icon-achievements yes-hover js-achievements-button" data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://askubuntu.com/users/join?ssrc=head&amp;returnurl=http%3a%2f%2faskubuntu.com%2fquestions%2f223691%2fhow-do-i-create-a-script-file-for-terminal-commands" class="login-link">join this community</a>
+
+                        <a href="http://askubuntu.com/tour">tour</a>
+                            <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://askubuntu.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://askubuntu.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.askubuntu.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" placeholder="Search Q&amp;A" tabindex="1" autocomplete="off" maxlength="240" type="text">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://askubuntu.com/">
+                    Ask Ubuntu
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://askubuntu.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://askubuntu.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://askubuntu.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://askubuntu.com/help/badges">Badges</a></li>
+                                                <li><a id="nav-unanswered" href="http://askubuntu.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://askubuntu.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/askubuntu/img/apple-touch-icon.png?v=e16e1315edd6">
+
+<div id="herobox">
+    <div id="hero-content">
+            <div id="close"><a title="click to minimize">_</a></div>
+        <div id="blurb">
+            Ask Ubuntu is a question and answer site for Ubuntu users and developers. It's 100% free.
+            <br>
+            <br>
+            <a href="http://askubuntu.com/users/signup?ssrc=hero&amp;returnurl=http%3a%2f%2faskubuntu.com%2fquestions%2f223691%2fhow-do-i-create-a-script-file-for-terminal-commands" id="tell-me-more" class="button">Join</a>
+        </div>
+        <div id="desc">
+            <b>Here's how it works:</b>
+            <ol id="hiw">
+                <li id="q">Anybody can ask a question
+                </li>
+                <li id="an">Anybody can answer
+                </li>
+                <li id="b">The best answers are voted up and rise to the top
+                </li>
+            </ol>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+    <script>
+        StackExchange.ready(function () {
+
+            var location = 0;
+            if ($("body").hasClass("questions-page")) {
+                location = 1;;
+            } else if ($("body").hasClass("question-page")) {
+                location = 1;;
+            } else if ($("body").hasClass("faq-page")) {
+                location = 5;;
+            } else if ($("body").hasClass("home-page")) {
+                location = 3;;
+            }
+
+            $('#tell-me-more').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+                });
+            });
+            $('#herobox #close').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+                });
+                $.cookie("hero", "mini", { path: "/", expires: 365 });
+                $.ajax({
+                    url: "/hero-mini",
+                    success: function (data) {
+                        $("#herobox").fadeOut("fast", function () {
+                            $("#herobox").replaceWith(data);
+                            $("#herobox-mini").fadeIn("fast");
+                        });
+                    }
+                });
+                return false;
+            });
+        });
+
+    </script>
+</div>
+			<div id="question-header">
+                <h1 itemprop="name"><a href="http://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands" class="question-hyperlink">How do I create a script file for terminal commands?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="223691" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk1134401646",4).enableDynamicSiteSelection().setZone(29); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1134401646"><div style="background-image: url( data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== ); width: 1px; height: 1px; display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/i.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="223691" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">14</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>4</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>In Windows I can write a file containing commands for cmd (usually <code>.cmd</code> or <code>.bat</code> files).  When I click on those files it will open <code>cmd.exe</code> and run them commands the file contains.</p>
+
+<p>How would I do this in Ubuntu?   </p>
+
+<p>I'm sure this is a duplicate, but I can't find my answer.<br>
+Its similar to these questions, but they don't answer the question:</p>
+
+<p><a href="http://askubuntu.com/questions/55676/store-frequently-used-terminal-commands-in-a-file">Store frequently used terminal commands in a file</a>  </p>
+
+<p><a href="http://askubuntu.com/questions/104474/cmd-exe-emulator-in-ubuntu-to-run-cmd-bat-file">CMD.exe Emulator in Ubuntu to run .cmd/.bat file</a></p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://askubuntu.com/questions/tagged/command-line" class="post-tag js-gps-track" title="show questions tagged 'command-line'" rel="tag">command-line</a> <a href="http://askubuntu.com/questions/tagged/bash" class="post-tag js-gps-track" title="show questions tagged 'bash'" rel="tag">bash</a> <a href="http://askubuntu.com/questions/tagged/files" class="post-tag js-gps-track" title="show questions tagged 'files'" rel="tag">files</a> <a href="http://askubuntu.com/questions/tagged/executable" class="post-tag js-gps-track" title="show questions tagged 'executable'" rel="tag">executable</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://askubuntu.com/q/223691" title="short permalink to this question" class="short-link" id="link-post-223691">share</a><span class="lsep">|</span><a href="http://askubuntu.com/posts/223691/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://askubuntu.com/posts/223691/revisions" title="show all edits to this post">edited <span title="2013-12-31 00:55:11Z" class="relativetime">Dec 31 '13 at 0:55</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2012-11-30 02:56:35Z" class="relativetime">Nov 30 '12 at 2:56</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://askubuntu.com/users/44179/seth"><div class="gravatar-wrapper-32"><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/6fce102dc34236cd4e485c69d7293ee9.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://askubuntu.com/users/44179/seth">Seth</a><span class="mod-flair" title="moderator">♦</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 19157" dir="ltr">19.2k</span><span title="16 gold badges"><span class="badge1"></span><span class="badgecount">16</span></span><span title="75 silver badges"><span class="badge2"></span><span class="badgecount">75</span></span><span title="127 bronze badges"><span class="badge3"></span><span class="badgecount">127</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-223691" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-223691" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								3 Answers
+                                <span style="display:none;" itemprop="answerCount">3</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">
+            active</a>
+        <a href="http://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">
+            oldest</a>
+        <a class="youarehere" href="http://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="223698"></a>
+<div id="answer-223698" class="answer accepted-answer" data-answerid="223698" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="223698" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">28</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="The question owner accepted this as the best answer Nov 30 '12 at 3:37.">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>There are two methods.</p>
+
+<p>First, the most common is to write a file, make sure the first line is </p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="com">#!/bin/bash</span></code></pre>
+
+<p>Then save the file. Next mark it executable using <code>chmod +x file</code></p>
+
+<p>Then when you click (or run the file from the terminal) the commands 
+will be executed. By convention these files usually have no extension, 
+however you can make then end in <code>.sh</code> or any other way.</p>
+
+<p>A few notes:</p>
+
+<ul>
+<li>Any (and I mean any) file can be executed in Linux provided the 
+first line is a path to the program that should interpret the file. 
+Command examples include <code>/bin/python</code>,  <code>/bin/sh</code>, <code>/bin/dash</code>, but even odd ball things work like <code>/bin/mysql</code></li>
+<li>Bash is a full language it is vastly more complex then cmd.exe in 
+windows. It has a strong programming language that supports functions, 
+loops, conditionals, string operations, etc.</li>
+<li><a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html">These documents</a> may help if you run into problems.</li>
+<li>If you do not wish to make the file executable then you can run it by passing it as an argument to bash: <code>bash file/to/run.sh</code></li>
+</ul>
+
+<p><strong>A Simple Bash Example</strong></p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="com">#!/bin/bash  </span><span class="pln">
+echo </span><span class="str">"This is a shell script"</span><span class="pln">  
+ls </span><span class="pun">-</span><span class="pln">lah  
+echo </span><span class="str">"I am done running ls"</span><span class="pln">  
+SOMEVAR</span><span class="pun">=</span><span class="str">'text stuff'</span><span class="pln">  
+echo </span><span class="str">"$SOMEVAR"</span><span class="pln">  </span></code></pre>
+
+<hr>
+
+<p>The second method is to record commands using script. Run <code>script</code> then just do stuff. When your done doing stuff type <code>exit</code>
+ and script will generate a file for you will all the "stuff" you did.  
+This is less used but works quite well for making macro like things. <code>man script</code> for more info.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://askubuntu.com/a/223698" title="short permalink to this answer" class="short-link" id="link-post-223698">share</a><span class="lsep">|</span><a href="http://askubuntu.com/posts/223698/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://askubuntu.com/posts/223698/revisions" title="show all edits to this post">edited <span title="2013-12-20 23:06:46Z" class="relativetime">Dec 20 '13 at 23:06</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://askubuntu.com/users/1059/gilles"><div class="gravatar-wrapper-32"><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/cFyP6.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://askubuntu.com/users/1059/gilles">Gilles</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 29205" dir="ltr">29.2k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="75 silver badges"><span class="badge2"></span><span class="badgecount">75</span></span><span title="119 bronze badges"><span class="badge3"></span><span class="badgecount">119</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-11-30 03:18:35Z" class="relativetime">Nov 30 '12 at 3:18</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://askubuntu.com/users/103730/coteyr"><div class="gravatar-wrapper-32"><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/98ec926f2315a761364265d0bb2f45e4.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://askubuntu.com/users/103730/coteyr">coteyr</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">6,792</span><span title="18 silver badges"><span class="badge2"></span><span class="badgecount">18</span></span><span title="44 bronze badges"><span class="badge3"></span><span class="badgecount">44</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-223698" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-276097" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You might wanna change that <code>/bin/bash</code> to <code>/bin/sh</code>, bash isn't even the default for Ubuntu.</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/43526/tc1" title="111 reputation" class="comment-user">TC1</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment276097_223698"><span title="2012-11-30 10:14:20Z" class="relativetime-clean">Nov 30 '12 at 10:14</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-276208" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@TC1 It's installed by default, so it doesn't matter if it's the default or not.</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/43549/carlos-campderr%c3%b3s" title="141 reputation" class="comment-user">Carlos Campderrós</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment276208_223698"><span title="2012-11-30 14:23:05Z" class="relativetime-clean">Nov 30 '12 at 14:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-740083" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I'd like to point out that <code>/bin/dash</code> (which <code>/bin/sh</code> is usually symlinked to), is a lot faster than bash (I measured approximately 15 times faster). If at all possible, use <code>/bin/dash</code> for shell scripts :)</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/16913/mijyn" title="1919 reputation" class="comment-user">MiJyn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment740083_223698"><span title="2014-10-23 17:17:26Z" class="relativetime-clean">Oct 23 '14 at 17:17</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-897008" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I get  'command not found' even after chmod</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/312068/joti" title="106 reputation" class="comment-user">Joti</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment897008_223698"><span title="2015-05-31 07:01:17Z" class="relativetime-clean">May 31 '15 at 7:01</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-936510" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">If your in the same folder as the file make sure to ./file.sh</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/103730/coteyr" title="6792 reputation" class="comment-user">coteyr</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment936510_223698"><span title="2015-07-23 18:51:37Z" class="relativetime-clean">Jul 23 '15 at 18:51</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-223698" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk492190060",4).enableDynamicSiteSelection().setZone(30); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk492190060"><div style="background-image: url( data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== ); width: 1px; height: 1px; display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/i_003.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>
+  
+<a name="223694"></a>
+<div id="answer-223694" class="answer" data-answerid="223694" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="223694" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">10</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You mean writing to a file using a shell script? Here are a few ways:</p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="pln">touch file</span></code></pre>
+
+<p>This method will simply create a file, but if the file already 
+exists, it simply changes the modification date to the time you used 
+that command.</p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="pln">echo </span><span class="str">"text"</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file</span></code></pre>
+
+<p>That method overwrites the contents of <code>file</code> to <code>text</code>. If you wanted to clear a file, you can simply do this:</p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="pln">echo </span><span class="str">""</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file</span></code></pre>
+
+<p>Say you want to write more than one line to it, and you don't want to use thousands of <code>echo</code> commands, you would use this command:</p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="pln">cat </span><span class="pun">&lt;&lt;</span><span class="pln"> EOF </span><span class="pun">&gt;</span><span class="pln"> file
+test
+test1
+foo
+bar
+EOF</span></code></pre>
+
+<p>That enables you to write multiple lines in one command. The contents of <code>file</code> would then be this:</p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="pln">test
+test1
+foo
+bar</span></code></pre>
+
+<p>If you wanted to append to a file, replace <code>&gt;</code> to <code>&gt;&gt;</code>.</p>
+
+<p>Hope this helps!</p>
+
+<hr>
+
+<p><strong>EDIT</strong>: Oh, I see, so you would write the file in gedit, using the <code>.sh</code>
+ extension (optional, but it's a good idea), and then on a file manager,
+ right click on the file, select Properties-&gt;Permissions, and check <code>Allow executing file as program</code>.
+ Then you can double-click on it and it will run :). Also, if you want 
+to do so in the terminal, you can run this command to make it executable
+ (you might want to prepend <code>sudo</code> if it doesn't belong to you):</p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="pln">chmod </span><span class="pun">+</span><span class="pln">x file</span></code></pre>
+
+<p>And to run:</p>
+
+<pre style="" class="lang-bsh prettyprint prettyprinted"><code><span class="pun">./</span><span class="pln">file</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://askubuntu.com/a/223694" title="short permalink to this answer" class="short-link" id="link-post-223694">share</a><span class="lsep">|</span><a href="http://askubuntu.com/posts/223694/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://askubuntu.com/posts/223694/revisions" title="show all edits to this post">edited <span title="2012-11-30 04:18:13Z" class="relativetime">Nov 30 '12 at 4:18</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-11-30 03:00:03Z" class="relativetime">Nov 30 '12 at 3:00</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://askubuntu.com/users/16913/mijyn"><div class="gravatar-wrapper-32"><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/3a5048f2407660f906b3bce05762885a.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://askubuntu.com/users/16913/mijyn">MiJyn</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,919</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="23 bronze badges"><span class="badge3"></span><span class="badgecount">23</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-223694" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-275998" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Actually what I want to do is
+ write a file in, say gedit, that contains terminal commands.  Then when
+ I double click this file it will run those commands in the terminal.</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/44179/seth" title="19157 reputation" class="comment-user owner">Seth<span class="mod-flair" title="moderator">♦</span></a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment275998_223694"><span title="2012-11-30 03:05:21Z" class="relativetime-clean">Nov 30 '12 at 3:05</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-275999" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Check my updated answer :)</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/16913/mijyn" title="1919 reputation" class="comment-user">MiJyn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment275999_223694"><span title="2012-11-30 03:07:34Z" class="relativetime-clean">Nov 30 '12 at 3:07</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-276003" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Great answer, considerate update. To simply create a file, I've always just used <code>touch filename</code></span>
+                    –&nbsp;<a href="http://askubuntu.com/users/38901/trytryagain" title="494 reputation" class="comment-user">TryTryAgain</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment276003_223694"><span title="2012-11-30 03:17:54Z" class="relativetime-clean">Nov 30 '12 at 3:17</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-276004" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@TryTryAgain, yep that is an easy method, probably faster than <code>echo "" &gt; file</code>. Is it ok if I include that method in my answer?</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/16913/mijyn" title="1919 reputation" class="comment-user">MiJyn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment276004_223694"><span title="2012-11-30 03:19:31Z" class="relativetime-clean">Nov 30 '12 at 3:19</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-276015" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@MiJyn Absolutely include it, feel free. Thanks</span>
+                    –&nbsp;<a href="http://askubuntu.com/users/38901/trytryagain" title="494 reputation" class="comment-user">TryTryAgain</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment276015_223694"><span title="2012-11-30 04:15:47Z" class="relativetime-clean">Nov 30 '12 at 4:15</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-223694" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="223697"></a>
+<div id="answer-223697" class="answer" data-answerid="223697" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="223697" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The equivalent to Windows batch files is shell scripts, and an excellent getting started guide is <a href="https://help.ubuntu.com/community/Beginners/BashScripting" rel="nofollow">Bash Scripting</a>.</p>
+
+<p>For the most part, commands that you can enter on the command line can be placed in a shell script.</p>
+
+<p>A couple of things that are different from Windows batch files:</p>
+
+<ul>
+<li><p>There are different command interpretors, called shells. The 
+default is bash, but if you are interested, there are others, such as 
+zsh, ksh, dash, perl, python, etc.</p></li>
+<li><p>To run a shell script, you need to make the file executable, which you can do with <code>chmod +x &lt;filename&gt;</code></p></li>
+<li><p>In Ubuntu, the current directory is not the program search path, so you need to run <code>./&lt;filename&gt;</code>, not <code>&lt;filename&gt;</code></p></li>
+<li><p>Variable names are <code>$&lt;varname&gt;</code>, not <code>%&lt;varname&gt;%</code></p></li>
+<li><p>Commands in a shell script are not printed by default, as in a batch file.</p></li>
+<li><p>The filename's extension can be <code>.sh</code> or (more customary) you don't need to use an extension. <a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29" rel="nofollow">Put <code>#!/bin/bash</code> on the very first line of the file</a>, which tells Ubuntu what program to use to run the file.</p></li>
+<li><p>Comments start with <code>#</code>, not <code>rem</code>.</p></li>
+</ul>
+
+<p>Hope this helps and have fun scripting!</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://askubuntu.com/a/223697" title="short permalink to this answer" class="short-link" id="link-post-223697">share</a><span class="lsep">|</span><a href="http://askubuntu.com/posts/223697/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://askubuntu.com/posts/223697/revisions" title="show all edits to this post">edited <span title="2013-12-20 23:10:40Z" class="relativetime">Dec 20 '13 at 23:10</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://askubuntu.com/users/1059/gilles"><div class="gravatar-wrapper-32"><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/cFyP6.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://askubuntu.com/users/1059/gilles">Gilles</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 29205" dir="ltr">29.2k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="75 silver badges"><span class="badge2"></span><span class="badgecount">75</span></span><span title="119 bronze badges"><span class="badge3"></span><span class="badgecount">119</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-11-30 03:14:32Z" class="relativetime">Nov 30 '12 at 3:14</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://askubuntu.com/users/109543/ibelieve"><div class="gravatar-wrapper-32"><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/02a20d65870e76a018e0b4a31d3676bb.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://askubuntu.com/users/109543/ibelieve">iBelieve</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,715</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="45 bronze badges"><span class="badge3"></span><span class="badgecount">45</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-223697" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-223697" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/223691/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="223691" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="https://www.google.hu" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+        
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.options.snippets.enabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li style="left: 0px;" class="wmd-button" id="wmd-bold-button"><span style="background-position: 0px -20px;"></span></li><li style="left: 25px;" class="wmd-button" id="wmd-italic-button"><span style="background-position: -20px -20px;"></span></li><li style="left: 50px;" class="wmd-spacer" id="wmd-spacer1"><span style="background-position: -40px -20px;"></span></li><li style="left: 75px;" class="wmd-button" id="wmd-link-button"><span style="background-position: -40px -20px;"></span></li><li style="left: 100px;" class="wmd-button" id="wmd-quote-button"><span style="background-position: -60px -20px;"></span></li><li style="left: 125px;" class="wmd-button" id="wmd-code-button"><span style="background-position: -80px -20px;"></span></li><li style="left: 150px;" class="wmd-button" id="wmd-image-button"><span style="background-position: -100px -20px;"></span></li><li style="left: 175px;" class="wmd-spacer" id="wmd-spacer2"><span style="background-position: -120px -20px;"></span></li><li style="left: 200px;" class="wmd-button" id="wmd-olist-button"><span style="background-position: -120px -20px;"></span></li><li style="left: 225px;" class="wmd-button" id="wmd-ulist-button"><span style="background-position: -140px -20px;"></span></li><li style="left: 250px;" class="wmd-button" id="wmd-heading-button"><span style="background-position: -160px -20px;"></span></li><li style="left: 275px;" class="wmd-button" id="wmd-hr-button"><span style="background-position: -180px -20px;"></span></li><li style="left: 300px;" class="wmd-spacer" id="wmd-spacer3"><span style="background-position: -200px -20px;"></span></li><li style="left: 325px;" class="wmd-button" id="wmd-undo-button"><span style="background-position: -200px -20px;"></span></li><li style="left: 350px;" class="wmd-button" id="wmd-redo-button"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="8556ebccbf4e01bfab86c45fc770ce63" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://askubuntu.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2faskubuntu.com%2fquestions%2f223691%2fhow-do-i-create-a-script-file-for-terminal-commands%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2faskubuntu.com%2fquestions%2f223691%2fhow-do-i-create-a-script-file-for-terminal-commands%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://askubuntu.com/questions/tagged/command-line" class="post-tag" title="show questions tagged 'command-line'" rel="tag">command-line</a> <a href="http://askubuntu.com/questions/tagged/bash" class="post-tag" title="show questions tagged 'bash'" rel="tag">bash</a> <a href="http://askubuntu.com/questions/tagged/files" class="post-tag" title="show questions tagged 'files'" rel="tag">files</a> <a href="http://askubuntu.com/questions/tagged/executable" class="post-tag" title="show questions tagged 'executable'" rel="tag">executable</a>  or <a href="http://askubuntu.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2012-11-30 02:56:35Z"><b>3 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>91173 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://askubuntu.com/questions/223691/how-do-i-create-a-script-file-for-terminal-commands?lastactivity" class="lastactivity-link" title="2013-12-31 00:55:11Z">2 years ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk1595065010",[5,17]).enableDynamicSiteSelection().setZone(56016); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1595065010"><div id="beta-ad-container" style="height: 250px;">
+<style type="text/css">
+#beta-ad { width: 300px; height: 250px; text-align: center; color: #326ab3; border-top: 1px solid #b4cfea; overflow: hidden; font-family: Helvetica, Arial, sans-serif !important; }
+#beta-ad a, #beta-ad a:visited, #beta-ad a:active { text-decoration: none; color: #326ab3; }
+#beta-ad { background: url(//sstatic.net/stackexchange/Img/beta-ad-bg.jpg?v=2) no-repeat bottom center; }
+#beta-ad-inner { height: 190px; padding: 0px 10px 20px 10px; width: 280px; overflow: hidden; }
+#beta-ad-top a { height: 22px; padding: 7px 0; font-size: 15px; line-height: 22px; display: block; color: #FFF !important; font-family: Helvetica, Arial, sans-serif !important; }
+#beta-ad-mid { height: 178px; display:table-cell; vertical-align: middle; }
+#beta-ad-mid #beta-ad-que, #beta-ad-mid #beta-ad-que:visited, #beta-ad-mid #beta-ad-que:active { font-size: 19px; line-height: 25px; font-weight: bold; color: #3a6da6; text-shadow: 0 1px 0 #fff; }
+#beta-ad-own { float: right; margin-top: 5px; font-size: 15px; line-height: 15px; }
+#beta-ad-own a { height: 20px; }
+#beta-ad-bot { height: 25px; font-size: 12px; overflow: hidden; margin-top: 6px; }
+#beta-ad-ans { margin-right: 8px; color: #29294b !important; display: inline-block; line-height: 24px; }
+.beta-ad-tag { color: #566E76!important; font-size: 11px; display: inline-block; background-color: #F7FDFF; text-decoration: none; white-space: nowrap; overflow: visible; margin: 2px 2px 6px 0; padding: 0.1em 0.6em; line-height: 1.4; border: 1px solid #C0D4DB; -moz-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px; }
+</style>
+<div id="beta-ad">
+    <div id="beta-ad-top"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTU1NjAsImNoIjoxNjUzMSwiY2siOnt9LCJjciI6MjY2MywiZGkiOiI0ZTZiOGFjMDNiNGQ0YmRjOTkzY2UzOTE2MmUyMTk4NiIsImRtIjoxLCJmYyI6MzMwOTY5LCJmbCI6MTcxNzU3LCJpcCI6Ijk0LjIxLjIyOC4yMzgiLCJrdyI6ImNvbW1hbmQtbGluZSxiYXNoLGZpbGVzLGV4ZWN1dGFibGUseC1jb21tdW5pdHkseC1ob3N0LWFza3VidW50dS5jb20iLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjU3MjIyLCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUiLCJzdCI6NTY3NDksInVrIjoidWUxLTE2NzJjZWMyOGRjNDRhNjM5NDhjNDMwY2Q2ZjZmOWE5Iiwiem4iOjU2MDE2LCJ0cyI6MTQ1NDQ4ODM3MDg0NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTU5NTA2NTAxMCIsInVyIjpudWxsfQ&amp;s=-uP1F1YSqlv0dBZ_nQEKrEChdXo&amp;url=http%3A%2F%2Foutdoors.stackexchange.com%2F%3Futm_medium%3Dad%26utm_source%3Dhttp-stackoverflow-com-questions-6221739-php-loop-through-months-array%26utm_campaign%3Doutdoors.stackexchange.com-promo%26utm_content%3D10773">outdoors.stackexchange.com</a></div>
+    <div id="beta-ad-inner">
+        <div id="beta-ad-mid">
+            <a id="beta-ad-que" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTU1NjAsImNoIjoxNjUzMSwiY2siOnt9LCJjciI6MjY2MywiZGkiOiI0ZTZiOGFjMDNiNGQ0YmRjOTkzY2UzOTE2MmUyMTk4NiIsImRtIjoxLCJmYyI6MzMwOTY5LCJmbCI6MTcxNzU3LCJpcCI6Ijk0LjIxLjIyOC4yMzgiLCJrdyI6ImNvbW1hbmQtbGluZSxiYXNoLGZpbGVzLGV4ZWN1dGFibGUseC1jb21tdW5pdHkseC1ob3N0LWFza3VidW50dS5jb20iLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjU3MjIyLCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUiLCJzdCI6NTY3NDksInVrIjoidWUxLTE2NzJjZWMyOGRjNDRhNjM5NDhjNDMwY2Q2ZjZmOWE5Iiwiem4iOjU2MDE2LCJ0cyI6MTQ1NDQ4ODM3MDg0NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTU5NTA2NTAxMCIsInVyIjpudWxsfQ&amp;s=-uP1F1YSqlv0dBZ_nQEKrEChdXo&amp;url=http%3A%2F%2Foutdoors.stackexchange.com%2Fquestions%2F10773%2Fstoveless-fireless-hiking-food-suggestions%3Futm_medium%3Dad%26utm_source%3Dhttp-stackoverflow-com-questions-6221739-php-loop-through-months-array%26utm_campaign%3Doutdoors.stackexchange.com-promo%26utm_content%3D10773">Stoveless/fireless hiking food suggestions</a><br>
+            <div id="beta-ad-own">– <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTU1NjAsImNoIjoxNjUzMSwiY2siOnt9LCJjciI6MjY2MywiZGkiOiI0ZTZiOGFjMDNiNGQ0YmRjOTkzY2UzOTE2MmUyMTk4NiIsImRtIjoxLCJmYyI6MzMwOTY5LCJmbCI6MTcxNzU3LCJpcCI6Ijk0LjIxLjIyOC4yMzgiLCJrdyI6ImNvbW1hbmQtbGluZSxiYXNoLGZpbGVzLGV4ZWN1dGFibGUseC1jb21tdW5pdHkseC1ob3N0LWFza3VidW50dS5jb20iLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjU3MjIyLCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUiLCJzdCI6NTY3NDksInVrIjoidWUxLTE2NzJjZWMyOGRjNDRhNjM5NDhjNDMwY2Q2ZjZmOWE5Iiwiem4iOjU2MDE2LCJ0cyI6MTQ1NDQ4ODM3MDg0NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTU5NTA2NTAxMCIsInVyIjpudWxsfQ&amp;s=-uP1F1YSqlv0dBZ_nQEKrEChdXo&amp;url=http%3A%2F%2Foutdoors.stackexchange.com%2Fusers%2F8707%2Ftom-mccone%3Futm_medium%3Dad%26utm_source%3Dhttp-stackoverflow-com-questions-6221739-php-loop-through-months-array%26utm_campaign%3Doutdoors.stackexchange.com-promo%26utm_content%3D10773">Tom McCone</a></div>
+        </div>
+        <div id="beta-ad-bot"><a id="beta-ad-ans" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTU1NjAsImNoIjoxNjUzMSwiY2siOnt9LCJjciI6MjY2MywiZGkiOiI0ZTZiOGFjMDNiNGQ0YmRjOTkzY2UzOTE2MmUyMTk4NiIsImRtIjoxLCJmYyI6MzMwOTY5LCJmbCI6MTcxNzU3LCJpcCI6Ijk0LjIxLjIyOC4yMzgiLCJrdyI6ImNvbW1hbmQtbGluZSxiYXNoLGZpbGVzLGV4ZWN1dGFibGUseC1jb21tdW5pdHkseC1ob3N0LWFza3VidW50dS5jb20iLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjU3MjIyLCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUiLCJzdCI6NTY3NDksInVrIjoidWUxLTE2NzJjZWMyOGRjNDRhNjM5NDhjNDMwY2Q2ZjZmOWE5Iiwiem4iOjU2MDE2LCJ0cyI6MTQ1NDQ4ODM3MDg0NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTU5NTA2NTAxMCIsInVyIjpudWxsfQ&amp;s=-uP1F1YSqlv0dBZ_nQEKrEChdXo&amp;url=http%3A%2F%2Foutdoors.stackexchange.com%2Fquestions%2F10773%2Fstoveless-fireless-hiking-food-suggestions%3Futm_medium%3Dad%26utm_source%3Dhttp-stackoverflow-com-questions-6221739-php-loop-through-months-array%26utm_campaign%3Doutdoors.stackexchange.com-promo%26utm_content%3D10773%23tab-top">2 answers</a> <a class="beta-ad-tag" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTU1NjAsImNoIjoxNjUzMSwiY2siOnt9LCJjciI6MjY2MywiZGkiOiI0ZTZiOGFjMDNiNGQ0YmRjOTkzY2UzOTE2MmUyMTk4NiIsImRtIjoxLCJmYyI6MzMwOTY5LCJmbCI6MTcxNzU3LCJpcCI6Ijk0LjIxLjIyOC4yMzgiLCJrdyI6ImNvbW1hbmQtbGluZSxiYXNoLGZpbGVzLGV4ZWN1dGFibGUseC1jb21tdW5pdHkseC1ob3N0LWFza3VidW50dS5jb20iLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjU3MjIyLCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUiLCJzdCI6NTY3NDksInVrIjoidWUxLTE2NzJjZWMyOGRjNDRhNjM5NDhjNDMwY2Q2ZjZmOWE5Iiwiem4iOjU2MDE2LCJ0cyI6MTQ1NDQ4ODM3MDg0NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTU5NTA2NTAxMCIsInVyIjpudWxsfQ&amp;s=-uP1F1YSqlv0dBZ_nQEKrEChdXo&amp;url=http%3A%2F%2Foutdoors.stackexchange.com%2Fquestions%2Ftagged%2Fbackpacking">backpacking</a>  <a class="beta-ad-tag" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTU1NjAsImNoIjoxNjUzMSwiY2siOnt9LCJjciI6MjY2MywiZGkiOiI0ZTZiOGFjMDNiNGQ0YmRjOTkzY2UzOTE2MmUyMTk4NiIsImRtIjoxLCJmYyI6MzMwOTY5LCJmbCI6MTcxNzU3LCJpcCI6Ijk0LjIxLjIyOC4yMzgiLCJrdyI6ImNvbW1hbmQtbGluZSxiYXNoLGZpbGVzLGV4ZWN1dGFibGUseC1jb21tdW5pdHkseC1ob3N0LWFza3VidW50dS5jb20iLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjU3MjIyLCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUiLCJzdCI6NTY3NDksInVrIjoidWUxLTE2NzJjZWMyOGRjNDRhNjM5NDhjNDMwY2Q2ZjZmOWE5Iiwiem4iOjU2MDE2LCJ0cyI6MTQ1NDQ4ODM3MDg0NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTU5NTA2NTAxMCIsInVyIjpudWxsfQ&amp;s=-uP1F1YSqlv0dBZ_nQEKrEChdXo&amp;url=http%3A%2F%2Foutdoors.stackexchange.com%2Fquestions%2Ftagged%2Ffood">food</a>  <a class="beta-ad-tag" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTU1NjAsImNoIjoxNjUzMSwiY2siOnt9LCJjciI6MjY2MywiZGkiOiI0ZTZiOGFjMDNiNGQ0YmRjOTkzY2UzOTE2MmUyMTk4NiIsImRtIjoxLCJmYyI6MzMwOTY5LCJmbCI6MTcxNzU3LCJpcCI6Ijk0LjIxLjIyOC4yMzgiLCJrdyI6ImNvbW1hbmQtbGluZSxiYXNoLGZpbGVzLGV4ZWN1dGFibGUseC1jb21tdW5pdHkseC1ob3N0LWFza3VidW50dS5jb20iLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjU3MjIyLCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUiLCJzdCI6NTY3NDksInVrIjoidWUxLTE2NzJjZWMyOGRjNDRhNjM5NDhjNDMwY2Q2ZjZmOWE5Iiwiem4iOjU2MDE2LCJ0cyI6MTQ1NDQ4ODM3MDg0NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTU5NTA2NTAxMCIsInVyIjpudWxsfQ&amp;s=-uP1F1YSqlv0dBZ_nQEKrEChdXo&amp;url=http%3A%2F%2Foutdoors.stackexchange.com%2Fquestions%2Ftagged%2Fcooking">cooking</a> </div>
+    </div>
+</div>
+
+
+</div><script type="text/javascript">window._betaAdUrl = "http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTU1NjAsImNoIjoxNjUzMSwiY2siOnt9LCJjciI6MjY2MywiZGkiOiI0ZTZiOGFjMDNiNGQ0YmRjOTkzY2UzOTE2MmUyMTk4NiIsImRtIjoxLCJmYyI6MzMwOTY5LCJmbCI6MTcxNzU3LCJpcCI6Ijk0LjIxLjIyOC4yMzgiLCJrdyI6ImNvbW1hbmQtbGluZSxiYXNoLGZpbGVzLGV4ZWN1dGFibGUseC1jb21tdW5pdHkseC1ob3N0LWFza3VidW50dS5jb20iLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjU3MjIyLCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUiLCJzdCI6NTY3NDksInVrIjoidWUxLTE2NzJjZWMyOGRjNDRhNjM5NDhjNDMwY2Q2ZjZmOWE5Iiwiem4iOjU2MDE2LCJ0cyI6MTQ1NDQ4ODM3MDg0NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTU5NTA2NTAxMCIsInVyIjpudWxsfQ&s=-uP1F1YSqlv0dBZ_nQEKrEChdXo";</script><script src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/js" type="text/javascript"></script><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="bash%20-%20How%20do%20I%20create%20a%20script%20file%20for%20terminal%20commands_elemei/i_002.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://askubuntu.com/q/104474?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://askubuntu.com/questions/104474/cmd-exe-emulator-in-ubuntu-to-run-cmd-bat-file?lq=1" class="question-hyperlink">CMD.exe Emulator in Ubuntu to run .cmd/.bat file</a>
+</div><div class="spacer">
+	<a href="http://askubuntu.com/q/55676?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">4</div>
+	</a>
+	<a href="http://askubuntu.com/questions/55676/store-frequently-used-terminal-commands-in-a-file?lq=1" class="question-hyperlink">Store frequently used terminal commands in a file</a>
+</div><div class="spacer">
+	<a href="http://askubuntu.com/q/500966?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://askubuntu.com/questions/500966/shell-script-to-run-vm?lq=1" class="question-hyperlink">Shell script to run VM</a>
+</div><div class="spacer">
+	<a href="http://askubuntu.com/q/563522?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://askubuntu.com/questions/563522/my-bash-script-only-opens-editor-why-doesnt-it-run?lq=1" class="question-hyperlink">My bash script only opens editor, why doesn't it run?</a>
+</div><div class="spacer">
+	<a href="http://askubuntu.com/q/503790?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">2</div>
+	</a>
+	<a href="http://askubuntu.com/questions/503790/problem-using-virtual-terminal?lq=1" class="question-hyperlink">Problem using Virtual Terminal</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/44565?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://askubuntu.com/questions/44565/simple-file-doesnt-run-command-not-found?rq=1" class="question-hyperlink">Simple file doesn't run (command not found!)</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/122428?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">53
+    </div>
+</a><a href="http://askubuntu.com/questions/122428/how-to-run-sh-file?rq=1" class="question-hyperlink">How to run .sh file</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/348940?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">6
+    </div>
+</a><a href="http://askubuntu.com/questions/348940/the-fastest-way-to-create-a-file-from-a-terminal?rq=1" class="question-hyperlink">The fastest way to create a file from a terminal</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/381548?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">2
+    </div>
+</a><a href="http://askubuntu.com/questions/381548/bash-error-when-trying-to-execute-a-file?rq=1" class="question-hyperlink">Bash error when trying to execute a file</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/445660?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://askubuntu.com/questions/445660/running-executable-file?rq=1" class="question-hyperlink">Running executable file</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/452392?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="http://askubuntu.com/questions/452392/bash-script-callable-from-home-but-not-scripts-directory?rq=1" class="question-hyperlink">Bash script callable from home but not scripts directory</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/460928?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://askubuntu.com/questions/460928/execute-a-command-when-add-a-new-file-in-folder?rq=1" class="question-hyperlink">Execute a command when add a new file in folder</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/484718?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">8
+    </div>
+</a><a href="http://askubuntu.com/questions/484718/how-to-make-a-file-executable?rq=1" class="question-hyperlink">How to make a file executable?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/605558?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">7
+    </div>
+</a><a href="http://askubuntu.com/questions/605558/how-to-create-multiple-files-with-the-terminal?rq=1" class="question-hyperlink">How to create multiple files with the Terminal?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://askubuntu.com/q/661854?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://askubuntu.com/questions/661854/how-to-open-a-sb-file?rq=1" class="question-hyperlink">How to open a “.sb” file?</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/214938/can-i-accidentally-create-a-coil-with-a-bunch-of-isolated-cables" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I accidentally create a coil with a bunch of isolated cables?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="http://diy.stackexchange.com/questions/83609/identify-type-of-circuit-breaker" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Identify type of circuit breaker
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/117225/how-could-barty-crouch-not-know-percy-weasleys-name" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How could Barty Crouch not know Percy Weasley's name?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/233297/how-do-stars-from-far-away-affect-earth" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do stars from far away affect Earth?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/214929/what-is-the-difference-between-high-precision-resistors-and-current-sense-resist" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the difference between high precision resistors and current sense resistors
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/70871/generate-100-java-tuple-classes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Generate 100 Java Tuple classes
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/62218/where-will-my-bus-be-at-the-port-authority-bus-terminal-in-new-york" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where will my bus be at the Port Authority Bus Terminal in New York?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1634488/how-could-we-define-the-factorial-of-a-matrix" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How could we define the factorial of a matrix?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/112528/why-is-leaving-a-passworded-ssh-over-the-internet-so-bad" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is leaving a passworded SSH over the internet so bad?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/112563/my-school-wants-to-keep-the-details-of-our-door-authentication-system-a-secret" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    My school wants to keep the details of our door authentication system a secret. Is that a good idea?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/117184/what-does-the-writing-on-poe-damerons-flight-vest-say" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does the writing on Poe Dameron's flight vest say?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-boardgames" title="Board &amp; Card Games Stack Exchange"></div><a href="http://boardgames.stackexchange.com/questions/28741/can-tokens-created-by-planeswalkers-do-commander-damage" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:147 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can tokens created by planeswalkers do commander damage
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/35027/my-mother-in-law-got-mind-uploaded-and-now-pesters-me-through-the-surround-syste" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    My Mother-in-law got Mind-Uploaded and now pesters me through the surround system
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="http://movies.stackexchange.com/questions/47125/does-producing-blue-meth-make-walter-a-chemistry-genius" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does producing blue meth make Walter a chemistry genius?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/61478/a-programming-task-is-scaring-off-candidates-should-we-ditch-it" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A programming task is scaring off candidates, should we ditch it?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/117129/why-was-darth-vader-so-careless" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why was Darth Vader so careless?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/259376/how-is-mono-magical" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How is Mono magical?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/89744/button-for-play-but-from-beginning-for-a-scrubber-ux" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Button for "Play, but from beginning" for a scrubber UX
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-skeptics" title="Skeptics Stack Exchange"></div><a href="http://skeptics.stackexchange.com/questions/31660/was-the-brazilian-zika-virus-outbreak-centered-in-a-place-where-gmo-mosquitoes-w" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:212 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Was the Brazilian Zika virus outbreak centered in a place where GMO mosquitoes were released?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-cooking" title="Seasoned Advice"></div><a href="http://cooking.stackexchange.com/questions/66125/should-you-ever-add-aromatic-veggies-to-a-dish-without-sauteing-them-first" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:49 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should you ever add aromatic veggies to a dish without sauteing them first?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/1034137/did-i-just-get-hacked" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Did I just get hacked?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/74137/how-family-friendly-is-the-ravenloft-setting-and-the-curse-of-strahd-storyline" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How family-friendly is the Ravenloft setting and the Curse of Strahd storyline?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-judaism" title="Mi Yodeya"></div><a href="http://judaism.stackexchange.com/questions/67915/meaning-of-the-phrase-all-holy-scripture-defile-the-hands" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:248 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Meaning of the phrase "all Holy Scripture defile the hands."
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/62646/is-it-appropriate-for-an-undergrad-student-to-ask-a-professor-to-sign-a-non-disc" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it appropriate for an undergrad student to ask a professor to sign a non-disclosure agreement?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://askubuntu.com/feeds/question/223691" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/223691/ivc/4c8c');});
+</script>
+<noscript>
+    <div><img src="/posts/223691/ivc/4c8c" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-bsh</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://askubuntu.com/tour">tour</a>
+                    <a href="http://askubuntu.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackexchange.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://askubuntu.com/contact">contact us</a></b>
+                        <b><a href="http://meta.askubuntu.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2016 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2016.2.3.3231
+            </div>
+                <div id="additional-notices">
+                    Ubuntu and Canonical are registered trademarks of Canonical Ltd.
+                </div>
+            
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Ask Ubuntu works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () {
+        ados_setKeywords('command-line,bash,files,executable,x-community,x-host-askubuntu.com');; ados_load();
+    });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-29');
+                        ga('set', 'dimension2', '|command-line|bash|files|executable|');         ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>
+            
+    
+</body></html>

@@ -1,0 +1,26 @@
+az /etc/init.d -be egy file-t tetszőleges névvel - myscript - a következő példatartalommal:
+#!/bin/bash
+/opt/lampp/lampp start
+
+majd chmod ugo+x /etc/init.d/myscript
+update-rc.d myscript defaults
+
+
+
+VAGY
+
+
+gedit /etc/rc.local
+pl: /path/to/my/script.sh || exit 1   # Added by me
+pl: mount /mnt/develop
+
+
+VAGY
+
+
+gedit /etc/init/myjob.conf
+with content:
+description     "my job"
+start on startup
+task
+exec /path/to/my/script.sh

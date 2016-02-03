@@ -8,7 +8,8 @@
 <?php
 include 'source/lib/xmlrpc.inc';
 
-$server = new xmlrpc_client('/xmlrpc/server.php','sandbox.dev', 80);
+
+$server = new xmlrpc_client('/xmlrpc/server.php','sandbox.local', 80);
 $message = new xmlrpcmsg('sample.sumAndDifference',
                          array(new xmlrpcval(5, 'int'),
                                new xmlrpcval(3, 'int')));
