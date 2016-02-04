@@ -1,8 +1,16 @@
 <?php
+function getFeed($feed_url) {
+    $content = file_get_contents($feed_url);
+    $x = new SimpleXmlElement($content);
+    echo "<ul>";
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+	 foreach($x->channel->item as $entry) {
+        echo "<li><a href='$entry->link' title='$entry->title'>" . $entry->title . "</a></li>";
+    }
+    
+	 echo "</ul>";
+	 return $x;
+}
 
+$xml = getFeed('http://sandbox.local/rss/server.php');
+echo $xml->channel->title;
