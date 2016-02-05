@@ -18,6 +18,7 @@ install tar files:
 unpack
 got to that folder
 see for INSTALL file instructions
+phpize
 ./configure
 make
 sudo make install
