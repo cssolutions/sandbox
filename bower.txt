@@ -1,0 +1,135 @@
+INSTALL
+npm install -g bower
+
+
+USAGE
+bower install <package>
+
+# registered package
+bower install jquery
+
+# GitHub shorthand
+bower install desandro/masonry
+
+# Git endpoint
+bower install git://github.com/user/package.git
+
+# URL
+bower install http://example.com/script.js
+
+
+https://github.com/bower/spec/blob/master/json.md:
+The following can be created by this: bower init
+
+{
+  "name": "vir",
+  "version": "0.1.0",
+  "description": "VIR 5.1 Frontend",
+  "authors": [
+    "Gergo Molnar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "bootstrap-sass-official": "~3.3.5",
+    "datatables": "DataTables#~1.10.8",
+    "font-awesome": "~4.4.0",
+    "fullcalendar": "~2.4.0",
+    "jquery": "~2.1.4",
+    "jquery-ui": "~1.11.4",
+    "summernote": "~0.6.16"
+  }
+}
+
+This can be applyed by: brower update
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "name": "blue-leaf",
+  "description": "Physics-like animations for pretty particles",
+  "main": [
+    "js/motion.js",
+    "sass/motion.scss"
+  ],
+  "dependencies": {
+    "get-size": "~1.2.2",
+    "eventEmitter": "~4.2.11"
+  },
+  "devDependencies": {
+    "qunit": "~1.16.0"
+  },
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "motion",
+    "physics",
+    "particles"
+  ],
+  "authors": [
+    "Betty Beta <bbeta@example.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
+}
