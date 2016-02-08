@@ -1,0 +1,9 @@
+http://pleac.sourceforge.net/pleac_php/processmanagementetc.html
+
+SIGCHLD  Child termination
+SIGINT   Interrupt request
+SIGKILL  Kill program
+SIGHUP   Terminal hangup
+SIGUSR1
+SIGUSR2
+SIGALRM  Alarm timeout
