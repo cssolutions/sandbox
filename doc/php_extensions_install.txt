@@ -1,0 +1,13 @@
+Make sure you uninstall or disable all and any PHP installations you may have had before. Same goes for legacy PECL and PEAR installations.
+Download and install the latest XAMPP distribution.
+(Optionally) Add /opt/lampp/bin to your PATH
+Download and install XAMPP Development Package.
+Caution: this step will overwrite any configuration changes you might had made to XAMPP, previously.
+Download APC version 3.0.16 or later.
+$ sudo su – (or change to root in any other way you can)
+# cd APC-3.0.16
+# /opt/lampp/bin/phpize
+# ./configure
+# make (ignore the request to run “make test”)
+# make install
+Edit /opt/lampp/etc/php.ini and add the following lines: 
