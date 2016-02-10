@@ -1,5 +1,11 @@
 #!/opt/lampp/php
 <?php
+//#!/usr/bin/env php
+
+/*
+ * First, let's create a repo with a $name
+ *
+ */
 
 define('HOST_PATH','/home/csaba/test/hosts');
 define('VHOST_PATH','/home/csaba/test/vhosts');
@@ -52,15 +58,21 @@ else {
 //CREATE/CLONE PROJECT
 
 
+chdir(WWW_PATH);
+passthru('git clone https://oninflo-csaba@bitbucket.org/oninflo-csaba/base-admin.git');
+passthru("mv base-admin $name");
+//if(!file_exists($name)) mkdir($name);
+chdir($name);
+passthru('git init');
+//rm -rf repo.git
+//git remote add origin https://github.com/user/repo.git
+
 
 
 //INSTALL DEPENDENCIES
-chdir(WWW_PATH);
-if(!file_exists($name)) mkdir($name);
-chdir($name);
 passthru("cp -rf " . INSTALLER_PATH . "/project/*.* $www_dir");
 passthru("curl -sS https://getcomposer.org/installer | php");
-passthru("php composer.phar install");
+//passthru("php composer.phar install");
 
 
 
