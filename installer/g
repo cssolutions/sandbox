@@ -1,0 +1,303 @@
+cd /home/csaba/www/sandbox/installer
+sudo gedit /opt/lampp/etc/extra/httpd-vhosts.conf
+sudo gedit /etc/hosts
+php go.php --name=csaba
+ls
+LS
+CLS
+CLSÚ
+CLEAR
+CCCCCCC
+CCC
+34C
+34t
+R
+QWr
+s
+
+
+
+
+q
+cd installer
+sudo rm -rf /home/csaba/www/csaba
+git push https://github.com/cssolutions/sandbox.git
+git commit -m 'installer'
+git add -A
+cd ..
+sudo php go.php --name=csaba
+sC
+sudo su
+sudo php go.php --name=csaba --public faszom
+sudo php go.php --name=csaba --public=faszom
+sudo php go.php --name=csaba --use=faszom
+sudo php go.php --name=csaba -use faszom
+sudo php go.php --name=csaba faszom
+sudo /opt/lampp/lampp restart
+sudo chmod -R 0777 /home/csaba/www/csaba
+sudo gedit /home/csaba/www/
+sudo cp /etc/hosts /etc/hosts_orig
+sudo cp //opt/lampp/etc/extra/httpd-vhosts.conf /opt/lampp/etc/extra/httpd-vhosts_orig.conf 
+sudo cp file:///opt/lampp/etc/extra/httpd-vhosts.conf file:///opt/lampp/etc/extra/httpd-vhosts_orig.conf 
+history
+/opt/lampp/bin/mysql -h localhost -u root  csaba < objfw.sql
+/opt/lampp/bin/mysqladmin -h localhost -u root create csaba
+/opt/lampp/bin/mysqldump -h localhost -u root  objfw > objfw.sql
+/opt/lampp/bin/mysql -h localhost -u root  csaba2 < dump2.sql
+/opt/lampp/bin/mysqldump -h localhost -u root  csaba > dump2.sql
+/opt/lampp/bin/mysqladmin -h localhost -u root create csaba2
+/opt/lampp/bin/mysqladmin create csaba2
+sudo find / -name 'dump2.sql'
+sudo find / -name 'dump.sql'
+/opt/lampp/bin/mysqldump -h localhost -u root  csaba > dump.sql
+/opt/lampp/bin/mysqldump csaba > dump.sql
+/opt/lampp/bin/mysql -h localhost -u root
+/opt/lampp/bin/mysql
+mysql
+mount /mnt/develop
+sudo npm install gulp-jsmin 
+npm install gulp-jsmin 
+npm install gulp-cssmin 
+sudo php go.php --name csaba
+sudo php go.php --name csabaű
+php go.php --name csaba
+sudo rm -rf node_modules
+rm -rf node_modules
+/home/csaba/www/csaba gulp
+sudo npm install -g gulp 
+sudo gulp.js
+sudo gulp
+gulp
+sudo npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename
+npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename
+cd /home/csaba/www/csaba/
+bower search css
+bower list
+sudo gedit /home/csaba/.ssh/config
+ssh csaba@localhost
+sudo gedit /etc/mysql/my.cnf
+sudo gedit /etc/mysql/conf.d
+sudo gedit /opt/lampp/etc/my.cnf
+sudo find / -name 'my.cnf'
+cd /home/csaba/www/sandbox/installer/
+make
+cd build
+sudo make install
+./configure
+cd /home/csaba/php-5.6.18/
+sudo gedit /home/csaba/php-5.6.18/configure
+sudo grep -r -l "mysqld.sock" /
+grep --help
+sudo grep -r "mysqld.sock" /
+grep -r "mysqld.sock"
+sudo find / -name 'mysqld.sock'
+grep -f '/var/run/*.*' / 
+grep -f '/var/run' / 
+grep -f '/var/run/' / 
+grep '/var/run/' / -f
+find / -name 'mysqld.sock'
+chmod 777 /var/run//mysqld/mysqld.sock
+sudo pkill -9 mysqld
+pkill -9 mysqld
+sudo /opt/lampp/etc/my.cnf
+sudo gedit /etc/my.cnf
+sudo /etc/my.cnf
+sudo find / -type s
+sudo gedit /var/run//mysqld/mysqld.scock
+sudo apt-get install php5-mysql
+/opt/lampp/bin/mysql -u root --password 
+/opt/lampp/bin/mysql u -root --password 
+/opt/lampp/bin/mysql 
+cd installer/
+cd ,,ú
+CD ..
+php go.php
+git pull https://github.com/cssolutions/sandbox.git
+cd sandbox
+git clone git://github.com/cssolutions/sandbox.git
+cd /home/csaba/www/
+mkdir sandbox
+sudo rm -rf /home/csaba/NetBeansProjects/
+cd ...
+sudo apt-get install php5-curl
+sudo php project_install.php --name csabtest
+php -v
+sudo gedit /home/csaba/.bashrc
+sudo apt-get install curl
+sudo apt-get install ext-curl
+php project_install.php --name csabtest
+echo "fasz"
+php echo 'faszom';
+php echo 'faszom'
+sudo source /home/csaba/.bashrc
+source /home/csaba/.bashrc
+sudo find / -name '.bashrc'
+sudo find / -name '.bashsrc'
+./opt/lampp/bin/php echo 'faszom';
+/opt/lampp/bin/php echo 'faszom';
+/opt/lampp/bin/php echo 'faszom'
+sudo find / -name 'php'
+sudo find / -name 'php.ini'
+find / -name 'php.ini'
+firefox www.index.hu
+firefox
+firefox -help
+bower init
+sudo npm install -g bower
+npm install -g bower
+cd inst
+sudo find / -name 'hosts'
+grep 'csabatest.local' /home -f
+grep / 'csabatest.local'
+grep 'csabatest.local' /home
+grep 'csabatest.local' /
+grep 'csabatest.local' /opt/lampp/apache2/*
+cd /home/csaba/NetBeansProjects/sandbox
+cd test
+sudo find / -name 'vhost'
+echo "faszom" >> /home/csaba/test/hosts
+echo "faszom" > /home/csaba/test/hosts
+php project_install.php --name=csabtest
+php project_install.php -name=csabtest
+php project_install.php -name csabtest
+php project_install.php
+php project_install.php -k faszom
+php project_install.php -f faszom
+php project_install.php -f
+sudo gedit /opt/lampp/etc/httpd.conf 
+sudo gedit /opt/lampp/apache2/conf/httpd.conf 
+sudo find / -name 'httpd.conf'
+find / -name 'httpd.conf'
+ifconfig
+cd /opt/lampp/bin
+terminal
+C
+history 5
+history -5
+history -n 5
+history --help
+php -i
+gedit /home/csaba/history.txt
+history > /home/csaba/history.txt
+git pull
+make distclean
+make clean
+cd /home/csaba/packages/
+;;;;
+history 100
+history -100
+sudo apt-get install fbmessenger
+sudo apt-get update
+sudo add-apt-repository ppa:nilarimogard/webupd8
+git commit -m 'unit testing'
+php MoneyTest.php
+composer install
+curl -sS https://getcomposer.org/installer | sudo -H php -- --install-dir=/usr/local/bin --filename=composer
+php phpunit.phar -update
+php phpunit.phar --update
+php phpunit.phar --version
+php phpunit.phar
+wget https://phar.phpunit.de/phpunit.phar
+cd /home/csaba/NetBeansProjects/sandbox/unit-testing/
+phpunit --version
+sudo mv phpunit.phar /usr/local/bin/phpunit
+chmod +x phpunit.phar
+cd /home/csaba
+pear install phpunit
+cd unit-testing
+php -r "phpinfo();"
+git commit -m 'soap-wsdl'
+php HelloClientWsdl.php Csaba
+php HelloClientWsdl.php
+cd soap-wsdl2
+sudo chmod -R 0777 envelop.wsdl
+cd soap-wsdl/
+git commit -m 'pcntl'
+php _exec2.php
+php _exec.php
+php _signal.php
+php pcntl_exec.php
+php _wifsignaled.php
+php _wifexited.php
+php index1.php
+php index3.php
+php index4.php
+tar -xzvf php-5.3.10.tar.gf
+cd pcntl/
+git commit -m 'cli'
+./getopt.php -v=optional -f required --required req --optional=opt -abc
+./getopt.php -v=optional -f required --required req --optional=opt --abc
+./getopt.php -v=optional -f required --required req --optional=opt
+./getopt.php -v=optional -f required --required req --optional opt
+./getopt.php -v=optional -f required --required
+./getopt.php -v=optional -f required --required req --optional
+./getopt.php -v=optional -f required --required req
+./getopt.php -v=optional -f required
+./getopt.php -v=optional f required
+./getopt.php -v=faszom
+./getopt.php -v faszom
+./getopt.php -f faszom
+./getopt.php -o faszom
+./getopt.php -option faszom
+./getopt.php --option=true
+./getopt.php --option true
+./getopt.php --option "kkk"
+./getopt.php --required "kkk"
+./getopt.php --optional="kkk"
+./getopt.php --optional "kkk"
+./getopt.php --valami "kkk"
+./getopt.php --requi "kkk"
+./getopt.php --ffwgo "kkk"
+./getopt.php --fo "kkk"
+./getopt.php --f "kkk"
+./getopt.php --f kkk
+./getopt.php -f kkk
+./getopt.php -f
+./getopt.php -f "valami tököm" --required
+./getopt.php -f "valami tököm" --required hm
+./getopt.php -f "valami tököm"
+./getopt.php
+./getopt.php --file vmi.txt h valami -i mégvalami
+./getopt.php --file vmi.txt -h valami -i mégvalami
+./getopt.php --file vmi.txt -h valami
+./getopt.php --file vmi.txt -hvalami
+./getopt.php --file vmi.txt
+./getopt.php --file vmi-txt
+./getopt.php --file 
+./getopt.php --file -h a -i b
+./getopt.php --file a b
+./getopt.php --file
+./getopt.php --file valami
+./getopt.php valami
+./getopt.php --file kerdes -h faszom -i gecc
+./getopt.php --file kerdes h faszom i gecc
+./getopt.php --file kerdes h faszom
+./getopt.php --file kerdes
+./getopt.php -file kerdes
+./getopt.php --file kerdes -h semmi
+./getopt.php --file kerdes --h semmi
+./getopt.php --file kerdes --h semmi --i valami
+./getopt.php --file kerdes -h semmi -i valami
+./getopt.php --file kerdes semmi valami
+./getopt.php --file kerdes -h semmi valami
+./getopt.php --file kerdes -h=semmi
+./getopt.php --file kerdes -h 
+./getopt.php -file kerdes -h 
+./getopt.php -file kerdes -h faszom
+./getopt.php -h kerdes
+chmod u+rx getopt.php
+./index.php foo bar barbara
+./index.php
+chmod u+rx index.php
+cd cli
+./cli.php
+cli.php
+chmod u+rx cli.php
+php cli.php
+php cli.phpú
+clear
+cl
+cls
+cd /home/csaba/NetBeansProjects/sandbox/
+sudo gedit /opt/lampp/etc/php.ini
+php index2.

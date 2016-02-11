@@ -1,6 +1,7 @@
 #!/opt/lampp/php
 <?php
-//RUN this script with: php go.php --name=csaba
+//RUN this script with: sudo php hosts.php --name=csaba;php go.php --name=csaba
+
 
 //#!/usr/bin/env php
 //Socket is here on lampp installation
@@ -18,8 +19,6 @@
  * go to localhost base_admin db and műveletek/adatbázis másolása ide
  */
 define('DEFAULT_USER','csaba');
-define('HOST_PATH','/etc/hosts');
-define('VHOST_PATH','/opt/lampp/etc/extra/httpd-vhosts.conf');
 define('WWW_PATH','/home/csaba/www');
 define('INSTALLER_PATH', realpath('.'));
 define('DB_TO_CLONE', 'objfw');
@@ -42,47 +41,15 @@ $bower_config = [
 	]
 ];
 
-$cur_dir = getcwd();
-$shortopts = "";
-$longopts  = [
-    "name:",     // Required value
-    "public::"     // Required value
-];
+include 'options.php';
 
-$options = getopt($shortopts, $longopts);
-extract($options);
 $url = "$name.local";
-$www_dir = WWW_PATH . "/" . $name . ($options['public'] === 'false') ? '' : '/public';
-$content = <<<EOT
-<VirtualHost *:80>
-	ServerAdmin csaba.farkas@digi.co.hu
-	DocumentRoot {$www_dir}
-	ServerName {$url}
-	ServerAlias www.{$url}
-	<Directory "{$www_dir}">
-		Require all granted
-	</Directory>
-</VirtualHost>		  
-EOT;
+$www_dir = WWW_PATH . "/" . $name . (@$options['public'] === 'false') ? '' : '/public';
 
 //goto config;	
 
 if(!isset($name)) die('Name must be provided!');
 
-//UPDATE HOST AND VIRTUAL HOST FILES
-print "---------------------------------------------------- Updateing hosts and virtual host files\n";
-if(strstr(file_get_contents(HOST_PATH, true), $url)) echo "Már létezik a $url a következőben: " . HOST_PATH . "\n";
-else {
-	passthru("echo '127.0.0.1	$url' >> " . HOST_PATH);
-	echo "A(z) $url létrehozva a következőben: " . HOST_PATH . "\n";
-}
-
-if(strstr(file_get_contents(VHOST_PATH, true), $url)) echo "Már létezik a $url a következőben: " . VHOST_PATH . "\n";
-else {
-	passthru("echo '$content' >> ".VHOST_PATH);
-	echo "A(z) $url létrehozva a következőben: " . VHOST_PATH . "\n";
-}
-passthru('su - ' . DEFAULT_USER);
 print "---------------------------------------------------- Updateing files ended\n";
 //CREATE/CLONE PROJECT
 chdir(WWW_PATH);
@@ -140,6 +107,8 @@ if ($apid == -1) {
 	passthru("sudo /opt/lampp/lampp restart && firefox $name.local");
 	//pcntl_waitpid($apid, $status);
 } else {
+	var_dump(getcwd());
+	passthru('ls -l'); 
 	passthru('gulp');
 	$pid = getmypid();
 }
