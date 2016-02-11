@@ -4,7 +4,7 @@ $cur_dir = getcwd();
 $shortopts = "";
 $longopts  = [
     "name:",     // Required value
-    "public::"     // Required value
+    "public::"     // Optional value
 ];
 
 $options = getopt($shortopts, $longopts);

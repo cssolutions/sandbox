@@ -6,7 +6,6 @@
  * Run command: php go.php --name csaba
  * go to localhost base_admin db and műveletek/adatbázis másolása ide
  */
-
 define('HOST_PATH','/etc/hosts');
 define('VHOST_PATH','/opt/lampp/etc/extra/httpd-vhosts.conf');
 define('WWW_PATH','/home/csaba/www');
