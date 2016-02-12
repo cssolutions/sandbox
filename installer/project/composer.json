@@ -2,6 +2,8 @@
     "require": {
         "monolog/monolog": "1.0.*",
         "phpunit/phpunit": "5.*",
-        "fzaninotto/faker": "v1.5.0"
+        "fzaninotto/faker": "v1.5.0",
+        "doctrine/annotations": "v1.2.7",
+        "pusher/pusher-php-server": "v2.2.1"
     }
 }
