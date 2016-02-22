@@ -1,6 +1,6 @@
 <?php
 
-$client = new SoapClient("http://sandbox.local/soap-wsdl/Hello.wsdl", array('soap_version' => SOAP_1_2,'trace' => 1 ));
+$client = new SoapClient("http://sandbox.local/soap-wsdl/Hello.wsdl", ['soap_version' => SOAP_1_2,'trace' => 1 ]);
 echo $client->hello('Csaba');
 
 

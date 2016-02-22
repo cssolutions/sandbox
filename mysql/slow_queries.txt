@@ -1,0 +1,9 @@
+To enable log slow queries:
+log-slow-queries = /var/lib/mysql/slow-log
+
+set wich is the long query:
+set-variable = long_query_time=5
+
+Finally, if you would also like MySQL to automatically log any query that does not use
+an index, you can set this:
+long_query_time=5 (MySQL 4+)
