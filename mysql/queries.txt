@@ -1,0 +1,85 @@
+CREATE TABLE teszt2 ( 
+`tid` INT UNSIGNED NOT NULL AUTO_INCREMENT , 
+`name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Anonymus' , 
+`description` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL , 
+`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+`selection1` ENUM('első','második') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'első' , 
+`selection2` SET('harmadik','negyedik') CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL , 
+PRIMARY KEY (`tid`), 
+INDEX `teszt_index_updated_at` (`updated_at`), 
+UNIQUE `teszt2_unique_selection` (`selection1`, `selection2`), 
+FULLTEXT `teszt2_fulltext_description` (`description`)
+) 
+ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+CREATE ALGORITHM = MERGE VIEW teszt_merge (vc1, vc2) AS
+SELECT ctfid, uid FROM teszt WHERE tid > 1;
+
+
+/* Creating table
+/******************************************
+/*Primary and Foreign key
+CREATE TABLE Orders
+(
+O_Id int NOT NULL,
+OrderNo int NOT NULL,
+P_Id int,
+PRIMARY KEY (O_Id),
+FOREIGN KEY (P_Id) REFERENCES Persons(P_Id)
+)
+
+/* Unique key
+CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)
+)
+
+/* Altering tables
+/********************************************
+ALTER TABLE table_name ADD column_name datatype
+ALTER TABLE table_name DROP COLUMN column_name
+ALTER TABLE table_name MODIFY COLUMN column_name datatype
+
+ALTER TABLE users ADD grade_id SMALLINT UNSIGNED NOT NULL DEFAULT 0;
+ALTER TABLE teszt ADD CONSTRAINT fk_teszte_ctfid FOREIGN KEY (ctfid) REFERENCES csaba_test_favorite(ctfid) ON UPDATE CASCADE ON DELETE CASCADE; //The two column need to be has a same type and size
+
+
+/* CHECK
+ CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+CHECK (P_Id>0)
+CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes')   //több col esetén
+)
+
+
+/* Create index
+/********************************************
+CREATE INDEX index_name ON table_name (column_name)
+CREATE UNIQUE INDEX index_name ON table_name (column_name)
+
+CREATE INDEX PIndex ON Persons (LastName, FirstName)
+
+
+
+
+
+
+
+
+
+
+
+//The following SQL statement selects all customers with a City starting with "b", "s", or "p":
+SELECT * FROM Customers WHERE City LIKE '[bsp]%';
+
+//The following SQL statement selects all customers with a City starting with "a", "b", or "c":
+SELECT * FROM Customers WHERE City LIKE '[a-c]%';
+SELECT * FROM Customers WHERE City NOT LIKE '[bsp]%';
