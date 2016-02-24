@@ -1,0 +1,20 @@
+{
+  "name": "vir",
+  "version": "0.1.0",
+  "description": "VIR 5.1 Frontend",
+  "authors": [
+    "Gergo Molnar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bs-confirmation": "~1.0.5",
+    "datatables.net": "^1.10.11"
+  }
+}

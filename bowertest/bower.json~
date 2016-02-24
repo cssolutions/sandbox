@@ -1,0 +1,19 @@
+{
+  "name": "vir",
+  "version": "0.1.0",
+  "description": "VIR 5.1 Frontend",
+  "authors": [
+    "Gergo Molnar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}

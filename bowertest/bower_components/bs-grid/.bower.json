@@ -1,0 +1,33 @@
+{
+  "name": "bs-grid",
+  "homepage": "https://github.com/bin0/bs-grid",
+  "authors": [
+    "Jeff Allen <jeff.allen127@gmail.com>"
+  ],
+  "description": "This is Bootstrap's default grid system!",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "Bootstrap",
+    "grid",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "41b38d014b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "41b38d014b7ba5246ce6ed606e4281229f1479a9"
+  },
+  "_source": "git://github.com/bin0/bs-grid.git",
+  "_target": "*",
+  "_originalSource": "bs-grid",
+  "_direct": true
+}

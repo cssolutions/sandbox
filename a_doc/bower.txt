@@ -5,6 +5,9 @@ npm install -g bower
 USAGE
 bower install <package>
 
+bower register bootstrap-floating-labels https://github.com/fauxparse/bootstrap-floating-labels
+bower install bootstrap-floating-labels
+
 # registered package
 bower install jquery
 

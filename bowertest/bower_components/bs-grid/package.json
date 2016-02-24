@@ -1,0 +1,31 @@
+{
+  "name": "bs-grid",
+  "version": "1.0.0",
+  "description": "Bootstrap's grid\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[CNothing but Bootstrap's grid system",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bin0/bs-grid.git"
+  },
+  "keywords": [
+    "Bootstrap",
+    "grid",
+    "system"
+  ],
+  "author": "bin0",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bin0/bs-grid/issues"
+  },
+  "homepage": "https://github.com/bin0/bs-grid#readme",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.1.1",
+    "plumber": "^0.4.8"
+  }
+}
