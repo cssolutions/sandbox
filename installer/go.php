@@ -146,7 +146,7 @@ if ($apid == -1) {
 	passthru("sudo /opt/lampp/lampp restart && firefox $name.local");
 	//pcntl_waitpid($apid, $status);
 } else {
-	var_dump(getcwd());
+	//var_dump(getcwd());
 	passthru('ls -l'); 
 	passthru('gulp');
 	$pid = getmypid();
