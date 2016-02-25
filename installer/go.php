@@ -1,6 +1,7 @@
 #!/opt/lampp/php
 <?php
-//TODO: a db-t a git-ről szedje szintén sql formátumban, és akkor csak importálni kell
+//TODO: install php vendor dependencies
+//a db-t a git-ről szedje szintén sql formátumban, és akkor csak importálni kell
 
 
 
@@ -69,12 +70,9 @@ include 'options.php';
 if (isset($options['public']) && $options['public']=="false") $www_dir = WWW_PATH . "/" . $name;
 else $www_dir = WWW_PATH . "/" . $name . '/public';
 $url = "$name.local";
-
-
-
 if(!isset($name)) die('Name must be provided!');
-
 print "---------------------------------------------------- Updateing files ended\n";
+
 //CREATE/CLONE PROJECT
 chdir(WWW_PATH);
 print "---------------------------------------------------- Cloning project...\n";
@@ -87,18 +85,16 @@ passthru("git remote add origin https://oninflo-csaba@bitbucket.org/oninflo-csab
 print "---------------------------------------------------- Cloning project ended.\n";
 
 //CREATE/CLONE DB
-//passthru("firefox sandbox.local/installer/db.php?name=$name");
-///opt/lampp/bin/mysqldump -h localhost -u root  objfw > $name.sql
-///opt/lampp/bin/mysqladmin -h localhost -u root create $name
-///opt/lampp/bin/mysql -h localhost -u root  $name < $name.sql
 print "---------------------------------------------------- Creating database $name...\n";
 passthru("/opt/lampp/bin/mysqldump -h localhost -u root  " . DB_TO_CLONE . " > $name.sql && /opt/lampp/bin/mysqladmin -h localhost -u root create $name && /opt/lampp/bin/mysql -h localhost -u root  $name < $name.sql");
 print "---------------------------------------------------- Database $name has been created...\n";
-//config:
-//chdir(WWW_PATH);
-//chdir($name);
-//goto config2;
+passthru('sudo mkdir ' . WWW_PATH . '/' . $name . '/app/cache/volt');
+passthru('sudo chmod -R 0777 ' . WWW_PATH . '/' . $name . '/app/cache');
+
 //INSTALL DEPENDENCIES
+passthru('php composer.phar self-update');
+passthru('php composer.phar install');
+chdir($www_dir);
 
 //INSTALL FRONTEND DEPENDENCIES
 print "---------------------------------------------------- Installing and configuring bower\n";
@@ -128,10 +124,6 @@ passthru('bower install bs-tabdrop');
 passthru('bower install bs-context-menu');
 passthru('bower install bs-autohide-navbar');
 passthru('bower install bs-bootbox');
-
-
-//passthru('bower install angular-material-design-light');
-//passthru('bower install angular angular-datetimepicker-ByGiro --save');
 print "---------------------------------------------------- Bower tasks has been ended.\n";
 
 //GULP TASKS
@@ -139,20 +131,16 @@ print "---------------------------------------------------- Running gulp\n";
 passthru('sudo npm install --global gulp');
 passthru('sudo npm link gulp');
 passthru('sudo npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename gulp-cssmin');
-//config2:
-
 
 $parentpid = getmypid();
 $apid = pcntl_fork();
 if ($apid == -1) {
-	//die('could not fork for client '.$client);
+	die('could not fork for client '.$client);
 } else if ($apid) {
 	sleep(10);
 	print "---------------------------------------------------- Restarting web-server\n";
 	passthru("sudo /opt/lampp/lampp restart && firefox $name.local");
-	//pcntl_waitpid($apid, $status);
 } else {
-	//var_dump(getcwd());
 	passthru('ls -l'); 
 	passthru('gulp');
 	$pid = getmypid();
