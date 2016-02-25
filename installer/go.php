@@ -1,8 +1,13 @@
 #!/opt/lampp/php
 <?php
+//TODO: a db-t a git-ről szedje szintén sql formátumban, és akkor csak importálni kell
+
+
+
 //create a project at bitbucket with the name
 //RUN this script with: sudo php hosts.php --name=csaba;php go.php --name=csaba
-//RUN this script with: sudo php hosts.php --name=csaba -public=1;php go.php --name=csaba -public=1
+//RUN this script with: sudo php hosts.php --name=csaba --public=false;php go.php --name=csaba --public=false
+
 //RUN MVC-INSTALLER
 //http://bootsnipp.com/snippets/featured/responsive-sidebar-menu    implement this menu
 //
@@ -61,10 +66,11 @@ $bower_config = [
 
 include 'options.php';
 
+if (isset($options['public']) && $options['public']=="false") $www_dir = WWW_PATH . "/" . $name;
+else $www_dir = WWW_PATH . "/" . $name . '/public';
 $url = "$name.local";
-$www_dir = WWW_PATH . "/" . $name . (@$options['public'] === 'false') ? '' : '/public';
 
-//goto config;	
+
 
 if(!isset($name)) die('Name must be provided!');
 

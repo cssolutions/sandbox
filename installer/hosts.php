@@ -13,7 +13,9 @@ define('WWW_PATH','/home/csaba/www');
 include 'options.php';
 
 $url = "$name.local";
-$www_dir = WWW_PATH . "/" . $name . ((isset($options['public']) && $options['public'] === 'false') ? '' : '/public');
+if (isset($options['public']) && $options['public']=="false") $www_dir = WWW_PATH . "/" . $name;
+else $www_dir = WWW_PATH . "/" . $name . '/public';
+
 $content = <<<EOT
 <VirtualHost *:80>
 	ServerAdmin csaba.farkas@digi.co.hu
