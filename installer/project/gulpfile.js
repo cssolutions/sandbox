@@ -26,24 +26,43 @@ gulp.task('sass', function() {
 });
 
 gulp.task('css', function () {
-	return gulp.src(['public/css/*.css',
-						  'public/vendor/jquery-ui/themes/start/jquery-ui.css',
-						  'public/vendor/bootstrap-material-design/dist/css/bootstrap-material-design.css',
-						  'public/vendor/bootstrap-material-design/dist/css/ripples.css',
-						  'public/vendor/summernote/dist/summernote.css',
-						  'public/vendor/fullcalendar/dist/fullcalendar.css',
-						  'vendor/datatables/media/css/dataTables.bootstrap.css',
-						  'public/vendor/angular-datetime-picker-ByGiro/dist/angular-datetime-picker-ByGiro.css'
+	return gulp.src([//jquery
+						  'assets/jquery-ui/themes/start/jquery-ui.css',
+						  'assets/bootstrap/dist/css/bootstrap.css',
+						  'assets/bootstrap/dist/css/bootstrap-theme.css',
+						  'assets/font-awesome/css/font-awesome.css',
+						  'assets/bootstrap-material-design/dist/css/material.css',
+						  'assets/bootstrap-material-design/dist/css/material-wfont.css',
+						  'assets/bootstrap-material-design/dist/css/ripples.css',
+						  'assets/bootstrap-floating-labels/floating-labels.css',
+						  //bootbox
+						  'assets/bootstrap-combobox/css/bootstrap-combobox.css',
+						  'assets/bootstrap-tabdrop/css/bootstrap-tabdrop.css',
+						  'assets/bootstrap-treeview/dist/bootstrap-treeview.min.css',
+						  //bs-confirmation
+						  //bs-context-menu
+						  'assets/bs-grid/dist/assets/stylesheets/bs-grid.css',
+						  'assets/datatables/media/css/dataTables.material.css',
+						  'assets/fullcalendar/dist/fullcalendar.css',
+						  'assets/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css',
+						  //chart-js
+						  //jquery-popup-overlay
+						  'assets/jquery-range-slider/css/classic.css',
+						  //moment
+						  'assets/summernote/dist/summernote.css'
 						 ])
-		.pipe(concat('all.css'))
-		.pipe(gulp.dest('public'))
+		.pipe(concat('vendor.css'))
+		.pipe(gulp.dest('public/css'))
 		.pipe(cssmin())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('public'));
 });
 
 gulp.task('scripts', function() {
-    return gulp.src(['public/vendor/jquery/dist/jquery.js',
+    return gulp.src(['assets/jquery/dist/jquery.js',
+							'assets/bootstrap/dist/js/bootstrap.js',
+							
+							
 							'public/vendor/jquery-ui/jquery-ui.js',
 							'public/vendor/bootstrap-material-design/dist/js/material.js',
 							'public/vendor/bootstrap-material-design/dist/js/ripples.js',
