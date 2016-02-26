@@ -8,21 +8,29 @@ var concat = require('gulp-concat');
 var cssmin = require('gulp-cssmin');
 var uglify =  require('gulp-uglify');
 var rename = require('gulp-rename');
+var watch  = require('gulp-watch');
 
 
 
 // Compile Our Sass
-gulp.task('sass', function() {
-    return gulp.src(['public/sass/*.scss',
-							'public/vendor/font-awesome/scss'
-						  ])
+gulp.task('compile-sass', function() {
+    return gulp.src(['custom/sass/*.sass'])
         .pipe(sass().on('error', sass.logError))
-	//.pipe(concat('sass.css'))
-        .pipe(gulp.dest('public/css'));
-	//.pipe(cssmin())
-	//.pipe(rename({suffix: '.min'}))
-	//.pipe(gulp.dest('public'));
+		  .pipe(concat('site.css'))
+        .pipe(gulp.dest('css'))
+		  .pipe(cssmin())
+		  .pipe(rename({suffix: '.min'}))
+		  .pipe(gulp.dest('css'));
 	
+});
+
+gulp.task('compile-js', function() {
+    return gulp.src(['custom/js/*.js'])
+        .pipe(concat('site.js'))
+        .pipe(gulp.dest('js'))
+        .pipe(rename('site.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('js'));
 });
 
 gulp.task('css', function () {
@@ -52,39 +60,57 @@ gulp.task('css', function () {
 						  'assets/summernote/dist/summernote.css'
 						 ])
 		.pipe(concat('vendor.css'))
-		.pipe(gulp.dest('public/css'))
+		.pipe(gulp.dest('css'))
 		.pipe(cssmin())
 		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest('public'));
+		.pipe(gulp.dest('css'));
 });
 
 gulp.task('scripts', function() {
     return gulp.src(['assets/jquery/dist/jquery.js',
 							'assets/bootstrap/dist/js/bootstrap.js',
-							
-							
-							'public/vendor/jquery-ui/jquery-ui.js',
-							'public/vendor/bootstrap-material-design/dist/js/material.js',
-							'public/vendor/bootstrap-material-design/dist/js/ripples.js',
-							'public/vendor/summernote/dist/summernote.js',
-							'public/vendor/fullcalendar/dist/fullcalendar.js',
-							'vendor/datatables/media/js/dataTables.bootstrap.js',
-							'public/vendor/angular-datetime-picker-ByGiro/dist/angular-datetime-picker-ByGiro.js',
-							'public/js/*.js'
+							//theme
+							//font-awesome
+						  'assets/bootstrap-material-design/dist/js/material.js',
+						  //material-font
+						  'assets/bootstrap-material-design/dist/js/ripples.js',
+						  'assets/bootstrap-floating-labels/floating-labels.js',
+						  'assets/bootbox.js/bootbox.js',
+						  'assets/bootstrap-combobox/js/bootstrap-combobox.js',
+						  'assets/bootstrap-tabdrop/js/bootstrap-tabdrop.js',
+						  'assets/bootstrap-treeview/dist/bootstrap-treeview.min.js',
+						  'assets/bs-confirmation/bootstrap-confirmation.js',
+						  'assets/bs-context-menu/dist/BootstrapMenu.js',
+						  //bs-grid
+						  'assets/datatables/media/js/dataTables.material.js',
+						  'assets/fullcalendar/dist/fullcalendar.js',
+						  'assets/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
+						  'assets/Chart.js/Chart.js',
+						  'assets/jquery-popup-overlay/jquery.popupoverlay.js',
+						  'assets/jquery-range-slider/jQRangeSlider.js',
+						  'assets/moment/moment.js',
+						  'assets/summernote/dist/summernote.js'
 						  ])
-        .pipe(concat('all.js'))
-        .pipe(gulp.dest('public'))
-        .pipe(rename('all.min.js'))
+        .pipe(concat('vendor.js'))
+        .pipe(gulp.dest('js'))
+        .pipe(rename('vendor.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest('js'));
 });
 
-// Watch Files For Changes
-gulp.task('watch', function() {
-    gulp.watch('public/sass/*.scss', ['sass']);
-    gulp.watch('public/css/*.css', ['css']);
-    gulp.watch('public/js/*.js', ['scripts']);
+
+
+
+gulp.task('watch-js', function() {
+    return watch(['custom/js/*.js'], function(event) {
+      gulp.run('compile-js');
+    });
 });
 
-// Default Task
-gulp.task('default', ['sass', 'css', 'scripts', 'watch']);
+gulp.task('watch-sass', function() {
+    return watch(['custom/sass/*.sass'], function(event) {
+      gulp.run('compile-sass');
+    });
+});
+
+gulp.task('vendor', ['css', 'scripts']);

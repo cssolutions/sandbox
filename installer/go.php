@@ -1,38 +1,5 @@
 #!/opt/lampp/php
 <?php
-//TODO: install php vendor dependencies
-//a db-t a git-ről szedje szintén sql formátumban, és akkor csak importálni kell
-
-
-
-//create a project at bitbucket with the name
-//RUN this script with: sudo php hosts.php --name=csaba;php go.php --name=csaba
-//RUN this script with: sudo php hosts.php --name=csaba --public=false;php go.php --name=csaba --public=false
-
-//RUN MVC-INSTALLER
-//http://bootsnipp.com/snippets/featured/responsive-sidebar-menu    implement this menu
-//
-//http://bootstrapious.com/free-templates 
-//http://www.gettemplate.com/
-//http://www.bootstrap51.com/
-//http://www.marcellop.com/bootmetro/
-//http://www.codeply.com/render/KrUO8QpyXP#
-//http://www.bootply.com/zrATdhAKBZ    parallax one page template
-//http://www.bootply.com/zylyqLRmcj     parallax
-//http://cardeostrap.cardeo.ca/   conatining all elements
-//http://bootsnipp.com/forms?version=3   for creating bootstrap forms
-
-
-//#!/usr/bin/env php
-//Socket is here on lampp installation
-///opt/lampp/var/mysql/mysql.sock
-// /opt/lampp/etc/my.cnf
-// /etc/mysql/my.cnf
-// /etc/alternatives/my.cnf
-// /var/lib/dpkg/alternatives/my.cnf
-
-
-
 /*
  * First, let's create a repo with a $name parameter at bitbucket
  * Run command: php go.php --name csaba
@@ -128,9 +95,10 @@ print "---------------------------------------------------- Bower tasks has been
 
 //GULP TASKS
 print "---------------------------------------------------- Running gulp\n";
+//passthru('mkdir custom;mkdir custom/css;mkdir custom/js');
 passthru('sudo npm install --global gulp');
 passthru('sudo npm link gulp');
-passthru('sudo npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename gulp-cssmin');
+passthru('sudo npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename gulp-cssmin gulp-watch');
 
 $parentpid = getmypid();
 $apid = pcntl_fork();
@@ -142,7 +110,7 @@ if ($apid == -1) {
 	passthru("sudo /opt/lampp/lampp restart && firefox $name.local");
 } else {
 	passthru('ls -l'); 
-	passthru('gulp');
+	passthru('gulp vendor');
 	$pid = getmypid();
 }
 
