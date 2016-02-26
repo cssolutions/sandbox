@@ -98,6 +98,9 @@ class Validator {
 
 
 $datas_to_validate = ['name'=>'aba','email'=>'3'];
-$validators = ['name'=>'required|confirmation:email','email'=>'required|exclusionin:(1,2,5,6)|inclusionin:(3,4,7)|url'];
+$validators = [
+	'name'=>'required|confirmation:email',
+	'email'=>'required|exclusionin:(1,2,5,6)|inclusionin:(3,4,7)|url'
+];
 $result = Validator::validate($validators, $datas_to_validate);
 var_dump($result);
