@@ -113,4 +113,4 @@ gulp.task('watch-sass', function() {
     });
 });
 
-gulp.task('vendor', ['css', 'scripts']);
+gulp.task('default', ['css', 'scripts']);

@@ -2,7 +2,7 @@ in the installer directory:
 sudo php hosts.php --name=[projekt név] --public=false
 php go.php --name=[projekt név] --public=false
 
-
+sudo php hosts.php --name=csaba;php go.php --name=csaba
 
 
 

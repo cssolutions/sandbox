@@ -110,7 +110,7 @@ if ($apid == -1) {
 	passthru("sudo /opt/lampp/lampp restart && firefox $name.local");
 } else {
 	passthru('ls -l'); 
-	passthru('gulp vendor');
+	passthru('gulp');
 	$pid = getmypid();
 }
 
