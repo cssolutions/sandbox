@@ -19,6 +19,8 @@ unpack
 got to that folder
 see for INSTALL file instructions
 phpize
+// ./configure --with-php-config=/usr/local/php5/bin/php-config5
+// /opt/lampp/bin/phpize
 ./configure
 make
 sudo make install

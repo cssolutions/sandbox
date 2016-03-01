@@ -30,6 +30,24 @@ svn update
 
 
 
+When try to commit, and there is a conflict
+try to update, and if there is a conflict:
+1
+-reslove the conflict
+-than svn resolved ...
+
+
+Branching
+svn copy http://svn.example.com/repos/calc/trunk \
+           http://svn.example.com/repos/calc/branches/my-calc-branch \
+           -m "Creating a private branch of /calc/trunk."
+svn checkout http://svn.example.com/repos/calc/branches/my-calc-branch
+
+svn merge ^/calc/trunk
+svn merge ^/trunk -r399:HEAD
+
+
+
 If we would like to access from other computer:
 ---------------
 ---------------
