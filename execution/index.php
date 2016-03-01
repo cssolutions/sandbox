@@ -21,7 +21,7 @@ echo '<br /><br />';
 
 //Retrun the last line of the result of the command
 echo '$result = system(command,return)';echo '<br />';
-echo 'Output: ';$result = system('ls',$return);echo '<br />';
+echo 'Output: <pre>';$result = system('ls',$return);echo '</pre><br />';
 echo '$result(last line): <pre>'.$result.'</pre>';
 echo '<br />Return: ';var_dump($return);
 echo '-------------------------------<br />';
@@ -29,8 +29,8 @@ echo '<br /><br />';
 
 
 //no value is returned
-echo '$result = passthru(command,return)';echo '<br />';
-echo 'Output: ';passthru('ls',$return);echo '<br />';
+echo 'passthru(command,return)';echo '<br />';
+echo 'Output: <pre>';passthru('ls',$return);echo '</pre><br />';
 echo 'Return: ';var_dump($return);
 echo '<br /><br />';
 
