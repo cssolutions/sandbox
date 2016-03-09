@@ -1,0 +1,97 @@
+#create a new user
+sudo adduser --uid 1050 newuser
+
+add user to group
+sudo adduser --gid 100 tutonics2
+sudo adduser --ingroup users tutonics2
+
+#delete a user
+sudo deluser --remove-home tutonics2
+sudo deluser tutonics2
+
+#adding new group
+sudo addgroup newgroupname
+sudo adduser --group newgroupname
+
+sudo addgroup -gid 1234 newgroupname
+
+#delete a group
+sudo delgroup oldgroup
+
+#add an exciting user to group
+sudo adduser username existing_group
+
+#remove user from group
+sudo deluser username existing_group
+
+
+
+SYSTEM USERS
+------------
+#add a system user
+sudo adduser --system --no-create-home myapp_name
+sudo adduser --system --no-create-home --gid n myapp_name
+sudo adduser --system --no-create-home myapp_name --ingroup somegroup
+sudo adduser --system --no-create-home --group myapp_name
+
+#add a system group
+addgroup --system new_sys_group
+addgroup --system --gid 6000 new_sys_group
+
+#delete a system user
+sudo deluser --remove-home myapp
+
+#delete a system group
+sudo delgroup sysgroup
+
+
+
+
+
+sudo chmod -R ugo+rw /DATA/SHARE
+sudo chmod -R 666 /DATA/SHARE
+
+
+sudo chown -R bethany /DATA/SHARE
+
+
+
+
+
+#show group for user
+groups user2
+
+
+ahol az xyz egy oktális, azaz 8-as számrendszerbeli szám 3 számjegye, az állománynév meg sejtjük ugye, hogy mi... Az xyz ennek megfelelően bármi olyan 3 jegyű szám lehet, 
+aminek egyes számjegyei a 0 és 7 közt mozognak. A legnagyobb helyiértékű számjegy azt mondja meg, hogy mit művelhetsz a fájllal te (általánosabban: a fájl tulajdonosa), 
+a második azt, mit művelhet vele az, aki a tulajdonossal egy csoportban van, a harmadik, azaz legkisebb helyiértékű azt, mit művelhet a fájllal mindenki más, azaz akárki.
+
+
+A lehetséges jogok a következők: olvasás, írás, végrehajtás (azaz futtatás). Minden oktális szám 3 bitből tevődik össze, a legnagyobb helyiértékű az olvasást, a középső az írást, 
+a legkisebb helyiértékű a végrehajtást jelenti. Ezt legkönnyebb úgy megjegyezni, hogy minden oktális számjegy felírható úgy, hogy 4+2+1, aholis a 4, a 2 és az 1 helyén is 
+lehet az összegben nulla, ha azonban nem nulla van ott akkor a 4 jelenti az olvasást, a 2 az írást, s az 1 a végrehajtást
+
+777 Bárki bármit tehet a fájllal. Biztonsági szempontból nem javallott.
+755 A tulajdonos bármit tehet a fájllal, mások csak olvashatják és futtathatják. Tipikus alkalmazási területe ha te írsz egy mások által is használható szkriptet.
+700 Csak a tulajdonos birizgálhatja a fájlt, ő mindent megtehet vele, mások azonban semmit.
+666 Ez nem a Sátán száma: azt jelenti, a fájlt bárki írhatja és olvashatja, viszont senki által nem végrehajtható (mert nem progi és nem szkript). Ideiglenes fájlok esetén előfordulhat, hogy jól jön ez a beállítás.
+644 A tulajdonos írhatja-olvashatja a fájlt, mások csak olvashatják. Nem végrehajtható fájlok esetén használatos.
+600 A tulajdonos írhatja és olvashatja a fájlt, mások semmit nem csinálhatnak vele.
+
+
+
+
+
+Jogosultságok megtekintése:
+ls -l file-name
+
+File can be written by youself and members of the group. Others may only view it.
+-rw-rw-r-- user group file-size date file-name
+
+Directory is completely open for read/write:
+drwxrwxrwx user group file-size date directory-name
+
+File can only be accessed by owner (user):
+-rwx------ user group file-size date file-name
+
+

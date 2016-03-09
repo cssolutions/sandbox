@@ -77,6 +77,7 @@ passthru('bower install bootstrap-treeview');
 passthru('bower install bootstrap-social');
 passthru('bower install blueimp-file-upload-node');
 passthru('bower install Chart-js');
+passthru('bower install --save http://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.js');
 passthru('bower register bootstrap-floating-labels https://github.com/fauxparse/bootstrap-floating-labels -f');
 passthru('bower register jq-range-slider https://github.com/ghusse/jQRangeSlider -f');
 passthru('bower register bs-grid https://github.com/pontikis/bs_grid -f');
@@ -91,6 +92,8 @@ passthru('bower install bs-tabdrop');
 passthru('bower install bs-context-menu');
 passthru('bower install bs-autohide-navbar');
 passthru('bower install bs-bootbox');
+
+
 print "---------------------------------------------------- Bower tasks has been ended.\n";
 
 //GULP TASKS

@@ -89,6 +89,7 @@ gulp.task('scripts', function() {
 						  'assets/jquery-popup-overlay/jquery.popupoverlay.js',
 						  'assets/jquery-range-slider/jQRangeSlider.js',
 						  'assets/moment/moment.js',
+						  'assets/jquery.sparkline/index.js',
 						  'assets/summernote/dist/summernote.js'
 						  ])
         .pipe(concat('vendor.js'))
