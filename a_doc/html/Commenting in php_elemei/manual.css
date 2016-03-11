@@ -1,0 +1,442 @@
+/* STYLES FOR VIEWING THE MANUAL ON THE WEBSITE */
+
+/* === Layout === */
+
+div#body {
+	line-height: 1.4;
+	margin: 0;
+	padding: 0;
+}
+
+div#footer {
+	margin-top: 0;
+}
+
+#manual-content {
+	margin: 1em 250px 1em 1em;
+}
+
+/* === Navigation Sidebar === */
+
+#manual-sidebar {
+	width: 220px;
+	float: right;
+	margin: 1em 1em 0 0;
+}
+
+.manual-sidebar-top ul,
+.manual-sidebar-up ul,
+.manual-sidebar-info ul {
+    margin: 0.5em 0 1em 0.8em;
+    padding-left: 0.7em;
+}
+
+.manual-sidebar-up ul{
+    margin-bottom: 0;
+}
+
+.manual-sidebar-pages ol {
+	margin: 0.5em 1em 1em 2em;
+}
+
+.manual-sidebar-top li {
+    list-style: url(/gifs/caret-t.gif) circle;
+    text-indent: -0.4em;
+}
+
+.manual-sidebar-up li {
+    list-style: url(/gifs/caret-u.gif) disc;
+    text-indent: -0.4em;
+}
+
+.manual-sidebar-info li {
+	list-style-type: none;
+    text-indent: -0.4em;
+}
+
+.manual-sidebar-up,
+.manual-sidebar-info {
+	border-top: 1px solid #ccc;
+}
+
+li.manual-sidebar-page {
+    font-size: 85%;
+	margin: 0.5em 0;
+}
+
+li.manual-sidebar-page-nested {
+    font-size: 85%;
+}
+
+ol.manual-sidebar-pages-nested {
+	margin: 0 0 1em 1em;
+}
+
+/* === Navigation Bar (previous, next, languages) === */
+
+.manual-navigation {
+	background: #f0f0f0;
+	padding: 1em;
+}
+
+.manual-navigation a {
+	border-bottom: none;
+}
+
+a.manual-previous,
+a.manual-next {
+	display: block;
+	font-size: 85%;
+	max-width: 40%;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+a.manual-previous {
+	float: left;
+	padding: 4px 10px 4px 40px;
+	background: url(../images/elements/left-off.png) no-repeat left 7px;
+}
+
+a.manual-next {
+	float: right;
+	padding: 4px 40px 4px 10px;
+	background: url(../images/elements/right-off.png) no-repeat right 7px;
+	text-align: right;
+}
+
+a.manual-previous:hover,
+a.manual-next:hover {
+	background-color: #fff;
+	color: #7ac20e;
+}
+
+a.manual-previous:hover {
+	background-image: url(../images/elements/left-on.png);
+}
+
+a.manual-next:hover {
+	background-image: url(../images/elements/right-on.png);
+}
+
+a.manual-previous span.title,
+a.manual-next span.title {
+	display: block;
+	color: #888;
+}
+
+a.manual-previous:hover span.title,
+a.manual-next:hover span.title {
+	color: #aaa;
+}
+
+.manual-clear {
+	clear: both;
+}
+
+.manual-info,
+.manual-bug {
+	margin: 1em 0;
+	font-size: 85%;
+}
+
+.manual-info a,
+.manual-bug a {
+	border-bottom: 1px dotted;
+}
+
+.manual-navigation-no-nav .manual-info {
+	margin-top: 0;
+}
+
+#manual-navigation-top {
+	border-bottom: 1px solid #ccc;
+}
+
+#manual-navigation-bottom{
+	margin: 0;
+	border-top: 1px solid #ccc;
+	clear: right;
+}
+
+.manual-languages {
+    font-size: 85%;
+}
+
+.manual-language-list {
+	margin: 0 0 1em 0;
+	display: inline;
+}
+
+.manual-language-list li {
+	display: inline;
+}
+
+.manual-language-list a {
+	border-bottom: 1px dotted;
+}
+
+.manual-notes {
+	clear: left;
+}
+
+.manual-notes h3 {
+	margin: 0;
+}
+
+#manual-navigation-top.manual-navigation-no-nav {
+	display: none;
+}
+
+/* === User Notes === */
+
+td div.note {
+    border: 0;
+    background-color: #e0e0e0;
+    color: inherit;
+    text-align: left;
+    padding: 0.5em;
+}
+
+td div.pending_note {
+    border-style: solid;
+    border-width: 1px;
+    background-color: #909090;
+    color: inherit;
+    text-align: left;
+}
+
+td div.note_text {
+    background-color: #f0f0f0;
+    color: inherit;
+    padding: 0.5em;
+    margin-top: 4px;
+    text-align: left;
+}
+
+td div.note_handle {
+    font-weight: bold;
+    text-align: left;
+}
+
+/* === Headings === */
+
+h1 {
+	margin: 1em 0 0 0;
+}
+
+h1.refname {
+	margin: 0;
+}
+
+h2, h3 {
+	border-bottom: 1px solid #ccc;
+	margin: 1.5em 0 0 0;
+}
+
+.info + p,
+.title + p {
+	margin-top: 0.5em;
+}
+
+/* === Content === */
+
+.para {
+	margin: 1em 0;
+}
+
+.simpara {
+	margin: 0;
+}
+
+.listitem {
+	margin: 0;
+}
+
+.classname,
+.package {
+	font-weight: inherit;
+}
+
+/* === Notes, Warnings, Etc === */
+
+.note,
+.important,
+.warning,
+.tip {
+	border: 1px solid;
+	margin: 1em 0;
+	padding: 0 1em 0 62px;
+	min-height: 48px;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.note {
+	background: #fffbc9 url(../images/elements/note.png) no-repeat 0 0;
+	border-color: #f0dca1;
+	color: #534c38;
+}
+
+.important,
+.warning {
+	background: #ffd8d0 url(../images/elements/warning.png) no-repeat 0 0;
+	border-color: #ffbab0;
+	color: #882420;
+}
+
+.tip {
+	background: #eef url(../images/elements/tip.png) no-repeat 0 0;
+	color: #448;
+	border-color: #aaf;
+}
+
+.note .simpara,
+.important .simpara,
+.warning .simpara,
+.tip .simpara {
+	margin: 1em 0;
+}
+
+.note .informalexample,
+.note .example,
+.note .screen,
+.important .informalexample,
+.important .example,
+.important .screen,
+.warning .informalexample,
+.warning .example,
+.warning .screen,
+.tip .informalexample,
+.tip .example,
+.tip .screen {
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+.note .informalexample .screen,
+.note .example .screen,
+.important .informalexample .screen,
+.important .example .screen,
+.warning .informalexample .screen,
+.warning .example .screen,
+.tip .informalexample .screen,
+.tip .example .screen {
+	margin: 0;
+}
+
+h3.warning-title {
+	color: #882420;
+	border-bottom: none;
+	margin: 0.8em 0 0 0;
+}
+
+h3.warning-title + p {
+	margin-top: 0;
+}
+
+/* === Tables === */
+
+table.table,
+table.informaltable {
+	border-spacing: 0;
+	width: 100%;
+	border: 1px solid #ccc;
+}
+
+table.table caption {
+	padding: 0.5em 0 1em 0;
+	margin: 0;
+	font-size: 85%;
+	color: #666;
+	caption-side: bottom;
+}
+
+table.table td,
+table.informaltable td {
+	padding: 0.5em 1em;
+	border: 1px solid #ccc;
+}
+
+table.informaltable td {
+	padding: 0.25em 1em;
+	border-left: none;
+	border-right: none;
+}
+
+table.table th,
+table.informaltable th {
+	font-weight: bold;
+	background: #f0f0f0;
+	color: #666;
+	padding: 0.5em 1em;
+	border: 1px solid #ccc;
+}
+
+table.informaltable th {
+	padding: 0.25em 1em;
+	border-left: none;
+	border-right: none;
+}
+
+table.table th span,
+table.informaltable th span {
+	font-weight: normal;
+}
+
+/* === Examples === */
+
+.phpcode,
+.screen,
+.xmlcode {
+	margin: 1em 0;
+	padding: 1em;
+	background: #eee;
+	border: 1px solid #ccc;
+}
+
+.screen .replaceable {
+	font-style: italic;
+}
+
+.example,
+.informalexample {
+	background: #eee;
+	border: 1px solid #ccc;
+	margin: 1em 0;
+}
+
+.example p.para,
+.example p.simpara,
+.informalexampl p.para,
+.informalexampl p.simpara {
+	margin: 1em;
+}
+
+.example .phpcode,
+.informalexample .phpcode,
+.example .screen,
+.informalexample .screen,
+.example pre.xmlcode,
+.informalexample pre.xmlcode {
+	padding: 0;
+	margin: 1em;
+	background: none;
+	border: none;
+}
+
+.example div.xmlcode,
+div.xmlcode pre.xmlcode,
+.informalexample div.xmlcode {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+.example div.xmlcode pre.xmlcode {
+	margin: 1em;
+}

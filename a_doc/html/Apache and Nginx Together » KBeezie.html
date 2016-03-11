@@ -1,0 +1,384 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Apache and Nginx Together »  KBeezie</title><meta name="robots" content="index,follow"><link rel="alternate" type="application/rss+xml" title="KBeezie RSS Feed" href="http://kbeezie.com/feed/"><link rel="alternate" type="application/atom+xml" title="KBeezie Atom Feed" href="http://kbeezie.com/feed/atom/"><link rel="shortcut icon" href="http://static.kbeezie.net/favicon.ico" type="image/x-icon"><link rel="pingback" href="http://kbeezie.com/xmlrpc.php"><style type="text/css" media="all">html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;font-size:100%;margin:0;outline:0;padding:0}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:''}*::-moz-selection{background:#51a201 none repeat scroll 0 0;color:#fff}html,body{color:#242626}html{background-color:#D5DADD;height:100%;margin-bottom:1px;overflow-y:scroll}body{font:100%/1.5"Lucida Grande","Helvetica Neue",Arial,"Lucida Sans Unicode",sans-serif;font-smooth:always;text-align:center}a{text-decoration:none}a:link,a:visited{color:#004D99}a:focus,a:hover,a:active{color:#86180A}#menu a:active{position:relative;top:1px}#sidebar a, #sidebar a:link, #sidebar a:visited{border-bottom:1px solid #fff;color:#C54E0B}#sidebar a:focus, #sidebar a:hover, #sidebar a:active{border-bottom-color:#C54E0B;color:#111}#sidebar .sb-tools a, #sidebar .sb-tools a:link, #sidebar .sb-tools a:visited{border:0
+none;color:#C54E0B}#sidebar .sb-tools a:active, #sidebar .sb-tools a:focus, #sidebar .sb-tools a:hover{border:0
+none;color:#000}#sidebar .textwidget a img, #sidebar .textwidget a:hover
+img{border:0
+none}abbr,acronym{border-bottom:1px dashed #999;cursor:help}blockquote{background-color:#f8f8f8;border-left:2px solid #eaeaea;color:#111;font-style:italic;margin:0
+0 9px;padding:7px}cite{font-style:italic}code{background:#eaeaea;font-family:Consolas,Monaco,monospace;font-size:10px;padding:1px
+3px}.entry
+textarea.code{color:#007e91;font-family:Consolas,Monaco,monospace;font-size:10px;padding:5px;width:576px;height:350px;margin-bottom:15px;border:none}del{color:#8b0000;text-decoration:line-through}em{font-style:italic}h1,h2,h3,h4,h5,h6{color:#000;display:block;font-family:"Myriad Pro","HelveticaNeue-Light","Helvetica Neue Light","Lucida Grande","Helvetica Neue",Arial,"Lucida Sans Unicode",sans-serif;font-weight:normal}h1{font-size:34px;line-height:1.2;margin:0.3em 0 10px}h2{font-size:28px;line-height:1.3;margin:1em
+0 .2em}h3{font-size:24px;line-height:1.3;margin:1em
+0 .2em}h4{font-size:19px;margin:1.33em 0 .2em}h5{font-size:1.3em;margin:1.67em 0;font-weight:bold}h6{font-size:1.15em;margin:1.67em 0;font-weight:bold}h1 a, h2 a, h1 a:link, h2 a:link, h1 a:visited, h2 a:visited{color:#000;font-size:28px}h1 a:active, h2 a:active, h1 a:focus, h2 a:focus, h1 a:hover, h2 a:hover{color:#690}hr{display:none}input{vertical-align:middle}ins{color:#006400;text-decoration:none}small{font-size:0.8em}strong{font-weight:bold}sub,sup{font-size:0.7em}.amp{font-family:"Palatino Linotype",Palatino,Georgia,"Times New Roman";font-style:italic}.smaller-caps{font-size:110%;font-variant:small-caps}.hidden{display:none}.aligncenter,div.aligncenter{display:block;margin-left:auto;margin-right:auto}.aligncenter img, .aligncenter p.wp-caption-text{display:block;margin-left:auto;margin-right:auto;text-align:center}.alignleft{float:left}.alignright{float:right}img.alignleft{display:inline;margin:0
+7px 2px 0;padding:4px}img.alignright{display:inline;margin:0
+0 2px 7px;padding:4px}.entry
+div.alignleft{float:left;margin:0
+8px 7px 0}.entry
+img{-ms-interpolation-mode:bicubic;border:1px
+solid #ccc;padding:2px}.wp-caption{background-color:#F0F0F0;border:1px
+solid #E5E5E5;overflow:hidden;padding:3px}.wp-caption
+img{border:0
+none;margin:0;padding:0}.wp-caption p.wp-caption-text{font-size:11px;line-height:17px;padding:0
+4px 5px;margin:0}.more-link{background-color:#F4F8F9;border-bottom:1px solid #E6F0F2;font-size:11px;font-weight:bold;padding:5px
+6px 3px;text-shadow:0 1px 0 #fff}.more-link:hover{background-color:#E6F0F2;border-bottom-color:#B3CDD8;color:#000}table{color:#3E5867;width:100%}thead{background-color:#F4F8F9;text-align:center}caption{background-color:#E6F0F2;border-top:1px solid #E6F0F2;text-align:center}tbody{background-color:#f7f7f7;text-align:center}tfoot{background-color:#fff;text-align:left}td#next{text-align:right}#header,#main,#footer{background-color:#fff;text-align:left;margin:0
+auto 3px;width:985px}#header,#sidebar,#footer{font-size:0.7em}#header{height:116px;margin-top:10px;position:relative}#container{float:left;margin:0
+-350px 0 0;width:100%}#content{border-right:3px solid #D5DADD;margin:0
+350px 0 0;overflow:hidden;padding:19px
+0 0}#sidebar{background-color:#fff;border-left:3px solid #D5DADD;float:right;margin-left:-3px;padding:15px
+20px 15px 10px;width:320px}#footer{padding:10px
+28px;width:929px}#branding{display:block;position:absolute;top:30px;left:28px}h1#logo{font-size:30px;line-height:1.2;margin:0}#logo,.description{color:#868F98;float:left;margin:17px
+0 0 10px}#accessibility li, #accessibility a, #menu li, #menu
+a{display:block;float:left}#accessibility{display:block;position:absolute;right:28px;top:47px}#accessibility
+a{padding:0
+7px 0 4px}#nav{position:absolute;top:75px;left:0;width:985px}ul#menu{background:#89CB11 url(http://css.kbeezie.net/wp-content/themes/_/img/navigation.png) top left repeat-x;display:block;height:41px;padding:0
+28px 0 18px;width:939px}#menu
+a{color:#fff;font-weight:bold;line-height:40px;padding:0
+8px 0 10px;text-shadow:0 1px 0 #555}#menu .page-item-home
+a{background:none}#menu a:hover, #menu a:focus, #menu .current_page_item
+a{color:#000\9;text-shadow:1px 1px 1px #000}.page,.post,.pagetitle,.nocomments{padding:0
+28px}.post,.nocomments{padding-bottom:20px}.post{margin-bottom:30px}.entry{margin:15px
+0 5px;font-size:13px;line-height:20px}.meta{background-color:#F4F8F9;border-bottom:1px solid #E6F0F2;border-top:1px solid #E6F0F2;color:#3e5867;display:block;font-size:11px;height:19px;line-height:19px;margin:0
+-28px;padding:6px
+28px;text-shadow:0px 1px 0px #fff;width:576px}* html
+.meta{height:1%}.meta:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}a.button-style{border:1px
+solid #F4F8F9;border-radius:3px 3px;-moz-border-radius:5px;-webkit-border-radius:5px;display:inline-block;height:11px;line-height:11px;padding:4px
+6px;width:auto}a.button-style:hover{background:#5388b6 url(http://static.kbeezie.net/wp-content/themes/_/img/button-style.png) center left repeat-x;border-color:#1b5a8d;color:#fff;text-shadow:0 1px 0 #0f4570}p strong, li
+strong{color:#2E2E2E}.entry p, .entry ol, .entry ul, .entry
+dl{margin:0
+0 9px;color:#4d4d4d}.entry blockquote
+p{margin:0}.entry
+ol{margin-left:0.75em;padding-left:12px}.entry
+ul{margin-left:0.5em;padding-left:12px}.entry ol
+li{list-style-type:decimal}.entry ul
+li{list-style-type:disc}.entry
+dl{}.entry
+dt{font-weight:bold}.entry
+dd{background:transparent url(img/dl-arrow.gif) 0 4px no-repeat;padding:0
+0 4px 1em}.previousnext,.pagination{font-size:11px;margin-bottom:10px}.page-link{background-color:#F4F8F9;border-bottom:1px solid #E6F0F2;border-top:1px solid #E6F0F2;display:block;font-size:11px;font-weight:bold;height:16px;line-height:16px;margin:9px
+0 20px;padding:5px
+8px}.page-link span, .page-link
+a{cursor:pointer;display:block;float:left;height:16px;line-height:16px;margin:0
+0 0 3px;text-align:center;width:16px}.page-link
+span{background-color:#fff;color:#111}.page-link a
+span{margin:0}.page-link a:link span, .page-link a:visited
+span{background-color:#5B8EAD;color:#fff}.page-link a:hover span, .page-link a:active span, .page-link a:focus
+span{background-color:#285776;color:#fff}.page-link
+strong{display:block;float:left;margin-right:5px}.postmetadata{border-bottom:1px dotted #ddd;border-top:1px dotted #D5D5D5;color:#999;font-size:11px;margin-top:20px;padding:7px
+2px}.postmetadata
+a{color:#666;padding:2px
+4px}.postmetadata a:hover{background-color:#efefef}#something{padding:7px
+2px;width:572px;border-bottom:1px dotted #ddd}#somethingspecial{padding:0
+54px;width:468px}h3#comments,h4#pings{float:left}h3#comments, #respond
+h3{margin:0
+0 5px;font-size:34px}#respond
+h3{margin:18px
+0 5px 28px}h4#pings{line-height:1.2;margin:10px
+0;width:150px}.comments-header,.navigation{border-bottom:1px solid #E6F0F2;text-shadow:0 1px 0 #fff}.navigation{background-color:#E6F0F2;border-top:1px solid #fff;font-size:11px;height:auto;line-height:28px;overflow:hidden;padding:0
+28px}.comments-header{background-color:#F4F8F9;border-top:1px solid #E6F0F2;padding:6px
+28px}.comments-header-meta{float:right;font-size:11px;font-weight:bold;line-height:44px;padding:4px
+0 0}.commentlist{background-color:#f9fbfc;border:28px
+solid #f9fbfc;border-top:0 none;font-size:11px}.pinglist{margin-top:10px;width:420px;float:right}li.pings{border-top:1px solid #fff;border-bottom:1px solid #E6F0F2;margin:0;padding:4px
+10px;width:400px}.pings:first-child{border-top:none}.pings:last-child{border-bottom:none}.comment{background:transparent url(http://css.kbeezie.net/wp-content/themes/_/img/bg-comment.png) 10px 19px no-repeat;border-top:28px solid #f9fbfc;border-left:40px solid #f9fbfc}.comment-body{background-color:#f4f8f9;color:#3e5867;margin-left:20px;padding:11px
+15px;position:relative}.comment-body
+img.avatar{border:1px
+solid #eee;padding:2px;position:absolute;left:-60px}ul.children{}.comment ul.children
+li{border-top:15px solid #f9fbfc}.comment-meta{font-size:10px;margin-bottom:3px}.comment-author-admin{background-image:url(img/bg-comment-admin.png)}.comment-author-admin>.comment-body{background-color:#E6F0F2}.comment p, .comment
+blockquote{padding:0
+0 7px}.comment blockquote p, .comment blockquote blockquote, .comment blockquote blockquote
+p{margin:5px;padding:7px}.commentlist cite, .commentlist cite
+a{font-style:normal;font-size:12px}.commentlist cite
+a{background-color:#fff;padding:2px
+5px;border-bottom:1px dotted #ddd}li.thread-alt{}.comment-author{}.commentlist .thread-even{}.commentlist .depth-1{}.commentlist
+.odd{}.commentlist .even, .commentlist
+.alt{}.comment-author
+cite{}.says{}.comment div
+em{}.reply{overflow:hidden}a.comment-reply-link{color:#666;display:block;float:right;padding:2px
+6px}.comment-reply-link:hover{background-color:#fff;color:#333}#respond{background-color:#F4F8F9;margin-top:1px;overflow:hidden;padding:0
+0 18px;width:100%}#commentform{padding:18px
+28px 0}.cancel-comment-reply,.you-must-be-logged-in{padding:0
+0 0 28px}.respond-left{float:left;width:42%}.respond-right{float:left;width:58%}#respond
+label{display:block;font-size:11px;height:20px;margin:3px
+0 9px;width:85%}input#author,input#email,input#url{border:1px
+solid #ddd;color:#999;display:block;height:15px;line-height:15px;padding:5px
+3px;width:85%}textarea#comment{border:1px
+solid #ddd;font-family:inherit;height:150px;margin:0
+0 9px;padding:5px
+3px;width:100%}#respond input:focus,textarea#comment:focus{color:#000;border-color:#aaa;-moz-box-shadow:3px 3px 0px rgba(238,238,238,1);-webkit-box-shadow:3px 3px #eee}input#submit{background:#5388b6 url(http://css.kbeezie.net/wp-content/themes/_/img/button-style.png) center left repeat-x;border:1px
+solid #3b73a3;border-radius:3px 3px;-moz-border-radius:3px;-webkit-border-radius:3px;color:#fff;font-size:11px;font-weight:bold;height:24px;line-height:24px;padding:0
+10px}.currently-viewing, #sidebar #about, #sidebar .categories, #sidebar .archives,.pagenav,#meta,.linkcat,.widget{border-bottom:1px dotted #ddd;margin:0
+0 8px;padding:0
+8px 9px}.categories li li, .pagenav li
+li{margin-left:6px}ul.sb-list{margin-left:10px}.sb-title{color:#434343;font-size:14px;padding-bottom:1px;text-transform:uppercase}ul.sb-tools{border-bottom:1px dotted #ddd;margin:9px
+0;padding:0
+8px 9px}.sb-tools
+li{display:block;min-height:34px}.sb-tools a
+span{color:#86180A;display:block;font-size:12px;padding-bottom:3px;text-transform:uppercase}.sb-tools a:hover
+span{color:#C54E0B}.twitter-icon,.rss-icon{padding-left:65px;color:#111;display:block;line-height:1.25em}.twitter-icon{background:transparent url(http://css.kbeezie.net/wp-content/themes/_/img/twitter_48.png) top left no-repeat}.rss-icon{background:transparent url(http://css.kbeezie.net/wp-content/themes/_/img/rss-icon.png) center left no-repeat}.sb-icon-text{padding:3px
+0 0}.previous-post a, .next-post
+a{background:transparent url(http://css.kbeezie.net/wp-content/themes/_/img/next-prev-sprite.png) right -195px no-repeat;display:block;line-height:1.2;margin:8px
+0 0;padding:2px
+65px}.next-post a:active, .next-post a:focus, .next-post a:hover{background-position:right -295px;border:none}.previous-post a, .previous-post a:link, .previous-post a:visited{background-position:0 5px;padding-right:0}.previous-post a:active, .previous-post a:focus, .previous-post a:hover{background-position:0 -95px}ul.group{float:left;margin:0
+0 0 10px;overflow:hidden;padding:0;width:150px}html
+.clearfix{display:block}* html
+.clearfix{height:1%}.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}.clearfix{display:inline-block}@media
+print{#header{height:20pt;position:static}#content .entry a:after{content:"  ["attr(href)"] "}#accessibility,#nav,#sidebar{display:none}hr{display:none}}.wp_syntax{color:#100;background-color:#f9f9f9;border:1px
+solid silver;margin:0
+0 1.5em 0;overflow:auto}.wp_syntax{overflow-x:auto;overflow-y:hidden;padding-bottom:0px;width:100%}.wp_syntax
+table{border-collapse:collapse}.wp_syntax div, .wp_syntax
+td{vertical-align:top;padding:2px
+4px}.wp_syntax
+.line_numbers{text-align:right;background-color:#def;color:gray;overflow:visible}.wp_syntax
+pre{margin:0;width:auto;float:none;clear:none;overflow:visible;font-size:12px;line-height:1.333;white-space:pre}.wp_syntax{color:#100;background-color:#f9f9f9;border:1px
+solid silver;margin:0
+0 1.5em 0;overflow:auto}.wp_syntax{overflow-x:auto;overflow-y:hidden;padding-bottom:expression(this.scrollWidth>this.offsetWidth ? 15:0);width:100%}.wp_syntax
+table{border-collapse:collapse}.wp_syntax div,.wp_syntax
+td{vertical-align:top;padding:2px
+4px}.wp_syntax
+.line_numbers{text-align:right;background-color:#def;color:gray;overflow:visible}.wp_syntax
+pre{margin:0;width:auto;float:none;clear:none;overflow:visible;font-size:12px;line-height:1.333;white-space:pre}.wp_syntax{color:#100;background-color:#f9f9f9;border:1px
+solid silver;margin:0
+0 1.5em 0;overflow:auto}.wp_syntax{overflow-x:auto;overflow-y:hidden;padding-bottom:expression(this.scrollWidth>this.offsetWidth ? 15:0);width:100%}.wp_syntax
+table{border:none!important;border-collapse:collapse!important;margin:0!important;padding:0!important;width:100%!important}.wp_syntax
+caption{padding:2px!important;width:100%!important;background-color:#def!important;text-align:left!important;font-family:monospace!important;font-size:12px!important;line-height:1.2em!important}.wp_syntax caption
+a{color:#1982d1!important;text-align:left!important;font-family:monospace!important;font-size:12px!important;line-height:16px!important;text-decoration:none!important}.wp_syntax caption a:hover{color:#1982d1!important;text-decoration:underline!important}.wp_syntax div,.wp_syntax
+td{border:none!important;text-align:left!important;padding:0!important;vertical-align:top!important}.wp_syntax
+td.code{background:none!important;line-height:normal!important;white-space:normal!important}.wp_syntax
+pre{background:transparent!important;margin:0!important;padding:0!important;width:auto!important;float:none!important;clear:none!important;overflow:visible!important;font-family:monospace!important;font-size:12px!important;line-height:16px!important;white-space:pre!important;-moz-box-shadow:0 0 0 rgba(0,0,0,0)!important;-webkit-box-shadow:0 0 0 rgba(0,0,0,0)!important;box-shadow:0 0 0 rgba(0,0,0,0)!important;-webkit-border-radius:0!important;-moz-border-radius:0!important;border-radius:0!important}.wp_syntax td.line_numbers
+pre{background-color:#def!important;color:gray!important;padding:0
+4px!important;text-align:right!important}</style><script src="Apache%20and%20Nginx%20Together%20%C2%BB%20KBeezie_elemei/ga.js" async="" type="text/javascript"></script><script type="text/javascript">var asyncScripts=[];var asyncFunctions=[];var loadedScripts=[];var scriptsToLoad=0;function execOnReady(func){asyncFunctions.push(func);}</script><script type="text/javascript">/*<![CDATA[*/execOnReady(function(){window._wpemojiSettings={"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/kbeezie.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4"}};!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56806,55356,56826),0,0),c.toDataURL().length>3e3):("simple"===a?d.fillText(String.fromCharCode(55357,56835),0,0):d.fillText(String.fromCharCode(55356,57135),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);});/*]]>*/</script><style type="text/css">img.wp-smiley,img.emoji{display:inline !important;border:none !important;box-shadow:none !important;height:1em !important;width:1em !important;margin:0
+.07em !important;vertical-align:-0.1em !important;background:none !important;padding:0
+!important}</style><style type="text/css" media="all">.wp_syntax{color:#100;background-color:#f9f9f9;border:1px
+solid silver;margin:0
+0 1.5em 0;overflow:auto}.wp_syntax{overflow-x:auto;overflow-y:hidden;padding-bottom:expression(this.scrollWidth > this.offsetWidth ? 15 :0);width:99%}.wp_syntax
+table{border:none !important;border-collapse:collapse !important;margin:0
+!important;padding:0
+!important;width:100% !important}.wp_syntax
+caption{margin:0
+!important;padding:2px
+!important;width:100% !important;background-color:#def !important;text-align:left !important;font-family:monospace !important;font-size:12px !important;line-height:1.2em !important}.wp_syntax caption
+a{color:#1982d1 !important;text-align:left !important;font-family:monospace !important;font-size:12px !important;line-height:16px !important;text-decoration:none !important}.wp_syntax caption a:hover{color:#1982d1 !important;text-decoration:underline !important}.wp_syntax div,.wp_syntax
+td{border:none !important;text-align:left !important;padding:0
+!important;vertical-align:top !important}.wp_syntax
+td.code{background-color:#EEE;background-image:-webkit-linear-gradient( transparent 50%,rgba(255,255,255,.9) 50% );background-image:-moz-linear-gradient( transparent 50%,rgba(255,255,255,.9) 50% );background-image:-ms-linear-gradient( transparent 50%,rgba(255,255,255,.9) 50% );background-image:-o-linear-gradient( transparent 50%,rgba(255,255,255,.9) 50% );background-image:linear-gradient( transparent 50%,rgba(255,255,255,.9) 50% );background-size:1px 32px;line-height:normal !important;white-space:normal !important;width:100% !important}.wp_syntax
+pre{background:transparent !important;border:none !important;margin:0
+!important;padding:0
+!important;width:auto !important;float:none !important;clear:none !important;overflow:visible !important;font-family:monospace !important;font-size:12px !important;line-height:16px !important;padding:0
+4px !important;white-space:pre !important;-moz-box-shadow:0px 0px 0px rgba(0,0,0,0) !important;-webkit-box-shadow:0px 0px 0px rgba(0,0,0,0) !important;box-shadow:0px 0px 0px rgba(0,0,0,0) !important;-webkit-border-radius:0 !important;-moz-border-radius:0 !important;border-radius:0 !important}.wp_syntax td.line_numbers
+pre{background-color:#def !important;color:gray !important;text-align:right !important;width:16px !important}</style><link rel="https://api.w.org/" href="http://kbeezie.com/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://kbeezie.com/xmlrpc.php?rsd"><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://static.kbeezie.net/wp-includes/wlwmanifest.xml"><link rel="prev" title="Securing a Thumb Drive with TrueCrypt" href="http://kbeezie.com/secure-thumb-drive/"><link rel="next" title="Deploying circuits.web with Nginx/uwsgi" href="http://kbeezie.com/circuits-nginx-uwsgi/"><meta name="generator" content="WordPress 4.4"><link rel="canonical" href="http://kbeezie.com/apache-with-nginx/"><link rel="shortlink" href="http://kbeezie.com/?p=463"><link rel="alternate" type="application/json+oembed" href="http://kbeezie.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fkbeezie.com%2Fapache-with-nginx%2F"><link rel="alternate" type="text/xml+oembed" href="http://kbeezie.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fkbeezie.com%2Fapache-with-nginx%2F&amp;format=xml"><script type="text/javascript" src="Apache%20and%20Nginx%20Together%20%C2%BB%20KBeezie_elemei/wp-emoji-release.js"></script></head><body id="home"><div id="header" class="clearfix"><ul id="accessibility"><li><a href="http://kbeezie.com/" title="Go to homepage">Home</a></li><li><a href="#content" title="Skip to content">Content</a></li><li><a href="http://kbeezie.com/feed/">RSS</a></li><li class="last-item"><a href="http://kbeezie.com/wp-login.php">Log in</a></li></ul><div id="branding"><h1 id="logo"><a href="http://kbeezie.com/" title="KBeezie">KBeezie</a></h1><div class="description"> There's no place like ::1</div></div><div id="nav" class="clearfix"><ul id="menu"><li class="page-item-home "><a href="http://kbeezie.com/">Home</a></li><li class="page_item page-item-2"><a href="http://kbeezie.com/about/">About</a></li><li class="page_item page-item-345"><a href="http://kbeezie.com/testimonials/">Testimonials</a></li><li class="page_item page-item-84"><a href="http://kbeezie.com/privacy-policy/">Privacy Policy</a></li></ul></div></div><div id="main" class="clearfix"><div id="container"><div id="content" style="margin: 0 0 0 0;"><div class="post-463 post type-post status-publish format-standard hentry category-apache category-nginx category-webservers tag-apache tag-httpd tag-nginx" id="post-463"><h1>Apache and Nginx Together</h1><div class="entry"><p>I’m
+ not going to get into a lot of details about how to install and 
+configure either http server from scratch. This article is primarily 
+going to be food for thought for those who may want or need to configure
+ nginx along side an existing apache (httpd) configuration. If you would
+ rather ditch Apache all together, consider reading Martin Fjordvald’s <a href="http://blog.martinfjordvald.com/2011/02/nginx-primer-2-from-apache-to-nginx/" taget="_blank">Nginx Primer 2: From Apache <i>to</i> Nginx</a>.</p><h2>Side by Side</h2><p>In
+ some cases you may need to run both Apache (httpd) and Nginx on port 
+80. Such a situation can be a server running Cpanel/Whm and as such 
+doesn’t support nginx, so you wouldn’t want to mess with the apache 
+configuration at all.</p><p>To do this you have to make sure Apache and 
+Nginx are bound to their own IP adddress, In the event of WHM/Cpanel 
+based webserver, you can <a href="http://kbeezie.com/view/releasing-ip-addresses-in-whmcpanel/" target="_blank">Release an IP to be used for Nginx in WHM</a>.
+ At this time I am not aware of a method of reserving an IP, and 
+automatically forcing Apache to listen on a specific set of IPs in a 
+control panel such as DirectAdmin or Plesk. But the link above will show
+ you how with WHM/Cpanel.</p><p>Normally Apache will be listening on all interfaces, and such you may see a line like this in your httpd.conf file:</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;"><span style="color: #00007f;">Port</span> <span style="color: #ff0000;">80</span>
+<span style="color: #adadad; font-style: italic;">#or</span>
+<span style="color: #00007f;">Listen</span> <span style="color: #ff0000;">80</span></pre></td></tr></tbody></table></div><p>Instead you’ll need to tell apache to listen on a specific IP (you can have multiple Listen lines for multiple IPs)</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;"><span style="color: #00007f;">Listen</span> 192.170.2.1:<span style="color: #ff0000;">80</span></pre></td></tr></tbody></table></div><p>When
+ you change Apache to listen on specific interfaces some VirtualHost may
+ fail to load if they are listening on specific IPs themselves. The 
+address option in &lt;VirtualHost addr[:port] [addr[:port]] …&gt; only 
+applies when the main server is listening on all interfaces (or an alias
+ of such). If you do not have an IP Listed in your &lt;VirtualHost …&gt;
+ tag, then you do not need to worry bout this. Otherwise make sure to 
+remove the addr:port from the VirtualHost tag.</p><p>Make sure to update the <a href="http://httpd.apache.org/docs/2.0/mod/core.html#namevirtualhost" target="_blank">NameVirtualHost directive</a> in Apache for name-based virtual hosts.</p><p>Once you have apache configured to listen on a specific set of IPs you can do the same with nginx.</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;">server {
+    <span style="color: #00007f;">listen</span> 192.170.2.2:<span style="color: #ff0000;">80</span>;
+    ...
+}</pre></td></tr></tbody></table></div><p>Now that both servers are 
+bound to specific IPs, both can then be started up on port 80. From 
+there you would simply point the IP of the domain to the server you wish
+ to use. In the case of WHM/Cpanel you can either manually configure the
+ DNS entry for the domain going to nginx in WHM, or you can use your own
+ DNS such as with your registrar to point the domain to the specific IP.
+ Using the latter may break your mail/ftp etc configurations if the DNS 
+entries are not duplicated correctly.</p><p>Though normally if you are 
+setting up Nginx side-by-side with apache, you’ll have your domain 
+configurations separate from the rest of the system. The above paragraph
+ only applies if the domain you are using has already been added by 
+cpanel/whm and you wish to have it served by nginx exclusively. [Scroll 
+down for PHP considerations]</p><h2>Apache behind Nginx</h2><p>If you 
+are using a control panel based hosting such as cpanel/whm, this method 
+is not advised. Most of the servers configuration is handled 
+automatically in those cases, and making manual changes will likely lead
+ to problems (plus you won’t get support from the control panel makers 
+or your hosting provider in most cases).</p><p>Using Nginx as the 
+primary frontend webserver can increase performance regardless if you 
+choose to keep Apache running on the system. One of Nginx’s greatest 
+advantage is how well it serves static content. It does so much more 
+efficiently than Apache, and with very little cost to memory or 
+processing. So placing Nginx in front will remove that burdern off 
+Apache, leaving it to concentrate on dynamic request or special 
+scenarios.</p><p>This method is also popular for those who don’t want to use PHP via fastcgi, or install a separate php-fpm process.</p><p>First thing that needs to be done is to change the interface apache listens on:</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;"><span style="color: #00007f;">Listen</span> 127.0.0.1:<span style="color: #ff0000;">8080</span></pre></td></tr></tbody></table></div><p>Above
+ we bind Apache to the localhost on an alternate port, since only Nginx 
+on the same machine will be communicating with Apache.</p><p><i>Note: 
+Since Nginx needs to access the same files that Apache serves, you need 
+to make sure that Nginx is setup to run as the same user as apache, or 
+to make sure that the Nginx’s selected user:group has permission to read
+ the web documents. Often times the webroot is owned by nobody or 
+www-data and Nginx likewise can be setup to run as those users</i></p><p>Then
+ in Nginx listening on port 80 (either on all interfaces such as 0.0.0.0
+ or to specific IPs, your choice) we would need to configure Nginx to 
+serve the same content. Take for example this virtual host in an apache 
+configuration:</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;">&lt;<span style="color: #000000; font-weight:bold;">VirtualHost</span>&gt;
+      <span style="color: #00007f;">DocumentRoot</span> <span style="color: #7f007f;">"/usr/local/www/mydomain.com"</span>
+      <span style="color: #00007f;">ServerName</span> mydomain.com
+      <span style="color: #00007f;">ServerAlias</span> www.mydomain.com
+      <span style="color: #00007f;">CustomLog</span> /var/log/httpd/mydomain_access.log common
+      <span style="color: #00007f;">ErrorLog</span> /var/log/httpd/mydomain_error.log
+      ...
+&lt;/<span style="color: #000000; font-weight:bold;">VirtualHost</span>&gt;</pre></td></tr></tbody></table></div><p>In Nginx the equivalent server configuration would be:</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;">server {
+      root /usr/local/www/mydomain.com;
+      server_name mydomain.com www.mydomain.com;
+&nbsp;
+      <span style="color: #adadad; font-style: italic;"># by default logs are stored in nginx's log folder</span>
+      <span style="color: #adadad; font-style: italic;"># it can be changed to a full path such as /var/log/...</span>
+      access_log logs/mydomain_access.log;
+      error_log logs/mydomain_error.log;
+      ...
+}</pre></td></tr></tbody></table></div><p>The above would serve all 
+static content from the same location, however PHP will simply come back
+ as PHP source. For this we need to send any PHP requests back to 
+Apache.</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;">server {
+      root /usr/local/www/mydomain.com;
+      server_name mydomain.com www.mydomain.com;
+&nbsp;
+      access_log logs/mydomain_access.log;
+      error_log logs/mydomain_error.log;
+&nbsp;
+      location / { 
+            <span style="color: #adadad; font-style: italic;"># this is the location block for the document root of this vhost</span>
+      } 
+&nbsp;
+      location ~ \.php {
+            <span style="color: #adadad; font-style: italic;"># this block will catch any requests with a .php extension</span>
+            <span style="color: #adadad; font-style: italic;"># normally in this block data would be passed to a FastCGI process</span>
+&nbsp;
+            <span style="color: #adadad; font-style: italic;"># these two lines tell Apache the actual IP of the client being forwarded</span>
+            <span style="color: #adadad; font-style: italic;"># Apache requires mod_proxy (http://bit.ly/mod_proxy) for these to work</span>
+            <span style="color: #adadad; font-style: italic;"># Most Apache 2.0+ servers have mod_proxy configured already</span>
+&nbsp;
+            proxy_set_header X-Real-IP  $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
+&nbsp;
+            <span style="color: #adadad; font-style: italic;"># this next line adds the Host header so that apache knows which vHost to serve</span>
+            <span style="color: #adadad; font-style: italic;"># the $host variable is automatically set to the hostname Nginx is responding to</span>
+&nbsp;
+            proxy_set_header Host $host;
+&nbsp;
+            <span style="color: #adadad; font-style: italic;"># And now we pass back to apache</span>
+            <span style="color: #adadad; font-style: italic;"># if you're using a side-by-side configuration the IP can be changed to</span>
+            <span style="color: #adadad; font-style: italic;"># apache's bound IP at port 80 such as http://192.170.2.1:80</span>
+&nbsp;
+            proxy_pass http://127.0.0.1:<span style="color: #ff0000;">8080</span>;
+      }
+&nbsp;
+       <span style="color: #adadad; font-style: italic;"># if you don't like seeing all the errors for missing favicon.ico in root</span>
+       location = /favicon.ico { access_log <span style="color: #0000ff;">off</span>; log_not_found <span style="color: #0000ff;">off</span>; }
+&nbsp;
+       <span style="color: #adadad; font-style: italic;"># if you don't like seeing errors for a missing robots.txt in root</span>
+       location = /robots.txt { access_log <span style="color: #0000ff;">off</span>; log_not_found <span style="color: #0000ff;">off</span>; }
+&nbsp;
+       <span style="color: #adadad; font-style: italic;"># this will prevent files like .htaccess .htpassword .secret etc from being served</span>
+       <span style="color: #adadad; font-style: italic;"># You can remove the log directives if you wish to</span>
+       <span style="color: #adadad; font-style: italic;"># log any attempts at a client trying to access a hidden file</span>
+       location ~ /\. { <span style="color: #00007f;">deny</span> <span style="color: #0000ff;">all</span>; access_log <span style="color: #0000ff;">off</span>; log_not_found <span style="color: #0000ff;">off</span>; }
+}</pre></td></tr></tbody></table></div><p>In the case of rewriting 
+(mod_rewrite) with apache behind nginx you can use an incredibly simple 
+directive called try_files. Here’s the same code as above, but when 
+changes made so that any files or folder not found by nginx gets passed 
+to apache for processing (useful for situations like WordPress, or 
+.htaccess based rewrites when the file or folder is not caught by Nginx)</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;">server {
+      root /usr/local/www/mydomain.com;
+      server_name mydomain.com www.mydomain.com;
+&nbsp;
+      access_log logs/mydomain_access.log;
+      error_log logs/mydomain_error.log;
+&nbsp;
+      location / { 
+            <span style="color: #adadad; font-style: italic;"># try_files attempts to serve a file or folder, until it reaches the fallback at the end</span>
+            try_files $uri $uri/ @backend;
+      } 
+&nbsp;
+      location @backend {
+            <span style="color: #adadad; font-style: italic;"># essentially the same as passing php requests back to apache</span>
+&nbsp;
+            proxy_set_header X-Real-IP  $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_set_header Host $host;
+            proxy_pass http://127.0.0.1:<span style="color: #ff0000;">8080</span>;
+      }
+      <span style="color: #adadad; font-style: italic;"># ... The rest is the same as the configuration above ... </span>
+}</pre></td></tr></tbody></table></div><p>With the above configuration, 
+any file or folder that exists will be served by Nginx (the php block 
+will catch files ending in .php), otherwise it will be passed back to 
+apache on the backend.</p><p>In some cases you may wish for everything 
+to be passed to Apache unless otherwise specified, in which case you 
+would have a configuration such as this:</p><div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="apache" style="font-family:monospace;">server {
+      root /usr/local/www/mydomain.com;
+      server_name mydomain.com www.mydomain.com;
+&nbsp;
+      access_log logs/mydomain_access.log;
+      error_log logs/mydomain_error.log;
+&nbsp;
+      location / {
+            proxy_set_header X-Real-IP  $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
+&nbsp;
+            proxy_set_header Host $host;
+&nbsp;
+            proxy_pass http://127.0.0.1:<span style="color: #ff0000;">8080</span>;
+      }
+&nbsp;
+      <span style="color: #adadad; font-style: italic;"># Example 1 - Specify a folder and it's content</span>
+      <span style="color: #adadad; font-style: italic;"># To serve everything under /css from Nginx-only</span>
+      location /css { }
+&nbsp;
+      <span style="color: #adadad; font-style: italic;"># Example 2 - Specify a RegEx pattern such as file extensions</span>
+      <span style="color: #adadad; font-style: italic;"># Serve certain files directly from Nginx</span>
+      location ~* ^.+\.(jpg|jpeg|gif|png|css|zip|pdf|txt|js|flv|swf|html|htm)$
+      {
+            <span style="color: #adadad; font-style: italic;"># this will basically match any file of the above extensions</span>
+            <span style="color: #adadad; font-style: italic;"># course if the file does not exist you'll see an Nginx error page as opposed</span>
+            <span style="color: #adadad; font-style: italic;"># to apache's own error page. </span>
+      }
+}</pre></td></tr></tbody></table></div><p>Personally I prefer to leave 
+Nginx to handle everything, and specify exactly what needs to be passed 
+back to Apache. But the last configuration above would more accurately 
+allow .htaccess to function during almost-every request since almost 
+everything gets passed back to apache. The css folder or any files found
+ by the other location block would be served directly by nginx 
+regardless if there’s an .htaccess file there, since only Apache 
+processes .ht* files.</p><h2>PHP Considerations</h2><p>If you are not 
+familiar with Nginx, then it should be noted that Nginx does not have a 
+PHP module like apache’s mod_php, instead you either need to build PHP 
+with FPM (ie: php-fpm/fastcgi), or you need to pass the request to 
+something that can handle PHP.</p><p>In the case of using Nginx with Apache you essentially have two choices:</p><p>1)
+ Compile and Install PHP-FPM, thus running a seperate PHP process to be 
+used by Nginx. This option is usually good if you want to keep the two 
+webserver configurations separated from each other, that way any changes
+ to one won’t affect the other. But of course it adds additional memory 
+usage to the system.</p><p>2) Utilize Apache’s mod_php. This option is 
+ideal when you will be passing data to apache as a backend. Even in a 
+side-by-side scenario, you can utilize mod_php by proxying any php 
+request to Apache’s IP. But in the side-by-side scenario you have to 
+make sure that Apache is also configured to serve the same virtualhost 
+that Nginx is requesting.</p><p>Speed-wise both methods are about the 
+same when PHP is configured with the same set of options on both. Which 
+option you choose depends solely on your needs. Another article that may
+ be of interest in relations to this one would be <a href="http://kbeezie.com/view/nginx-proxy-change-ip/" target="_blank">Nginx as a Proxy to your Blog</a>, which can be just as easily utilized on a single server (especially if you get multiple IP ranges like I do).</p><ul class="previousnext clearfix"><li class="previous_post"><a href="http://kbeezie.com/secure-thumb-drive/" rel="prev"><span>Previous Entry:</span> Securing a Thumb Drive with TrueCrypt</a></li><li class="next_post"><a href="http://kbeezie.com/circuits-nginx-uwsgi/" rel="next"><span>Next Entry:</span> Deploying circuits.web with Nginx/uwsgi</a></li></ul></div><div class="postmetadata"><p class="categories"> Posted in <a href="http://kbeezie.com/category/webservers/apache/" rel="category tag">Apache</a>, <a href="http://kbeezie.com/category/webservers/nginx/" rel="category tag">Nginx</a>, <a href="http://kbeezie.com/category/webservers/" rel="category tag">Webservers</a></p><p class="tags">Tags: <a href="http://kbeezie.com/tag/apache/" rel="tag">Apache</a> <a href="http://kbeezie.com/tag/httpd/" rel="tag">httpd</a> <a href="http://kbeezie.com/tag/nginx/" rel="tag">Nginx</a></p><p class="infos"> You can follow any responses to this entry through the <a href="http://kbeezie.com/apache-with-nginx/feed/" rel="nofollow">RSS 2.0 Feed</a>.Both comments and pings are currently closed.</p></div></div><p class="nocomments">Comments are closed.</p></div></div></div><div id="footer" class="clearfix"><p class="alignright"> <a href="#home" class="top-link">Back to Top</a></p><p> © 2015 <a href="http://www.kbeezie.com/" target="_blank">KBeezie</a> · Powered by <a href="http://wiki.nginx.org/" target="_blank">Nginx</a> · Managed by <a href="http://ionvz.com/" target="_blank">IonVz</a> · Hosted on <a href="http://kbeezie.net/linode/" target="_blank">Linode</a></p></div><script type="text/javascript">/*<![CDATA[*/asyncScripts=[{"name":"comment-reply","src":"http:\/\/kbeezie.com\/wp-includes\/js\/comment-reply.min.js"},{"name":"footer_script_0","src":"http:\/\/kbeezie.com\/wp-includes\/js\/wp-embed.min.js?ver=4.4","deps":[],"extra":""}];function execDelayedScripts(){if(scriptsToLoad<=0){for(var i=0;i<asyncFunctions.length;i++){asyncFunctions[i]();}}else{setTimeout(execDelayedScripts,100);}}
+function loadAsyncScript(script){if(typeof(script.deps)=='object'){for(var i=0;i<script.deps.length;i++){if(!include(loadedScripts,script.deps[i])){setTimeout(function(){loadAsyncScript(script);},100);return;}}}
+if(script.extra!=''){var extra=document.createElement("script");extra.setAttribute('type','text/javascript');extra.innerHTML=script.extra;document.body.appendChild(extra);}
+if(script.src!=''){var element=document.createElement("script");element.setAttribute('type','text/javascript');element.src=decodeURIComponent(script.src.replace(/\+/g,' '));onload(element,function(){scriptsToLoad--;loadedScripts.push(script.name);});document.body.appendChild(element);}else{scriptsToLoad--;loadedScripts.push(script.name);}}
+var include=Array.prototype.indexOf?function(arr,obj){return arr.indexOf(obj)!==-1;}:function(arr,obj){for(var i=-1,j=arr.length;++i<j;)
+if(arr[i]===obj)return true;return false;};scriptsToLoad=asyncScripts.length;for(var i=0;i<asyncScripts.length;i++){loadAsyncScript(asyncScripts[i]);}
+function documentReady(){execDelayedScripts();}
+function onload(element,func){if(element.addEventListener){element.addEventListener("load",func,false);}else if(element.attachEvent){element.attachEvent("onload",func);}else{element.onload=func;}}
+onload(window,documentReady);/*]]>*/</script><script type="text/javascript">undefined</script><script src="Apache%20and%20Nginx%20Together%20%C2%BB%20KBeezie_elemei/comment-reply.js" type="text/javascript"></script><script src="Apache%20and%20Nginx%20Together%20%C2%BB%20KBeezie_elemei/wp-embed.js" type="text/javascript"></script><script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-10338612-1']);_gaq.push(['_setDomainName','none']);_gaq.push(['_setAllowLinker',true]);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://static.kbeezie.net/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script></body></html>
