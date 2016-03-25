@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- (2006.07.21.) 2007.01.24. -->
+<html xml:lang="hu" lang="hu"><head>
+	<title>Regular Expression - gyorstalpaló leírás</title>
+	<meta name="keywords" content="regexp, regex, apache, rewrite, web fejlesztés, böngészőfüggetlen" lang="hu">
+	<meta name="description" content="A RegEx vagy RegExp mostanság mindenhonnan visszaköszön. Ismerkedjünk meg vele picit közelebbről.">
+	<meta name="author" content="Varga Bence">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+	<link rel="stylesheet" type="text/css" href="Regular%20Expression%20-%20gyorstalpal%C3%B3%20le%C3%ADr%C3%A1s_elemei/general.css">
+	<script type="text/javascript" src="Regular%20Expression%20-%20gyorstalpal%C3%B3%20le%C3%ADr%C3%A1s_elemei/alphaimages.js"></script>
+	<script type="text/javascript" src="Regular%20Expression%20-%20gyorstalpal%C3%B3%20le%C3%ADr%C3%A1s_elemei/targetblank.js"></script>
+	<script type="text/javascript" src="Regular%20Expression%20-%20gyorstalpal%C3%B3%20le%C3%ADr%C3%A1s_elemei/htmlinclude.js"></script>
+	<script type="text/javascript" src="Regular%20Expression%20-%20gyorstalpal%C3%B3%20le%C3%ADr%C3%A1s_elemei/otherstuff.js"></script><script src="Regular%20Expression%20-%20gyorstalpal%C3%B3%20le%C3%ADr%C3%A1s_elemei/urchin.js" type="text/javascript"></script><script type="text/javascript">_uacct = "UA-377008-1"; urchinTracker();</script>
+	<script type="text/javascript" src="Regular%20Expression%20-%20gyorstalpal%C3%B3%20le%C3%ADr%C3%A1s_elemei/debug.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="head">
+			<a href="http://vbence.web.elte.hu/"><img src="Regular%20Expression%20-%20gyorstalpal%C3%B3%20le%C3%ADr%C3%A1s_elemei/nagy_fent.jpg" alt="CSS DOM és AJAX böngészőfüggetlenül - FSA"></a>
+		</div>
+		<div id="content-wrap">
+			<div id="content">
+				<h1>Segítség a RegEx használatához</h1>
+				<p>A RegEx vagy RegExp a <strong>Regular Expression</strong> rövid 
+formája. Magyarul talán a "szabályos kifejezés" lenne a megfelelő 
+fordítás. Ez a leírás azért született, hogy elindítson a technika 
+megismerésében, koránt sem tekinthető teljesnek, a cikk végén található 
+URL-eken lehet folytatni a barangolást a "szabályos kifejezések" 
+világában.</p>
+				<p>Mindig babonás félelemmel néztem a <em>RegEx</em> mintáira. Volt 
+dolgom egykét nyelnvel, de ez valami egészen bizarr dolog volt. Nem 
+hinném, hogy létezik olyan tapasztalat aminek birtokában felfedezhető a 
+RegEx sajátos logikája, szintaktikája, viszont az operátorok elolvasása 
+után szinte arculcsap a felismerés: "ennyi az egész?" Legalább is ez 
+lenne a cikk célja :)</p>
+				<p>A RegEx lehetőséget ad szabályok, azaz minták egyszerű leírására.
+ Ezekkel a mintákkal aztán sok hasznos dolgot tehetünk. Kereshetünk 
+rájuk egy stringben, vagy kicserélhetjük őket valamilyen szabály 
+szerint. Használhatjuk adatellenőrzésre vagy szerkezetek (pl. dátum) 
+szétdarabolására, értelmezésére.</p>
+				<p>Essünk túl a kötelező analógián: a DOS-ból jólismert <em>joker karakterek</em> is kifejezéseket írnak le, amiknek fájlokat feleltetünk meg, vagy van egyezés, vagy nem. A <samp>ka*.doc</samp> és <samp>ka???.doc</samp> kifejezések közül a <strong>kalap.doc</strong> mindkettőnek, még a <strong>kapa.doc</strong> csak az elsőnek felel meg.</p>
+				<p>Hogy még egy kicsit rosszabb legyen, mielőtt jobb lesz: DOS-os <samp>ka*.doc</samp> RegEx megfelelője: <strong>ka.*\.doc</strong> a <samp>ka???.doc</samp> peig nem más, mint <strong>ka.{3}\.doc</strong></p>
+				<h2>RegEx operátorok</h2>
+				<p>A DOS-os példához hasonlóan a mi mintáink is konkrét 
+karakterekből (szavak, szótöredékek), és speciális jelentésű 
+operátorokból épülnek fel.</p>
+				<h3>Karakter megfeleltetés</h3>
+				<dl>
+					<dt>
+						. (pont)
+					</dt>
+					<dd>
+						Bármilyen karakter:
+						A <samp>b.ka</samp> kifejezésnek megfelel a <strong>béka</strong> és <strong>bika</strong> szó is.
+					</dd>
+					<dt>
+						[<em>karakterek</em>]
+					</dt>
+					<dd>
+						A kapcsoszárójelek között felsorolt karakterek valamelyikével megegyező karakter:
+						A <samp>b[éa]ka</samp> kifejezésnek megfelel a <strong>béka</strong> és <strong>baka</strong> szó, a <strong>bika</strong> viszont nem. A - (minusz) jellel tartományt is megadhatunk. Például <samp>[0-9]</samp> megfelel bármely számjegynek vagy <samp>[a-zA-Z]</samp> bármely kis vagy nagybetünek.
+					</dd>
+					<dt>
+						[^<em>karakterek</em>]
+					</dt>
+					<dd>
+						A kapcsoszárójelek között felsorolt karakterek egyikével sem egyező karakter (az előző operátor tagadása):
+						A <samp>b[^é]ka</samp> kifejezésnek nem megoldása a <strong>béka</strong>. A <strong>baka</strong> és <strong>bika</strong> viszont igen.
+					</dd>
+				</dl>
+				<h3>Többszörözés</h3>
+				<dl>
+					<dt>
+						?
+					</dt>
+					<dd>
+						A megelőző minta 0 vagy 1 alkalommal fordul elő:
+						A <samp>borda.?</samp> kifejezés igaz a <strong>borda</strong> és a <strong>bordal</strong> szavakra is.
+					</dd>
+					<dt>
+						+
+					</dt>
+					<dd>
+						A megelőző minta 1 vagy több alkalommal fordul elő:
+						A <samp>bo.+ka</samp> kifejezésnek megfelel a <strong>boróka</strong>, a <strong>boka</strong> viszont nem.
+					</dd>
+					<dt>
+						*
+					</dt>
+					<dd>
+						A megelőző minta 0 vagy több alkalommal fordul elő:
+						A <samp>bo.*ka</samp> kifejezésnek már megfelel a <strong>boka</strong> és <strong>boróka</strong> is.
+					</dd>
+					<dt>
+						{<em>m</em>,<em>n</em>}
+					</dt>
+					<dd>
+						Segítségével megadható minimum és maximum vagy pontosan megadott 
+számú előfordulás - {3} pontosan 3 előfordulás; {3,} legalább 3 
+előfordulás; {2,5} legalább 2 legfeljebb 5 előfordulás; {,10} legfeljebb
+ 10 előfordulás.
+						A <samp>d.{,5}ány</samp> igaz minden esetben, ha <strong>legfeljebb</strong> 5 karaktert kell helyettesíteni, például a <strong>dolmány</strong> esetén. A <strong>diszkópatkány</strong> viszont már nem akad fenn rajta.
+					</dd>
+				</dl>
+				<h3>Horgonyok</h3>
+				<p>Az előzőekben nem szemléltettem, de a felsorolt kifejezések akkor is igazak ha a vizsgált string belsejében találhatók meg. A <samp>b.ka</samp> igaz a <strong>bikaviadal</strong> mintára is.</p>
+				<dl>
+					<dt>
+						^
+					</dt>
+					<dd>
+						A minta eleje:
+						Ezzel jelezhetjük, hogy a kifejezést a minta elején keressük. A <samp>^béka</samp> kifejezésnek megfelel a <strong>békanyál</strong> minta, a <strong>kecskebéka</strong> viszont nem.
+					</dd>
+					<dt>
+						$
+					</dt>
+					<dd>
+						A minta vége:
+						Az előző horgonyhoz hasonlóan a minta végét testesíti meg. A <samp>ék$</samp> mintának megfelel minden erre végződő szó (kerék, pék).
+					</dd>
+				</dl>
+				<p>Természetesen kombinálhatók is. A <samp>^p.k$</samp> kifejezés csak akkor igaz, ha az input pontosan egy hárombetűs szó. A <strong>legpikánsabb</strong> nem megoldása, ahogy a <strong>pikáns</strong> sem. A <strong>pék</strong> vagy <strong>pók</strong> viszont jó.</p>
+				<h3>Logika</h3>
+				<dl>
+					<dt>
+						|
+					</dt>
+					<dd>
+						Vagylagos egyezés:
+						Két lehetőség közé téve bármelyikkel való egyezés találatot 
+produkál. Gyakorlati példához picit előre kell ugorjunk, a normál 
+(kerek) zárójelekre, jelen felhasználás viszont nem kíván különösebb 
+magyarázatot: <samp>ka(lap|bát)</samp>
+					</dd>
+					<dt>
+						( )
+					</dt>
+					<dd>
+						Kifejezések csoportosítása:
+						Nem csak a vagylagos egyezés az egyetlen lehetséges felhazsnálás. 
+Egy csoportot létrehozva elláthatjuk paraméterrel például a <samp>(hókusz)?pók</samp> segítségével a <strong>hókuszpók</strong> és <strong>pók</strong> szavak is megtalálhatók. A csoportokra később hivatkozhatunk is, ez cserénél vagy stringek értelmezésénél lesz hasznos.
+					</dd>
+				</dl>
+				<h3>Escape-elés</h3>
+				<p>Ezek az operátorok lefednek néhány gyakran használt karaktert is.
+ Ha például egy pont karaktert nem speciális értelmében szeretnénk 
+hazsnálni, hanem egy pontként a C-ból, PHP-ből, Javascriptből megszokott
+ módon \ (backslash) karakterrel tudjuk megfosztani speciális 
+jelentésétől.</p>
+				
+				<h2>Összetett példák</h2>
+				<h3>Dátum feldolgozás</h3>
+				<code>[0-9]{4}[^0-9]*[0-9]{2}[^0-9]*[0-9]{2}</code>
+				<p>Hogy is olvasandó a példa? <samp>[0-9]{4}</samp> négy darab számjegy (év); amelyet követ <samp>[^0-9]*</samp> nulla vagy akár több NEM számjegy karakter (esetleges elválasztó); majd <samp>[0-9]{2}</samp> két számjegy (hónap); utána ismét <samp>[^0-9]*</samp> jöhet elválasztó; és végül <samp>[0-9]{2}</samp> két újabb számjegy.</p>
+				<p>Ezzel még csak félmunkát végeztünk. Tudunk azonosítani egy 
+dátumot, de nem tudunk hivatkozni az egyes tagokra. A kerekzárójellel 
+emeljük ki azokat a csoportokat amik számunkra érdekes adatokat 
+hordoznak.</p>
+				<code><em>([0-9]{4})</em>[^0-9]*<em>([0-9]{2})</em>[^0-9]*<em>([0-9]{2})</em></code>
+				<p>A használt nyelvnek megfelelő stílusban (általában egy tömbben) 
+kapjuk vissza a megjelölt csoportok tartalmát a RegEx futtatása után. 
+Például PHP-ben:</p>
+				<code>$datum = "2006. 07. 22.";
+ereg ('([0-9]{4})[^0-9]*([0-9]{2})[^0-9]*([0-9]{2})', $datum, $talalat);
+var_dump ($talalat);</code>
+				<p>Eredménye a következő:</p>
+				<code>array(4) {
+  [0]=&gt;
+  string(12) "2006. 07. 22"
+  [1]=&gt;
+  string(4) "2006"
+  [2]=&gt;
+  string(2) "07"
+  [3]=&gt;
+  string(2) "22"
+}</code>
+				<p>A tömb nullás sorszámú rekeszébe kerül az egész kifejezésnek 
+megfelelő minta (látható, hogy a végső pont nincs benne, hiszen a 
+keresett kifejezésünk véget ér a napot jelölő két számjeggyel). Az egyes
+ sorszámtól kezdve a tömbbe kerültek az általunk (kerekzárójellel) 
+megjelölt csoportok. A kiindulási dátum lehetett volna "2006-07-22" vagy
+ "20060722" is, a kifejezés mindet megfejti.</p>
+				<p>Bizonyos dátumformátumok nem pótolják ki kétszámjegyűre az 
+adatokat. Pédlául "2006/7/22". Ilyenkor az elválasztók jelenléte a 
+döntő. Az elválasztók között mindig van egy vagy több számjegy:</p>
+				<code><em>([0-9]{4})</em>[^0-9]*<em>([0-9]+)</em>[^0-9]*<em>([0-9]+)</em></code>
+				<p>Nézzünk egy PHP példát a csrére. A következő függvény a 
+tetszőlegesen elválasztott dátumformátumot "-" jellel elválasztottra 
+konvertálja (ahogy például a MySQL szereti).</p>
+				<code>$datum = "2006. 7. 22.";
+$ujdaum = ereg_replace ('([0-9]{4})[^0-9]*([0-9]+)[^0-9]*([0-9]+)[^0-9]*', '\1-\2-\3', $datum);
+echo ($ujdaum);  // eredménye: 2006-7-22</code>
+				<p>Itt megtoldottuk a mintát egy <samp>[^0-9]*</samp> kóddal, hogy 
+lenyeljük az esetleges elválasztó jeleket a dátum végéről. A \1 \2 \3 
+pedig referenciák a zárójellel kiemelt csoportokra.</p>
+				
+				<h3>E-mail ellenőrzés</h3>
+				<code>^[0-9a-z\.-]+@<em>([0-9a-z-]+\.)+</em>[a-z]{2,4}$</code>
+				<p>Olvassuk el: <samp>^</samp> a minta elején; egy vagy több 
+alfanumerikus karakter, a pont és kötőjel is megengedett (A pont 
+speciális karakter, egy backslash-sel jelöljük, hogy nem szeretnénk, 
+hogy most értelmezze a RegEx motor. A minusz szintén speciális 
+jelentéssel bír a kapcsoszárójelek között. Az ő esetében a 
+backslash-módszer néhány értelmezőnek gondot okoz, ezért hogy megfosszuk
+ speciális jelentésétől az utolsó kell legyen a záró kapcsoszárójel 
+előtt.) Ezek után egy <samp>@</samp> (at) karakter következik; majd <samp>[0-9a-z-]+</samp> egy vagy több alfanumerikus karakter; amit <samp>\.</samp> egy pont követ. A mintát egy <samp>[a-z]{2,4}</samp> legalább 2 legfejlebb 4 betüből álló rész (TLD) zárja <samp>$</samp>.</p>
+				<p>A kifejezés közepén (kiemelt rész) képezünk egy csoportot, aminek engedélyeztük az ismétlődést. Ennek hatására nem csak a "user@<em>domain.</em>tld" felel meg, hanem ugyanúgy a "user@<em>subhost.host.domain.</em>tld" is.</p>
+				<code>$email = "gipsz.jakab@szerver.szervezet.hu";
+$megfelel = eregi ('^[0-9a-z\.-]+@([0-9a-z-]+\.)+[a-z]{2,4}$', $email);
+echo ($megfelel);  // az eredmény: 1</code>
+				<p>Most nem értelmezünk, darabolunk, cserélünk, egyszerűen csak ellenőrizzük megfelel-e a vizsgált minta a kifejezésünknek. Az <a href="http://www.php.net/eregi">eregi</a> függvény a kis és nagybetüket nem különböztei meg, és nekünk most erre van szükségünk.</p>
+				<p>Ugyanerre egy <em>JavaScript</em> példa:</p>
+<script type="text/javascript">
+	function mailcheck() {
+		var reg = /^[0-9a-z\.-]+@([0-9a-z-]+\.)+[a-z]{2,4}$/i;
+		var s = document.getElementById('email').value;
+		alert(reg.test(s));
+	}
+</script>
+<input id="email" type="text">
+<input onclick="mailcheck();" value="Email?" type="button">
+				<p>A példa forrása:</p>
+				<code>&lt;script type="text/javascript"&gt;
+	function mailcheck() {
+		var reg = <em>/^[0-9a-z\.-]+@([0-9a-z-]+\.)+[a-z]{2,4}$/i</em>;
+		var s = document.getElementById('email').value;
+		alert(reg.test(s));
+	}
+&lt;/script&gt;
+&lt;input type="text" id="email"/&gt;
+&lt;input type="button" onclick="mailcheck();" value="Email?"/&gt;</code>
+				<p>A JavaScript a PERL kompatibilis szintaxist használja (PCRE). Ez 
+nem string. Idézőjelek helyett "/" határoló karakterek között (itt más 
+határoló nem használható) található a minta, utána a flagekkel. Itt az <em>i</em>, azaz <em>igonore-case</em> flaget használjuk, azaz kis és nagybetük nincsenek megkülönbeztetve. A <em>reg</em> tipusa tehát nem String, hanem <em>RegExp</em>. Ennek hazsnáljuk a <a href="http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Working_With_Regular_Expressions">test()</a> metódusát az input ellenőrzésére.</p>
+				
+				<h3>URL formázott kiírása</h3>
+				<p>Tételezzük fel, hogy egy webcímet szeretnénk tetszetős formában kiírni: kiemelni a domainnevet és elávolítani az <strong>esetleges</strong>
+ / jelet a végéről. Mivel nem tudjuk, hogy konkrétan van-e a végén / 
+(per) karakter szükségünk lesz egy feltételes kifejezésre. Az első 
+kézenfekvő megoldás:<br><samp>://([^/]+)(.*)(/$|$)</samp></p>
+				<p>A <samp>://</samp> a protokol végét jelöli, semmi speciális. A <samp>([^/]+)</samp>
+ kifejezés megtalálja nekünk a hostnevet, mivel az első / előtti összes 
+karaktert visszaadja. Az elérési út többi tagja megfelel a <samp>(.*)</samp>
+ kifejezésnek. Ezután pedig vagy egy / karakter majd a string vége 
+következik, vagy azonnal a string vége. Logikusan hangzik, mégsem 
+működik.</p>
+				<p>A probléma az, hogy a <samp>(.*)</samp> elnyeli a záró / karaktert is. Így az utolsó csopotnak már csak string vége jel jut. A megoldás:</p>
+				<code>://([^/]+)(.<em>*?</em>)(/$|$)</code>
+				<p>Ezt nevezik nem-kapzsi (non-greedy) keresésnek. Ilyenkor a lehető
+ legkevesebb karaktert vesz le magának a kifejezés. Amint az utána 
+következő kifejezés <samp>(/$|$)</samp> egyezést produkál nem eszik meg többet magának.</p>
+				<p>A PHP <em>ereg</em> függvényei nem ismerik ezt a keresési módot. Éles helyzetekben mindenképpen a gyorsabb <a href="http://www.php.net/preg_match">PCRE</a> függvénycsaládot javaslom. A példákban csak a picit barátságosabb szintaktika miatt szerepel ereg. Lássuk most a példát <em>preg</em> (PCRE) használatával:</p>
+				<code>$url = "http://domain.tld/dokumentumok/2006/";
+preg_match ('#://([^/]+)(.*?)(/$|$)#', $url, $talalat);
+var_dump ($talalat);</code>
+				<p>A legszembetűnőbb újdonság az, hogy a PCRE függvények határoló 
+karakterek (esetünkben kettőskereszt: #) között várják a kifejezést 
+(erről később bővebben). A határoló karaktert mi választjuk meg. 
+Általában a per karakter használatos, esetünkben viszont nem lenne 
+célszerű, mivel a mintánkban több helyen is szerepel. Ha a választott 
+határoló karakter szerepel a mintában, akkor a már ismertetett módon, 
+egy backslash karakterrel kell escape-elni azt.</p>
+				<p>A futás eredménye:</p>
+				<code>array(4) {
+  [0]=&gt;
+  string(32) "://domain.tld/dokumentumok/2006/"
+  [1]=&gt;
+  string(10) "domain.tld"
+  [2]=&gt;
+  string(18) "/dokumentumok/2006"
+  [3]=&gt;
+  string(1) "/"
+}</code>
+				<p>Ahogy megszoktuk, a tömb nullás sorszámú eleme az egész találatot
+ tartalmazza, az általunk megjelölt csoportok az első indextől 
+kezdődnek: A protokoll utáni első "/" karaker előtti rész, azaz a 
+hostnév; majd az URL további része; kivéve a záró "/" karaktert, ami az 
+utolsó csoport.</p>
+				<p>A darabok ismeretében kiírhatjuk emberbarát, style-olt URL-ünket, ahol a hostnevet tetszőlegesen kiemelhetjük.</p>
+				<code>echo ('&lt;span class="url-host"&gt;' . $talalat[1] . '&lt;/span&gt;&lt;span class="url-path"&gt;' . $talalat[2] . '&lt;/span&gt;');</code>
+				
+				<h3>Bankszámlaszám ellenőrzése</h3>
+				<code>^[0-9]{8}<em>([ -]?[0-9]{8}){1,2}</em>$</code>
+				<p>A bankrendszer behatóbb simerete nélkül feltételezem, hogy egy 
+számlaszám 16 vagy 24 számból áll, és nyolcasával szokás őt 
+elválasztani.</p>
+				<p>Olvassuk el: nyolc számjegy (eddig semmi különös); majd <strong>jöhet</strong>
+ (kérdőjel, azaz 0 vagy 1 darab előfordulás) egy elválasztó karakter 
+(space vagy kötőjel); ezután ismét nyolc számjegy. Az utolsó két 
+kifejezésből létrehozunk egy csoportot (kiemelt rész - kerek zárójel), 
+amiből legalább egy (16 számjegyű számlaszám) vagy legfeljebb kettő (24 
+számjegyű számlaszám) fordulhat elő. A kifejezés a start "^" jellel 
+kezdődik és a vége "$" jelle fejeződik be, így teljes egyezést 
+viszgálunk, nem elég, ha a minta csak tartalmazza a számlaszámot 
+(enélkül például a "abc12345678-12345678" is megoldás lenne).</p>
+				<p>Egy működő <em>JavaScript</em> példa:</p>
+<script type="text/javascript">
+	function szamlaCheck() {
+		var reg = /^[0-9]{8}([ -]?[0-9]{8}){1,2}$/;
+		var s = document.getElementById('szamlaszam').value;
+		alert(reg.test(s));
+	}
+</script>
+<input id="szamlaszam" type="text">
+<input onclick="szamlaCheck();" value="Számlaszám?" type="button">
+				<p>És a forrás:</p>
+				<code>&lt;script type="text/javascript"&gt;
+	function szamlaCheck() {
+		var reg = /^[0-9]{8}([ -]?[0-9]{8}){1,2}$/;
+		var s = document.getElementById('szamlaszam').value;
+		alert(reg.test(s));
+	}
+&lt;/script&gt;
+&lt;input type="text" id="szamlaszam"/&gt;
+&lt;input type="button" onclick="szamlaCheck();" value="Számlaszám?"/&gt;</code>
+
+<!--
+				<h3>Linkek kiemelése szövegből</h3>
+				<code>(^| )(<em>www\.</em>[a-z0-9/_%.<em>?=&amp;</em>-]+)</code>
+				<code>(^| )(<em>http://</em>[a-z0-9/_%.<em>?=&amp;</em>-]+)</code>
+				<p>Több jó példa is van a <a rel="external" href="http://www.php.net/manual/en/function.ereg-replace.php">php aktív dokuemntációjában</a></p>
+-->
+
+				<h2>További ötletek?</h2>
+				<p>Kimerítettem minden eszembe jutó példát. Ha van egy (nem nagyon 
+speciáis) felhasználásod, amire nem találod a megoldást (vagy akár 
+igen), és jól mutatna itt példának várok minden ötletet a <a href="http://vbence.web.elte.hu/kapcsolat.html">kapcsolat oldalon</a>.</p>
+
+				<h2>Külső linkek</h2>
+				<ul>
+					<li><a href="http://en.wikipedia.org/wiki/Regular_expression" rel="external">Wikipédia sok részletre kitejedő leírása</a></li>
+					<li><a href="http://www.php.net/manual/en/ref.pcre.php" rel="external">PHP Pearl kompatibilis RegEx funkciók</a> javasolt</li>
+					<li><a href="http://www.php.net/manual/en/ref.regex.php" rel="external">PHP POSIX RegEx funkciók</a> beépített, de lassabb</li>
+					<li><a href="http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Global_Objects:RegExp" rel="external">Szabványos JavaScript RegEx (azaz RegExp) objektum</a> a Mozilla dokuemtációjából</li>
+				</ul>
+				
+			</div>
+			
+			<div id="sub-content">
+				<h2>Hasznos</h2>
+				<ul class="tart">
+					<li><a href="http://vbence.web.elte.hu/">Tartalom</a></li>
+					<li><a href="http://vbence.web.elte.hu/kapcsolat.html">Kapcsolat</a></li>
+				</ul>
+				<div class="close-panel">
+				</div>
+				<span><!--<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Újdonságok</title>
+	</head>
+	<body>-->
+				<h2>Újdonságok</h2>
+				<ul class="tart">
+					<li><a href="http://vbence.web.elte.hu/paypal-leiras-regisztracio-beallitasok.html">PayPal regisztráció</a></li>
+					<li><a href="http://vbence.web.elte.hu/css_preload.html">CSS preload</a></li>
+					<li><a href="http://vbence.web.elte.hu/regex_leiras.html">RegEx leírás</a></li>
+					<li><a href="http://vbence.web.elte.hu/php_eroforras_hasznalat_log.html">PHP CPU használat</a></li>
+				</ul>
+				<div class="close-panel">
+				</div>
+				<h2>All Stars</h2>
+				<ul class="tart">
+					<li><a href="http://vbence.web.elte.hu/dom_objektum_info.html">DOM objektumok</a></li>
+					<li><a href="http://vbence.web.elte.hu/html_include_kliensoldali.html">HTML include</a></li>
+					<li><a href="http://vbence.web.elte.hu/php_kep_meretezes_vizjel.html">PHP képkezelő</a></li>
+				</ul>
+				<div class="close-panel">
+				</div>
+<!--	</body>
+</html>--></span>
+			</div>
+		</div>
+		<div id="foot-wrap">
+			<div id="foot">
+				Varga Bence 2007
+			</div>
+		</div>
+	</div>
+
+</body></html>

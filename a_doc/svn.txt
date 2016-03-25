@@ -48,6 +48,20 @@ svn merge ^/trunk -r399:HEAD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 If we would like to access from other computer:
 ---------------
 ---------------
