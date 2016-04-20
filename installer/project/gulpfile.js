@@ -4,19 +4,28 @@ var gulp = require('gulp');
 // Include Our Plugins
 var jshint = require('gulp-jshint');
 var sass =   require('gulp-sass');
+var less =   require('gulp-less');
 var concat = require('gulp-concat');
 var cssmin = require('gulp-cssmin');
 var uglify =  require('gulp-uglify');
 var rename = require('gulp-rename');
 var watch  = require('gulp-watch');
 
+gulp.task('compile-less', function() {
+    return gulp.src(['custom/less/*.less'])
+        .pipe(less().on('error', less.logError))
+		  .pipe(concat('less.css'))
+        .pipe(gulp.dest('css'))
+		  .pipe(cssmin())
+		  .pipe(rename({suffix: '.min'}))
+		  .pipe(gulp.dest('css'));
+	
+});
 
-
-// Compile Our Sass
 gulp.task('compile-sass', function() {
     return gulp.src(['custom/sass/*.sass'])
         .pipe(sass().on('error', sass.logError))
-		  .pipe(concat('site.css'))
+		  .pipe(concat('sass.css'))
         .pipe(gulp.dest('css'))
 		  .pipe(cssmin())
 		  .pipe(rename({suffix: '.min'}))
@@ -111,6 +120,12 @@ gulp.task('watch-js', function() {
 gulp.task('watch-sass', function() {
     return watch(['custom/sass/*.sass'], function(event) {
       gulp.run('compile-sass');
+    });
+});
+
+gulp.task('watch-less', function() {
+    return watch(['custom/less/*.less'], function(event) {
+      gulp.run('compile-less');
     });
 });
 

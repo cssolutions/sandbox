@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'phpUnitTutorial' => array($baseDir . '/'),
     'Symfony\\Component\\Yaml' => array($vendorDir . '/symfony/yaml'),
+    'Project\\Tests' => array($baseDir . '/tests'),
+    'Project' => array($baseDir . '/src'),
 );

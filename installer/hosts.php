@@ -13,8 +13,8 @@ define('WWW_PATH','/home/csaba/www');
 include 'options.php';
 
 $url = "$name.local";
-if (isset($options['public']) && $options['public']=="false") $www_dir = WWW_PATH . "/" . $name;
-else $www_dir = WWW_PATH . "/" . $name . '/public';
+if (isset($options['public']) && $options['public']=="false") $www_dir = WWW_PATH . '/' . $name;
+else $www_dir = WWW_PATH . '/' . $name . '/public';
 
 $content = <<<EOT
 <VirtualHost *:80>

@@ -2,8 +2,11 @@
 <?php
 /*
  * First, let's create a repo with a $name parameter at bitbucket
- * Run command: php go.php --name csaba
+ * Run command: 
+ * php hosts.php --name=csaba -public=1
+ * php go.php --name csaba
  * go to localhost base_admin db and műveletek/adatbázis másolása ide
+ * @TODO: nem húzza be a js-t, css-t
  */
 define('DEFAULT_USER','csaba');
 define('WWW_PATH','/home/csaba/www');
@@ -17,18 +20,18 @@ $bower_config = [
 	"license" => "MIT",
 	"authors" => ["Csaba Farkas"],
 	"dependencies" => [
-	    "jquery"=> "~2.1.4",
-	    "jquery-ui"=> "~1.11.4",
-		 "jquery-popup-overlay"=> "~1.6.0",
-	    "bootstrap"=> "~3.3.6",
-	    "bootstrap-sass-official"=> "~3.3.6",
-		 "bootstrap-material-design"=> "0.2.1",
-		 "bootstrap-combobox"=> "1.1.6",
-		 "bs-confirmation"=> "~1.0.5",
-	    "datatables"=> "DataTables#~1.10.8",
-	    "font-awesome"=> "~4.4.0",
-	    "fullcalendar"=> "~2.4.0",
-	    "summernote"=> "~0.6.16"
+		"jquery"=> "~2.1.4",
+		"jquery-ui"=> "~1.11.4",
+		"jquery-popup-overlay"=> "~1.6.0",
+		"bootstrap"=> "~3.3.6",
+		"bootstrap-sass-official"=> "~3.3.6",
+		"bootstrap-material-design"=> "0.2.1",
+		"bootstrap-combobox"=> "1.1.6",
+		"bs-confirmation"=> "~1.0.5",
+		"datatables"=> "DataTables#~1.10.8",
+		"font-awesome"=> "~4.4.0",
+		"fullcalendar"=> "~2.4.0",
+		"summernote"=> "~0.6.16"
 	]
 ];
 
