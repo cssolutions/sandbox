@@ -1,10 +1,5 @@
 <?php
-/**
- * Description of VideoStream
- *
- * @author Rana
- * @link http://codesamplez.com/programming/php-html5-video-streaming-tutorial
- */
+
 class VideoStream
 {
     private $path = "";
@@ -14,26 +9,15 @@ class VideoStream
     private $end    = -1;
     private $size   = 0;
  
-    function __construct($filePath) 
-    {
+    function __construct($filePath) {
         $this->path = $filePath;
     }
-     
-    /**
-     * Open stream
-     */
-    private function open()
-    {
-        if (!($this->stream = fopen($this->path, 'rb'))) {
-            die('Could not open stream for reading');
-        }
+
+    private function open() {
+        if (!($this->stream = fopen($this->path, 'rb'))) die('Could not open stream for reading');
     }
-     
-    /**
-     * Set proper header to serve the video content
-     */
-    private function setHeader()
-    {
+
+    private function setHeader() {
         ob_get_clean();
         header("Content-Type: video/mp4");
         header("Cache-Control: max-age=2592000, public");
@@ -55,12 +39,10 @@ class VideoStream
                 header("Content-Range: bytes $this->start-$this->end/$this->size");
                 exit;
             }
-            if ($range == '-') {
-                $c_start = $this->size - substr($range, 1);
-            }else{
+            if ($range == '-') $c_start = $this->size - substr($range, 1);
+            else {
                 $range = explode('-', $range);
                 $c_start = $range[0];
-                 
                 $c_end = (isset($range[1]) && is_numeric($range[1])) ? $range[1] : $c_end;
             }
             $c_end = ($c_end > $this->end) ? $this->end : $c_end;
@@ -74,49 +56,29 @@ class VideoStream
             $length = $this->end - $this->start + 1;
             fseek($this->stream, $this->start);
             header('HTTP/1.1 206 Partial Content');
-            header("Content-Length: ".$length);
-            header("Content-Range: bytes $this->start-$this->end/".$this->size);
-        }
-        else
-        {
-            header("Content-Length: ".$this->size);
-        }  
-         
+            header("Content-Length: " . $length);
+            header("Content-Range: bytes $this->start-$this->end/" . $this->size);
+        } else header("Content-Length: ".$this->size);
     }
     
-    /**
-     * close curretly opened stream
-     */
-    private function end()
-    {
+    private function end() {
         fclose($this->stream);
         exit;
     }
-     
-    /**
-     * perform the streaming of calculated range
-     */
-    private function stream()
-    {
+
+    private function stream() {
         $i = $this->start;
         set_time_limit(0);
-        while(!feof($this->stream) && $i <= $this->end) {
+        while (!feof($this->stream) && $i <= $this->end) {
             $bytesToRead = $this->buffer;
-            if(($i+$bytesToRead) > $this->end) {
-                $bytesToRead = $this->end - $i + 1;
-            }
-            $data = fread($this->stream, $bytesToRead);
-            echo $data;
+            if (($i+$bytesToRead) > $this->end) $bytesToRead = $this->end - $i + 1;
+            echo fread($this->stream, $bytesToRead);
             flush();
             $i += $bytesToRead;
         }
     }
-     
-    /**
-     * Start streaming video content
-     */
-    function start()
-    {
+
+    function start() {
         $this->open();
         $this->setHeader();
         $this->stream();
