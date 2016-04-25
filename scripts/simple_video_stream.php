@@ -85,3 +85,6 @@ class VideoStream
         $this->end();
     }
 }
+
+$streamer = new VideoStream('videos/rabbit.mp4');
+$streamer->start();

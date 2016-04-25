@@ -1,0 +1,5 @@
+if we want to keep temporary files only for the current session
+
+sudo mkdir /media/temporary_files
+sudo mount -t tmpfs -o size=1% tmpfs /media/temporary_files
+ls -l | less  > /media/temporary_files/lsl.txt
