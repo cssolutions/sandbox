@@ -1,0 +1,1 @@
+console.log('Aki nem lép egyszerre...');

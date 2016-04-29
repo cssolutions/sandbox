@@ -11,7 +11,7 @@
 define('DEFAULT_USER','csaba');
 define('WWW_PATH','/home/csaba/www');
 define('INSTALLER_PATH', realpath('.'));
-define('DB_TO_CLONE', 'objfw');
+define('DB_TO_CLONE', 'structure');
 ini_set('mysql.default_socket', '/opt/lampp/var/mysql/mysql.sock');
 
 $bower_config = [

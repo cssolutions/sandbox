@@ -18,7 +18,7 @@ else $www_dir = WWW_PATH . '/' . $name . '/public';
 
 $content = <<<EOT
 <VirtualHost *:80>
-	ServerAdmin csaba.farkas@digi.co.hu
+	ServerAdmin csaba@oninflo.hu
 	DocumentRoot {$www_dir}
 	ServerName {$url}
 	ServerAlias www.{$url}

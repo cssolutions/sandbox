@@ -1,0 +1,10 @@
+name = Teszt modul
+description = "Teszt 1 module leírása"
+package = "TESZT"
+core = 7.x
+configure = admin/config/development/performance
+dependencies[] = drupal:commerce
+php = 5.6
+files[] = teszt.module
+scripts[] = js/somescript.js
+stylesheets[all][] = css/somestyle.css
