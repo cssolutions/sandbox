@@ -1,0 +1,16 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-ALLOW-CACHE:YES
+#EXT-X-TARGETDURATION:121
+#EXTINF:120.375000,
+test_segments-PKdhtXMmr18n2L9K88er.ts
+#EXTINF:119.750000,
+test_segments-lGn7CcctT9RwKSB1Febr.ts
+#EXTINF:120.062500,
+test_segments-397VI5uG1yhc3uavuaOr.ts
+#EXTINF:120.187500,
+test_segments-9vyJcXyHZzsRwpC5iUzr.ts
+#EXTINF:116.250000,
+test_segments-hEcaYatja7kaqGHss6Yr.ts
+#EXT-X-ENDLIST

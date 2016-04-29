@@ -1,0 +1,145 @@
+var ADFMediaURLs='';
+var ADF_clickTag='https://adclick.g.doubleclick.net/aclk?sa=L&ai=CVAMLMAojV7fAAtHOWp_KqNAC29PRuwXb6YnsfMCNtwEQASAAYN2S3YOMDYIBF2NhLXB1Yi0yNjAxNzQ5MDE5NjU2Njk5yAEJqQKQV3m--YuEPqgDAaoErQFP0KZO0Mgg8MUliAqDZlPsN0SknYhRrsDnVuUcgXI3dBZYY8cgOWQ3JE2QJLL4LUaiNUSDhrbn-B_xWrMT_BYgx5qZ_24zBSOK8xW0_Fi6nCob-DMJbl9RYZB9mgXmbqGWLgX4FRcsMpCx0cWoT95wVdnjI7E2uqesQMR_KbnYpApkOlvHeiml64HktOWLMF3xCORNyCOzx4Ij5NZcNetlG1GDDpfldywECbCznYAGzvnrhtff_OtToAYhqAemvhvYBwA&num=1&sig=AOD64_0Fkyb3Vnjc1nmbeQWSdOoj8qZtog&client=ca-pub-2601749019656699&adurl=https://server.adformdsp.net/C/?bn=12159185;crtbwp=VyMKMAAAoDcKFqdRAAolH5pLAphdAPME_G_7DQ;crtbdata=LA9mEKok5qDZ-jKLdzxXJxCiSyoDYDECmJCiivQoOIMpCWzgqOlywAjnP0b92NTGMibHFcGiJ8OdIdpTJxjxEIGH28CsN8GUiVmwXoGfDWaS5IUmhBFKyD0SXtD4zJuWQS0p0GrBdzk8-pIZoFJXv7cnMIaiAp5dehnQPiaFhpbawgBZqo2-5mSKnB66OpT8VPOY3iJi5SWseFeTnrR398QJwdMLI9ljPQa9miNe6BUD6eB8vsOXKoLyrnte2FvAFzbg8DSQe4fPHrAXd3xRN-P7jlsSJ6nA0;adfibeg=0;cdata=uwg45uuP0H6XmEzibChV5YE3alpXxwMju5Lz35IkURZsnd1WAeHx5PRKlLcPlu5Vq0AerEbEn1z6xi3BD0Fta2gg0OFvautlZO08rRaNieDDeIjrSAcYFw2;;CREFURL=http%3a%2f%2fwww.tecmint.com%2fcheck-linux-disk-usage-of-files-and-directories%2f';
+var ADF_ClickEvent='https://server.adformdsp.net/CE/?bn=12159185';
+var ADFtagID='2x';
+var ADFafbanID='12159185';
+var FlashObjectID='FlashID2x';
+var ADFDomain='https://s1.adformdsp.net/Banners/';
+var ADFDomainCDN='https://files.adform.net/Banners/';
+var ADFVideoCDN='rtmp://s1yx966tga68s8.cloudfront.net/cfx/st/';
+var ADFVideoCDNList=['rtmp://s1yx966tga68s8.cloudfront.net/cfx/st/'];
+var ADFBanVer='257';
+var ADFBanVerBak='0';
+var ADFbu=false;
+var ADFerrTimeout = 15*24*60*60*1000;
+var ADFTemplateVersion;
+var ADFClientSiteId;
+var ADFTemplateId;
+var ADFGroupId;
+var ADFbanID='13917557';
+var ADFmembID='1083158';
+var ADFcmpgnID='582714';
+var ADFassetID='0';
+var ADFbanPlacID='1984843';
+var ADFUnloadID='7597875489230839879';
+var ADFGeoData='17848;11773;348';
+Adform=window.Adform||{};
+Adform.cache="574";
+Adform.locationInfo={Country: 'Hungary', Region: 'Budapest', City: 'Budapest', Latitude: '47.503400', Longitude: '19.045320'};
+
+(function () {
+try{
+var i = Adform.ADFBannerUtils.getInstance()
+i.addBannerAttribute("2x", "bn", 12159185);
+i.addBannerAttribute("2x", "rotseqno", "1");
+i.addBannerAttribute("2x", "cookieID", "3844980988204238325");
+i.addBannerAttribute("2x", "smid", "0");
+i.addBannerAttribute("2x", "unloadID", "7597875489230839879");
+i.addBannerAttribute("2x", "height", 250);
+i.addBannerAttribute("2x", "width", 300);
+i.addBannerAttribute("2x", "clickEvent", "https://server.adformdsp.net/CE/?bn=12159185");
+i.addBannerAttribute("2x", "pm", "582714");
+i.addBannerAttribute("2x", "visibilityArea", [50]);
+i.addBannerAttribute("2x", "visibilityTime", [1]);
+i.addBannerAttribute("2x", "ms", "1083158");
+i.addBannerAttribute("2x", "ban", "13917557");
+i.addBannerAttribute("2x", "stubFileURL", "%2fadform%2fIFrameManager.html");
+i.addBannerAttribute("2x", "serverTime", 1461914160624);
+i.addBannerAttribute("2x", "bannerVersion", "257");
+i.addBannerAttribute("2x", "csImpressionUrl", "https://server.adformdsp.net/csimpr?bn=12159185;rtbwp=VyMKMAAAoDcKFqdRAAolH5pLAphdAPME_G_7DQ;rtbdata=LA9mEKok5qDZ-jKLdzxXJxCiSyoDYDECmJCiivQoOIMpCWzgqOlywAjnP0b92NTGMibHFcGiJ8OdIdpTJxjxEIGH28CsN8GUiVmwXoGfDWaS5IUmhBFKyD0SXtD4zJuWQS0p0GrBdzk8-pIZoFJXv7cnMIaiAp5dehnQPiaFhpbawgBZqo2-5mSKnB66OpT8VPOY3iJi5SWseFeTnrR398QJwdMLI9ljPQa9miNe6BUD6eB8vsOXKoLyrnte2FvAFzbg8DSQe4fPHrAXd3xRN-P7jlsSJ6nA0;nofp=1;click=https://adclick.g.doubleclick.net/aclk?sa=L&ai=CVAMLMAojV7fAAtHOWp_KqNAC29PRuwXb6YnsfMCNtwEQASAAYN2S3YOMDYIBF2NhLXB1Yi0yNjAxNzQ5MDE5NjU2Njk5yAEJqQKQV3m--YuEPqgDAaoErQFP0KZO0Mgg8MUliAqDZlPsN0SknYhRrsDnVuUcgXI3dBZYY8cgOWQ3JE2QJLL4LUaiNUSDhrbn-B_xWrMT_BYgx5qZ_24zBSOK8xW0_Fi6nCob-DMJbl9RYZB9mgXmbqGWLgX4FRcsMpCx0cWoT95wVdnjI7E2uqesQMR_KbnYpApkOlvHeiml64HktOWLMF3xCORNyCOzx4Ij5NZcNetlG1GDDpfldywECbCznYAGzvnrhtff_OtToAYhqAemvhvYBwA&num=1&sig=AOD64_0Fkyb3Vnjc1nmbeQWSdOoj8qZtog&client=ca-pub-2601749019656699&adurl=;js=1;adfxid=2x;2509;set=hu-HU|hu-HU|1920X1080|11.2202616|300|250|24|8|3|7|1&CREFURL=http%3A%2F%2Fwww.tecmint.com%2Fcheck-linux-disk-usage-of-files-and-directories%2F");
+i.addBannerAttribute("2x", "bnpl", "1984843");
+i.addBannerAttribute("2x", "sendUnloadData", 1);
+i.addBannerAttribute("2x", "unloadScriptVersion", 13);
+i.addBannerAttribute("2x", "isDSPTag", true);
+i.addBannerAttribute("2x", "isEventsEnabled", 1);
+i.addBannerAttribute("2x", "rtbInventorySourceId", "1");
+i.addBannerAttribute("2x", "rtbReqId", "57230a300000a0370a16a7512a0a251f_1");
+i.setBannerRegisteredStatus("2x");
+}catch(e){}
+})();
+
+
+
+<!--
+var ADFtagid1460166099 = (typeof(ADFafbanID)!="undefined") ? ADFafbanID : 0;
+var ADFclickTagString1460166099 = (typeof(ADF_clickTag)!="undefined") ? escape(ADF_clickTag) : escape('https://server.adformdsp.net/C/?bn='+ADFtagid1460166099);
+var ADFclickTagParameters1460166099 = (typeof(ADF_clickTagPars)!="undefined") ? escape(ADF_clickTagPars) : '';
+var ADFclickEventString = (typeof(ADF_ClickEvent) != "undefined") ? escape(ADF_ClickEvent) : escape('https://server.adformdsp.net/C/?bn='+ADFtagid1460166099+';bsqno=1;li=1;cset=');
+var FlashObjectID=(typeof(FlashObjectID)!="undefined") ? FlashObjectID : 'adftest';
+var ADFDomain=(typeof(ADFDomain)!="undefined") ? ADFDomain : '';
+var ADFDomainCDN=(typeof(ADFDomainCDN)!="undefined") ? ADFDomainCDN : '';
+var ADFVideoCDN=(typeof(ADFVideoCDN)!="undefined") ? ADFVideoCDN : '';
+var ADFClientSiteId=(typeof(ADFClientSiteId)!="undefined") ? ADFClientSiteId : '';
+var ADFTemplateVersion=(typeof(ADFTemplateVersion)!="undefined") ? ADFTemplateVersion : '1460166099';
+var ADFTemplateId=(typeof(ADFTemplateId)!="undefined") ? ADFTemplateId : '';
+var ADFGroupId=(typeof(ADFGroupId)!="undefined") ? ADFGroupId : '';
+var ADFGeoData=(typeof ADFGeoData != "undefined" || ADFGeoData != null) ? ADFGeoData : '0;0;0';
+var ADFBanVer=(typeof(ADFBanVer)!="undefined") ? ADFBanVer : '1460166099';
+var ADFBanVerBak=(typeof(ADFBanVerBak)!="undefined") ? ADFBanVerBak : '1460166099';
+var ADFtagID=(typeof(ADFtagID)!="undefined") ? ADFtagID : '1x';
+if (typeof(ADFbu)=="undefined") ADFbu=false;
+
+var ADFcmpgnID = (typeof(ADFcmpgnID) != "undefined") ? ADFcmpgnID : '0';
+var ADFmembID = (typeof(ADFmembID) != "undefined") ? ADFmembID : '0';
+var ADFbanID = (typeof(ADFbanID) != "undefined") ? ADFbanID : '0';
+var ADFbanPlacID = (typeof(ADFbanPlacID) != "undefined") ? ADFbanPlacID : '0';
+var ADFUnloadID = (typeof(ADFUnloadID) != "undefined") ? ADFUnloadID : '0';
+
+
+var ADFclickTagVariables1460166099 = 'clickTAG='+ADFclickTagString1460166099+';C=1'+ADFclickTagParameters1460166099+'';
+if (ADFMediaURLs) ADFclickTagVariables1460166099 = ADFMediaURLs;
+
+
+
+if(typeof Adform == "undefined") {var Adform = {};};
+Adform.BannerData                    = {};
+Adform.Data                          = Adform.BannerData;
+Adform.RMBData                       = Adform.BannerData;
+Adform.RMBData.type                  = 'standard';
+Adform.RMBData.subtype               = 'rmb';
+Adform.BannerData.timestamp          = '201604141733446611'; // std @timestamp@ rev. @version@
+Adform.BannerData.ADFFlash           =  ADFDomain +'Elements/Files/33228/1009533/300x250 HU_main_asset/1009533.js?ADFassetID=1009533&bv='+ADFBanVer;
+
+Adform.BannerData.width              = "300";
+Adform.BannerData.height             = "250";
+Adform.BannerData.ADFid              = ADFtagID;
+Adform.BannerData.ADFban             = (typeof(ADFafbanID)!="undefined") ? ADFafbanID : 0;
+Adform.BannerData.wmode              = "opaque";
+Adform.RMBData.landingPageTarget     = "_blank";
+Adform.BannerData.quality            = "Autohigh";
+Adform.BannerData.bannerAlign        = "";
+Adform.BannerData.clicktags          = 'cid='+ADFClientSiteId+'&geo='+ADFGeoData+'&gid='+ADFGroupId+'&tv='+ADFTemplateVersion+'&tid='+ADFTemplateId+'&domain='+ ADFDomain +'&bv='+ADFBanVer+'&ADFid='+ADFtagID+'&'+ADFclickTagVariables1460166099+'';
+Adform.BannerData.clicktags         += '&ADFcmpgnID='+ADFcmpgnID+'&ADFmembID='+ADFmembID+'&ADFbanID='+ADFbanID+'&ADFbanPlacID='+ADFbanPlacID+'&unloadID='+ADFUnloadID;
+Adform.BannerData.clicktags         += "&bn="+ADFtagid1460166099;
+Adform.BannerData.clicktags         += "&wmode=opaque";
+Adform.BannerData.clicktags         += "&evtBaseLink="+ADFclickEventString;
+
+Adform.BannerData.clicktags         += "&settingsXML=" +  ADFDomain + ADFbanID  + "/settings.xml?bv="+ADFBanVer;
+Adform.BannerData.clicktags         += "&ADFDomain=" + ( ADFDomain ).replace(/\/$/, "");
+
+
+
+
+
+Adform.RMBData.css =  ADFDomain  + "scripts/assets/css/Adform.RMB.css?bv="+ADFBanVer;
+
+
+
+
+
+
+
+
+
+Adform.BannerList = Adform.BannerList || [];
+Adform.BannerList.push(Adform.BannerData);
+
+if (!Adform.RMB || !Adform.RMB.AdConstructor) {
+	// Load constructor script
+	document.write('<scr' + 'ipt type="text/javascript" src="'+ ADFDomain +'scripts/rmb/Adform.RMB.js?bv='+ Adform.cache +'"></scr' + 'ipt>');
+} else {
+	// Run loaded constructor
+	Adform.RMB.AdConstructor.build();
+}
+//-->
+

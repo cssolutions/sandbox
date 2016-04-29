@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset='utf-8'>
+		<title>HTML5 Video</title>
+		<script src="script.js">
+		</script>
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<h1>HTML5 Video</h1>
+
+		<div>
+			<div id="videotag">
+			<video id="video" controls preload="none" poster="video.png">
+				<source id="webm" src="video.webm" type="video/webm">
+				<source id="ogv" src="video.ogv" type="video/ogg">
+				<source id="mp4" src="video.mp4" type="video/mp4">
+				<p id="p">Your user agent does not support the HTML5 Video element.</p>
+			</video>
+			</div>
+			<div id='buttons'>
+				<input type="button" onclick="document._video.load();" value="load()" />
+				<input type="button" onclick="document._video.play();" value="play()" />
+				<input type="button" onclick="document._video.pause();" value="pause()" />
+				<input type="button" onclick="document._video.currentTime+=10;" value="currentTime+=10" />
+				<input type="button" onclick="document._video.currentTime-=10;" value="currentTime-=10" />
+				<input type="button" onclick="document._video.currentTime=50;" value="currentTime=50" /><br />
+				<input type="button" onclick="document._video.playbackRate++;" value="playbackRate++" />
+				<input type="button" onclick="document._video.playbackRate--;" value="playbackRate--" />
+				<input type="button" onclick="document._video.playbackRate+=0.1;" value="playbackRate+=0.1" />
+				<input type="button" onclick="document._video.playbackRate-=0.1;" value="playbackRate-=0.1" /><br />
+				<input type="button" onclick="document._video.volume+=0.1;" value="volume+=0.1" />
+				<input type="button" onclick="document._video.volume-=0.1;" value="volume-=0.1" />
+				<input type="button" onclick="document._video.muted=true;" value="muted=true" />
+				<input type="button" onclick="document._video.muted=false;" value="muted=false" /><br />
+				<input type="button" onclick="switchVideo(0);" value="Sintel teaser" />
+				<input type="button" onclick="switchVideo(1);" value="Bunny trailer" />
+				<input type="button" onclick="switchVideo(2);" value="Bunny movie" />
+				<input type="button" onclick="switchVideo(3);" value="Test movie" /><br />
+
+				<input type="button" onclick="switchVideo(0, 1);" value="Sintel t. webm" />
+				<input type="button" onclick="switchVideo(0, 2);" value="Sintel t. ogv" />
+				<input type="button" onclick="switchVideo(0, 3);" value="Sintel t. mp4" /><br />
+				<input type="button" onclick="switchVideo(1, 2);" value="Bunny t. ogv" />
+				<input type="button" onclick="switchVideo(1, 3);" value="Bunny t. mp4" /><br />
+				<input type="button" onclick="switchVideo(2, 2);" value="Bunny m. ogv" />
+				<input type="button" onclick="switchVideo(2, 3);" value="Bunny m. mp4" /><br />
+				<input type="button" onclick="switchVideo(3, 1);" value="Test m. webm" />
+				<input type="button" onclick="switchVideo(3, 2);" value="Test m. ogv" />
+				<input type="button" onclick="switchVideo(3, 3);" value="Test m. mp4" /><br />
+			</div>
+			<table summary='The Media Events table contains the number of times each media event has been received'>
+				<caption>Media Events</caption>
+				<tbody id='events'>
+				</tbody>
+			</table>
+			<table summary='The Media Properties table contains the value of the media properties'>
+				<caption>Media Properties</caption>
+				<tbody id='properties'>
+				</tbody>
+			</table>
+
+			<table id='canPlayType' summary='The Media Types table indicates what media types are supported'>
+				<caption>canPlayType</caption>
+				<tbody id='m_video'>
+				</tbody>
+			</table>
+
+			<table id='tracks' summary='The Media Types table indicates what media types are supported'>
+				<caption>Tracks</caption>
+				<tbody>
+					<tr>
+						<th>Audio</th>
+						<th>Video</th>
+						<th>Text</th>
+					</tr>
+					<tr>
+						<td id='m_audiotracks' class='false'>?</td>
+						<td id='m_videotracks' class='false'>?</td>
+						<td id='m_texttracks' class='false'>?</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<textarea id="html" readonly></textarea>
+	</body>
+</html>
+

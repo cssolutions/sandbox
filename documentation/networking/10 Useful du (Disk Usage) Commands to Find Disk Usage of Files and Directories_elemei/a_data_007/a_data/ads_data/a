@@ -1,0 +1,9 @@
+Adform=window.Adform||{};
+Adform.host="https://server.adformdsp.net";
+Adform.shost="https://s1.adformdsp.net";
+Adform.scriptBase=Adform.shost+"/banners/scripts/";
+Adform.cache="574";
+Adform.ADFBannerData={URL:"https://server.adformdsp.net/adfserve/?bn=12159185;rtbwp=VyMKMAAAoDcKFqdRAAolH5pLAphdAPME_G_7DQ;rtbdata=LA9mEKok5qDZ-jKLdzxXJxCiSyoDYDECmJCiivQoOIMpCWzgqOlywAjnP0b92NTGMibHFcGiJ8OdIdpTJxjxEIGH28CsN8GUiVmwXoGfDWaS5IUmhBFKyD0SXtD4zJuWQS0p0GrBdzk8-pIZoFJXv7cnMIaiAp5dehnQPiaFhpbawgBZqo2-5mSKnB66OpT8VPOY3iJi5SWseFeTnrR398QJwdMLI9ljPQa9miNe6BUD6eB8vsOXKoLyrnte2FvAFzbg8DSQe4fPHrAXd3xRN-P7jlsSJ6nA0;nofp=1;click=https://adclick.g.doubleclick.net/aclk?sa=L&ai=CVAMLMAojV7fAAtHOWp_KqNAC29PRuwXb6YnsfMCNtwEQASAAYN2S3YOMDYIBF2NhLXB1Yi0yNjAxNzQ5MDE5NjU2Njk5yAEJqQKQV3m--YuEPqgDAaoErQFP0KZO0Mgg8MUliAqDZlPsN0SknYhRrsDnVuUcgXI3dBZYY8cgOWQ3JE2QJLL4LUaiNUSDhrbn-B_xWrMT_BYgx5qZ_24zBSOK8xW0_Fi6nCob-DMJbl9RYZB9mgXmbqGWLgX4FRcsMpCx0cWoT95wVdnjI7E2uqesQMR_KbnYpApkOlvHeiml64HktOWLMF3xCORNyCOzx4Ij5NZcNetlG1GDDpfldywECbCznYAGzvnrhtff_OtToAYhqAemvhvYBwA&num=1&sig=AOD64_0Fkyb3Vnjc1nmbeQWSdOoj8qZtog&client=ca-pub-2601749019656699&adurl=",CREFURL:"https%3a%2f%2fgoogleads.g.doubleclick.net%2fpagead%2fads%3fclient%3dca-pub-2601749019656699%26format%3d300x250%26output%3dhtml%26h%3d250%26slotname%3d9364460975%26adk%3d2658218845%26w%3d300%26loeid%3d29222063%26avail_w%3d300%26ea%3d0%26flash%3d11.2.202%26url%3dhttp%253A%252F%252Fwww.tecmint.com%252Fcheck-linux-disk-usage-of-files-and-directories%252F%26wgl%3d1%26dt%3d1461914159913%26bpp%3d13%26bdt",BN:"12159185"};
+if(!Adform.ADFBannerParams)Adform.ADFBannerParams=[];
+Adform.ADFBannerParams.push(Adform.ADFBannerData);
+typeof Adform.ADFUtilInstance=="undefined"?document.write('<scr'+'ipt type="text/javascript" src="https://s1.adformdsp.net/stoat/574/s1.adformdsp.net/bootstrap.js"></scr'+'ipt>'):new Adform.ADFBanner();

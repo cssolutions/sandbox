@@ -1,0 +1,709 @@
+<html class="wf-abriltext-i4-active wf-abriltext-i6-active wf-proximanova-i4-active wf-proximanova-n4-active wf-proximanova-n6-active wf-active" prefix="og: http://ogp.me/ns#" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta property="twitter:account_id" content="15674759">
+	<meta property="fb:admins" content="298864620872">
+	<meta name="twitter:card" content="">
+	<meta name="twitter:site" content="@Pingdom">
+	<meta name="twitter:creator" content="@Pingdom">
+	<meta name="twitter:image:src" content="">
+	<meta property="og:image" content="">
+	<meta property="og:image:secure_url" content="">
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
+
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://royal.pingdom.com/xmlrpc.php">
+
+<link rel="stylesheet" href="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/github.css">
+
+<!--[if IE 9]>
+    <link rel="stylesheet" href="http://royal.pingdom.com/wp-content/themes/royalblog/build/css/ie9.css" media="screen" type="text/css" />
+<![endif]-->
+
+<title>Powerful command line tools for network administrators</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v3.1.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Here are some suggested powerful command line tools for network administrators from the DevOps team at Pingdom.">
+<link rel="canonical" href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Powerful command line tools for network administrators">
+<meta property="og:description" content="Here are some suggested powerful command line tools for network administrators from the DevOps team at Pingdom.">
+<meta property="og:url" content="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/">
+<meta property="og:site_name" content="Pingdom Royal">
+<meta property="article:tag" content="Byobu">
+<meta property="article:tag" content="Command">
+<meta property="article:tag" content="Command Line Tools">
+<meta property="article:tag" content="Command List">
+<meta property="article:tag" content="Lsof">
+<meta property="article:tag" content="Network Administrator">
+<meta property="article:tag" content="Network Administrators">
+<meta property="article:tag" content="Nmap">
+<meta property="article:tag" content="Pingdom">
+<meta property="article:tag" content="Secure Shell">
+<meta property="article:tag" content="Software Tools">
+<meta property="article:tag" content="Sudo">
+<meta property="article:tag" content="The Command">
+<meta property="article:tag" content="tools">
+<meta property="article:tag" content="Tools And Utilities">
+<meta property="article:tag" content="traceroute">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:section" content="Main">
+<meta property="article:published_time" content="2013-07-11T08:59:22+00:00">
+<meta property="og:image" content="http://royal.pingdom.com/wp-content/uploads/2013/07/mtr.png">
+<meta property="og:image" content="http://royal.pingdom.com/wp-content/uploads/2013/07/nc.png">
+<meta property="og:image" content="http://royal.pingdom.com/wp-content/uploads/2013/07/nmap.png">
+<meta property="og:image" content="http://royal.pingdom.com/wp-content/uploads/2013/07/grc.png">
+<meta property="og:image" content="http://royal.pingdom.com/wp-content/uploads/2013/07/byobu.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Here are some suggested powerful command line tools for network administrators from the DevOps team at Pingdom.">
+<meta name="twitter:title" content="Powerful command line tools for network administrators">
+<meta name="twitter:image" content="http://royal.pingdom.com/wp-content/uploads/2013/07/mtr.png">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="Pingdom Royal » Feed" href="http://royal.pingdom.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Pingdom Royal » Comments Feed" href="http://royal.pingdom.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Pingdom Royal » Powerful command line tools for network administrators Comments Feed" href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/feed/">
+		<script src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/analytics.js" async=""></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/royal.pingdom.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.2"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d"),f=String.fromCharCode;return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(f(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(f(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(f(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(f(55357,56835),0,0):e.fillText(f(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/wp-emoji-release.js"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="main-css" href="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="minified-css" href="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/main.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-paginate-css" href="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/wp-paginate.css" type="text/css" media="screen">
+<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/jquery_002.js"></script>
+<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/jquery-migrate.js"></script>
+<link rel="https://api.w.org/" href="http://royal.pingdom.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://royal.pingdom.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://royal.pingdom.com/wp-includes/wlwmanifest.xml"> 
+
+<link rel="shortlink" href="http://royal.pingdom.com/?p=22019">
+<link rel="alternate" type="application/json+oembed" href="http://royal.pingdom.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Froyal.pingdom.com%2F2013%2F07%2F11%2Fnetwork-administrators-command-line%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://royal.pingdom.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Froyal.pingdom.com%2F2013%2F07%2F11%2Fnetwork-administrators-command-line%2F&amp;format=xml">
+<!-- Tracking code easily added by NK Google Analytics -->
+<script type="text/javascript"> 
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ 
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), 
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) 
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); 
+ga('create', 'UA-787382-2', 'royal.pingdom.com'); 
+ga('send', 'pageview'); 
+</script> 
+
+<!-- BEGIN Typekit Fonts for WordPress -->
+<script src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/lzq1clv.js"></script>
+<style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}.tk-abril-text{font-family:"abril-text",sans-serif;}</style><link media="all" href="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/l.css" rel="stylesheet"><script>try{Typekit.load({ async: true });}catch(e){}</script>
+<!-- END Typekit Fonts for WordPress -->
+
+<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/j.js"></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+<body class="single single-post postid-22019 single-format-standard group-blog">
+
+    <!-- Modal -->
+    <div class="modal-window-general">
+        <div class="container">
+
+            <div class="modal-search">
+                <form role="search" method="get" class="search-form" action="http://royal.pingdom.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input class="search-field" placeholder="Search …" name="s" title="Search for:" type="search">
+				</label>
+				<input class="search-submit" value="Search" type="submit">
+			</form>            </div>
+
+            <div class="modal-category-list">
+                <ul>
+                    	<li class="cat-item cat-item-3476"><a href="http://royal.pingdom.com/category/contests/">Contests</a>
+</li>
+	<li class="cat-item cat-item-989"><a href="http://royal.pingdom.com/category/guestposts/">Guest posts</a>
+</li>
+	<li class="cat-item cat-item-3131"><a href="http://royal.pingdom.com/category/main/">Main</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://royal.pingdom.com/category/pingdom/">Pingdom</a>
+</li>
+	<li class="cat-item cat-item-223"><a href="http://royal.pingdom.com/category/thepodcast/">Podcast</a>
+</li>
+	<li class="cat-item cat-item-3457"><a href="http://royal.pingdom.com/category/products-2/">Products</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://royal.pingdom.com/category/tech-blog/">Tech blog</a>
+</li>
+	<li class="cat-item cat-item-3466"><a href="http://royal.pingdom.com/category/tips-tricks/">Tips &amp; Tricks</a>
+</li>
+	<li class="cat-item cat-item-1509"><a href="http://royal.pingdom.com/category/tutorials/">Tutorials</a>
+</li>
+	<li class="cat-item cat-item-3062"><a href="http://royal.pingdom.com/category/video-2/">Video</a>
+</li>
+	<li class="cat-item cat-item-2550"><a href="http://royal.pingdom.com/category/performance-2/">Web performance</a>
+</li>
+                </ul>
+            </div>
+
+            <div class="modal-link-list">
+                <a href="http://www.pingdom.com/">Go to Pingdom.com</a>
+                <a href="http://royal.pingdom.com/archives">Archive</a>
+                <a href="http://royal.pingdom.com/feed/rss2/">RSS</a>
+            </div>
+        </div>
+    </div>
+
+	<div id="page" class="site-wrapper">
+
+		<header class="main-header">
+
+				<a href="http://royal.pingdom.com/" rel="home" class="main-site-logo"><img src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/blogo-white.svg" alt="Pingdom Royal"></a>
+
+
+                <a class="nav-wrapper" href="#">
+                  <div class="burger"></div>
+                </a>
+                <a href="http://www.pingdom.com/" class="button outline-dark homelink">Pingdom.com</a>
+
+
+		</header>
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+			
+														<section class="section-hero-post no-image">
+
+				
+						<div class="hero-post-title">
+							<h1 class="entry-title">Powerful command line tools for network administrators</h1>
+							<div class="hero-post-title-spacer-line"></div>
+							<div class="hero-post-meta">
+								<span class="hero-post-date">July 11, 2013</span>
+								<span class="hero-post-category">in <span><a href="http://royal.pingdom.com/category/main/" rel="category tag">Main</a></span></span>
+							</div>
+						</div>
+
+					</section>
+
+				<section class="entry-container">
+					<div class="container">
+
+						
+	<article id="post-22019" class="post-22019 post type-post status-publish format-standard hentry category-main tag-byobu tag-command tag-command-line-tools tag-command-list tag-lsof tag-network-administrator tag-network-administrators tag-nmap tag-pingdom tag-secure-shell tag-software-tools tag-sudo tag-the-command tag-tools tag-tools-and-utilities tag-traceroute tag-ubuntu">
+
+		<div class="entry-content">
+			<p>When it comes to taking care of our networking infrastructure here
+ at Pingdom, the DevOps team works with a wide range of hardware and 
+software tools.</p>
+<p>With this article, we want to give you some suggestions for command 
+line tools and utilities that are a common part of our toolbox. We have 
+tried to make a varied selection so that there is hopefully something in
+ here that you find useful in your daily admin work.</p>
+<h3>mtr</h3>
+<img class="aligncenter size-full wp-image-22033" alt="mtr" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/mtr.png" height="348" width="580">
+<p><a href="http://www.bitwizard.nl/mtr/">MTR</a> (My traceroute), 
+originally called Matt’s traceroute, is a combined ping and traceroute. 
+It pings every hop to the target continuously to see on which hop(s) 
+packet loss or latency exists.</p>
+<p>Install in Ubuntu:</p>
+<pre>sudo apt-get install mtr-tiny</pre>
+<p>Test run:</p>
+<pre>mtr www.pingdom.com</pre>
+<h3>pv</h3>
+<p><a href="http://www.ivarch.com/programs/pv.shtml">Pipe Viewer</a>&nbsp;checks
+ how many lines/characters per second that goes through a Linux pipe. 
+For example, this can be used to see how many lines per second that goes
+ through a log.</p>
+<p>Install in Ubuntu:</p>
+<pre>sudo apt-get install pv</pre>
+<p>Test run:</p>
+<pre>sudo tail -f /var/log/apache/access.log | 
+grep "/testpage.html" | pv -lr &gt;/dev/null</pre>
+<p>This will display how many times per second “/testpage.html” shows up
+ in the access log. In other words, how many accesses that particular 
+page gets per second in real-time.</p>
+<h3>nc</h3>
+<img class="aligncenter size-full wp-image-22034" alt="nc" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/nc.png" height="348" width="580">
+<p><a href="http://nc110.sourceforge.net/">Netcat</a> is a general 
+toolbox for TCP and UDP connections. You can send data as well as 
+&nbsp;listen to and serve up data with it. This is a utility with 
+tremendous potential, which we’ve yet to fully explore.</p>
+<p>Examples:</p>
+<p>HTTP request:</p>
+<pre>echo "GET /" | nc www.example.com 80</pre>
+<p>Serve a web page on port 8080:</p>
+<pre>echo 'Hello, World!' | nc -l 8080</pre>
+<h3>nmap</h3>
+<img class="aligncenter size-full wp-image-22035" alt="nmap" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/nmap.png" height="349" width="580">
+<p><a href="http://nmap.org/">Nmap</a> is a powerful and versatile 
+security scanner. Although we rely on it for many things, we use it 
+mainly as a port scanner, to see which ports that are open on a 
+particular host. Please use nmap with discretion if you use it to scan 
+computers and networks other than your own.</p>
+<p>Install in Ubuntu:</p>
+<pre>sudo apt-get install nmap</pre>
+<p>Test run:</p>
+<pre>sudo nmap 192.168.0.150</pre>
+<h3>du</h3>
+<p>Du (disk usage) shows disk usage of files and directories. It is a powerful way to hunt down what takes up space on a disk.</p>
+<p>Test run:</p>
+<pre>sudo du -sh /home/* (shows usage of each users home directory)</pre>
+<h3>lsof</h3>
+<p>The <a href="http://people.freebsd.org/%7Eabe/">lsof</a> (LiSt Open 
+Files) command lists all open files and sockets. Lsof gives you 
+information on which command each process is executing, and which user 
+who opened it. It can also show you which port a daemon is listening on.</p>
+<p>Test run:</p>
+<pre>sudo lsof -i TCP</pre>
+<p>In the example, lsof will show you information about all open TCP connections and listening sockets.</p>
+<h3>grc</h3>
+<img class="aligncenter size-full wp-image-22032" alt="grc" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/grc.png" height="348" width="580">
+<p>The <a href="http://kassiopeia.juls.savba.sk/%7Egarabik/software/grc/README.txt">General Colorizer</a> tool puts color to any command-output to make it easier to read.</p>
+<p>Install in Ubuntu:</p>
+<pre>sudo apt-get install grc</pre>
+<p>Test run:</p>
+<pre>sudo grc cat /var/log/syslog</pre>
+<h3>mosh</h3>
+<p><a href="http://mosh.mit.edu/">Mosh</a> (mobile shell) is a shell 
+like SSH but built for being used on mobile connections. It uses UDP, 
+predictions and various other techniques to make the shell more 
+responsive on connections with high latency and packet loss. It also 
+supports the client to change IP address during a session, and reconnect
+ when contact is lost.</p>
+<p>Install in Ubuntu (on both server and client):</p>
+<pre>sudo apt-get install mosh</pre>
+<p>Test run:</p>
+<pre>mosh &lt;hostname&gt;</pre>
+<p>This requires the mosh package on both server and client. Also, 
+certain UDP ports must be opened if there is a restrictive firewall in 
+between.</p>
+<h3>byobu</h3>
+<img class="aligncenter size-full wp-image-22031" alt="byobu" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/byobu.png" height="349" width="580">
+<p><a href="http://byobu.co/">Byobu</a> is a wrapper around GNU screen 
+and tmux, which adds a window manager of sorts to the text-based shell. 
+You can create new windows (tabs), cycle between them, split views, and 
+much more.</p>
+<p>Install in Ubuntu:</p>
+<pre>sudo apt-get install byobu</pre>
+<p>Test run:</p>
+<p>SSH to a server with Byobu installed (or run it in the local shell) 
+and then run Byobu. You can press F2 to create a new tab, alt-arrow to 
+move between tabs, Ctrl/Shift-F2 to split a window, shift-arrow to move 
+between splits, etc.</p>
+<h3>What else can you recommend to network administrators?</h3>
+<p>This is just a small sample of all the command line tools and 
+utilities that we rely on in our everyday work to keep Pingdom running.</p>
+<p>Do you have any especially useful command line tool you would like to share with us? Let us know in the comments below.</p>
+<p><em><a href="http://www.shutterstock.com/pic-142902868/stock-vector-terminal-startup-icon-direct-access-to-system-via-command-line-illustration.html">Image (Top)</a> via Shutterstock.</em></p>
+					</div>
+
+		<footer class="entry-footer">
+			<span class="cat-links">Posted in <a href="http://royal.pingdom.com/category/main/" rel="category tag">Main</a></span><span class="tags-links">Tagged <a href="http://royal.pingdom.com/tag/byobu/" rel="tag">Byobu</a>, <a href="http://royal.pingdom.com/tag/command/" rel="tag">Command</a>, <a href="http://royal.pingdom.com/tag/command-line-tools/" rel="tag">Command Line Tools</a>, <a href="http://royal.pingdom.com/tag/command-list/" rel="tag">Command List</a>, <a href="http://royal.pingdom.com/tag/lsof/" rel="tag">Lsof</a>, <a href="http://royal.pingdom.com/tag/network-administrator/" rel="tag">Network Administrator</a>, <a href="http://royal.pingdom.com/tag/network-administrators/" rel="tag">Network Administrators</a>, <a href="http://royal.pingdom.com/tag/nmap/" rel="tag">Nmap</a>, <a href="http://royal.pingdom.com/tag/pingdom/" rel="tag">Pingdom</a>, <a href="http://royal.pingdom.com/tag/secure-shell/" rel="tag">Secure Shell</a>, <a href="http://royal.pingdom.com/tag/software-tools/" rel="tag">Software Tools</a>, <a href="http://royal.pingdom.com/tag/sudo/" rel="tag">Sudo</a>, <a href="http://royal.pingdom.com/tag/the-command/" rel="tag">The Command</a>, <a href="http://royal.pingdom.com/tag/tools/" rel="tag">tools</a>, <a href="http://royal.pingdom.com/tag/tools-and-utilities/" rel="tag">Tools And Utilities</a>, <a href="http://royal.pingdom.com/tag/traceroute/" rel="tag">traceroute</a>, <a href="http://royal.pingdom.com/tag/ubuntu/" rel="tag">ubuntu</a></span>		</footer>
+
+	</article><!-- #post-## -->
+
+	<div class="about-author-container">
+
+    
+</div>
+	<section class="section-social-sharing-bar">
+    <h4 class="social-sharing-title">Share &amp; Comment</h4>
+    <a class="share-button twitter popup" href="http://twitter.com/home?status=Powerful%20command%20line%20tools%20for%20network%20administrators%20-%20http://royal.pingdom.com/2013/07/11/network-administrators-command-line/"><span class="socicon">a</span> <span class="share-text">share on twitter</span></a>
+    <a class="share-button facebook popup" href="http://www.facebook.com/share.php?u=http://royal.pingdom.com/2013/07/11/network-administrators-command-line/&amp;title=Powerful%20command%20line%20tools%20for%20network%20administrators"><span class="socicon">b</span> <span class="share-text">share on facebook</span></a>
+    <a class="share-button google popup" href="https://plus.google.com/share?url=http://royal.pingdom.com/2013/07/11/network-administrators-command-line/"><span class="socicon">c</span> <span class="share-text">share on google+</span></a>
+</section><!-- .section-social-sharing-bar -->
+
+
+
+						
+						
+<div id="comments" class="comments-area">
+
+	
+	
+		<h4 class="comments-title">
+			<span class="comment-count">5</span> comments 		</h4>
+
+
+		
+		<ol class="comment-list">
+					<li id="comment-8427" class="comment even thread-even depth-1">
+			<article id="div-comment-8427" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/a.jpeg" srcset="http://2.gravatar.com/avatar/?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo avatar-default" height="64" width="64">						<b class="fn">Dan Jones</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/#comment-8427">
+							<time datetime="2013-07-11T11:00:40+00:00">
+								July 11, 2013 at 11:00 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Duely bookmarked! The phrase “oh that’s cool!” was uttered out loud…</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/?replytocom=8427#respond" onclick='return addComment.moveForm( "div-comment-8427", "8427", "respond", "22019" )' aria-label="Reply to Dan Jones">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-8428" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-8428" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/a_002.jpeg" srcset="http://1.gravatar.com/avatar/?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo avatar-default" height="64" width="64">						<b class="fn">Dave Anderson</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/#comment-8428">
+							<time datetime="2013-07-11T12:31:50+00:00">
+								July 11, 2013 at 12:31 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>MTR is awesome.   Use it all the time!!!.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/?replytocom=8428#respond" onclick='return addComment.moveForm( "div-comment-8428", "8428", "respond", "22019" )' aria-label="Reply to Dave Anderson">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-8429" class="comment even thread-even depth-1">
+			<article id="div-comment-8429" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/a_003.jpeg" srcset="http://0.gravatar.com/avatar/?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo avatar-default" height="64" width="64">						<b class="fn">Laurens de Vries</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/#comment-8429">
+							<time datetime="2013-07-11T15:05:29+00:00">
+								July 11, 2013 at 3:05 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>How about ntop ?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/?replytocom=8429#respond" onclick='return addComment.moveForm( "div-comment-8429", "8429", "respond", "22019" )' aria-label="Reply to Laurens de Vries">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-8425" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-8425" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/a6731f524e4b2dd47bc021aabea1db6d.jpeg" srcset="http://1.gravatar.com/avatar/a6731f524e4b2dd47bc021aabea1db6d?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">						<b class="fn">paulcobbaut</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/#comment-8425">
+							<time datetime="2013-07-11T16:19:33+00:00">
+								July 11, 2013 at 4:19 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for mtr, good to see it also has the -u switch!<br>
+Byobu is pointless I think, since you can do all those thing with native tmux.<br>
+cheers,<br>
+paul<br>
+history | tr -s ‘ ‘ | cut -d’ ‘ -f3- | sort | uniq | more</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/?replytocom=8425#respond" onclick='return addComment.moveForm( "div-comment-8425", "8425", "respond", "22019" )' aria-label="Reply to paulcobbaut">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-8426" class="comment even thread-even depth-1">
+			<article id="div-comment-8426" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/56c0b115ee0f1561586cf98b0b94aac6.jpeg" srcset="http://2.gravatar.com/avatar/56c0b115ee0f1561586cf98b0b94aac6?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">						<b class="fn">Lars Bjerregaard</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/#comment-8426">
+							<time datetime="2013-07-12T00:17:36+00:00">
+								July 12, 2013 at 12:17 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>‘ncdu’ is the better, ncurses based, interactive ‘du’, for drilling down what is using your disk space.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/?replytocom=8426#respond" onclick='return addComment.moveForm( "div-comment-8426", "8426", "respond", "22019" )' aria-label="Reply to Lars Bjerregaard">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+					</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://royal.pingdom.com/2013/07/11/network-administrators-command-line/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="http://royal.pingdom.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+					<p class="comment-notes"><em>Comments are moderated and not published in real time. All comments that are not related to the post will be removed.</em></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" size="30" aria-required="true" required="required" type="text"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" size="30" aria-describedby="email-notes" aria-required="true" required="required" type="email"></p>
+
+<p class="form-submit"><input name="submit" id="submit" class="submit" value="Post" type="submit"> <input name="comment_post_ID" value="22019" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="8939aba35f" type="hidden"></p><p style="display: none;"></p>				<input id="ak_js" name="ak_js" value="1461913748871" type="hidden"></form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+
+					
+					</div><!-- .container -->
+				</section><!-- .entry-container -->
+
+				<section class="section-next-prev-post">
+					<div class="container">
+							<nav class="navigation post-navigation" role="navigation">
+		<div class="nav-links">
+
+			<div class="arrow-left-container">
+
+				
+					<div class="post-nav-block">
+						<!-- if previous post exists -->
+						<div class="link-box">
+							<a class="nav-next-prev-link" href="http://royal.pingdom.com/2013/07/09/cloud-storage-2013/">
+								<img src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/arrow-left.svg" alt="Previous post" class="dir-arrow left">
+								<span>Previous</span>
+								<div class="link">Cloud storage shoot-out 2013 – performance and reliability</div>
+							</a>
+						</div>
+					</div>
+
+							</div>
+
+			<div class="social-sharing-container">
+				<a href="#" class="social-sharing-button">&nbsp;</a>
+			</div>
+
+			<div class="arrow-right-container">
+
+									<!-- if next post exists -->
+					<div class="post-nav-block">
+
+						<div class="link-box">
+							<a class="nav-next-prev-link" href="http://royal.pingdom.com/2013/07/12/how-long-is-too-long-in-website-downtime/">
+								<img src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/arrow-right.svg" alt="Next post" class="dir-arrow right">
+								<span>Next</span>
+								<div class="link">In the eyes of Google, how long is too long in website downtime?</div>
+							</a>
+						</div>
+					</div>
+
+				
+			</div>
+
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+						</div>
+				</section>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+	</div>
+
+	<section class="section-pingdom-info">
+		<div class="container one-column">
+
+			<div class="consider-pingdom">
+				<h3>Consider Pingdom</h3>
+				<p>With Pingdom website monitoring you’ll be the first to know when 
+your website is down. Whether you have a big or small website, we offer a
+ range of options that suit you — always with a free 14-day trial.</p>
+				<a href="https://www.pingdom.com/signup/?CMP=ROY-BAD-PING-Q315_GSNBTN_SIDERAIL-X-TRY-BTN" class="button green">Get Started Now</a>
+			</div>
+
+		</div>
+	</section>
+
+
+<div class="latest-post-images yourbrowsersucks">
+
+	<div class="column w-25 first">
+
+		<div class="section box" style="background-image: linear-gradient( hsla(0, 0%, 7%, 0.4), hsla(0, 0%, 7%, 0.4)  ), url('http://royal.pingdom.com/wp-content/uploads/2016/04/iphone_music-1024x576.jpg')">
+			<div class="box-heading">
+				<h3 class="box-title"><a href="http://royal.pingdom.com/2016/04/20/our-favorite-podcasts/">What We’re Listening To: A Few of Our ...</a></h3>
+				<span class="box-date">April 20, 2016</span>
+			</div>
+		</div><!-- box -->
+
+		<div class="section box" style="background-image: linear-gradient( hsla(0, 0%, 7%, 0.4), hsla(0, 0%, 7%, 0.4)  ), url('http://royal.pingdom.com/wp-content/uploads/2016/04/pablo-1-1024x512.png')">
+			<div class="box-heading">
+				<h3 class="box-title"><a href="http://royal.pingdom.com/2016/04/20/getting-even-pingdom-statuscast/">Getting Even More from Pingdom with Stat...</a></h3>
+				<span class="box-date">April 20, 2016</span>
+			</div>
+		</div><!-- box -->
+
+	</div><!-- column -->
+
+	<div class="column middle box w-25" style="background-image: linear-gradient( hsla(0, 0%, 7%, 0.4), hsla(0, 0%, 7%, 0.4)  ), url('http://royal.pingdom.com/wp-content/uploads/2016/03/Hacj_day_MagnusMarkus-1024x576.jpg')">
+		<div class="box-heading">
+			<h3 class="box-title"><a href="http://royal.pingdom.com/2016/04/01/pingdom-hack-day-2016-born-to-hack/">Pingdom Hack Day 2016: Born to Hack</a></h3>
+			<span class="box-date">April 1, 2016</span>
+		</div>
+	</div><!-- column -->
+
+	<div class="column right ">
+
+		<div class="section box" style="background-image: linear-gradient( hsla(0, 0%, 7%, 0.4), hsla(0, 0%, 7%, 0.4)  ), url('http://royal.pingdom.com/wp-content/uploads/2016/03/felix2-1024x576.jpg')">
+		  	<div class="box-heading">
+				<h3 class="box-title"><a href="http://royal.pingdom.com/2016/03/24/pdf-reports-multiple-page-speed-test-locations/">You asked and we delivered: PDF reports ...</a></h3>
+				<span class="box-date">March 24, 2016</span>
+			</div>
+		</div><!-- box -->
+
+		<div class="section">
+			<div class="block box" style="background-image: linear-gradient( hsla(0, 0%, 7%, 0.4), hsla(0, 0%, 7%, 0.4)  ), url('http://royal.pingdom.com/wp-content/uploads/2016/03/eggz-1024x576.jpg')">
+			  	<div class="box-heading">
+					<h3 class="box-title"><a href="http://royal.pingdom.com/2016/03/24/our-favorite-software-easter-eggs-2016/">Our favorite software Easter eggs –...</a></h3>
+					<span class="box-date">March 24, 2016</span>
+				</div>
+		 	</div><!-- box -->
+		 	<div class="block box" style="background-image: linear-gradient( hsla(0, 0%, 7%, 0.4), hsla(0, 0%, 7%, 0.4)  ), url('http://royal.pingdom.com/wp-content/uploads/2016/03/feature-texting-community-1024x576.jpg')">
+				<div class="box-heading">
+					<h3 class="box-title"><a href="http://royal.pingdom.com/2016/03/10/launching-a-pingdom-community/">Launching a Pingdom community</a></h3>
+					<span class="box-date">March 10, 2016</span>
+				</div>
+		  	</div><!-- box -->
+		</div><!-- section -->
+
+	</div><!-- column-right -->
+
+</div>
+
+	<section class="section-footer">
+		<div class="container">
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+
+				<div class="footer-links">
+					<a href="http://www.pingdom.com/">go to Pingdom.com</a>
+					<a href="http://royal.pingdom.com/archives">Archives</a>
+									</div>
+				<div class="footer-social">
+					<a href="http://twitter.com/pingdom"><span class="social-button twitter socicon">a</span></a>
+					<a href="https://www.facebook.com/pingdom"><span class="social-button facebook socicon">b</span></a>
+					<a href="https://plus.google.com/+pingdom/"><span class="social-button google socicon">c</span></a>
+				</div>
+
+			</footer><!-- #colophon -->
+
+		</div>
+	</section><!-- section-footer -->
+
+	<section class="section-copyright">
+		<div class="container">
+
+			<div class="site-copyright">
+
+				<div class="copyright-column-primary">
+					<span>© 2016 Pingdom AB All Rights Reserved</span>
+				</div>
+
+				<div class="copyright-column-secondary">
+					<ul class="footer-nav">
+						<li><a href="https://www.pingdom.com/legal/trademarks/">Trademarks</a></li>
+						<li><a href="https://www.pingdom.com/legal/terms-of-service/">Terms of Service</a></li>
+						<li><a href="https://www.pingdom.com/legal/privacy-policy/">Privacy Policy</a></li>
+					</ul>
+					<small>icons by: <a href="http://www.socicon.com/">socicon</a></small>
+				</div>
+
+			</div>
+
+		</div>
+	</section><!-- section-copyright -->
+
+</div> <!--  #page -->
+
+	<script src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/highlight.js"></script>
+	<script src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/jquery.js"></script>
+	<script src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/tracking.js"></script>
+
+	<!-- Google Code for Remarketing tag -->
+	<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+	<div style="display:none">
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		var google_conversion_id = 1065449750;
+		var google_conversion_label = "B3BoCLrNtAQQlvKF_AM";
+		var google_custom_params = window.google_tag_params;
+		var google_remarketing_only = true;
+		/* ]]> */
+		</script>
+		<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/conversion.js">
+		</script><iframe name="google_conversion_frame" title="Google conversion frame" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1065449750/?random=1461913748660&amp;cv=8&amp;fst=1461913748660&amp;num=1&amp;fmt=1&amp;label=B3BoCLrNtAQQlvKF_AM&amp;guid=ON&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1062&amp;u_aw=1871&amp;u_cd=24&amp;u_his=2&amp;u_tz=120&amp;u_java=true&amp;u_nplug=2&amp;u_nmime=42&amp;frm=0&amp;url=http%3A//royal.pingdom.com/2013/07/11/network-administrators-command-line/&amp;ref=https%3A//www.google.hu&amp;tiba=Powerful%20command%20line%20tools%20for%20network%20administrators" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" frameborder="0" height="13" width="300"></iframe>
+		<noscript>
+		<div style="display:inline;">
+			<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1065449750/?value=1.00&amp;currency_code=SEK&amp;label=B3BoCLrNtAQQlvKF_AM&amp;guid=ON&amp;script=0"/>
+
+		</div>
+		</noscript>
+
+		<!-- Google Code for Remarketing Tag -->
+		<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup -->
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		var google_conversion_id = 1065449750;
+		var google_custom_params = window.google_tag_params;
+		var google_remarketing_only = true;
+		/* ]]> */
+		</script>
+		<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/conversion.js">
+		</script><img alt="" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/a_002.html" border="0" height="1" width="1">
+		<noscript>
+		<div style="display:inline;">
+		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1065449750/?value=0&amp;guid=ON&amp;script=0"/>
+		</div>
+		</noscript>
+
+		<!-- Start Visual Website Optimizer Asynchronous Code -->
+			<script type="text/javascript">
+			var _vwo_code=(function(){
+			var account_id=41177,
+			settings_tolerance=2000,
+			library_tolerance=2500,
+			use_existing_jquery=false,
+			// DO NOT EDIT BELOW THIS LINE
+			f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+			</script>
+		<!-- End Visual Website Optimizer Asynchronous Code -->
+		
+	</div>
+	<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/form.js"></script>
+<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/main.js"></script>
+<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/comment-reply.js"></script>
+<script type="text/javascript" src="Powerful%20command%20line%20tools%20for%20network%20administrators_elemei/wp-embed.js"></script>
+
+
+
+
+
+
+</body></html>
+<!-- Dynamic page generated in 0.269 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2016-04-28 14:10:26 -->
+<!-- Compression = gzip -->

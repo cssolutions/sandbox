@@ -1,0 +1,16 @@
+/* Place your styles here */
+
+.ad
+{
+	overflow:hidden; /* Makes it so anything inside the ad doesn't spill outside of the ad */
+	position:relative;
+}
+
+*, input, button
+{
+    border-width: 0px; border-style: none; padding-left: 0px; padding-right: 0px;
+}
+*, .ad, button, input{
+    width: 300px;
+    height: 250px;
+}
