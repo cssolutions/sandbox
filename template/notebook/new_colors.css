@@ -1,0 +1,211 @@
+/*
+		Document   : 
+		Created on : 2013.12.12., 16:08
+		Author     : gt
+		Version    : 0.1
+		Description:
+				This contanins style (not common) part of default template.
+				Dont put any module related style here.
+*/
+/*@import url("../../../../lib/misc/fonts/m.css");*/
+@charset "utf-8";
+
+.colors {
+	background-color: #3392E3;
+	background-color: #60AAE9;
+	background-color: #76B6EC;
+	background-color: #A5C8E5;
+	/*sárga*/
+	background-color: #F4C84F;
+	background-color: #D09C0D;
+	/*piros*/
+	background-color: #E77755;
+	background-color: #BC401A;
+	/*zöld*/
+	background-color: #AECE4E;
+	background-color: #758F27;
+}
+
+div#jGrowl div.success {
+	border: none;
+	background: #A8EFA4 /*url('../img/jquery.jgrowl/success.png')*/;
+}
+div#jGrowl div.info {
+	border: none;
+	background: #A4C6EF /*url('../img/jquery.jgrowl/info.png')*/;
+}
+div#jGrowl div.notice {
+	border: none;
+	background: #A4C6EF /*url('../img/jquery.jgrowl/notice.png')*/;
+}
+div#jGrowl div.warning {
+	border: none;
+	background: #EFD4A4 /*url('../img/jquery.jgrowl/warning.png')*/;
+}
+div#jGrowl div.error {
+	border: none;
+	background: #EFA4A4 /*url('../img/jquery.jgrowl/error.png')*/;
+}
+div#jGrowl div.debug {
+	border: none;
+	background: #FEFF8F /*url('../img/jquery.jgrowl/bug.png')*/;
+}
+
+.black {
+	color: #000000;
+}
+.white {
+	color: #FFFFFF;
+}
+.green {
+	color: #0F6D0F;
+}
+.brightgreen {
+	color: #5CBA59;
+}
+.blue {
+	color: #0066CC;
+}
+.brightblue {
+	color: #579DCC;
+}
+.red {
+	color: #FF0F0F;
+}
+.brightred {
+	color: #F87A7A;
+}
+.brown {
+	color: #EFD4A4;
+}
+.yellow {
+	color: #FEFF8F;
+}
+.orange {
+	color: #FF7700;
+}
+.gray {
+	color: #C0C0C0;
+}
+
+.light-green {
+	color: #A8EFA4;
+}
+.light-brightgreen {
+	color: #C1ECBE;
+}
+.light-blue {
+	color: #A4C6EF;
+}
+.light-red {
+	color: #EFA4A4;
+}
+.light-brightred {
+	color: #F6E0E0;
+}
+.light-brown {
+	color: #EFD4A4;
+}
+.light-yellow {
+	color: #FFFFC8;
+}
+.light-orange {
+	color: #FDBB86;
+}
+.light-gray {
+	color: #E0E0E0;
+}
+
+.bg-green {
+	background-color: #A8EFA4;
+}
+.bg-brightgreen {
+	background-color: #C1ECBE;
+}
+.bg-blue {
+	background-color: #A4C6EF;
+}
+.bg-red {
+	background-color: #EFA4A4;
+}
+.bg-brightred {
+	background-color: #F6E0E0;
+}
+.bg-brown {
+	background-color: #EFD4A4;
+}
+.bg-yellow {
+	background-color: #FFFFC8;
+}
+.bg-orange {
+	background-color: #FF9900;
+}
+.bg-gray {
+	background-color: #E0E0E0;
+}
+
+.bg-light-green {
+	background-color: #C3E3C3;
+}
+.bg-light-brightgreen {
+	background-color: #F1FBF1;
+}
+.bg-light-blue {
+	background-color: #CBDFF5;
+}
+.bg-light-red {
+	background-color: #F7CBCB;
+}
+.bg-light-brightred {
+	background-color: #F7EDED;
+}
+.bg-light-brown {
+	background-color: #F5E6CD;
+}
+.bg-light-yellow {
+	background-color: #FDFDE6;
+}
+.bg-light-orange {
+	background-color: #FDEBB6;
+}
+.bg-light-gray {
+	background-color: #F0F0F0;
+}
+
+.box, code {
+	border: 1px solid #F0F0F0;
+	border-left: 6px solid #AAAAAA;
+	color: #555555;
+	margin-bottom: 12px;
+	padding: 4px 5px;
+}
+.box.gray, code.gray, ul.accordion > li.gray {
+	color: inherit;
+	border-left-color: #AAAAAA;
+	background: url('../img/bgcode.gif');
+}
+.box.green, code.green, ul.accordion > li.green {
+	color: inherit;
+	border-left-color: #A8EFA4;
+	background: url('../img/bgcode-green.gif');
+}
+.box.blue, code.blue, ul.accordion > li.blue {
+	color: inherit;
+	border-left-color: #A4C6EF;
+	background: url('../img/bgcode-blue.gif');
+}
+.box.red, code.red, ul.accordion > li.red {
+	color: inherit;
+	border-left-color: #EFA4A4;
+	background: url('../img/bgcode-red.gif');
+}
+.box.brown, code.brown, ul.accordion > li.brown {
+	color: inherit;
+	border-left-color: #EFD4A4;
+	background: url('../img/bgcode-brown.gif');
+}
+.box.yellow, code.yellow, ul.accordion > li.yellow {
+	color: inherit;
+	border-left-color: #DFDFA8;
+	background: url('../img/bgcode-yellow.gif');
+}
