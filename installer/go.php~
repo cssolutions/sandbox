@@ -104,7 +104,7 @@ print "---------------------------------------------------- Running gulp\n";
 //passthru('mkdir custom;mkdir custom/css;mkdir custom/js');
 passthru('sudo npm install --global gulp');
 passthru('sudo npm link gulp');
-passthru('sudo npm install jshint gulp-jshint gulp-sass gulp-less gulp-concat gulp-uglify gulp-rename gulp-cssmin gulp-watch');
+passthru('sudo npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename gulp-cssmin gulp-watch');
 
 $parentpid = getmypid();
 $apid = pcntl_fork();
