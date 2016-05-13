@@ -70,6 +70,10 @@ function form_example_states_form($form, &$form_state) {
     ),
     '#title' => t('What type of student are you?'),
   );
+  
+  
+  
+  
   $form['high_school'] = array(
     '#type' => 'fieldset',
     '#title' => t('High School Information'),
@@ -127,7 +131,7 @@ function form_example_states_form($form, &$form_state) {
       ),
     ),
   );
-
+//---------------------------------------------------------------------------------------------------------------------------
   // Undergrad information.
   $form['undergraduate'] = array(
     '#type' => 'fieldset',
