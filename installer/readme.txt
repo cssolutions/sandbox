@@ -31,3 +31,5 @@ sudo php hosts.php --name=csaba;php go.php --name=csaba
 // /etc/mysql/my.cnf
 // /etc/alternatives/my.cnf
 // /var/lib/dpkg/alternatives/my.cnf
+
+https://suhosin.org/stories/install.html

@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="en" dir="ltr" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" dir="ltr" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="js no-touch localstorage sessionstorage contenteditable use-opacity-transitions" dir="ltr" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Disqus Comments</title>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+    
+    <style>
+        html {
+            overflow: hidden;
+        }
+
+        
+    </style>
+
+<link href="a_data/lounge.css" rel="stylesheet"><script src="a_data_002/config.js" data-requiremodule="remote/config" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="a_data/common.js" data-requiremodule="common.bundle" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="a_data/lounge_002.js" data-requiremodule="lounge.bundle" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="a_data_002/ga.js" data-requiremodule="ga" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><style id="css_1459337167445"></style><!-- base href="https://disqus.com/embed/comments/?base=default&version=208e70781fad1709ad376036d91294bc&f=jtreminio&t_u=https%3A%2F%2Fjtreminio.com%2F2012%2F07%2Fsetting-up-a-debian-vm-step-by-step%2F&t_d=Setting%20Up%20a%20Debian%20VM%2C%20Step%20by%20Step%20%E2%80%94%20Juan%20Treminio%20%E2%80%94%20Dallas%20based%20senior%20web%20developer&t_t=Setting%20Up%20a%20Debian%20VM%2C%20Step%20by%20Step%20%E2%80%94%20Juan%20Treminio%20%E2%80%94%20Dallas%20based%20senior%20web%20developer&s_o=default" --><link href="a_data/discovery.css" rel="stylesheet"><script src="a_data/discovery.js" data-requiremodule="discovery/main" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script></head>
+<body class="serif">
+    
+
+    
+    <!--[if lt IE 10]><p style="color: #fff; background-color: #f05f70; padding: 10px; margin-top: 20px;">
+        You're using a browser that Disqus plans to stop supporting soon. For more information, visit our list of 
+        <a href="https://help.disqus.com/customer/portal/articles/466228-which-browsers-does-disqus-work-with-" style="color: #fff; text-decoration: underline;">supported browsers</a>
+        and consider upgrading.
+    </p><![endif]-->
+    <div id="error" style="display:none; text-align: center">
+        <p>We were unable to load Disqus. If you are a moderator please see our <a href="https://docs.disqus.com/help/83/"> troubleshooting guide</a>. </p>
+    </div>
+
+    
+    <script type="text/json" id="disqus-forumData">{"session":{"canModerate":false,"audienceSyncVerified":false,"mustVerify":false,"canReply":true,"mustVerifyEmail":false},"features":{},"forum":{"category":null,"description":"","founder":"39840525","twitterName":"juantreminio","url":"https://jtreminio.com","raw_description":"","guidelines":null,"favicon":{"permalink":"https://disqus.com/api/forums/favicons/jtreminio.jpg","cache":"//a.disquscdn.com/1457379538/images/favicon-default.png"},"raw_guidelines":null,"language":"en","daysThreadAlive":0,"avatar":{"small":{"permalink":"https://disqus.com/api/forums/avatars/jtreminio.jpg?size=32","cache":"//a.disquscdn.com/1457379538/images/noavatar32.png"},"large":{"permalink":"https://disqus.com/api/forums/avatars/jtreminio.jpg?size=92","cache":"//a.disquscdn.com/1457379538/images/noavatar92.png"}},"channel":null,"daysAlive":0,"pk":"2107574","signedUrl":"https://disq.us/?url=https%3A%2F%2Fjtreminio.com&key=4JyK8622ow90cB3D3_K_uQ","settings":{"supportLevel":0,"adsDRNativeEnabled":false,"disable3rdPartyTrackers":false,"adsVideoEnabled":false,"adsProductVideoEnabled":false,"adsPositionTopEnabled":false,"ssoRequired":false,"linkAffiliationEnabled":false,"adsProductLinksThumbnailsEnabled":false,"adsProductStoriesEnabled":false,"organicDiscoveryEnabled":true,"allowMedia":true,"discoveryMax":false,"discoveryLocked":false,"moderatorText":"","adsEnabled":false,"allowAnonPost":false,"hasCustomAvatar":false,"adultContent":false,"promotedDiscoveryEnabled":false,"allowAnonVotes":false,"mustVerify":false,"colorScheme":"auto","adsSettingsLocked":false,"mustVerifyEmail":false,"audienceSyncEnabled":false,"typeface":"auto","adsPositionBottomEnabled":false,"mediaembedEnabled":true,"adsProductLinksEnabled":false,"discoveryThumbnailsEnabled":false,"isVIP":false},"id":"jtreminio","createdAt":"2012-12-29T02:06:57.854934","name":"jtreminio.com"}}</script>
+
+    
+    <script type="text/json" id="disqus-threadData">{"cursor":{"hasPrev":false,"prev":null,"total":12,"hasNext":false,"next":"1:0:0"},"code":0,"response":{"lastModified":1447007906,"posts":[{"forum":"jtreminio","parent":null,"isApproved":true,"author":{"username":"eztrenk","about":"","name":"Eztrenk","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.211044,"profileUrl":"https://disqus.com/by/eztrenk/","url":"","reputation":1.211044,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-04-15T01:31:55","id":"48190586","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/eztrenk.jpg","cache":"//a.disquscdn.com/uploads/users/4819/586/avatar32.jpg?1405373143"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/eztrenk.jpg","cache":"//a.disquscdn.com/uploads/users/4819/586/avatar92.jpg?1405373143","large":{"permalink":"https://disqus.com/api/users/avatars/eztrenk.jpg","cache":"//a.disquscdn.com/uploads/users/4819/586/avatar92.jpg?1405373143"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I was setting this up for someone else and noticed phpmyadmin wouldn't work, giving error 2002 all the time. Doing a \"telnet localhost 3306\" command outputted that the connection attempt had been refused. After a lot of digging, it turned out I had to comment the bind-address line. Then suddenly everything worked.\n\n\nAlso, on Debian 7.1, only mysql 5.5 is available from the repositories. It might be something in the newer version compared to 5.1.","createdAt":"2013-08-23T14:51:07","id":"1014907679","thread":"1199987993","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":1,"isEdited":false,"message":"\u003cp>I was setting this up for someone else and noticed phpmyadmin wouldn't work, giving error 2002 all the time. Doing a \"telnet localhost 3306\" command outputted that the connection attempt had been refused. After a lot of digging, it turned out I had to comment the bind-address line. Then suddenly everything worked.\u003c/p>\u003cp>Also, on Debian 7.1, only mysql 5.5 is available from the repositories. It might be something in the newer version compared to 5.1.\u003c/p>","isSpam":false,"isHighlighted":false,"points":1},{"forum":"jtreminio","parent":null,"isApproved":true,"author":{"username":"pm222222","about":"","name":"pm","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2425709999999999,"profileUrl":"https://disqus.com/by/pm222222/","url":"","reputation":1.2425709999999999,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-08-24T13:10:02","id":"69525412","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/pm222222.jpg","cache":"//a.disquscdn.com/uploads/users/6952/5412/avatar32.jpg?1437671869"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/pm222222.jpg","cache":"//a.disquscdn.com/uploads/users/6952/5412/avatar92.jpg?1437671869","large":{"permalink":"https://disqus.com/api/users/avatars/pm222222.jpg","cache":"//a.disquscdn.com/uploads/users/6952/5412/avatar92.jpg?1437671869"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"hi\n\ncan you please tell me why win10 hosts are not supported yet? What's the problem? :)","createdAt":"2015-11-08T18:38:25","id":"2348996385","thread":"1199987993","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>hi\u003c/p>\u003cp>can you please tell me why win10 hosts are not supported yet? What's the problem? :)\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":null,"isApproved":true,"author":{"username":"plunntic","about":"","name":"plunntic","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.237215,"profileUrl":"https://disqus.com/by/plunntic/","url":"","reputation":1.237215,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2012-07-09T13:04:10","id":"28659350","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/plunntic.jpg","cache":"//a.disquscdn.com/uploads/users/2865/9350/avatar32.jpg?1452474435"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/plunntic.jpg","cache":"//a.disquscdn.com/uploads/users/2865/9350/avatar92.jpg?1452474435","large":{"permalink":"https://disqus.com/api/users/avatars/plunntic.jpg","cache":"//a.disquscdn.com/uploads/users/2865/9350/avatar92.jpg?1452474435"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I must say i don't get why to do all that stuff \"by hand\", instead of using vagrant / puppet, in which case - once you're done - you can deploy new or reinstall existing one with one command? Not to say about how easy it is than to modify your VM (in case when you need it), and also how great it is when you can have your VM inside project repo (as some few files describing entire config that has to be installed on \"vagrant up\" command. Really - I just don't get it :)\n\nAny way, don't take me wrong - i'm not hating here, just setting up VM by hand is a lot of work...","createdAt":"2015-02-07T12:04:12","id":"1840076663","thread":"1199987993","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I must say i don't get why to do all that stuff \"by hand\", instead of using vagrant / puppet, in which case - once you're done - you can deploy new or reinstall existing one with one command? Not to say about how easy it is than to modify your VM (in case when you need it), and also how great it is when you can have your VM inside project repo (as some few files describing entire config that has to be installed on \"vagrant up\" command. Really - I just don't get it :)\u003c/p>\u003cp>Any way, don't take me wrong - i'm not hating here, just setting up VM by hand is a lot of work...\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":1840076663,"isApproved":true,"author":{"username":"juantreminio","about":"","name":"Juan Treminio","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.243293,"profileUrl":"https://disqus.com/by/juantreminio/","url":"https://jtreminio.com/","reputation":1.243293,"location":"Allen, TX","isPrivate":false,"signedUrl":"https://disq.us/?url=https%3A%2F%2Fjtreminio.com%2F&key=4JQb0L11fhPAhuO7m9edEw","isPrimary":true,"joinedAt":"2012-12-29T07:04:21","id":"39840525","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/juantreminio.jpg","cache":"//a.disquscdn.com/uploads/users/3984/525/avatar32.jpg?1458607682"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/juantreminio.jpg","cache":"//a.disquscdn.com/uploads/users/3984/525/avatar92.jpg?1458607682","large":{"permalink":"https://disqus.com/api/users/avatars/juantreminio.jpg","cache":"//a.disquscdn.com/uploads/users/3984/525/avatar92.jpg?1458607682"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"You should probably take a look at my other blog post, https://jtreminio.com/2013/05/introduction_to_vagrant_puppet_and_introducing_puphpet_a_simple_to_use_vagrant_puppet_gui_configurator/","createdAt":"2015-02-07T17:56:06","id":"1840648658","thread":"1199987993","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>You should probably take a look at my other blog post, \u003ca href=\"https://jtreminio.com/2013/05/introduction_to_vagrant_puppet_and_introducing_puphpet_a_simple_to_use_vagrant_puppet_gui_configurator/\" rel=\"nofollow\">https://jtreminio.com/2013/05/...\u003c/a>\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":1840648658,"isApproved":true,"author":{"username":"plunntic","about":"","name":"plunntic","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.237215,"profileUrl":"https://disqus.com/by/plunntic/","url":"","reputation":1.237215,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2012-07-09T13:04:10","id":"28659350","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/plunntic.jpg","cache":"//a.disquscdn.com/uploads/users/2865/9350/avatar32.jpg?1452474435"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/plunntic.jpg","cache":"//a.disquscdn.com/uploads/users/2865/9350/avatar92.jpg?1452474435","large":{"permalink":"https://disqus.com/api/users/avatars/plunntic.jpg","cache":"//a.disquscdn.com/uploads/users/2865/9350/avatar92.jpg?1452474435"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Hm, ok. So you've created puphpet :) This is a really cool tool that \ni've been using sometimes. But then, a i don't understand even more \nwhat's the purpouse of the \"creating VM by hand\" tutorial, if you on \nyour own use vagrant :)","createdAt":"2015-02-10T10:43:03","id":"1845289318","thread":"1199987993","depth":2,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Hm, ok. So you've created puphpet :) This is a really cool tool that \u003cbr>i've been using sometimes. But then, a i don't understand even more \u003cbr>what's the purpouse of the \"creating VM by hand\" tutorial, if you on \u003cbr>your own use vagrant :)\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":1845289318,"isApproved":true,"author":{"username":"juantreminio","about":"","name":"Juan Treminio","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.243293,"profileUrl":"https://disqus.com/by/juantreminio/","url":"https://jtreminio.com/","reputation":1.243293,"location":"Allen, TX","isPrivate":false,"signedUrl":"https://disq.us/?url=https%3A%2F%2Fjtreminio.com%2F&key=4JQb0L11fhPAhuO7m9edEw","isPrimary":true,"joinedAt":"2012-12-29T07:04:21","id":"39840525","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/juantreminio.jpg","cache":"//a.disquscdn.com/uploads/users/3984/525/avatar32.jpg?1458607682"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/juantreminio.jpg","cache":"//a.disquscdn.com/uploads/users/3984/525/avatar92.jpg?1458607682","large":{"permalink":"https://disqus.com/api/users/avatars/juantreminio.jpg","cache":"//a.disquscdn.com/uploads/users/3984/525/avatar92.jpg?1458607682"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I wrote this article several months before starting work on puphpet.","createdAt":"2015-02-10T17:46:07","id":"1845947824","thread":"1199987993","depth":3,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I wrote this article several months before starting work on puphpet.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":null,"isApproved":true,"author":{"username":"peteravalos","about":"","name":"Peter Avalos","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2634239999999999,"profileUrl":"https://disqus.com/by/peteravalos/","url":"www.peteravalos.com","reputation":1.2634239999999999,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2009-10-27T05:09:09","id":"1053828","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/peteravalos.jpg","cache":"//a.disquscdn.com/1457379538/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/peteravalos.jpg","cache":"//a.disquscdn.com/1457379538/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/peteravalos.jpg","cache":"//a.disquscdn.com/1457379538/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Hi Juan: \nGood stuff.  I hit a wall, however, when it came to configuring SAMBA. My host is Windows 8.1 Enterprise (so it's joined to an AD domain) and guest is Kali 1.0. To my knowledge, The Kali Team uses Debian (I already had this guest), so I haven't deviated that far from your article. \n\n\nAnyway, I can see my home share and the www, but am denied access to each when testing from the Windows host machine.\n\n\nWhen searching the logs, i get the following:\npeter@kali:/var/log$ sudo grep -r \"www\" samba\nsamba/log.w8-pavalos:  Share 'www' has wide links and unix extensions enabled. These parameters are incompatible. Wide links will be disabled for this share.\n\n\n\nI tried different configs. Setting unix extensions = no in [global] and vice versa to no avail. I finally threw my hands up, but really want to make this setup work. I think it's ideal. I use PHP Storm as well and love it. If I can get this last piece working I will be a very happy boy.\n\n\nCheers,\nPeter","createdAt":"2014-01-04T21:43:53","id":"1187052522","thread":"1199987993","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Hi Juan: \u003cbr>Good stuff.  I hit a wall, however, when it came to configuring SAMBA. My host is Windows 8.1 Enterprise (so it's joined to an AD domain) and guest is Kali 1.0. To my knowledge, The Kali Team uses Debian (I already had this guest), so I haven't deviated that far from your article.\u003c/p>\u003cp>Anyway, I can see my home share and the www, but am denied access to each when testing from the Windows host machine.\u003c/p>\u003cp>When searching the logs, i get the following:\u003cbr>peter@kali:/var/log$ sudo grep -r \"www\" samba\u003cbr>samba/log.w8-pavalos:  Share 'www' has wide links and unix extensions enabled. These parameters are incompatible. Wide links will be disabled for this share.\u003c/p>\u003cp>I tried different configs. Setting unix extensions = no in [global] and vice versa to no avail. I finally threw my hands up, but really want to make this setup work. I think it's ideal. I use PHP Storm as well and love it. If I can get this last piece working I will be a very happy boy.\u003c/p>\u003cp>Cheers,\u003cbr>Peter\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":null,"isApproved":true,"author":{"username":"disqus_8beNerrV4R","about":"","name":"Roeland","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232124,"profileUrl":"https://disqus.com/by/disqus_8beNerrV4R/","url":"","reputation":1.232124,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-12-18T19:49:29","id":"86853777","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_8beNerrV4R.jpg","cache":"//a.disquscdn.com/uploads/users/8685/3777/avatar32.jpg?1387396171"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_8beNerrV4R.jpg","cache":"//a.disquscdn.com/uploads/users/8685/3777/avatar92.jpg?1387396171","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_8beNerrV4R.jpg","cache":"//a.disquscdn.com/uploads/users/8685/3777/avatar92.jpg?1387396171"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Great piece of work! Thank you!","createdAt":"2013-12-18T19:50:20","id":"1169147859","thread":"1199987993","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Great piece of work! Thank you!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":null,"isApproved":true,"author":{"username":"kray257","about":"","name":"kray257","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.244119,"profileUrl":"https://disqus.com/by/kray257/","url":"","reputation":1.244119,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-11-25T15:44:28","id":"83327207","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/kray257.jpg","cache":"//a.disquscdn.com/uploads/users/8332/7207/avatar32.jpg?1458691602"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/kray257.jpg","cache":"//a.disquscdn.com/uploads/users/8332/7207/avatar92.jpg?1458691602","large":{"permalink":"https://disqus.com/api/users/avatars/kray257.jpg","cache":"//a.disquscdn.com/uploads/users/8332/7207/avatar92.jpg?1458691602"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Thanks for the great tutorial! I really appreciate you taking time to put it together. I did run into a problem though. I got stuck at the setup for the second network adapter. Could you please run through it again and update where necessary? It might be out of date due to updates in Virtual Box.","createdAt":"2013-11-25T15:49:14","id":"1138291302","thread":"1199987993","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Thanks for the great tutorial! I really appreciate you taking time to put it together. I did run into a problem though. I got stuck at the setup for the second network adapter. Could you please run through it again and update where necessary? It might be out of date due to updates in Virtual Box.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":null,"isApproved":true,"author":{"username":"nitinnain","about":"","name":"Nitin Nain","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.207519,"profileUrl":"https://disqus.com/by/nitinnain/","url":"","reputation":1.207519,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-06-17T15:35:36","id":"57378384","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/nitinnain.jpg","cache":"//a.disquscdn.com/uploads/users/5737/8384/avatar32.jpg?1371483338"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/nitinnain.jpg","cache":"//a.disquscdn.com/uploads/users/5737/8384/avatar92.jpg?1371483338","large":{"permalink":"https://disqus.com/api/users/avatars/nitinnain.jpg","cache":"//a.disquscdn.com/uploads/users/5737/8384/avatar92.jpg?1371483338"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"An year old post, still this was great info and well put. Thank you!","createdAt":"2013-08-11T14:05:30","id":"996368596","thread":"1199987993","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>An year old post, still this was great info and well put. Thank you!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":null,"isApproved":true,"author":{"username":"eztrenk","about":"","name":"Eztrenk","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.211044,"profileUrl":"https://disqus.com/by/eztrenk/","url":"","reputation":1.211044,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-04-15T01:31:55","id":"48190586","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/eztrenk.jpg","cache":"//a.disquscdn.com/uploads/users/4819/586/avatar32.jpg?1405373143"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/eztrenk.jpg","cache":"//a.disquscdn.com/uploads/users/4819/586/avatar92.jpg?1405373143","large":{"permalink":"https://disqus.com/api/users/avatars/eztrenk.jpg","cache":"//a.disquscdn.com/uploads/users/4819/586/avatar92.jpg?1405373143"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I tried your guide, but I'm not getting past the point of setting up the second Network Adapter. Any attempt to SSH in to the VM is getting a timeout.\n\nThe windows hosts file contains the correct command, the interfaces file has only the lines you specified added and I've added exceptions to the Windows Firewall for Virtualbox and KiTTy, both inbound and outbound to always be allowed. I've even turned the firewall off, restarted and tried it again, but still I get a timeout.\n\n\nRunning \"sudo ifconfig -a\" shows eth1 is running and has the correct IP address.\nI can still run a regular \"sudo apt-get update\" or ping www.google.com. But the second interface is seemingly not working properly.\n\nPlease advise proper action.\n\nEDIT: problem solved, let's hope it's permanent.\n\nWhat happened is I didn't understand how Virtualbox configures the Host-Only network Adapter.\n\nSee, I thought this was just some technology that Virtualbox employed that would always work for all VM's installed.\n\nInstead, it turns out you can actually make any Host-Only network configuration(under File -> Preferences -> Network). This is done via the Virtualbox manager, not via the individual VM GUI. The problem was that the default Host-Only network for me was not set to 192.168.56.1, it had some exotic IP address I've already forgotten, something alone the lines of 169.224.x.x\n\nChanging it didn't seem to work though, the changes were never saved, they always returned to the exotic address.\n\nSo, I had to make a new one with the correct settings and tell the Host-Only Adapter for the Debian VM to use those settings.\n\nThe correct settings being show here: http://i.imgur.com/f4MyVgL.png\nAnd here: http://i.imgur.com/su9iA64.png\n\nI took those images from this page: https://forums.virtualbox.org/viewtopic.php?f=6&t=55623\n\nThat's how I fixed it: remove the default host-only network and make a new one with the correct settings.\n\nI'm not guaranteeing this will work for anyone else, I'm just saying it worked for me.","createdAt":"2013-05-21T23:01:23","id":"904367285","thread":"1199987993","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":true,"message":"\u003cp>I tried your guide, but I'm not getting past the point of setting up the second Network Adapter. Any attempt to SSH in to the VM is getting a timeout.\u003c/p>\u003cp>The windows hosts file contains the correct command, the interfaces file has only the lines you specified added and I've added exceptions to the Windows Firewall for Virtualbox and KiTTy, both inbound and outbound to always be allowed. I've even turned the firewall off, restarted and tried it again, but still I get a timeout.\u003c/p>\u003cp>Running \"sudo ifconfig -a\" shows eth1 is running and has the correct IP address.\u003cbr>I can still run a regular \"sudo apt-get update\" or ping \u003ca href=\"http://www.google.com\" rel=\"nofollow\">www.google.com\u003c/a>. But the second interface is seemingly not working properly.\u003c/p>\u003cp>Please advise proper action.\u003c/p>\u003cp>EDIT: problem solved, let's hope it's permanent.\u003c/p>\u003cp>What happened is I didn't understand how Virtualbox configures the Host-Only network Adapter.\u003c/p>\u003cp>See, I thought this was just some technology that Virtualbox employed that would always work for all VM's installed.\u003c/p>\u003cp>Instead, it turns out you can actually make any Host-Only network configuration(under File -&gt; Preferences -&gt; Network). This is done via the Virtualbox manager, not via the individual VM GUI. The problem was that the default Host-Only network for me was not set to 192.168.56.1, it had some exotic IP address I've already forgotten, something alone the lines of 169.224.x.x\u003c/p>\u003cp>Changing it didn't seem to work though, the changes were never saved, they always returned to the exotic address.\u003c/p>\u003cp>So, I had to make a new one with the correct settings and tell the Host-Only Adapter for the Debian VM to use those settings.\u003c/p>\u003cp>The correct settings being show here: \u003ca href=\"http://i.imgur.com/f4MyVgL.png\" rel=\"nofollow\">http://i.imgur.com/f4MyVgL.png\u003c/a>\u003cbr>And here: \u003ca href=\"http://i.imgur.com/su9iA64.png\" rel=\"nofollow\">http://i.imgur.com/su9iA64.png\u003c/a>\u003c/p>\u003cp>I took those images from this page: \u003ca href=\"https://forums.virtualbox.org/viewtopic.php?f=6&amp;t=55623\" rel=\"nofollow\">https://forums.virtualbox.org/...\u003c/a>\u003c/p>\u003cp>That's how I fixed it: remove the default host-only network and make a new one with the correct settings.\u003c/p>\u003cp>I'm not guaranteeing this will work for anyone else, I'm just saying it worked for me.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"jtreminio","parent":904367285,"isApproved":true,"author":{"username":"gg_20","about":"","name":"gg_20","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2324929999999998,"profileUrl":"https://disqus.com/by/gg_20/","url":"","reputation":1.2324929999999998,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2014-08-10T18:08:25","id":"117689679","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/gg_20.jpg","cache":"//a.disquscdn.com/uploads/users/11768/9679/avatar32.jpg?1407963818"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/gg_20.jpg","cache":"//a.disquscdn.com/uploads/users/11768/9679/avatar92.jpg?1407963818","large":{"permalink":"https://disqus.com/api/users/avatars/gg_20.jpg","cache":"//a.disquscdn.com/uploads/users/11768/9679/avatar92.jpg?1407963818"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Hi I'm following this tutorial too and I've done what you have proposed and I'm able to ssh into my vm through the command line but I still cannot access through my browser, is there anything else I could try?","createdAt":"2014-08-13T21:03:36","id":"1541423570","thread":"1199987993","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Hi I'm following this tutorial too and I've done what you have proposed and I'm able to ssh into my vm through the command line but I still cannot access through my browser, is there anything else I could try?\u003c/p>","isSpam":false,"isHighlighted":false,"points":0}],"thread":{"feed":"https://jtreminio.disqus.com/juan_treminio_dallas_phpmysql_web_developer_setting_up_a_debian_vm_step_by_step_65/latest.rss","identifiers":[],"dislikes":0,"likes":1,"message":"","id":"1199987993","isDeleted":false,"category":"2140216","author":"39840525","userScore":0,"userSubscription":false,"isSpam":false,"signedLink":"https://disq.us/?url=https%3A%2F%2Fjtreminio.com%2F2012%2F07%2Fsetting-up-a-debian-vm-step-by-step%2F&key=svTyBq0HHqk7bpbso8D8QQ","createdAt":"2013-04-10T05:56:25","hasStreaming":false,"raw_message":"","isClosed":false,"link":"https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/","slug":"juan_treminio_dallas_phpmysql_web_developer_setting_up_a_debian_vm_step_by_step_65","forum":"jtreminio","clean_title":"Juan Treminio - Dallas PHP/MySQL Web Developer \u2014 Setting Up a Debian VM, Step by Step","posts":12,"moderators":[39840525],"title":"Juan Treminio - Dallas PHP/MySQL Web Developer \u2014 Setting Up a Debian VM, Step by Step","highlightedPost":null}},"order":"popular"}</script>
+
+    
+
+    <div id="fixed-content"></div>
+
+
+    
+        
+        <!--[if lte IE 8]>
+<script src="//a.disquscdn.com/1457379538/build/vendor/ie8.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="//a.disquscdn.com/1457379538/build/vendor/ie9.js"></script>
+<![endif]-->
+
+        
+<script type="text/json" id="disqus-urls">{
+    "root":"//disqus.com",
+    "next":"//a.disquscdn.com/next/current/embed"
+}</script>
+
+        <script src="a_data/lounge.js" id="bootstrap-script" data-app="lounge" async=""></script>
+    
+
+
+<div id="layout" data-tracking-area="layout">
+
+<div id="onboard" data-tracking-area="onboard"><div><div class="notice ">
+<div class="notice-wrapper">
+<span class="icon icon-disqus"></span>
+<a data-action="show-home" href="https://disqus.com/home/welcome/?utm_source=embed&amp;utm_medium=onboard_message&amp;utm_content=see_home_msg&amp;forum_id=jtreminio" target="_blank" class="message">
+
+Welcome to Disqus! Discover more great discussions just like this one. We're a lot more than comments.
+</a>
+<a data-action="show-home" href="https://disqus.com/home/welcome/?utm_source=embed&amp;utm_medium=onboard_message&amp;utm_content=see_home_btn&amp;forum_id=jtreminio" target="_blank" class="btn btn-primary">
+
+Get Started
+</a>
+</div>
+</div>
+<a class="dismiss" data-action="close" href="#" title="Dismiss">Dismiss <span aria-label="Dismiss" class="cross">×</span></a>
+</div></div>
+
+<div style="display: none;" id="highlighted-post" data-tracking-area="highlighted" class="highlighted-post"></div>
+
+<div id="global-alert"></div>
+
+<header id="main-nav" data-tracking-area="main-nav">
+<nav class="nav nav-primary">
+<ul>
+<li class="tab-conversation active" data-role="post-count"><a class="publisher-nav-color">
+<span class="comment-count">
+12 comments
+</span>
+
+<span class="comment-count-placeholder">
+Comments
+</span>
+</a>
+</li>
+<li class="tab-community">
+<a href="https://disqus.com/home/forums/jtreminio/" class="publisher-nav-color" data-action="community-sidebar" data-forum="jtreminio" id="community-tab">
+<span class="community-name">
+<strong>jtreminio.com</strong>
+
+</span>
+
+<strong class="community-name-placeholder">Community</strong>
+</a>
+</li>
+<li class="dropdown user-menu" data-role="logout"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="dropdown-toggle-wrapper">
+
+<span class="avatar">
+<img data-role="user-avatar" data-user="201326696" alt="Avatar">
+</span>
+<span class="username" data-role="username" data-username="disqus_5QSVUKdaSx">
+Csaba Farkas
+</span>
+
+</span> <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://disqus.com/by/disqus_5QSVUKdaSx/" data-role="user-profile-link" data-action="profile" data-username="disqus_5QSVUKdaSx">
+Your Profile
+</a>
+</li>
+<li>
+<a href="#" class="media-toggle-on" data-action="toggle-media">Display Media</a>
+<a href="#" class="media-toggle-off" data-action="toggle-media">Hide Media</a>
+</li>
+<li>
+<a href="https://disqus.com/home/settings/account/">Edit Settings</a>
+</li>
+
+
+
+<li>
+<a href="#" data-action="logout">Logout</a>
+</li>
+</ul>
+</li>
+<li class="notification-menu" data-role="notification-menu"><a href="https://disqus.com/home/inbox/" class="notification-container" data-action="home" data-home-path="home/inbox/">
+<span class="notification-icon icon-comment" aria-hidden=""></span>
+<span class="notification-count" data-role="notification-count"></span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+
+<section id="conversation" data-role="main" data-tracking-area="main">
+<div class="nav nav-secondary" data-tracking-area="secondary-nav">
+<ul>
+<li id="recommend-button" class="recommend dropdown">
+<div class="thread-likes"><a href="#" data-action="recommend" title="Recommend this discussion" class="dropdown-toggle ">
+<span class="icon-heart"></span>
+<span class="label label-default">Recommend</span>
+<span class="label label-recommended">Recommended</span>
+<span class="label label-count">1</span>
+</a>
+<ul class="dropdown-menu coachmark">
+<li>
+<h2>Discussion Recommended!</h2>
+<p>Recommending means this is a discussion worth sharing. It gets shared
+ to your followers' Disqus feeds, and gives the creator kudos!</p>
+<a href="https://disqus.com/home/?utm_source=disqus_embed&amp;utm_content=recommend_btn" class="btn btn-primary" target="_blank">
+ Find More Discussions 
+</a>
+</li>
+</ul>
+</div></li>
+<li id="thread-share-menu" class="dropdown share-menu hidden-sm"><a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Share">
+<span class="icon-export"></span>
+<span class="label">Share</span>
+</a>
+<ul class="share-menu dropdown-menu">
+<li class="share">Share this discussion on
+<ul>
+<li class="twitter">
+<a data-action="share:twitter" href="#">Twitter</a>
+</li>
+<li class="facebook">
+<a data-action="share:facebook" href="#">Facebook</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-role="post-sort" class="dropdown sorting pull-right">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Sort by Best
+
+
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu pull-right">
+<li class="selected">
+<a href="#" data-action="sort" data-sort="popular">Best<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="#" data-action="sort" data-sort="desc">Newest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="#" data-action="sort" data-sort="asc">Oldest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="posts">
+<div id="form"><form class="reply authenticated">
+<div class="postbox">
+<div role="alert"></div>
+<div class="avatar">
+<a href="https://disqus.com/by/disqus_5QSVUKdaSx/" class="user" data-action="profile" data-username="disqus_5QSVUKdaSx">
+<img data-role="user-avatar" data-user="201326696" src="a_data/avatar92_004.jpg" alt="Avatar">
+</a>
+</div>
+
+<div class="textarea-wrapper" data-role="textarea" dir="auto"><div><span class="placeholder">Join the discussion…</span><div aria-label="Join the discussion…" style="overflow: auto; max-height: 350px;" data-role="editable" aria-multiline="true" role="textbox" tabindex="0" class="textarea" contenteditable="true"><p><br></p></div><div style="display: none;"><ul class="suggestions">
+<li class="header">
+<h5>in this conversation</h5>
+</li>
+</ul>
+</div></div>
+<div data-role="drag-drop-placeholder" class="media-drag-hover" style="display: none">
+<div class="drag-text">
+⬇ Drag and drop your images here to upload them.
+</div>
+</div>
+<div class="media-preview empty" data-role="media-preview"><ul data-role="media-legacy-list"></ul>
+<ul data-role="media-progress-list"></ul>
+<ul data-role="media-rich-list"></ul>
+<div class="media-expanded empty" data-role="media-preview-expanded">
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-role="media-preview-expanded-image" alt="Media preview placeholder">
+</div>
+</div>
+<div class="edit-alert" role="postbox-alert"></div>
+<div class="post-actions">
+<ul class="wysiwyg">
+<li data-role="media-uploader"><a href="#" tabindex="-1" data-action="attach" class="attach" title="Upload Images"><span>Attach</span></a>
+<input data-role="media-upload" tabindex="-1" accept="image/*" type="file">
+</li>
+</ul>
+<div class="logged-in">
+<section>
+<div class="temp-post" style="text-align: right">
+<button class="btn">
+Post as <span data-username="disqus_5QSVUKdaSx" data-role="username">Csaba Farkas</span>
+
+</button>
+</div>
+</section>
+</div>
+</div>
+</div>
+
+<div data-role="login-form"><div>
+</div></div>
+</div>
+</form></div>
+
+<button class="alert realtime" style="display: none" data-role="realtime-notification">
+</button>
+
+<div id="no-posts" style="display:none"></div>
+
+<ul id="post-list" class="post-list"><li id="post-1014907679" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/eztrenk/" class="user" data-action="profile" data-username="eztrenk">
+<img data-role="user-avatar" data-user="48190586" src="a_data/avatar92_002.jpg" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/eztrenk/" data-action="profile" data-username="eztrenk" data-role="username">Eztrenk</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1014907679" data-role="relative-time" class="time-ago" title="Friday, August 23, 2013 4:51 PM">3 years ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I was setting this up for someone else and noticed phpmyadmin 
+wouldn't work, giving error 2002 all the time. Doing a "telnet localhost
+ 3306" command outputted that the connection attempt had been refused. 
+After a lot of digging, it turned out I had to comment the bind-address 
+line. Then suddenly everything worked.</p><p>Also, on Debian 7.1, only 
+mysql 5.5 is available from the repositories. It might be something in 
+the newer version compared to 5.1.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-1" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">1</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1014907679">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1014907679">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2348996385" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/pm222222/" class="user" data-action="profile" data-username="pm222222">
+<img data-role="user-avatar" data-user="69525412" src="a_data/avatar92_005.jpg" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/pm222222/" data-action="profile" data-username="pm222222" data-role="username">pm</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-2348996385" data-role="relative-time" class="time-ago" title="Sunday, November 8, 2015 7:38 PM">5 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>hi</p><p>can you please tell me why win10 hosts are not supported yet? What's the problem? :)</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-2348996385">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2348996385">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-1840076663" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/plunntic/" class="user" data-action="profile" data-username="plunntic">
+<img data-role="user-avatar" data-user="28659350" src="a_data/avatar92.jpg" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/plunntic/" data-action="profile" data-username="plunntic" data-role="username">plunntic</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1840076663" data-role="relative-time" class="time-ago" title="Saturday, February 7, 2015 1:04 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I must say i don't get why to do all that stuff "by hand", instead of
+ using vagrant / puppet, in which case - once you're done - you can 
+deploy new or reinstall existing one with one command? Not to say about 
+how easy it is than to modify your VM (in case when you need it), and 
+also how great it is when you can have your VM inside project repo (as 
+some few files describing entire config that has to be installed on 
+"vagrant up" command. Really - I just don't get it :)</p><p>Any way, don't take me wrong - i'm not hating here, just setting up VM by hand is a lot of work...</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1840076663">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1840076663">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-1840648658" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/juantreminio/" class="user" data-action="profile" data-username="juantreminio">
+<img data-role="user-avatar" data-user="39840525" src="a_data/avatar92_003.jpg" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/juantreminio/" data-action="profile" data-username="juantreminio" data-role="username">Juan Treminio</a></span>
+<span class="badge moderator">Mod</span>
+
+<span><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1840076663" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> plunntic</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1840648658" data-role="relative-time" class="time-ago" title="Saturday, February 7, 2015 6:56 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>You should probably take a look at my other blog post, <a href="https://jtreminio.com/2013/05/introduction_to_vagrant_puppet_and_introducing_puphpet_a_simple_to_use_vagrant_puppet_gui_configurator/" rel="nofollow">https://jtreminio.com/2013/05/...</a></p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1840648658">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1840648658">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-1845289318" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/plunntic/" class="user" data-action="profile" data-username="plunntic">
+<img data-role="user-avatar" data-user="28659350" src="a_data/avatar92.jpg" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/plunntic/" data-action="profile" data-username="plunntic" data-role="username">plunntic</a></span>
+
+<span><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1840648658" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Juan Treminio</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1845289318" data-role="relative-time" class="time-ago" title="Tuesday, February 10, 2015 11:43 AM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Hm, ok. So you've created puphpet :) This is a really cool tool that <br>i've been using sometimes. But then, a i don't understand even more <br>what's the purpouse of the "creating VM by hand" tutorial, if you on <br>your own use vagrant :)</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1845289318">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1845289318">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-1845947824" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/juantreminio/" class="user" data-action="profile" data-username="juantreminio">
+<img data-role="user-avatar" data-user="39840525" src="a_data/avatar92_003.jpg" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/juantreminio/" data-action="profile" data-username="juantreminio" data-role="username">Juan Treminio</a></span>
+<span class="badge moderator">Mod</span>
+
+<span><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1845289318" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> plunntic</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1845947824" data-role="relative-time" class="time-ago" title="Tuesday, February 10, 2015 6:46 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I wrote this article several months before starting work on puphpet.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1845947824">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1845947824">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li></ul>
+
+</li></ul>
+
+</li><li id="post-1187052522" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/peteravalos/" class="user" data-action="profile" data-username="peteravalos">
+<img data-role="user-avatar" data-user="1053828" src="a_data/noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/peteravalos/" data-action="profile" data-username="peteravalos" data-role="username">Peter Avalos</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1187052522" data-role="relative-time" class="time-ago" title="Saturday, January 4, 2014 10:43 PM">2 years ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Hi Juan: <br>Good stuff.  I hit a wall, however, when it came to 
+configuring SAMBA. My host is Windows 8.1 Enterprise (so it's joined to 
+an AD domain) and guest is Kali 1.0. To my knowledge, The Kali Team uses
+ Debian (I already had this guest), so I haven't deviated that far from 
+your article.</p><p>Anyway, I can see my home share and the www, but am denied access to each when testing from the Windows host machine.</p><p>When searching the logs, i get the following:<br>peter@kali:/var/log$ sudo grep -r "www" samba<br>samba/log.w8-pavalos:
+  Share 'www' has wide links and unix extensions enabled. These 
+parameters are incompatible. Wide links will be disabled for this share.</p><p>I
+ tried different configs. Setting unix extensions = no in [global] and 
+vice versa to no avail. I finally threw my hands up, but really want to 
+make this setup work. I think it's ideal. I use PHP Storm as well and 
+love it. If I can get this last piece working I will be a very happy 
+boy.</p><p>Cheers,<br>Peter</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1187052522">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1187052522">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-1169147859" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_8beNerrV4R/" class="user" data-action="profile" data-username="disqus_8beNerrV4R">
+<img data-role="user-avatar" data-user="86853777" src="a_data/noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_8beNerrV4R/" data-action="profile" data-username="disqus_8beNerrV4R" data-role="username">Roeland</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1169147859" data-role="relative-time" class="time-ago" title="Wednesday, December 18, 2013 8:50 PM">2 years ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Great piece of work! Thank you!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1169147859">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1169147859">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-1138291302" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/kray257/" class="user" data-action="profile" data-username="kray257">
+<img data-role="user-avatar" data-user="83327207" src="a_data/noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/kray257/" data-action="profile" data-username="kray257" data-role="username">kray257</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1138291302" data-role="relative-time" class="time-ago" title="Monday, November 25, 2013 4:49 PM">2 years ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Thanks for the great tutorial! I really appreciate you taking time to
+ put it together. I did run into a problem though. I got stuck at the 
+setup for the second network adapter. Could you please run through it 
+again and update where necessary? It might be out of date due to updates
+ in Virtual Box.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1138291302">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1138291302">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-996368596" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/nitinnain/" class="user" data-action="profile" data-username="nitinnain">
+<img data-role="user-avatar" data-user="57378384" src="a_data/noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/nitinnain/" data-action="profile" data-username="nitinnain" data-role="username">Nitin Nain</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-996368596" data-role="relative-time" class="time-ago" title="Sunday, August 11, 2013 4:05 PM">3 years ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>An year old post, still this was great info and well put. Thank you!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-996368596">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:996368596">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-904367285" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/eztrenk/" class="user" data-action="profile" data-username="eztrenk">
+<img data-role="user-avatar" data-user="48190586" src="a_data/noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/eztrenk/" data-action="profile" data-username="eztrenk" data-role="username">Eztrenk</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-904367285" data-role="relative-time" class="time-ago" title="Wednesday, May 22, 2013 1:01 AM">3 years ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div style="height: 374px;" class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I tried your guide, but I'm not getting past the point of setting up 
+the second Network Adapter. Any attempt to SSH in to the VM is getting a
+ timeout.</p><p>The windows hosts file contains the correct command, the
+ interfaces file has only the lines you specified added and I've added 
+exceptions to the Windows Firewall for Virtualbox and KiTTy, both 
+inbound and outbound to always be allowed. I've even turned the firewall
+ off, restarted and tried it again, but still I get a timeout.</p><p>Running "sudo ifconfig -a" shows eth1 is running and has the correct IP address.<br>I can still run a regular "sudo apt-get update" or ping <a href="http://www.google.com/" rel="nofollow">www.google.com</a>. But the second interface is seemingly not working properly.</p><p>Please advise proper action.</p><p>EDIT: problem solved, let's hope it's permanent.</p><p>What happened is I didn't understand how Virtualbox configures the Host-Only network Adapter.</p><p>See, I thought this was just some technology that Virtualbox employed that would always work for all VM's installed.</p><p>Instead,
+ it turns out you can actually make any Host-Only network 
+configuration(under File -&gt; Preferences -&gt; Network). This is done 
+via the Virtualbox manager, not via the individual VM GUI. The problem 
+was that the default Host-Only network for me was not set to 
+192.168.56.1, it had some exotic IP address I've already forgotten, 
+something alone the lines of 169.224.x.x</p><p>Changing it didn't seem to work though, the changes were never saved, they always returned to the exotic address.</p><p>So, I had to make a new one with the correct settings and tell the Host-Only Adapter for the Debian VM to use those settings.</p><p>The correct settings being show here: <a href="http://i.imgur.com/f4MyVgL.png" rel="nofollow">http://i.imgur.com/f4MyVgL.png</a><br>And here: <a href="http://i.imgur.com/su9iA64.png" rel="nofollow">http://i.imgur.com/su9iA64.png</a></p><p>I took those images from this page: <a href="https://forums.virtualbox.org/viewtopic.php?f=6&amp;t=55623" rel="nofollow">https://forums.virtualbox.org/...</a></p><p>That's how I fixed it: remove the default host-only network and make a new one with the correct settings.</p><p>I'm not guaranteeing this will work for anyone else, I'm just saying it worked for me.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-904367285">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:904367285">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-1541423570" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/gg_20/" class="user" data-action="profile" data-username="gg_20">
+<img data-role="user-avatar" data-user="117689679" src="a_data/noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/gg_20/" data-action="profile" data-username="gg_20" data-role="username">gg_20</a></span>
+
+<span><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-904367285" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Eztrenk</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1541423570" data-role="relative-time" class="time-ago" title="Wednesday, August 13, 2014 11:03 PM">2 years ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Hi I'm following this tutorial too and I've done what you have 
+proposed and I'm able to ssh into my vm through the command line but I 
+still cannot access through my browser, is there anything else I could 
+try?</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer><menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://jtreminio.com/2012/07/setting-up-a-debian-vm-step-by-step/#comment-1541423570">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1541423570">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li></ul>
+
+<div class="load-more" data-role="more" style="display:none">
+<a href="#" data-action="more-posts" class="btn">Load more comments</a>
+</div>
+</div>
+
+</section>
+
+<div id="placement-bottom" data-tracking-area="discovery-south"><div style="height: auto; visibility: visible;" class="post-list"><div style="display: block; width: 100%;"><div id="discovery-main-c309" class="discovery-main">
+
+<section id="col-organic-c362" class="col-organic">
+<header class="discovery-col-header">
+<h2>Also on <strong>jtreminio.com</strong>
+</h2>
+</header>
+<ul class="discovery-posts" data-role="discovery-posts"><li class="discovery-post post-0" id="discovery-link-organic-998277930">
+<a href="http://disq.us/url?url=http%3A%2F%2Fhttps%3A%2F%2Fjtreminio.com%2F2012%2F04%2Fsetting-up-an-ubuntu-vm-step-by-step%2F%3Au_3EkLZ8tL5oBRngH5KOrXNAGJg&amp;imp=8kp7r9l2t841af&amp;prev_imp=8kp0jui3uvtcg3&amp;forum_id=2107574&amp;forum=jtreminio&amp;thread_id=1199987993&amp;user_id=201326696&amp;thread=998277930&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=998277930" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Juan Treminio - Dallas PHP/MySQL Web Developer — Setting Up an Ubuntu VM, Step by Step">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">  Juan Treminio - Dallas PHP/MySQL Web Developer — Setting Up an Ubuntu VM, Step …</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+8 comments
+</li>
+<li class="time">3 years ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Fhttps%3A%2F%2Fjtreminio.com%2F2012%2F04%2Fsetting-up-an-ubuntu-vm-step-by-step%2F%3Au_3EkLZ8tL5oBRngH5KOrXNAGJg&amp;imp=8kp7r9l2t841af&amp;prev_imp=8kp0jui3uvtcg3&amp;forum_id=2107574&amp;forum=jtreminio&amp;thread_id=1199987993&amp;user_id=201326696&amp;thread=998277930&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=998277930" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Andrew</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> Hey,  Thanks for step by step guide for novice like me. I belive the sudo chown -R root:www-data /var/www part should be sudo chown …</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-1" id="discovery-link-organic-4407648922">
+<a href="http://disq.us/url?url=https%3A%2F%2Fjtreminio.com%2F2015%2F12%2Fqueues-working-smart-faster-in-parallel%2F%3Ablz9B8kupi9KxoujggYVeHOO4Jg&amp;imp=8kp7r9l2t841af&amp;prev_imp=8kp0jui3uvtcg3&amp;forum_id=2107574&amp;forum=jtreminio&amp;thread_id=1199987993&amp;user_id=201326696&amp;thread=4407648922&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4407648922" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Queues - Working Smarter, Faster and in Parallel — Juan Treminio — Dallas based senior web developer">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">  Queues - Working Smarter, Faster and in Parallel — Juan Treminio — Dallas based …</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+11 comments
+</li>
+<li class="time">3 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=https%3A%2F%2Fjtreminio.com%2F2015%2F12%2Fqueues-working-smart-faster-in-parallel%2F%3Ablz9B8kupi9KxoujggYVeHOO4Jg&amp;imp=8kp7r9l2t841af&amp;prev_imp=8kp0jui3uvtcg3&amp;forum_id=2107574&amp;forum=jtreminio&amp;thread_id=1199987993&amp;user_id=201326696&amp;thread=4407648922&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4407648922" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Juan Treminio</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> I believe you misread the article. There is no queue for uploading - implementing parallel file uploading is a very simple process: …</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-2" id="discovery-link-organic-1447333611">
+<a href="http://disq.us/url?url=https%3A%2F%2Fjtreminio.com%2F2013%2F06%2Fmake_vagrant_up_yours%2F%3AekAnd_BjR3jOqnWevoKaHVxrd88&amp;imp=8kp7r9l2t841af&amp;prev_imp=8kp0jui3uvtcg3&amp;forum_id=2107574&amp;forum=jtreminio&amp;thread_id=1199987993&amp;user_id=201326696&amp;thread=1447333611&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=1447333611" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Make $ vagrant up yours">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Make $ vagrant up yours
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+16 comments
+</li>
+<li class="time">3 years ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=https%3A%2F%2Fjtreminio.com%2F2013%2F06%2Fmake_vagrant_up_yours%2F%3AekAnd_BjR3jOqnWevoKaHVxrd88&amp;imp=8kp7r9l2t841af&amp;prev_imp=8kp0jui3uvtcg3&amp;forum_id=2107574&amp;forum=jtreminio&amp;thread_id=1199987993&amp;user_id=201326696&amp;thread=1447333611&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=1447333611" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Bastien Vial-Collet</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">Hi
+ Juan. I am using Puphpet since a couple of months now and I love it. 
+People like you really help in focusing on developments. Thank you</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-3" id="discovery-link-organic-1200005099">
+<a href="http://disq.us/url?url=https%3A%2F%2Fjtreminio.com%2F2013%2F03%2Funit-testing-tutorial-introduction-to-phpunit%2F%3AM8TOo1Rjgu128RgUDA2NYPOwYDY&amp;imp=8kp7r9l2t841af&amp;prev_imp=8kp0jui3uvtcg3&amp;forum_id=2107574&amp;forum=jtreminio&amp;thread_id=1199987993&amp;user_id=201326696&amp;thread=1200005099&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=1200005099" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Juan Treminio - Dallas PHP/MySQL Web Developer — Unit Testing Tutorial Part I: Introduction to PHPUnit">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">  Juan Treminio - Dallas PHP/MySQL Web Developer — Unit Testing Tutorial Part I: …</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+28 comments
+</li>
+<li class="time">3 years ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=https%3A%2F%2Fjtreminio.com%2F2013%2F03%2Funit-testing-tutorial-introduction-to-phpunit%2F%3AM8TOo1Rjgu128RgUDA2NYPOwYDY&amp;imp=8kp7r9l2t841af&amp;prev_imp=8kp0jui3uvtcg3&amp;forum_id=2107574&amp;forum=jtreminio&amp;thread_id=1199987993&amp;user_id=201326696&amp;thread=1200005099&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=1200005099" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">PHP Guru</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> I disagree with pm somewhat. I've never used phpUnit before, but I was able to understand it perfectly fine. This tutorial is just what I needed and …</span></p>
+</a>
+
+</li>
+</ul>
+</section>
+
+</div>
+</div></div></div>
+
+<div id="footer" data-tracking-area="footer">
+<ul class="disqus-footer">
+<li class="logo disqus-footer__item"><a href="https://disqus.com/" rel="nofollow" title="Powered by Disqus">Powered by Disqus</a></li>
+<li id="thread-subscribe-button" class="email disqus-footer__item"> 
+<div class="default">
+<a href="#" rel="nofollow" data-action="subscribe" title="Subscribe and get email updates from this discussion"><i aria-hidden="true" class="icon icon-mail"></i><span class="clip">Subscribe</span> <i aria-hidden="true" class="icon icon-checkmark"></i></a>
+</div>
+<div class="form">
+<div class="input-wrapper"><input id="thread-subscribe-email" placeholder="yourname@email.com" type="email"></div>
+</div>
+</li>
+<li class="install disqus-footer__item">
+<a href="https://publishers.disqus.com/engage?utm_source=jtreminio&amp;utm_medium=Disqus-Footer" rel="nofollow" target="_blank">
+<i aria-hidden="true" class="icon icon-disqus"></i>
+<span class="clip hidden-sm">Add Disqus to your site</span>
+<span class="clip visible-sm hidden-xs">Add Disqus</span>
+<span class="clip visible-xs">Add</span>
+</a>
+</li>
+<li class="privacy disqus-footer__item">
+<a href="https://help.disqus.com/customer/portal/articles/1657951?utm_source=disqus&amp;utm_medium=embed-footer&amp;utm_content=privacy-btn" rel="nofollow" target="_blank">
+<i aria-hidden="true" class="icon icon-lock"></i>
+<span class="clip">Privacy</span>
+</a>
+</li>
+</ul>
+</div>
+</div></body></html>

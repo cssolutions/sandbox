@@ -1,0 +1,31 @@
+blockquote ol:first-child,
+blockquote p:first-child,
+blockquote ul:first-child {
+    margin-top: 0;
+}
+
+li a {
+    text-decoration: underline;
+}
+
+.intro-header {
+    height: 60px;
+    background: #3084C5;
+}
+
+.pager li {
+    max-width: 48%;
+}
+
+.pager li a,
+.navbar-custom .nav li a {
+    text-decoration: none;
+}
+
+.pager .previous {
+    float: right;
+}
+
+.pager .next {
+    float: left;
+}

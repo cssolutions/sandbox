@@ -1,0 +1,3218 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="en" dir="ltr" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" dir="ltr" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="js no-touch localstorage sessionstorage contenteditable use-opacity-transitions" dir="ltr" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Disqus Comments</title>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+    
+    <style>
+        html {
+            overflow: hidden;
+        }
+
+        
+    </style>
+
+<link href="a_data/lounge.css" rel="stylesheet"><script src="a_data/config.js" data-requiremodule="remote/config" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="a_data/common.js" data-requiremodule="common.bundle" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="a_data/lounge.js" data-requiremodule="lounge.bundle" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="a_data/ga.js" data-requiremodule="ga" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><style id="css_1461916434033"></style><!-- base href="https://disqus.com/embed/comments/?base=default&version=af1a2e2611136ef6c314afec2806cef3&f=serverdensity&t_i=4383%20https%3A%2F%2Fblog.serverdensity.com%2F%3Fp%3D4383&t_u=https%3A%2F%2Fblog.serverdensity.com%2F80-linux-monitoring-tools-know%2F&t_e=80%20Linux%20Monitoring%20Tools%20for%20SysAdmins&t_d=80%20Linux%20Monitoring%20Tools%20for%20SysAdmins&t_t=80%20Linux%20Monitoring%20Tools%20for%20SysAdmins&s_o=default&l=" --><link href="a_data/discovery.css" rel="stylesheet"><script src="a_data/discovery.js" data-requiremodule="discovery/main" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script></head>
+<body>
+    
+
+    
+    <!--[if lt IE 10]><p style="color: #fff; background-color: #f05f70; padding: 10px; margin-top: 20px;">
+        You're using a browser that Disqus plans to stop supporting soon. For more information, visit our list of 
+        <a href="https://help.disqus.com/customer/portal/articles/466228-which-browsers-does-disqus-work-with-" style="color: #fff; text-decoration: underline;">supported browsers</a>
+        and consider upgrading.
+    </p><![endif]-->
+    <div id="error" style="display:none; text-align: center">
+        <p>We were unable to load Disqus. If you are a moderator please see our <a href="https://docs.disqus.com/help/83/"> troubleshooting guide</a>. </p>
+    </div>
+
+    
+    <script type="text/json" id="disqus-forumData">{"session":{"canModerate":false,"audienceSyncVerified":false,"mustVerify":false,"canReply":true,"mustVerifyEmail":false},"features":{},"forum":{"category":"","description":"\u003cp>Interesting devops tech stuff.\u003c/p>","founder":"43507676","twitterName":"serverdensity","url":"http://blog.serverdensity.com/","raw_description":"Interesting devops tech stuff.","guidelines":null,"favicon":{"permalink":"https://disqus.com/api/forums/favicons/serverdensity.jpg","cache":"//a.disquscdn.com/uploads/forums/219/9276/favicon.png"},"raw_guidelines":null,"language":"en","daysThreadAlive":0,"avatar":{"small":{"permalink":"https://disqus.com/api/forums/avatars/serverdensity.jpg?size=32","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"large":{"permalink":"https://disqus.com/api/forums/avatars/serverdensity.jpg?size=92","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"}},"channel":null,"daysAlive":0,"pk":"2199276","signedUrl":"http://disq.us/?url=http%3A%2F%2Fblog.serverdensity.com%2F&key=0KUjGV0aLe4p1XNo1u2pOw","settings":{"supportLevel":0,"adsDRNativeEnabled":false,"disable3rdPartyTrackers":false,"adsVideoEnabled":false,"adsProductVideoEnabled":false,"adsPositionTopEnabled":false,"ssoRequired":false,"linkAffiliationEnabled":false,"adsProductLinksThumbnailsEnabled":false,"adsProductStoriesEnabled":false,"organicDiscoveryEnabled":false,"allowMedia":true,"discoveryMax":false,"discoveryLocked":false,"moderatorText":"Staff","adsEnabled":false,"allowAnonPost":true,"hasCustomAvatar":false,"adultContent":false,"promotedDiscoveryEnabled":false,"allowAnonVotes":false,"mustVerify":true,"colorScheme":"auto","adsSettingsLocked":false,"mustVerifyEmail":true,"audienceSyncEnabled":false,"typeface":"auto","adsPositionBottomEnabled":false,"mediaembedEnabled":true,"adsProductLinksEnabled":false,"discoveryThumbnailsEnabled":false,"isVIP":false},"id":"serverdensity","createdAt":"2013-02-20T11:20:31.163077","name":"Server Density Blog"}}</script>
+
+    
+    <script type="text/json" id="disqus-threadData">{"cursor":{"hasPrev":false,"prev":null,"total":29,"hasNext":false,"next":"1:0:0"},"code":0,"response":{"lastModified":1459463656,"posts":[{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"carmenandoh","about":"","name":"Carmen Caelestis","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2521449999999998,"profileUrl":"https://disqus.com/by/carmenandoh/","url":"","reputation":1.2521449999999998,"location":"New York","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-12-13T19:52:04","id":"85883970","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/carmenandoh.jpg","cache":"//a.disquscdn.com/uploads/users/8588/3970/avatar32.jpg?1386965349"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/carmenandoh.jpg","cache":"//a.disquscdn.com/uploads/users/8588/3970/avatar92.jpg?1386965349","large":{"permalink":"https://disqus.com/api/users/avatars/carmenandoh.jpg","cache":"//a.disquscdn.com/uploads/users/8588/3970/avatar92.jpg?1386965349"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"You can also add missing Zabbix and Graphite/Graphana:  then there's App-level and DB monitoring tools that reach up from system into the app too. :)  MONITOR. ALL. THE. THINGS!  #monitorlove","createdAt":"2015-02-05T18:48:53","id":"1836971892","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":4,"isEdited":false,"message":"\u003cp>You can also add missing Zabbix and Graphite/Graphana:  then there's App-level and DB monitoring tools that reach up from system into the app too. :)  MONITOR. ALL. THE. THINGS!  #monitorlove\u003c/p>","isSpam":false,"isHighlighted":false,"points":4},{"forum":"serverdensity","parent":1836971892,"isApproved":true,"author":{"username":"argparse","about":"","name":"Jonathan Sundqvist","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.292578,"profileUrl":"https://disqus.com/by/argparse/","url":"http://www.argpar.se","reputation":1.292578,"location":"Sweden","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.argpar.se&key=rLK8IXzmeu3qejRVpdQOxQ","isPrimary":true,"joinedAt":"2010-08-18T08:40:07","id":"3961429","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar32.jpg?1453841341"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341","large":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Zabbix has been added!","createdAt":"2015-07-27T11:25:14","id":"2159096328","thread":"3484421068","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":1,"isEdited":false,"message":"\u003cp>Zabbix has been added!\u003c/p>","isSpam":false,"isHighlighted":false,"points":1},{"forum":"serverdensity","parent":1836971892,"isApproved":true,"author":{"username":"sharkrit","about":"I happy, when you happy","name":"JOBBO","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232222,"profileUrl":"https://disqus.com/by/sharkrit/","url":"","reputation":1.232222,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-02-18T09:51:23","id":"144966740","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/sharkrit.jpg","cache":"//a.disquscdn.com/uploads/users/14496/6740/avatar32.jpg?1424253323"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/sharkrit.jpg","cache":"//a.disquscdn.com/uploads/users/14496/6740/avatar92.jpg?1424253323","large":{"permalink":"https://disqus.com/api/users/avatars/sharkrit.jpg","cache":"//a.disquscdn.com/uploads/users/14496/6740/avatar92.jpg?1424253323"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"We use Zabbix and Graphite too!  You may need to check for Sensu, it's cool!","createdAt":"2015-02-18T09:57:37","id":"1861452334","thread":"3484421068","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":1,"isEdited":false,"message":"\u003cp>We use Zabbix and Graphite too!  You may need to check for Sensu, it's cool!\u003c/p>","isSpam":false,"isHighlighted":false,"points":1},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"alimadzi","about":"","name":"Patrick Lee","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2333749999999999,"profileUrl":"https://disqus.com/by/alimadzi/","url":"","reputation":1.2333749999999999,"location":"Boise, Idaho","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-02-15T02:22:58","id":"43710626","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/alimadzi.jpg","cache":"//a.disquscdn.com/uploads/users/4371/626/avatar32.jpg?1423160775"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/alimadzi.jpg","cache":"//a.disquscdn.com/uploads/users/4371/626/avatar92.jpg?1423160775","large":{"permalink":"https://disqus.com/api/users/avatars/alimadzi.jpg","cache":"//a.disquscdn.com/uploads/users/4371/626/avatar92.jpg?1423160775"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"This is an excellent list!  I've learned about some new tools already.  I would add Zabbix to the infrastructure monitoring section.  You could just make it #82 for additional luck.  :)","createdAt":"2015-02-05T18:26:13","id":"1836929113","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":3,"isEdited":false,"message":"\u003cp>This is an excellent list!  I've learned about some new tools already.  I would add Zabbix to the infrastructure monitoring section.  You could just make it #82 for additional luck.  :)\u003c/p>","isSpam":false,"isHighlighted":false,"points":3},{"forum":"serverdensity","parent":1836929113,"isApproved":true,"author":{"username":"argparse","about":"","name":"Jonathan Sundqvist","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.292578,"profileUrl":"https://disqus.com/by/argparse/","url":"http://www.argpar.se","reputation":1.292578,"location":"Sweden","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.argpar.se&key=rLK8IXzmeu3qejRVpdQOxQ","isPrimary":true,"joinedAt":"2010-08-18T08:40:07","id":"3961429","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar32.jpg?1453841341"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341","large":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I just added Zabbix to the list, thanks for the suggestion.","createdAt":"2015-07-27T11:25:36","id":"2159096680","thread":"3484421068","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I just added Zabbix to the list, thanks for the suggestion.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"name":"Surrogard","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar32.png","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"large":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"signedUrl":"","isAnonymous":true},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"\"bwm-ng\" simple, easy to use bandwidth monitor","createdAt":"2015-02-23T22:47:37","id":"1871621168","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":1,"isEdited":false,"message":"\u003cp>\"bwm-ng\" simple, easy to use bandwidth monitor\u003c/p>","isSpam":false,"isHighlighted":false,"points":1},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"name":"Samarth","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar32.png","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"large":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"signedUrl":"","isAnonymous":true},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"This was a very informative post. Came across some new tools here that I could use for my work. I would, however, like to add SeaLion(https://sealion.com/) as #82 under Infrastructure Monitoring Tools. I currently use this tool to keep an eye on my servers. It is also cloud based, but is easy to install and the metrics are displayed very neatly. It's not very popular but it's worth a mention.","createdAt":"2015-02-05T07:10:53","id":"1836024694","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":1,"isEdited":false,"message":"\u003cp>This was a very informative post. Came across some new tools here that I could use for my work. I would, however, like to add SeaLion(\u003ca href=\"https://sealion.com/)\" rel=\"nofollow\">https://sealion.com/)\u003c/a> as #82 under Infrastructure Monitoring Tools. I currently use this tool to keep an eye on my servers. It is also cloud based, but is easy to install and the metrics are displayed very neatly. It's not very popular but it's worth a mention.\u003c/p>","isSpam":false,"isHighlighted":false,"points":1},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"tvleavitt","about":"Sr. Level IT Services Consultant with Linux/Unix/Virtualization specialties","name":"Thomas Leavitt","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.202929,"profileUrl":"https://disqus.com/by/tvleavitt/","url":"http://www.linkedin.com/in/tvleavitt","reputation":1.202929,"location":"San Francisco Bay Area","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.linkedin.com%2Fin%2Ftvleavitt&key=h6UM0a9CUkZSiPFvMVzKFQ","isPrimary":true,"joinedAt":"2010-01-23T18:19:21","id":"1694415","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/tvleavitt.jpg","cache":"//a.disquscdn.com/uploads/users/169/4415/avatar32.jpg?1459712099"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/tvleavitt.jpg","cache":"//a.disquscdn.com/uploads/users/169/4415/avatar92.jpg?1459712099","large":{"permalink":"https://disqus.com/api/users/avatars/tvleavitt.jpg","cache":"//a.disquscdn.com/uploads/users/169/4415/avatar92.jpg?1459712099"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Xymon is a nice, low overhead, easy to get started with, highly customizable and configurable system monitoring tool that is being actively supported and developed. I've implemented it many times (dating back to when it was called Hobbit), and always been happy with the results. There are quite a few plugins and enhancements available as well. Search Google for Xymon and you'll find a ton of info.","createdAt":"2016-03-31T22:33:56","id":"2599595090","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":true,"message":"\u003cp>Xymon is a nice, low overhead, easy to get started with, highly customizable and configurable system monitoring tool that is being actively supported and developed. I've implemented it many times (dating back to when it was called Hobbit), and always been happy with the results. There are quite a few plugins and enhancements available as well. Search Google for Xymon and you'll find a ton of info.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"disqus_AHsZ76Zt15","about":"","name":"Nick Kremer","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232124,"profileUrl":"https://disqus.com/by/disqus_AHsZ76Zt15/","url":"","reputation":1.232124,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2016-02-25T23:45:16","id":"198181158","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_AHsZ76Zt15.jpg","cache":"//a.disquscdn.com/uploads/users/19818/1158/avatar32.jpg?1456444251"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_AHsZ76Zt15.jpg","cache":"//a.disquscdn.com/uploads/users/19818/1158/avatar92.jpg?1456444251","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_AHsZ76Zt15.jpg","cache":"//a.disquscdn.com/uploads/users/19818/1158/avatar92.jpg?1456444251"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Awesome list, you should also add ncdu, my favorite du alternative. (NCurses Disk Usage)","createdAt":"2016-02-25T23:50:50","id":"2535656582","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Awesome list, you should also add ncdu, my favorite du alternative. (NCurses Disk Usage)\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"santiagohierro","about":"","name":"Santiago Hierro","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2336,"profileUrl":"https://disqus.com/by/santiagohierro/","url":"","reputation":1.2336,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2016-02-23T19:01:07","id":"197870927","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/santiagohierro.jpg","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/santiagohierro.jpg","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/santiagohierro.jpg","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I was in search of a new monitoring app that will be similar to Zabbix but more lightweight.\nStumbling upon your great article surely gives me more options, but I decided to use Munin.\nI found an installation tutorial from the Rosehosting blog and will now install it on my Centos server.\nThanks for this great article btw.","createdAt":"2016-02-23T19:44:13","id":"2531258711","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I was in search of a new monitoring app that will be similar to Zabbix but more lightweight.\u003cbr>Stumbling upon your great article surely gives me more options, but I decided to use Munin.\u003cbr>I found an installation tutorial from the Rosehosting blog and will now install it on my Centos server.\u003cbr>Thanks for this great article btw.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"uwefranzlutze","about":"","name":"Uwe Franz Lutze","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232124,"profileUrl":"https://disqus.com/by/uwefranzlutze/","url":"","reputation":1.232124,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2016-02-22T14:18:34","id":"197697948","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/uwefranzlutze.jpg","cache":"//a.disquscdn.com/uploads/users/19769/7948/avatar32.jpg?1456151049"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/uwefranzlutze.jpg","cache":"//a.disquscdn.com/uploads/users/19769/7948/avatar92.jpg?1456151049","large":{"permalink":"https://disqus.com/api/users/avatars/uwefranzlutze.jpg","cache":"//a.disquscdn.com/uploads/users/19769/7948/avatar92.jpg?1456151049"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"thanks its a good list. when it\u00b4s ok i will make a copy for other Admins","createdAt":"2016-02-22T14:24:08","id":"2528317741","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>thanks its a good list. when it\u00b4s ok i will make a copy for other Admins\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"name":"mohammad","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar32.png","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"large":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"signedUrl":"","isAnonymous":true},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"ashmon is another With nice gui .\n\nhttps://github.com/ashtum/ashmon/","createdAt":"2016-01-29T19:13:40","id":"2485342033","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>ashmon is another With nice gui .\u003c/p>\u003cp>\u003ca href=\"https://github.com/ashtum/ashmon/\" rel=\"nofollow\">https://github.com/ashtum/ashm...\u003c/a>\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"rway","about":"","name":"rway","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.239595,"profileUrl":"https://disqus.com/by/rway/","url":"","reputation":1.239595,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2010-03-18T19:57:59","id":"2304450","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/rway.jpg","cache":"//a.disquscdn.com/uploads/users/230/4450/avatar32.jpg?1452303234"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/rway.jpg","cache":"//a.disquscdn.com/uploads/users/230/4450/avatar92.jpg?1452303234","large":{"permalink":"https://disqus.com/api/users/avatars/rway.jpg","cache":"//a.disquscdn.com/uploads/users/230/4450/avatar92.jpg?1452303234"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Nice list!","createdAt":"2016-01-04T23:31:03","id":"2439853238","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Nice list!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"name":"Reid","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar32.png","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"large":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"signedUrl":"","isAnonymous":true},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Don't forget lspci, lsusb, and lsblk","createdAt":"2015-08-19T23:21:13","id":"2203968024","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Don't forget lspci, lsusb, and lsblk\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"disqus_8iFOHuP7Dm","about":"Mother of one, skydiver and #computerjunkie. #Linux","name":"Melissa","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232862,"profileUrl":"https://disqus.com/by/disqus_8iFOHuP7Dm/","url":"https://twitter.com/melissa032215","reputation":1.232862,"location":"Florida","isPrivate":false,"signedUrl":"https://disq.us/?url=https%3A%2F%2Ftwitter.com%2Fmelissa032215&key=gTg4n_XiT_rz51jjrEkzWw","isPrimary":true,"joinedAt":"2015-05-07T15:25:55","id":"156671458","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_8iFOHuP7Dm.jpg","cache":"//a.disquscdn.com/uploads/users/15667/1458/avatar32.jpg?1438001234"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_8iFOHuP7Dm.jpg","cache":"//a.disquscdn.com/uploads/users/15667/1458/avatar92.jpg?1438001234","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_8iFOHuP7Dm.jpg","cache":"//a.disquscdn.com/uploads/users/15667/1458/avatar92.jpg?1438001234"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"This is an excellent list! I agree with some other posters and believe that Zabbix should definitely be added to the list.","createdAt":"2015-05-07T15:26:38","id":"2011398656","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>This is an excellent list! I agree with some other posters and believe that Zabbix should definitely be added to the list.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":2011398656,"isApproved":true,"author":{"username":"argparse","about":"","name":"Jonathan Sundqvist","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.292578,"profileUrl":"https://disqus.com/by/argparse/","url":"http://www.argpar.se","reputation":1.292578,"location":"Sweden","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.argpar.se&key=rLK8IXzmeu3qejRVpdQOxQ","isPrimary":true,"joinedAt":"2010-08-18T08:40:07","id":"3961429","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar32.jpg?1453841341"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341","large":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I added Zabbix to the list :)","createdAt":"2015-07-27T11:24:55","id":"2159096008","thread":"3484421068","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I added Zabbix to the list :)\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":2159096008,"isApproved":true,"author":{"username":"disqus_8iFOHuP7Dm","about":"Mother of one, skydiver and #computerjunkie. #Linux","name":"Melissa","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232862,"profileUrl":"https://disqus.com/by/disqus_8iFOHuP7Dm/","url":"https://twitter.com/melissa032215","reputation":1.232862,"location":"Florida","isPrivate":false,"signedUrl":"https://disq.us/?url=https%3A%2F%2Ftwitter.com%2Fmelissa032215&key=gTg4n_XiT_rz51jjrEkzWw","isPrimary":true,"joinedAt":"2015-05-07T15:25:55","id":"156671458","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_8iFOHuP7Dm.jpg","cache":"//a.disquscdn.com/uploads/users/15667/1458/avatar32.jpg?1438001234"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_8iFOHuP7Dm.jpg","cache":"//a.disquscdn.com/uploads/users/15667/1458/avatar92.jpg?1438001234","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_8iFOHuP7Dm.jpg","cache":"//a.disquscdn.com/uploads/users/15667/1458/avatar92.jpg?1438001234"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Awesome!","createdAt":"2015-07-27T12:47:12","id":"2159187957","thread":"3484421068","depth":2,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Awesome!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"disqus_BkhPi99K82","about":"Sysadmin and developer","name":"Didier","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2329599999999998,"profileUrl":"https://disqus.com/by/disqus_BkhPi99K82/","url":"","reputation":1.2329599999999998,"location":"Marseille, France","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-02-27T14:29:29","id":"146217873","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_BkhPi99K82.jpg","cache":"//a.disquscdn.com/uploads/users/14621/7873/avatar32.jpg?1425049331"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_BkhPi99K82.jpg","cache":"//a.disquscdn.com/uploads/users/14621/7873/avatar92.jpg?1425049331","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_BkhPi99K82.jpg","cache":"//a.disquscdn.com/uploads/users/14621/7873/avatar92.jpg?1425049331"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I have recently found a very useful free sysadmin tool called \"MobaXterm\" ( http://mobaxterm.mobatek.net ). It is a terminal bash console for windows which allows ssh, public keys, X11-forwarding, multi-tabs, mosh and many Linux commands in Windows environment.\nIt has replaced PuTTY, Exceed, ReflectionX, mRemoteNG, Mstsc and WinSCP in my everyday work!","createdAt":"2015-02-27T15:02:10","id":"1878689701","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I have recently found a very useful free sysadmin tool called \"MobaXterm\" ( \u003ca href=\"http://mobaxterm.mobatek.net\" rel=\"nofollow\">http://mobaxterm.mobatek.net\u003c/a> ). It is a terminal bash console for windows which allows ssh, public keys, X11-forwarding, multi-tabs, mosh and many Linux commands in Windows environment.\u003cbr>It has replaced PuTTY, Exceed, ReflectionX, mRemoteNG, Mstsc and WinSCP in my everyday work!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":1878689701,"isApproved":true,"author":{"username":"argparse","about":"","name":"Jonathan Sundqvist","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.292578,"profileUrl":"https://disqus.com/by/argparse/","url":"http://www.argpar.se","reputation":1.292578,"location":"Sweden","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.argpar.se&key=rLK8IXzmeu3qejRVpdQOxQ","isPrimary":true,"joinedAt":"2010-08-18T08:40:07","id":"3961429","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar32.jpg?1453841341"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341","large":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Thanks, I added it to the list.","createdAt":"2015-07-27T11:22:04","id":"2159092952","thread":"3484421068","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Thanks, I added it to the list.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"xrepinssporx","about":"","name":"Android File Host","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2897109999999998,"profileUrl":"https://disqus.com/by/xrepinssporx/","url":"","reputation":1.2897109999999998,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-06-06T20:50:27","id":"55132632","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/xrepinssporx.jpg","cache":"//a.disquscdn.com/uploads/users/5513/2632/avatar32.jpg?1445010099"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/xrepinssporx.jpg","cache":"//a.disquscdn.com/uploads/users/5513/2632/avatar92.jpg?1445010099","large":{"permalink":"https://disqus.com/api/users/avatars/xrepinssporx.jpg","cache":"//a.disquscdn.com/uploads/users/5513/2632/avatar92.jpg?1445010099"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Observium should be on the list in my opinion. Other then that a great list. ","createdAt":"2015-02-26T16:26:05","id":"1876880696","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":true,"message":"\u003cp>Observium should be on the list in my opinion. Other then that a great list. \u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":1876880696,"isApproved":true,"author":{"username":"argparse","about":"","name":"Jonathan Sundqvist","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.292578,"profileUrl":"https://disqus.com/by/argparse/","url":"http://www.argpar.se","reputation":1.292578,"location":"Sweden","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.argpar.se&key=rLK8IXzmeu3qejRVpdQOxQ","isPrimary":true,"joinedAt":"2010-08-18T08:40:07","id":"3961429","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar32.jpg?1453841341"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341","large":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I added it to the list :)","createdAt":"2015-07-27T11:08:39","id":"2159079955","thread":"3484421068","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I added it to the list :)\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"name":"Guest","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar32.png","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"large":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"signedUrl":"","isAnonymous":true},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"http://www.sysdig.org/","createdAt":"2015-02-25T23:58:54","id":"1875748358","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>\u003ca href=\"http://www.sysdig.org/\" rel=\"nofollow\">http://www.sysdig.org/\u003c/a>\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"name":"dominix","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar32.png","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"large":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"signedUrl":"","isAnonymous":true},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"you must add nload to be complete !","createdAt":"2015-02-21T07:36:52","id":"1867353646","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>you must add nload to be complete !\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":1867353646,"isApproved":true,"author":{"username":"argparse","about":"","name":"Jonathan Sundqvist","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.292578,"profileUrl":"https://disqus.com/by/argparse/","url":"http://www.argpar.se","reputation":1.292578,"location":"Sweden","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.argpar.se&key=rLK8IXzmeu3qejRVpdQOxQ","isPrimary":true,"joinedAt":"2010-08-18T08:40:07","id":"3961429","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar32.jpg?1453841341"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341","large":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Added it to the list :)","createdAt":"2015-07-27T11:12:48","id":"2159083630","thread":"3484421068","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Added it to the list :)\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"Steffen26","about":"","name":"Steffen26","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232124,"profileUrl":"https://disqus.com/by/Steffen26/","url":"http://www.gutermann.net","reputation":1.232124,"location":"Germany","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.gutermann.net&key=grIquXyS174GG_lKYezVAw","isPrimary":true,"joinedAt":"2008-12-19T13:40:54","id":"169167","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/Steffen26.jpg","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/Steffen26.jpg","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/Steffen26.jpg","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Great List, but I guess you can add to it even more, if you got time for it. If you are adding Zabbix on the list, do not forget shinken (www.shinken-monitoring.org) ... and you are missing Munin, which is way older than a bunch of guys on your list and integrated in many systems already.","createdAt":"2015-02-18T09:20:37","id":"1861424128","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":true,"message":"\u003cp>Great List, but I guess you can add to it even more, if you got time for it. If you are adding Zabbix on the list, do not forget shinken (\u003ca href=\"http://www.shinken-monitoring.org\" rel=\"nofollow\">www.shinken-monitoring.org\u003c/a>) ... and you are missing Munin, which is way older than a bunch of guys on your list and integrated in many systems already.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"Lupul_rau","about":"","name":"Lupul_rau","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2402879999999998,"profileUrl":"https://disqus.com/by/Lupul_rau/","url":"","reputation":1.2402879999999998,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-10-03T03:00:28","id":"75825474","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/Lupul_rau.jpg","cache":"//a.disquscdn.com/uploads/users/7582/5474/avatar32.jpg?1435275575"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/Lupul_rau.jpg","cache":"//a.disquscdn.com/uploads/users/7582/5474/avatar92.jpg?1435275575","large":{"permalink":"https://disqus.com/api/users/avatars/Lupul_rau.jpg","cache":"//a.disquscdn.com/uploads/users/7582/5474/avatar92.jpg?1435275575"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"pretty big list but collectd, smokeping should not be missing from it.","createdAt":"2015-02-18T02:09:27","id":"1861049730","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>pretty big list but collectd, smokeping should not be missing from it.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":1861049730,"isApproved":true,"author":{"username":"argparse","about":"","name":"Jonathan Sundqvist","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.292578,"profileUrl":"https://disqus.com/by/argparse/","url":"http://www.argpar.se","reputation":1.292578,"location":"Sweden","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fwww.argpar.se&key=rLK8IXzmeu3qejRVpdQOxQ","isPrimary":true,"joinedAt":"2010-08-18T08:40:07","id":"3961429","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar32.jpg?1453841341"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341","large":{"permalink":"https://disqus.com/api/users/avatars/argparse.jpg","cache":"//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I added both of these to the list!","createdAt":"2015-07-27T11:17:59","id":"2159089127","thread":"3484421068","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I added both of these to the list!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"username":"elotro23","about":"","name":"Ivan G","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.23729,"profileUrl":"https://disqus.com/by/elotro23/","url":"","reputation":1.23729,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-05-28T21:54:56","id":"53090842","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/elotro23.jpg","cache":"//a.disquscdn.com/uploads/users/5309/842/avatar32.jpg?1454961195"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/elotro23.jpg","cache":"//a.disquscdn.com/uploads/users/5309/842/avatar92.jpg?1454961195","large":{"permalink":"https://disqus.com/api/users/avatars/elotro23.jpg","cache":"//a.disquscdn.com/uploads/users/5309/842/avatar92.jpg?1454961195"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Yep, I also expected to see Zabbix in this list.","createdAt":"2015-02-13T20:59:07","id":"1852436377","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Yep, I also expected to see Zabbix in this list.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"serverdensity","parent":null,"isApproved":true,"author":{"name":"zelehaist","url":"","profileUrl":"","emailHash":"","avatar":{"small":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar32.png","cache":"//a.disquscdn.com/1461263052/images/noavatar32.png"},"large":{"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"permalink":"//a.disquscdn.com/1461263052/images/noavatar92.png","cache":"//a.disquscdn.com/1461263052/images/noavatar92.png"},"signedUrl":"","isAnonymous":true},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I would add here Zabbix. It is a good Cacti/Nagios alternative.","createdAt":"2015-02-04T15:47:02","id":"1834642804","thread":"3484421068","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I would add here Zabbix. It is a good Cacti/Nagios alternative.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0}],"thread":{"feed":"https://serverdensity.disqus.com/80_linux_monitoring_tools_for_sysadmins/latest.rss","identifiers":["4383 https://blog.serverdensity.com/?p=4383"],"dislikes":0,"likes":9,"message":"","id":"3484421068","isDeleted":false,"category":"2232902","author":"43507676","userScore":0,"userSubscription":false,"isSpam":false,"signedLink":"https://disq.us/?url=https%3A%2F%2Fblog.serverdensity.com%2F80-linux-monitoring-tools-know%2F&key=_C-Sn8-5kXq7i12PwbSu4g","createdAt":"2015-02-04T11:53:01","hasStreaming":false,"raw_message":"","isClosed":false,"link":"https://blog.serverdensity.com/80-linux-monitoring-tools-know/","slug":"80_linux_monitoring_tools_for_sysadmins","forum":"serverdensity","clean_title":"80 Linux Monitoring Tools for SysAdmins","posts":29,"moderators":[1014919,59522153,5968144,169436372,196100218,43507676],"title":"80 Linux Monitoring Tools for SysAdmins","highlightedPost":null}},"order":"popular"}</script>
+
+    
+
+    <div id="fixed-content"></div>
+
+
+    
+        
+        <!--[if lte IE 8]>
+<script src="//a.disquscdn.com/1461263052/build/vendor/ie8.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="//a.disquscdn.com/1461263052/build/vendor/ie9.js"></script>
+<![endif]-->
+
+        
+<script type="text/json" id="disqus-urls">{
+    "root":"//disqus.com",
+    "next":"//a.disquscdn.com/next/current/embed"
+}</script>
+
+        <script src="a_data/lounge_002.js" id="bootstrap-script" data-app="lounge" async=""></script>
+    
+
+
+<div id="layout" data-tracking-area="layout">
+
+<div id="onboard" data-tracking-area="onboard"></div>
+
+<div style="display: none;" id="highlighted-post" data-tracking-area="highlighted" class="highlighted-post"></div>
+
+<div id="global-alert"></div>
+
+<header id="main-nav" data-tracking-area="main-nav">
+<nav class="nav nav-primary">
+<ul>
+<li class="tab-conversation active" data-role="post-count"><a class="publisher-nav-color">
+<span class="comment-count">
+29 comments
+</span>
+
+<span class="comment-count-placeholder">
+Comments
+</span>
+</a>
+</li>
+<li class="tab-community">
+<a href="https://disqus.com/home/forums/serverdensity/" class="publisher-nav-color" data-action="community-sidebar" data-forum="serverdensity" id="community-tab">
+<span class="community-name">
+<strong>Server Density Blog</strong>
+
+</span>
+
+<strong class="community-name-placeholder">Community</strong>
+</a>
+</li>
+<li class="dropdown user-menu" data-role="logout"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="dropdown-toggle-wrapper">
+
+<span>
+Login
+</span>
+
+</span> <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+
+
+<li>
+<a href="#" data-action="auth:disqus">Disqus</a>
+</li>
+<li>
+<a href="#" data-action="auth:facebook">Facebook</a>
+</li>
+<li>
+<a href="#" data-action="auth:twitter">Twitter</a>
+</li>
+<li>
+<a href="#" data-action="auth:google">Google</a>
+</li>
+
+
+
+</ul>
+</li>
+<li class="notification-menu unread" data-role="notification-menu"><a href="https://disqus.com/home/inbox/" class="notification-container" data-action="home" data-home-path="home/inbox/">
+<span class="notification-icon icon-comment" aria-hidden=""></span>
+<span class="notification-count" data-role="notification-count">1</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+
+<section id="conversation" data-role="main" data-tracking-area="main">
+<div class="nav nav-secondary" data-tracking-area="secondary-nav">
+<ul>
+<li id="recommend-button" class="recommend dropdown">
+<div class="thread-likes"><a href="#" data-action="recommend" title="Recommend this discussion" class="dropdown-toggle ">
+<span class="icon-heart"></span>
+<span class="label label-default">Recommend</span>
+<span class="label label-recommended">Recommended</span>
+<span class="label label-count">9</span>
+</a>
+<ul class="dropdown-menu coachmark">
+<li>
+<h2>Discussion Recommended!</h2>
+<p>Recommending means this is a discussion worth sharing. It gets shared
+ to your followers' Disqus feeds, and gives the creator kudos!</p>
+<a href="https://disqus.com/home/?utm_source=disqus_embed&amp;utm_content=recommend_btn" class="btn btn-primary" target="_blank">
+ Find More Discussions 
+</a>
+</li>
+</ul>
+</div></li>
+<li id="thread-share-menu" class="dropdown share-menu hidden-sm"><a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Share">
+<span class="icon-export"></span>
+<span class="label">Share</span>
+</a>
+<ul class="share-menu dropdown-menu">
+<li class="share">Share this discussion on
+<ul>
+<li class="twitter">
+<a data-action="share:twitter" href="#">Twitter</a>
+</li>
+<li class="facebook">
+<a data-action="share:facebook" href="#">Facebook</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-role="post-sort" class="dropdown sorting pull-right">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Sort by Best
+
+
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu pull-right">
+<li class="selected">
+<a href="#" data-action="sort" data-sort="popular">Best<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="#" data-action="sort" data-sort="desc">Newest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="#" data-action="sort" data-sort="asc">Oldest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="posts">
+<div id="form"><form class="reply">
+<div class="postbox">
+<div role="alert"></div>
+<div class="avatar">
+<span class="user">
+<img data-role="user-avatar" src="a_data/noavatar92_002.png" alt="Avatar">
+</span>
+</div>
+
+<div class="textarea-wrapper" data-role="textarea" dir="auto"><div><span class="placeholder">Join the discussion…</span><div aria-label="Join the discussion…" style="overflow: auto; max-height: 350px;" data-role="editable" aria-multiline="true" role="textbox" tabindex="0" class="textarea" contenteditable="true"><p><br></p></div><div style="display: none;"><ul class="suggestions">
+<li class="header">
+<h5>in this conversation</h5>
+</li>
+</ul>
+</div></div>
+<div data-role="drag-drop-placeholder" class="media-drag-hover" style="display: none">
+<div class="drag-text">
+⬇ Drag and drop your images here to upload them.
+</div>
+</div>
+<div class="media-preview empty" data-role="media-preview"><ul data-role="media-legacy-list"></ul>
+<ul data-role="media-progress-list"></ul>
+<ul data-role="media-rich-list"></ul>
+<div class="media-expanded empty" data-role="media-preview-expanded">
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-role="media-preview-expanded-image" alt="Media preview placeholder">
+</div>
+</div>
+<div class="edit-alert" role="postbox-alert"></div>
+<div class="post-actions">
+<ul class="wysiwyg">
+<li data-role="media-uploader"><a href="#" tabindex="-1" data-action="attach" class="attach" title="Upload Images"><span>Attach</span></a>
+<input data-role="media-upload" tabindex="-1" accept="image/*" type="file">
+</li>
+</ul>
+</div>
+</div>
+
+<div data-role="login-form"><div><section class="auth-section logged-out">
+<div class="connect">
+<h6>Log in with</h6>
+<ul data-role="login-menu" class="services login-buttons">
+
+
+<li class="auth-disqus">
+<button type="button" data-action="auth:disqus" title="Disqus"><i class="icon-disqus"></i></button>
+</li>
+<li class="auth-facebook">
+<button type="button" data-action="auth:facebook" title="Facebook"><i class="icon-facebook-circle"></i></button>
+</li>
+<li class="auth-twitter">
+<button type="button" data-action="auth:twitter" title="Twitter"><i class="icon-twitter-circle"></i></button>
+</li>
+<li class="auth-google">
+<button type="button" data-action="auth:google" title="Google"><i class="icon-google-plus-circle"></i></button>
+</li>
+</ul>
+</div>
+<div class="guest">
+<h6 class="guest-form-title">
+<span class="register-text"> or sign up with Disqus </span>
+<span class="guest-text"> or pick a name </span>
+</h6>
+
+<div class="what-is-disqus help-icon">
+<div id="rules" class="tooltip show">
+<h3>Disqus is a discussion network</h3>
+<ul>
+<li><span>Disqus never moderates or censors. The rules on this community are its own.</span></li>
+<li><span>Your email is safe with us. It's only used for moderation and optional notifications.</span></li>
+<li><span>Don't be a jerk or do anything illegal. Everything is easier that way.</span></li>
+</ul>
+<p class="clearfix"><a href="https://docs.disqus.com/kb/terms-and-policies/" class="btn btn-small" target="_blank">Read full terms and conditions</a></p>
+</div>
+</div>
+
+<p class="input-wrapper">
+<input dir="auto" placeholder="Name" name="display_name" id="view82_display_name" maxlength="30" type="text">
+</p>
+
+<div class="guest-details " data-role="guest-details">
+<p class="input-wrapper">
+<input dir="auto" placeholder="Email" name="email" id="view82_email" type="email">
+</p>
+
+<p class="input-wrapper">
+<input dir="auto" class="register-text" placeholder="Password" name="password" id="view82_password" type="password">
+</p>
+
+<div class="acceptance-wrapper register-text">
+By signing up, you agree to the Disqus <a target="_blank" href="https://help.disqus.com/customer/portal/articles/1753105-basic-rules-for-disqus-powered-profiles-and-discussions">Basic Rules</a>, <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service">Terms of Service</a>, and <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466259-privacy-policy">Privacy Policy</a>.
+</div>
+<div class="acceptance-wrapper guest-text">
+By posting, you agree to the Disqus <a target="_blank" href="https://help.disqus.com/customer/portal/articles/1753105-basic-rules-for-disqus-powered-profiles-and-discussions">Basic Rules</a>, <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service">Terms of Service</a>, and <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466259-privacy-policy">Privacy Policy</a>.
+</div>
+
+<div class="guest-checkbox">
+<label>
+<input name="author-guest" type="checkbox">
+I'd rather post as a guest
+</label>
+</div>
+
+<div class="proceed" data-role="submit-btn-container">
+<button type="submit" class="btn submit" aria-label="Post"><span class="icon-proceed"></span><div class="spinner"></div></button>
+<button type="submit" class="btn next" aria-label="Next"><span class="icon-proceed"></span><div class="spinner"></div></button>
+</div>
+</div>
+</div>
+</section>
+
+</div></div>
+</div>
+</form></div>
+
+<button class="alert realtime" style="display: none" data-role="realtime-notification">
+</button>
+
+<div id="no-posts" style="display:none"></div>
+
+<ul id="post-list" class="post-list"><li id="post-1836971892" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/carmenandoh/" class="user" data-action="profile" data-username="carmenandoh">
+<img data-role="user-avatar" data-user="85883970" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/8588/3970/avatar92.jpg?1386965349" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/carmenandoh/" data-action="profile" data-username="carmenandoh" data-role="username">Carmen Caelestis</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836971892" data-role="relative-time" class="time-ago" title="Thursday, February 5, 2015 7:48 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>You can also add missing Zabbix and Graphite/Graphana:  then there's 
+App-level and DB monitoring tools that reach up from system into the app
+ too. :)  MONITOR. ALL. THE. THINGS!  #monitorlove</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-4" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">4</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836971892">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1836971892">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-2159096328" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/argparse/" class="user" data-action="profile" data-username="argparse">
+<img data-role="user-avatar" data-user="3961429" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/argparse/" data-action="profile" data-username="argparse" data-role="username">Jonathan Sundqvist</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836971892" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Carmen Caelestis</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159096328" data-role="relative-time" class="time-ago" title="Monday, July 27, 2015 1:25 PM">9 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Zabbix has been added!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-1" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">1</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159096328">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2159096328">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-1861452334" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/sharkrit/" class="user" data-action="profile" data-username="sharkrit">
+<img data-role="user-avatar" data-user="144966740" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/14496/6740/avatar92.jpg?1424253323" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/sharkrit/" data-action="profile" data-username="sharkrit" data-role="username">JOBBO</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836971892" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Carmen Caelestis</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1861452334" data-role="relative-time" class="time-ago" title="Wednesday, February 18, 2015 10:57 AM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>We use Zabbix and Graphite too!  You may need to check for Sensu, it's cool!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-1" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">1</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1861452334">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1861452334">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li><li id="post-1836929113" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/alimadzi/" class="user" data-action="profile" data-username="alimadzi">
+<img data-role="user-avatar" data-user="43710626" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/4371/626/avatar92.jpg?1423160775" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/alimadzi/" data-action="profile" data-username="alimadzi" data-role="username">Patrick Lee</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836929113" data-role="relative-time" class="time-ago" title="Thursday, February 5, 2015 7:26 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>This is an excellent list!  I've learned about some new tools 
+already.  I would add Zabbix to the infrastructure monitoring section.  
+You could just make it #82 for additional luck.  :)</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-3" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">3</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836929113">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1836929113">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-2159096680" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/argparse/" class="user" data-action="profile" data-username="argparse">
+<img data-role="user-avatar" data-user="3961429" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/argparse/" data-action="profile" data-username="argparse" data-role="username">Jonathan Sundqvist</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836929113" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Patrick Lee</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159096680" data-role="relative-time" class="time-ago" title="Monday, July 27, 2015 1:25 PM">9 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I just added Zabbix to the list, thanks for the suggestion.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159096680">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2159096680">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li><li id="post-1871621168" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar">
+<div class="user"><img src="a_data/noavatar92.png" class="user" alt="Avatar"></div>
+</div>
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author">Surrogard</span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1871621168" data-role="relative-time" class="time-ago" title="Monday, February 23, 2015 11:47 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>"bwm-ng" simple, easy to use bandwidth monitor</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-1" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">1</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1871621168">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1871621168">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-1836024694" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar">
+<div class="user"><img src="a_data/noavatar92.png" class="user" alt="Avatar"></div>
+</div>
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author">Samarth</span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836024694" data-role="relative-time" class="time-ago" title="Thursday, February 5, 2015 8:10 AM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>This was a very informative post. Came across some new tools here 
+that I could use for my work. I would, however, like to add SeaLion(<a href="https://sealion.com/%29" rel="nofollow">https://sealion.com/)</a>
+ as #82 under Infrastructure Monitoring Tools. I currently use this tool
+ to keep an eye on my servers. It is also cloud based, but is easy to 
+install and the metrics are displayed very neatly. It's not very popular
+ but it's worth a mention.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-1" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">1</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1836024694">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1836024694">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2599595090" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/tvleavitt/" class="user" data-action="profile" data-username="tvleavitt">
+<img data-role="user-avatar" data-user="1694415" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/169/4415/avatar92.jpg?1459712099" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/tvleavitt/" data-action="profile" data-username="tvleavitt" data-role="username">Thomas Leavitt</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2599595090" data-role="relative-time" class="time-ago" title="Friday, April 1, 2016 12:33 AM">a month ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Xymon is a nice, low overhead, easy to get started with, highly 
+customizable and configurable system monitoring tool that is being 
+actively supported and developed. I've implemented it many times (dating
+ back to when it was called Hobbit), and always been happy with the 
+results. There are quite a few plugins and enhancements available as 
+well. Search Google for Xymon and you'll find a ton of info.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2599595090">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2599595090">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2535656582" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_AHsZ76Zt15/" class="user" data-action="profile" data-username="disqus_AHsZ76Zt15">
+<img data-role="user-avatar" data-user="198181158" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/19818/1158/avatar92.jpg?1456444251" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_AHsZ76Zt15/" data-action="profile" data-username="disqus_AHsZ76Zt15" data-role="username">Nick Kremer</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2535656582" data-role="relative-time" class="time-ago" title="Friday, February 26, 2016 12:50 AM">2 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Awesome list, you should also add ncdu, my favorite du alternative. (NCurses Disk Usage)</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2535656582">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2535656582">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2531258711" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/santiagohierro/" class="user" data-action="profile" data-username="santiagohierro">
+<img data-role="user-avatar" data-user="197870927" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/1461263052/images/noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/santiagohierro/" data-action="profile" data-username="santiagohierro" data-role="username">Santiago Hierro</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2531258711" data-role="relative-time" class="time-ago" title="Tuesday, February 23, 2016 8:44 PM">2 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I was in search of a new monitoring app that will be similar to Zabbix but more lightweight.<br>Stumbling upon your great article surely gives me more options, but I decided to use Munin.<br>I found an installation tutorial from the Rosehosting blog and will now install it on my Centos server.<br>Thanks for this great article btw.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2531258711">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2531258711">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2528317741" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/uwefranzlutze/" class="user" data-action="profile" data-username="uwefranzlutze">
+<img data-role="user-avatar" data-user="197697948" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/19769/7948/avatar92.jpg?1456151049" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/uwefranzlutze/" data-action="profile" data-username="uwefranzlutze" data-role="username">Uwe Franz Lutze</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2528317741" data-role="relative-time" class="time-ago" title="Monday, February 22, 2016 3:24 PM">2 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>thanks its a good list. when it´s ok i will make a copy for other Admins</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2528317741">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2528317741">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2485342033" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar">
+<div class="user"><img src="a_data/noavatar92.png" class="user" alt="Avatar"></div>
+</div>
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author">mohammad</span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2485342033" data-role="relative-time" class="time-ago" title="Friday, January 29, 2016 8:13 PM">3 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>ashmon is another With nice gui .</p><p><a href="https://github.com/ashtum/ashmon/" rel="nofollow">https://github.com/ashtum/ashm...</a></p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2485342033">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2485342033">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2439853238" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/rway/" class="user" data-action="profile" data-username="rway">
+<img data-role="user-avatar" data-user="2304450" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/230/4450/avatar92.jpg?1452303234" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/rway/" data-action="profile" data-username="rway" data-role="username">rway</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2439853238" data-role="relative-time" class="time-ago" title="Tuesday, January 5, 2016 12:31 AM">4 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Nice list!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2439853238">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2439853238">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2203968024" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar">
+<div class="user"><img src="a_data/noavatar92.png" class="user" alt="Avatar"></div>
+</div>
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author">Reid</span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2203968024" data-role="relative-time" class="time-ago" title="Thursday, August 20, 2015 1:21 AM">8 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Don't forget lspci, lsusb, and lsblk</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2203968024">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2203968024">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-2011398656" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_8iFOHuP7Dm/" class="user" data-action="profile" data-username="disqus_8iFOHuP7Dm">
+<img data-role="user-avatar" data-user="156671458" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/15667/1458/avatar92.jpg?1438001234" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_8iFOHuP7Dm/" data-action="profile" data-username="disqus_8iFOHuP7Dm" data-role="username">Melissa</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2011398656" data-role="relative-time" class="time-ago" title="Thursday, May 7, 2015 5:26 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>This is an excellent list! I agree with some other posters and believe that Zabbix should definitely be added to the list.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2011398656">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2011398656">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-2159096008" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/argparse/" class="user" data-action="profile" data-username="argparse">
+<img data-role="user-avatar" data-user="3961429" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/argparse/" data-action="profile" data-username="argparse" data-role="username">Jonathan Sundqvist</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2011398656" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Melissa</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159096008" data-role="relative-time" class="time-ago" title="Monday, July 27, 2015 1:24 PM">9 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I added Zabbix to the list :)</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159096008">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2159096008">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-2159187957" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_8iFOHuP7Dm/" class="user" data-action="profile" data-username="disqus_8iFOHuP7Dm">
+<img data-role="user-avatar" data-user="156671458" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/15667/1458/avatar92.jpg?1438001234" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_8iFOHuP7Dm/" data-action="profile" data-username="disqus_8iFOHuP7Dm" data-role="username">Melissa</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159096008" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Jonathan Sundqvist</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159187957" data-role="relative-time" class="time-ago" title="Monday, July 27, 2015 2:47 PM">9 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Awesome!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159187957">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2159187957">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li></ul>
+
+</li><li id="post-1878689701" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_BkhPi99K82/" class="user" data-action="profile" data-username="disqus_BkhPi99K82">
+<img data-role="user-avatar" data-user="146217873" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/14621/7873/avatar92.jpg?1425049331" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_BkhPi99K82/" data-action="profile" data-username="disqus_BkhPi99K82" data-role="username">Didier</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1878689701" data-role="relative-time" class="time-ago" title="Friday, February 27, 2015 4:02 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I have recently found a very useful free sysadmin tool called "MobaXterm" ( <a href="http://mobaxterm.mobatek.net/" rel="nofollow">http://mobaxterm.mobatek.net</a>
+ ). It is a terminal bash console for windows which allows ssh, public 
+keys, X11-forwarding, multi-tabs, mosh and many Linux commands in 
+Windows environment.<br>It has replaced PuTTY, Exceed, ReflectionX, mRemoteNG, Mstsc and WinSCP in my everyday work!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1878689701">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1878689701">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-2159092952" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/argparse/" class="user" data-action="profile" data-username="argparse">
+<img data-role="user-avatar" data-user="3961429" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/argparse/" data-action="profile" data-username="argparse" data-role="username">Jonathan Sundqvist</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1878689701" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Didier</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159092952" data-role="relative-time" class="time-ago" title="Monday, July 27, 2015 1:22 PM">9 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Thanks, I added it to the list.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159092952">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2159092952">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li><li id="post-1876880696" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/xrepinssporx/" class="user" data-action="profile" data-username="xrepinssporx">
+<img data-role="user-avatar" data-user="55132632" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/5513/2632/avatar92.jpg?1445010099" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/xrepinssporx/" data-action="profile" data-username="xrepinssporx" data-role="username">Android File Host</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1876880696" data-role="relative-time" class="time-ago" title="Thursday, February 26, 2015 5:26 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Observium should be on the list in my opinion. Other then that a great list. </p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1876880696">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1876880696">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-2159079955" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/argparse/" class="user" data-action="profile" data-username="argparse">
+<img data-role="user-avatar" data-user="3961429" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/argparse/" data-action="profile" data-username="argparse" data-role="username">Jonathan Sundqvist</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1876880696" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Android File Host</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159079955" data-role="relative-time" class="time-ago" title="Monday, July 27, 2015 1:08 PM">9 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I added it to the list :)</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159079955">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2159079955">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li><li id="post-1875748358" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar">
+<div class="user"><img src="a_data/noavatar92.png" class="user" alt="Avatar"></div>
+</div>
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author">Guest</span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1875748358" data-role="relative-time" class="time-ago" title="Thursday, February 26, 2015 12:58 AM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p><a href="http://www.sysdig.org/" rel="nofollow">http://www.sysdig.org/</a></p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1875748358">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1875748358">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-1867353646" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar">
+<div class="user"><img src="a_data/noavatar92.png" class="user" alt="Avatar"></div>
+</div>
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author">dominix</span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1867353646" data-role="relative-time" class="time-ago" title="Saturday, February 21, 2015 8:36 AM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>you must add nload to be complete !</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1867353646">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1867353646">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-2159083630" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/argparse/" class="user" data-action="profile" data-username="argparse">
+<img data-role="user-avatar" data-user="3961429" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/argparse/" data-action="profile" data-username="argparse" data-role="username">Jonathan Sundqvist</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1867353646" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> dominix</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159083630" data-role="relative-time" class="time-ago" title="Monday, July 27, 2015 1:12 PM">9 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Added it to the list :)</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159083630">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2159083630">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li><li id="post-1861424128" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/Steffen26/" class="user" data-action="profile" data-username="Steffen26">
+<img data-role="user-avatar" data-user="169167" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/1461263052/images/noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/Steffen26/" data-action="profile" data-username="Steffen26" data-role="username">Steffen26</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1861424128" data-role="relative-time" class="time-ago" title="Wednesday, February 18, 2015 10:20 AM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Great List, but I guess you can add to it even more, if you got time 
+for it. If you are adding Zabbix on the list, do not forget shinken (<a href="http://www.shinken-monitoring.org/" rel="nofollow">www.shinken-monitoring.org</a>) ... and you are missing Munin, which is way older than a bunch of guys on your list and integrated in many systems already.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1861424128">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1861424128">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-1861049730" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/Lupul_rau/" class="user" data-action="profile" data-username="Lupul_rau">
+<img data-role="user-avatar" data-user="75825474" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/7582/5474/avatar92.jpg?1435275575" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/Lupul_rau/" data-action="profile" data-username="Lupul_rau" data-role="username">Lupul_rau</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1861049730" data-role="relative-time" class="time-ago" title="Wednesday, February 18, 2015 3:09 AM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>pretty big list but collectd, smokeping should not be missing from it.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1861049730">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1861049730">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li id="post-2159089127" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/argparse/" class="user" data-action="profile" data-username="argparse">
+<img data-role="user-avatar" data-user="3961429" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/396/1429/avatar92.jpg?1453841341" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/argparse/" data-action="profile" data-username="argparse" data-role="username">Jonathan Sundqvist</a></span>
+
+<span><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1861049730" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Lupul_rau</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159089127" data-role="relative-time" class="time-ago" title="Monday, July 27, 2015 1:17 PM">9 months ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I added both of these to the list!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-2159089127">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2159089127">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li><li id="post-1852436377" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/elotro23/" class="user" data-action="profile" data-username="elotro23">
+<img data-role="user-avatar" data-user="53090842" src="a_data/noavatar92.png" data-src="//a.disquscdn.com/uploads/users/5309/842/avatar92.jpg?1454961195" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/elotro23/" data-action="profile" data-username="elotro23" data-role="username">Ivan G</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1852436377" data-role="relative-time" class="time-ago" title="Friday, February 13, 2015 9:59 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Yep, I also expected to see Zabbix in this list.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1852436377">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1852436377">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li id="post-1834642804" class="post"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar">
+<div class="user"><img src="a_data/noavatar92.png" class="user" alt="Avatar"></div>
+</div>
+
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author">zelehaist</span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1834642804" data-role="relative-time" class="time-ago" title="Wednesday, February 4, 2015 4:47 PM">a year ago</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I would add here Zabbix. It is a good Cacti/Nagios alternative.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter"><a href="#" data-action="share:twitter">Twitter</a></li>
+<li class="facebook"><a href="#" data-action="share:facebook">Facebook</a></li>
+<li class="link"><a href="https://blog.serverdensity.com/80-linux-monitoring-tools-know/#comment-1834642804">Link</a></li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:1834642804">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+<div class="load-more" data-role="more" style="display:none">
+<a href="#" data-action="more-posts" class="btn">Load more comments</a>
+</div>
+</div>
+
+</section>
+
+<div id="placement-bottom" data-tracking-area="discovery-south"><div style="height: 0px; visibility: hidden;" class="post-list"></div></div>
+
+<div id="footer" data-tracking-area="footer">
+<ul class="disqus-footer">
+<li class="logo disqus-footer__item"><a href="https://disqus.com/" rel="nofollow" title="Powered by Disqus">Powered by Disqus</a></li>
+<li id="thread-subscribe-button" class="email disqus-footer__item"> 
+<div class="default">
+<a href="#" rel="nofollow" data-action="subscribe" title="Subscribe and get email updates from this discussion"><i aria-hidden="true" class="icon icon-mail"></i><span class="clip">Subscribe</span> <i aria-hidden="true" class="icon icon-checkmark"></i></a>
+</div>
+<div class="form">
+<div class="input-wrapper"><input id="thread-subscribe-email" placeholder="yourname@email.com" type="email"></div>
+</div>
+</li>
+<li class="install disqus-footer__item">
+<a href="https://publishers.disqus.com/engage?utm_source=serverdensity&amp;utm_medium=Disqus-Footer" rel="nofollow" target="_blank">
+<i aria-hidden="true" class="icon icon-disqus"></i>
+<span class="clip hidden-sm">Add Disqus to your site</span>
+<span class="clip visible-sm hidden-xs">Add Disqus</span>
+<span class="clip visible-xs">Add</span>
+</a>
+</li>
+<li class="privacy disqus-footer__item">
+<a href="https://help.disqus.com/customer/portal/articles/1657951?utm_source=disqus&amp;utm_medium=embed-footer&amp;utm_content=privacy-btn" rel="nofollow" target="_blank">
+<i aria-hidden="true" class="icon icon-lock"></i>
+<span class="clip">Privacy</span>
+</a>
+</li>
+</ul>
+</div>
+</div></body></html>

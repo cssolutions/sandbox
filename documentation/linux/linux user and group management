@@ -1,0 +1,179 @@
+#create a new user
+sudo adduser --uid 1050 newuser
+
+add user to group
+sudo adduser --gid 100 tutonics2
+sudo adduser --ingroup users tutonics2
+
+#delete a user
+sudo deluser --remove-home tutonics2
+sudo deluser tutonics2
+
+#adding new group
+sudo addgroup newgroupname
+sudo adduser --group newgroupname
+
+sudo addgroup -gid 1234 newgroupname
+
+#delete a group
+sudo delgroup oldgroup
+
+#add an exciting user to group
+sudo adduser username existing_group
+
+#remove user from group
+sudo deluser username existing_group
+
+
+
+SYSTEM USERS
+------------
+#add a system user
+sudo adduser --system --no-create-home myapp_name
+sudo adduser --system --no-create-home --gid n myapp_name
+sudo adduser --system --no-create-home myapp_name --ingroup somegroup
+sudo adduser --system --no-create-home --group myapp_name
+
+#add a system group
+addgroup --system new_sys_group
+addgroup --system --gid 6000 new_sys_group
+
+#delete a system user
+sudo deluser --remove-home myapp
+
+#delete a system group
+sudo delgroup sysgroup
+
+
+
+
+
+sudo chmod -R ugo+rw /DATA/SHARE
+sudo chmod -R 666 /DATA/SHARE
+
+
+sudo chown -R bethany /DATA/SHARE
+
+
+
+
+
+#show group for user
+groups user2
+
+
+ahol az xyz egy oktális, azaz 8-as számrendszerbeli szám 3 számjegye, az állománynév meg sejtjük ugye, hogy mi... Az xyz ennek megfelelően bármi olyan 3 jegyű szám lehet, 
+aminek egyes számjegyei a 0 és 7 közt mozognak. A legnagyobb helyiértékű számjegy azt mondja meg, hogy mit művelhetsz a fájllal te (általánosabban: a fájl tulajdonosa), 
+a második azt, mit művelhet vele az, aki a tulajdonossal egy csoportban van, a harmadik, azaz legkisebb helyiértékű azt, mit művelhet a fájllal mindenki más, azaz akárki.
+
+
+A lehetséges jogok a következők: olvasás, írás, végrehajtás (azaz futtatás). Minden oktális szám 3 bitből tevődik össze, a legnagyobb helyiértékű az olvasást, a középső az írást, 
+a legkisebb helyiértékű a végrehajtást jelenti. Ezt legkönnyebb úgy megjegyezni, hogy minden oktális számjegy felírható úgy, hogy 4+2+1, aholis a 4, a 2 és az 1 helyén is 
+lehet az összegben nulla, ha azonban nem nulla van ott akkor a 4 jelenti az olvasást, a 2 az írást, s az 1 a végrehajtást
+
+777 Bárki bármit tehet a fájllal. Biztonsági szempontból nem javallott.
+755 A tulajdonos bármit tehet a fájllal, mások csak olvashatják és futtathatják. Tipikus alkalmazási területe ha te írsz egy mások által is használható szkriptet.
+700 Csak a tulajdonos birizgálhatja a fájlt, ő mindent megtehet vele, mások azonban semmit.
+666 Ez nem a Sátán száma: azt jelenti, a fájlt bárki írhatja és olvashatja, viszont senki által nem végrehajtható (mert nem progi és nem szkript). Ideiglenes fájlok esetén előfordulhat, hogy jól jön ez a beállítás.
+644 A tulajdonos írhatja-olvashatja a fájlt, mások csak olvashatják. Nem végrehajtható fájlok esetén használatos.
+600 A tulajdonos írhatja és olvashatja a fájlt, mások semmit nem csinálhatnak vele.
+
+
+
+
+
+Jogosultságok megtekintése:
+ls -l file-name
+
+File can be written by youself and members of the group. Others may only view it.
+-rw-rw-r-- user group file-size date file-name
+
+Directory is completely open for read/write:
+drwxrwxrwx user group file-size date directory-name
+
+File can only be accessed by owner (user):
+-rwx------ user group file-size date file-name
+
+
+
+
+
+
+
+
+
+USERMOD
+-c = We can add comment field for the useraccount.
+-d = To modify the directory for any existing user account.
+-e = Using this option we can make the account expiry in specific period.
+-g = Change the primary group for a User.
+-G = To add a supplementary groups.
+-a = To add anyone of the group to a secondary group.
+-l = To change the login name from tecmint to tecmint_admin.
+-L = To lock the user account. This will lock the password so we can’t use the account.
+-m = moving the contents of the home directory from existing home dir to new dir.
+-p = To Use un-encrypted password for the new password. (NOT Secured).
+-s = Create a Specified shell for new accounts.
+-u = Used to Assigned UID for the user account between 0 to 999.
+-U = To unlock the user accounts. This will remove the password lock and allow us to use the user account.
+
+-------------------
+
+How do I add a user to multiple groups in Ubuntu?
+usermod -a -G group1,group2 username
+Where username is the user you want to modify and group1 and group2 are the new groups you want that user to join. Running the command 
+without the -a argument will remove that user from all groups except group1 and group2
+
+groups username
+
+-------------------
+
+change home dir to /var/www
+usermod -d /var/www/ username
+
+
+lejárati idő beállítása
+usermod -e 2014-11-01 tecmint
+
+
+Adding Group to an Existing User
+usermod -G tecmint_test0 tecmint
+
+
+Change User Login Name
+usermod -l tecmint_admin tecmint
+To change any existing user login name, we can use ‘-l‘ (new login) option. In the example below, we changing login name tecmint to tecmint_admin. So the username tecmint has been renamed with the new name tecmint_admin.
+
+Lock user account
+usermod -L babin
+Unlock user account
+usermod -U babin
+
+
+Change home direcotry to /var/pinky
+usermod -d /var/pinky/ -m pinky
+
+
+
+
+Linux users
+Localban mindenki olyat állít be, amit szeretne
+
+Give write permissions to multiple users on a folder in Ubuntu
+//adding a new group
+sudo groupadd tomandruser
+//assign the 2 users for that group
+sudo usermod -a -G tomandruser tomcat6
+sudo usermod -a -G tomandruser ruser
+//add a permission for the group on the folder 
+sudo chgrp -R tomandruser /path/to/the/directory
+sudo chmod -R 770 /path/to/the/directory
+
+
+Dev-en mindenkinek csak a saját területére van teljes hozzáférése, a többihez csak olvasási(projektenként)
+webadmin -nak a www könyvtár teljes jog
+developer -nek projekteken belül a nem public mappára teljes
+                                 a public mappára csak olvasási
+designer  -nek a projekten belül a nem public mappára olvasási
+                                 a public mappára teljes
+

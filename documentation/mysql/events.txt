@@ -1,0 +1,62 @@
+SET GLOBAL event_scheduler = ON;
+SET GLOBAL event_scheduler = OFF;
+SHOW PROCESSLISTG
+SHOW EVENTSG
+
+
+DELIMITER |
+
+CREATE EVENT myevent
+    ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR
+    DO
+      BEGIN
+        UPDATE mytable SET mycol = mycol + 1;
+      END |
+
+DELIMITER ;
+
+
+
+
+
+CREATE EVENT myevent
+    ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR
+    ON COMPLETION PRESERVE
+    DO
+      BEGIN
+        UPDATE mytable SET mycol = mycol + 1;
+      END |
+
+
+DROP EVENT myevent;
+
+
+
+
+
+CREATE EVENT myevent
+    ON SCHEDULE EVERY 1 HOUR
+    STARTS CURRENT_TIMESTAMP + INTERVAL 1 DAY
+    ENDS CURRENT_TIMESTAMP + INTERVAL 1 YEAR
+    DO
+      BEGIN
+        UPDATE mytable SET mycol = mycol + 1;
+      END |
+
+
+ALTER EVENT myevent
+    ON SCHEDULE EVERY 1 MONTH
+    STARTS '2011-12-01 01:00:00' |
+
+
+ALTER EVENT myevent
+    DO
+      BEGIN
+        INSERT INTO mystats (total)
+          SELECT COUNT(*) FROM sessions;
+        TRUNCATE sessions;
+      END |
+
+
+ALTER EVENT myevent
+    RENAME TO yourevent;

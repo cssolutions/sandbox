@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-2"><script src="728x90_master_Google_data/exitapi-impl.js" type="text/javascript"></script><script src="728x90_master_Google_data/addata.js" type="text/javascript"></script><meta content="width=728,height=90" name="ad.size"><style>body,html{margin:0; padding:0;width:300px; height:250px; visibility: hidden;overflow: hidden; background:undefined;}</style><style>
+			@charset "UTF-8";
+
+			.animated {
+			  -webkit-animation-duration: 1s;
+			  animation-duration: 1s;
+			  -webkit-animation-fill-mode: both;
+			  animation-fill-mode: both;
+			}
+
+			.animated.infinite {
+			  -webkit-animation-iteration-count: infinite;
+			  animation-iteration-count: infinite;
+			}
+
+			.animated.hinge {
+			  -webkit-animation-duration: 2s;
+			  animation-duration: 2s;
+			}
+
+			.animated.bounceIn,
+			.animated.bounceOut {
+			  -webkit-animation-duration: .75s;
+			  animation-duration: .75s;
+			}
+
+			.animated.flipOutX,
+			.animated.flipOutY {
+			  -webkit-animation-duration: .75s;
+			  animation-duration: .75s;
+			}
+			@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}@-webkit-keyframes rotateInDownLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInDownLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.rotateInDownLeft {
+  -webkit-animation-name: rotateInDownLeft;
+  animation-name: rotateInDownLeft;
+}@-webkit-keyframes rotateInDownRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInDownRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.rotateInDownRight {
+  -webkit-animation-name: rotateInDownRight;
+  animation-name: rotateInDownRight;
+}@-webkit-keyframes rotateIn {
+  0% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, -200deg);
+    transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, -200deg);
+    transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.rotateIn {
+  -webkit-animation-name: rotateIn;
+  animation-name: rotateIn;
+}@-webkit-keyframes tada {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes tada {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.tada {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+}@-webkit-keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.fadeOutLeft {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+}		</style><script src="../../a_data_005/ads_data/ads_data/bjEnSSRtkQDmV5c2Pm_sWdo8WoIWRicVzzTAt_BvtSY.js" type="text/javascript"></script></head><body onclick="ExitApi.exit();" style="cursor:pointer">
+
+	
+		
+		
+	
+		<a href="javascript:void(0)">
+			<div style="width:728px; height:90px; overflow:hidden">
+									<img class="animated fadeIn" id="img1458296380204" src="728x90_master_Google_data/728x90_master_3.jpg" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; visibility: visible; animation-delay: 0s; animation-duration: 3.5s;">
+									<img class="animated fadeIn" id="img1458297115153" src="728x90_master_Google_data/728x90_master_11.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 3.5s; visibility: visible;">
+									<img class="animated fadeIn" id="img1458297207459" src="728x90_master_Google_data/728x90_master_12.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 3.5s; visibility: visible;">
+									<img class="animated zoomIn" id="img1458296384578" src="728x90_master_Google_data/728x90_master_7.png" style="opacity: 1; position: absolute; width: 160px; height: 600px; top: 0px; left: 0px; visibility: visible; animation-delay: 0s; animation-duration: 0.001s;">
+									<img class="animated tada" id="img1458296409884" src="728x90_master_Google_data/728x90_master_2.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1.5s; visibility: visible;">
+									<img class="animated tada" id="img1458296432782" src="728x90_master_Google_data/728x90_master_9.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1.5s; visibility: visible;">
+									<img class="animated tada" id="img1458296373463" src="728x90_master_Google_data/728x90_master_5.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1.5s; visibility: visible;">
+									<img class="animated rotateInDownRight" id="img1458296399916" src="728x90_master_Google_data/728x90_master_6.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1s; visibility: visible;">
+									<img class="animated fadeInLeft" id="img1458296432977" src="728x90_master_Google_data/728x90_master_8.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1s; visibility: visible;">
+									<img class="animated rotateInDownRight" id="img1458296342621" src="728x90_master_Google_data/728x90_master_1.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1s; visibility: visible;">
+									<img class="animated rotateInDownLeft" id="img1458296366721" src="728x90_master_Google_data/728x90_master_4.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1s; visibility: visible;">
+									<img id="img1458296519758" src="728x90_master_Google_data/728x90_master_10.png" style="opacity:0;position:absolute; width: 160px;height: 600px; top: 0px; left: 0px; ">
+									<img class="animated fadeOutLeft" id="img1458301121362" src="728x90_master_Google_data/728x90_master_13.png" style="opacity: 0; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1s; visibility: hidden;">
+									<img class="animated fadeInLeft" id="img1458301171822" src="728x90_master_Google_data/728x90_master_14.png" style="opacity: 1; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1s; visibility: visible;">
+									<img class="animated fadeOutLeft" id="img1458301166510" src="728x90_master_Google_data/728x90_master_15.png" style="opacity: 0; position: absolute; width: 728px; height: 90px; top: 0px; left: 0px; animation-delay: 0s; animation-duration: 1s; visibility: hidden;">
+								
+			</div>
+		</a>
+		<script>var layers={"1458296342621":{"type":"file","name":"20000_f+\u0119le.png","url":"728x90_master_1.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":4,"mime":"image\/png"},"layer_name":"20000_f+\u0119le.png","width":728,"height":90,"layer_id":"1458296342621","sort":9,"layer_top":0,"layer_left":0,"$$hashKey":"object:889","server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_1.png","ex":"png"},"1458296409884":{"type":"file","name":"gomb.png","url":"728x90_master_2.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":2,"mime":"image\/png"},"layer_name":"gomb.png","width":728,"height":90,"layer_id":"1458296409884","sort":4,"$$hashKey":"object:891","layer_top":0,"layer_left":0,"show":1,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_2.png","ex":"png"},"1458296380204":{"type":"file","name":"hatter1.jpg","url":"728x90_master_3.jpg","info":{"0":160,"1":600,"2":2,"3":"width=\"160\" height=\"600\"","bits":8,"channels":3,"mime":"image\/jpeg"},"layer_name":"hatter1.jpg","width":728,"height":90,"layer_id":"1458296380204","sort":0,"$$hashKey":"object:893","layer_top":0,"layer_left":0,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_3.jpg","ex":"jpg"},"1458296366721":{"type":"file","name":"keress.png","url":"728x90_master_4.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":4,"mime":"image\/png"},"layer_name":"keress.png","width":728,"height":90,"layer_id":"1458296366721","sort":10,"$$hashKey":"object:903","layer_top":0,"layer_left":0,"show":1,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_4.png","ex":"png"},"1458296373463":{"type":"file","name":"kiprobalom.png","url":"728x90_master_5.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":4,"mime":"image\/png"},"layer_name":"kiprobalom.png","width":728,"height":90,"layer_id":"1458296373463","sort":6,"$$hashKey":"object:905","layer_top":0,"layer_left":0,"show":1,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_5.png","ex":"png"},"1458296399916":{"type":"file","name":"kozott.png","url":"728x90_master_6.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":4,"mime":"image\/png"},"layer_name":"kozott.png","width":728,"height":90,"layer_id":"1458296399916","sort":7,"$$hashKey":"object:907","layer_top":0,"layer_left":0,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_6.png","ex":"png"},"1458296384578":{"type":"file","name":"mysoft.png","url":"728x90_master_7.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":8,"mime":"image\/png"},"layer_name":"mysoft.png","width":160,"height":600,"layer_id":"1458296384578","sort":3,"$$hashKey":"object:909","layer_top":0,"layer_left":0,"show":0,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_7.png","ex":"png"},"1458296432977":{"type":"file","name":"notebook.png","url":"728x90_master_8.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":4,"mime":"image\/png"},"layer_name":"notebook.png","width":728,"height":90,"layer_id":"1458296432977","sort":8,"$$hashKey":"object:911","layer_top":0,"layer_left":0,"show":1,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_8.png","ex":"png"},"1458296432782":{"type":"file","name":"nyil.png","url":"728x90_master_9.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":8,"mime":"image\/png"},"layer_name":"nyil.png","width":728,"height":90,"layer_id":"1458296432782","sort":5,"$$hashKey":"object:913","layer_top":0,"layer_left":0,"show":1,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_9.png","ex":"png"},"1458296519758":{"type":"file","name":"lapi.png","url":"728x90_master_10.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":8,"mime":"image\/png"},"layer_name":"lapi.png","width":160,"height":600,"layer_id":"1458296519758","sort":11,"$$hashKey":"object:1115","layer_top":0,"layer_left":0,"show":0,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_10.png","ex":"png"},"1458297115153":{"type":"file","name":"also_hatter.png","url":"728x90_master_11.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":8,"mime":"image\/png"},"layer_name":"also_hatter.png","width":728,"height":90,"layer_id":"1458297115153","sort":1,"$$hashKey":"object:1563","layer_top":0,"layer_left":0,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_11.png","ex":"png"},"1458297207459":{"type":"file","name":"felso_hatter.png","url":"728x90_master_12.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":8,"mime":"image\/png"},"layer_name":"felso_hatter.png","width":728,"height":90,"layer_id":"1458297207459","sort":2,"$$hashKey":"object:1565","layer_top":0,"layer_left":0,"show":1,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_12.png","ex":"png"},"1458301121362":{"type":"file","name":"asus.png","url":"728x90_master_13.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":8,"mime":"image\/png"},"layer_name":"asus.png","width":728,"height":90,"layer_id":"1458301121362","sort":12,"$$hashKey":"object:4412","layer_top":0,"layer_left":0,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_13.png","ex":"png"},"1458301171822":{"type":"file","name":"yoga.png","url":"728x90_master_14.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":8,"mime":"image\/png"},"layer_name":"yoga.png","width":728,"height":90,"layer_id":"1458301171822","sort":13,"$$hashKey":"object:4414","layer_top":0,"layer_left":0,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_14.png","ex":"png"},"1458301166510":{"type":"file","name":"dell.png","url":"728x90_master_15.png","info":{"0":160,"1":600,"2":3,"3":"width=\"160\" height=\"600\"","bits":8,"mime":"image\/png"},"layer_name":"dell.png","width":728,"height":90,"layer_id":"1458301166510","sort":14,"$$hashKey":"object:4416","layer_top":0,"layer_left":0,"server_url":"\/home\/solutiah\/public_html\/html5banner\/exports\/6c1b6314f4228a1fcca259763bfda164\/728x90_master_Google\/728x90_master_15.png","ex":"png"}}</script>
+		<script>var actions={"0":{"1458296380204":{"duration":3.5,"delay":null,"class":"fadeIn"},"1458296384578":{"duration":0.001,"delay":0,"class":"zoomIn"}},"1000":{"1458297115153":{"duration":3.5,"delay":0,"class":"fadeIn"}},"2000":{"1458297207459":{"duration":3.5,"delay":0,"class":"fadeIn"}},"2200":{"1458301121362":{"duration":3,"delay":0,"class":"fadeInLeft"}},"2700":{"1458296366721":{"duration":1,"delay":0,"class":"rotateInDownLeft"}},"3300":{"1458296342621":{"duration":1,"delay":0,"class":"rotateInDownRight"}},"3800":{"1458296432977":{"duration":1,"delay":0,"class":"fadeInLeft"}},"4300":{"1458296399916":{"duration":1,"delay":0,"class":"rotateInDownRight"}},"4700":{},"5000":{"1458296409884":{"duration":2,"delay":1,"class":"rotateIn"}},"5500":{"1458296373463":{"duration":1,"delay":0,"class":"zoomIn"}},"6000":{"1458296432782":{"duration":1,"delay":0,"class":"zoomIn"}},"6500":{"1458296409884":{"duration":1.5,"delay":0,"class":"tada"},"1458296432782":{"duration":1.5,"delay":0,"class":"tada"},"1458296373463":{"duration":1.5,"delay":0,"class":"tada"}},"6800":{"1458301121362":{"duration":1,"delay":0,"class":"fadeOutLeft"}},"7400":{"1458301166510":{"duration":1,"delay":0,"class":"fadeInLeft"}},"10400":{"1458301166510":{"duration":1,"delay":0,"class":"fadeOutLeft"}},"11000":{"1458301171822":{"duration":1,"delay":0,"class":"fadeInLeft"}}}</script>
+		<script>var current_state=0;</script>
+		<script>
+			function animate(cs)
+{
+	if (cs != undefined)
+		current_state = cs;
+	for (var i in actions)
+	{
+		var a = actions[i];
+		if (current_state != undefined )
+		{
+			if (current_state > i)
+			{
+				for (var j in a)
+				{
+					if (document.getElementById('img'+j) != undefined)
+					{
+						document.getElementById('img'+j).className  = '';
+						if (i == 0)
+						{
+							if (a[j].visible_before ==  1)
+							{
+								document.getElementById('img'+j).style.visibility = 'visible';
+								document.getElementById('img'+j).style.opacity = 1;
+							}
+							else
+							{
+								document.getElementById('img'+j).style.visibility = 'hidden';
+								document.getElementById('img'+j).style.opacity = 0;
+							}
+						}
+						if (a[j].class != undefined && a[j].class != '')
+						{
+							if (a[j].class == 'custom')
+							{
+								document.getElementById('img'+j).style['-moz-transition'] = a[j].duration + "s";
+								document.getElementById('img'+j).style['-ms-transition'] = a[j].duration + "s";
+								document.getElementById('img'+j).style['-webkit-transition'] = a[j].duration + "s";
+								document.getElementById('img'+j).style['transition'] = a[j].duration + "s"; 
+								
+								if (!a[j].scaleX)
+									a[j].scaleX = 1;
+								if (!a[j].scaleY)
+									a[j].scaleY = 1;
+								if (!a[j].TranslateX)
+									a[j].TranslateX = 0;
+								if (!a[j].TranslateY)
+									a[j].TranslateY = 0;
+								
+								document.getElementById('img'+j).style['width'] = (layers[j].width * a[j].scaleX) + "px"; 
+								document.getElementById('img'+j).style['height'] = (layers[j].height * a[j].scaleY) + "px"; 
+								document.getElementById('img'+j).style['top'] = (layers[j].layer_top + a[j].TranslateY) + "px"; 
+								document.getElementById('img'+j).style['left'] = (layers[j].layer_left + a[j].TranslateX) + "px"; 
+								if (a[j].opacity != undefined)
+									document.getElementById('img'+j).style['opacity'] = a[j].opacity;
+								if (a[j].anim_type != undefined)
+								{
+									if (a[j].anim_type == 'In')
+									{
+										document.getElementById('img'+j).style.visibility = 'visible';
+										document.getElementById('img'+j).style.opacity = 1;
+									}
+									if (a[j].anim_type == 'Out')
+									{
+										document.getElementById('img'+j).style.visibility = 'hidden';
+										document.getElementById('img'+j).style.opacity = 0;
+									}
+								}
+							}
+							if (a[j].class.indexOf('Out') > 0)
+							{
+								document.getElementById('img'+j).style.visibility = 'hidden';
+								document.getElementById('img'+j).style.opacity = 0;
+							}
+							if (a[j].class.indexOf('In') > 0)
+							{
+								document.getElementById('img'+j).style.visibility = 'visible';
+								document.getElementById('img'+j).style.opacity = 1;
+							}
+						}
+					}
+				}	
+			}
+			else
+			{
+				(function(a,i){
+			
+					setTimeout(function(){
+					if (a.goto != undefined && a.goto != "")
+					{
+						animate(a.goto);
+					}
+					for (var j in a)
+					{
+						if (document.getElementById('img'+j) != undefined)
+						{
+							
+							document.getElementById('img'+j).className  = '';
+							if (i == 0)
+							{
+								if (a[j].visible_before == 1)
+								{
+									document.getElementById('img'+j).style.visibility = 'visible';
+									document.getElementById('img'+j).style.opacity = 1;
+								}
+								else
+								{
+									document.getElementById('img'+j).style.visibility = 'hidden';
+									document.getElementById('img'+j).style.opacity = 0;
+								}
+							}
+							if (a[j].class != undefined && a[j].class != '')
+							{
+								if (a[j].class != 'custom')
+								{
+									document.getElementById('img'+j).style['-moz-transform'] = ''; 
+									document.getElementById('img'+j).style['-ms-transform'] = ''; 
+									document.getElementById('img'+j).style['-webkit-transform'] = ''; 
+									document.getElementById('img'+j).style['transform'] = ''; 
+									document.getElementById('img'+j).className = 'animated ' + a[j].class;
+									if (a[j].duration == undefined)
+										a[j].duration = 0.5;
+									
+									if (a[j].delay == undefined)
+										a[j].delay = 0;
+									document.getElementById('img'+j).style['animation-delay']  = a[j].delay + "s" ;
+									document.getElementById('img'+j).style['-webkit-animation-delay'] = a[j].delay + "s" ;
+									
+									document.getElementById('img'+j).style['animation-duration']  =  a[j].duration + "s";
+									document.getElementById('img'+j).style['-webkit-animation-duration'] =  a[j].duration + "s";
+								}
+								else
+								{
+									document.getElementById('img'+j).style['animation-delay']  = "" ;
+									document.getElementById('img'+j).style['-webkit-animation-delay'] = "";
+									document.getElementById('img'+j).style['animation-duration']  = "" ;
+									document.getElementById('img'+j).style['-webkit-animation-duration'] = "";
+								
+									document.getElementById('img'+j).style['-moz-transition'] = a[j].duration + "s"; 
+									document.getElementById('img'+j).style['-ms-transition'] = a[j].duration + "s"; 
+									document.getElementById('img'+j).style['-webkit-transition'] = a[j].duration + "s"; 
+									document.getElementById('img'+j).style['transition'] = a[j].duration + "s"; 
+									
+									if (!a[j].scaleX)
+										a[j].scaleX = 1;
+									if (!a[j].scaleY)
+										a[j].scaleY = 1;
+									if (!a[j].TranslateX)
+										a[j].TranslateX = 0;
+									if (!a[j].TranslateY)
+										a[j].TranslateY = 0;
+										
+									
+									document.getElementById('img'+j).style['width'] = (layers[j].width * a[j].scaleX) + "px"; 
+									document.getElementById('img'+j).style['height'] = (layers[j].height * a[j].scaleY) + "px"; 
+									document.getElementById('img'+j).style['top'] = (layers[j].layer_top + a[j].TranslateY) + "px"; 
+									document.getElementById('img'+j).style['left'] = (layers[j].layer_left + a[j].TranslateX) + "px"; 
+									if (a[j].opacity != undefined)
+										(function(id,op) {setTimeout(function(){document.getElementById('img'+id).style['opacity'] = op; },1);})(j,a[j].opacity); 
+									if (a[j].anim_type != undefined)
+									{
+										if (a[j].anim_type == 'Out')
+										{
+											(function(d,id){
+												setTimeout(function(){
+												document.getElementById('img'+id).style.visibility = 'hidden';
+												document.getElementById('img'+id).style.opacity = 0;
+												
+												},d*1000)
+											})(a[j].duration+a[j].delay,j);
+										}
+										if (a[j].anim_type == 'In')
+										{
+											(function(d,id){
+													setTimeout(function(){
+														document.getElementById('img'+id).style.visibility = 'visible';
+														
+													},d*1000)
+											})(a[j].delay,j);
+										}
+									}
+								}
+								if (a[j].class.indexOf('Out') > 0)
+								{
+									(function(d,id){
+										setTimeout(function(){
+										document.getElementById('img'+id).style.visibility = 'hidden';
+										document.getElementById('img'+id).style.opacity = 0;
+										
+										},d*1000)
+									})(a[j].duration+a[j].delay,j);
+								}
+								if (a[j].class.indexOf('In') > 0)
+								{
+									(function(d,id){
+										setTimeout(function(){
+											document.getElementById('img'+id).style.visibility = 'visible';
+											document.getElementById('img'+id).style.opacity = 1;
+											
+											
+										},d*1000)
+									})(a[j].delay,j);
+								}
+							}
+						}
+					}
+					},i)
+					})(a,i-current_state);
+			}
+		}
+	}
+	
+}
+animate();		</script>
+	
+</body></html>

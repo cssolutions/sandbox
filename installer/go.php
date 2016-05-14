@@ -2,13 +2,16 @@
 <?php
 /*
  * First, let's create a repo with a $name parameter at bitbucket
- * Run command: php go.php --name csaba
+ * Run command: 
+ * php hosts.php --name=csaba -public=1
+ * php go.php --name csaba
  * go to localhost base_admin db and műveletek/adatbázis másolása ide
+ * @TODO: nem húzza be a js-t, css-t
  */
 define('DEFAULT_USER','csaba');
 define('WWW_PATH','/home/csaba/www');
 define('INSTALLER_PATH', realpath('.'));
-define('DB_TO_CLONE', 'objfw');
+define('DB_TO_CLONE', 'structure');
 ini_set('mysql.default_socket', '/opt/lampp/var/mysql/mysql.sock');
 
 $bower_config = [
@@ -17,18 +20,18 @@ $bower_config = [
 	"license" => "MIT",
 	"authors" => ["Csaba Farkas"],
 	"dependencies" => [
-	    "jquery"=> "~2.1.4",
-	    "jquery-ui"=> "~1.11.4",
-		 "jquery-popup-overlay"=> "~1.6.0",
-	    "bootstrap"=> "~3.3.6",
-	    "bootstrap-sass-official"=> "~3.3.6",
-		 "bootstrap-material-design"=> "0.2.1",
-		 "bootstrap-combobox"=> "1.1.6",
-		 "bs-confirmation"=> "~1.0.5",
-	    "datatables"=> "DataTables#~1.10.8",
-	    "font-awesome"=> "~4.4.0",
-	    "fullcalendar"=> "~2.4.0",
-	    "summernote"=> "~0.6.16"
+		"jquery"=> "~2.1.4",
+		"jquery-ui"=> "~1.11.4",
+		"jquery-popup-overlay"=> "~1.6.0",
+		"bootstrap"=> "~3.3.6",
+		"bootstrap-sass-official"=> "~3.3.6",
+		"bootstrap-material-design"=> "0.2.1",
+		"bootstrap-combobox"=> "1.1.6",
+		"bs-confirmation"=> "~1.0.5",
+		"datatables"=> "DataTables#~1.10.8",
+		"font-awesome"=> "~4.4.0",
+		"fullcalendar"=> "~2.4.0",
+		"summernote"=> "~0.6.16"
 	]
 ];
 
@@ -77,6 +80,7 @@ passthru('bower install bootstrap-treeview');
 passthru('bower install bootstrap-social');
 passthru('bower install blueimp-file-upload-node');
 passthru('bower install Chart-js');
+passthru('bower install --save http://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.js');
 passthru('bower register bootstrap-floating-labels https://github.com/fauxparse/bootstrap-floating-labels -f');
 passthru('bower register jq-range-slider https://github.com/ghusse/jQRangeSlider -f');
 passthru('bower register bs-grid https://github.com/pontikis/bs_grid -f');
@@ -91,6 +95,8 @@ passthru('bower install bs-tabdrop');
 passthru('bower install bs-context-menu');
 passthru('bower install bs-autohide-navbar');
 passthru('bower install bs-bootbox');
+
+
 print "---------------------------------------------------- Bower tasks has been ended.\n";
 
 //GULP TASKS
@@ -98,7 +104,7 @@ print "---------------------------------------------------- Running gulp\n";
 //passthru('mkdir custom;mkdir custom/css;mkdir custom/js');
 passthru('sudo npm install --global gulp');
 passthru('sudo npm link gulp');
-passthru('sudo npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename gulp-cssmin gulp-watch');
+passthru('sudo npm install jshint gulp-jshint gulp-sass gulp-less gulp-concat gulp-uglify gulp-rename gulp-cssmin gulp-watch');
 
 $parentpid = getmypid();
 $apid = pcntl_fork();

@@ -1,0 +1,10 @@
+diff --git a/gitpatch/index.php b/gitpatch/index.php
+index 3ac00fa..05f15f2 100644
+--- a/gitpatch/index.php
++++ b/gitpatch/index.php
+@@ -6,3 +6,4 @@
+  * and open the template in the editor.
+  */
+ 
++echo 'Ez megy patch-ba';
+\ No newline at end of file

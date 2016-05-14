@@ -1,0 +1,13 @@
+Befizetések
+
+Amikor befizetés érkezik, akkor a rendszer törli az adott felhasználó financial_history -ját
+A Deposits táblába új sor íródik.
+
+
+Felhasználók befizetési előzményei
+  - a Users.financial_history generálódik, ha alaból null ÉS  ( a user rámegy a "Befizetéseim" menüpontra, VAGY amikor az admin nézi egy konkrét user előzményét (egy adott usernél) )
+  - a Users.financial_history törlődik,
+    - újabb befizetés érkezik  (egy adott usernél)
+    - befizetés módosult
+    - befizetés törlődött
+    - ha a foreseen corn job lefutott (az összes usernél) akkor + 1 query, ami az összes user-nél null-ra állítja a financial_history értékét

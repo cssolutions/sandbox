@@ -1,0 +1,234 @@
+<?php
+
+/**
+ * Adding a field to sth choosing a field type, "Example Color RGB"'ll appear in the list
+ */
+function field_example_field_info() {
+  return array(
+    // We name our field as the associative name of the array.
+    'field_example_rgb' => array(
+      'label' => t('Example Color RGB'),
+      'description' => t('Demonstrates a field composed of an RGB color.'),
+      'default_widget' => 'field_example_3text',
+      'default_formatter' => 'field_example_simple_text',
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_validate().
+ *
+ * This hook gives us a chance to validate content that's in our
+ * field. We're really only interested in the $items parameter, since
+ * it holds arrays representing content in the field we've defined.
+ * We want to verify that the items only contain RGB hex values like
+ * this: #RRGGBB. If the item validates, we do nothing. If it doesn't
+ * validate, we add our own error notification to the $errors parameter.
+ *
+ * @see field_example_field_widget_error()
+ */
+function field_example_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+  foreach ($items as $delta => $item) {
+    if (!empty($item['rgb'])) {
+      if (!preg_match('@^#[0-9a-f]{6}$@', $item['rgb'])) {
+        $errors[$field['field_name']][$langcode][$delta][] = array(
+          'error' => 'field_example_invalid',
+          'message' => t('Color must be in the HTML format #abcdef.'),
+        );
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_error().
+ *
+ * hook_field_widget_error() lets us figure out what to do with errors
+ * we might have generated in hook_field_validate(). Generally, we'll just
+ * call form_error().
+ *
+ * @see field_example_field_validate()
+ * @see form_error()
+ */
+function field_example_field_widget_error($element, $error, $form, &$form_state) {
+  switch ($error['error']) {
+    case 'field_example_invalid':
+      form_error($element, $error['message']);
+      break;
+  }
+}
+
+function field_example_field_is_empty($item, $field) {
+  return empty($item['rgb']);
+}
+
+//A megjelenés beállításánál lesznek ezek az infók elérhetők a "Formátum" oszlopban
+function field_example_field_formatter_info() {
+  return array(
+    'field_example_simple_text' => array(
+      'label' => t('Simple text-based formatter'),
+      'field types' => array('field_example_rgb'),
+    ),
+    'field_example_color_background' => array(
+      'label' => t('Change the background of the output text'),
+      'field types' => array('field_example_rgb'),
+    ),
+  );
+}
+
+//Ez kezeli a tényleges megjelenítésnél az előbbiekben beállított értékeket
+function field_example_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'field_example_simple_text':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#type' => 'html_tag',
+          '#tag' => 'p',
+          '#attributes' => array(
+            'style' => 'color: ' . $item['rgb'],
+          ),
+          '#value' => t('The color code in this field is @code', array('@code' => $item['rgb'])),
+        );
+      }
+      break;
+
+    case 'field_example_color_background':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#type' => 'html_tag',
+          '#tag' => 'p',
+          '#value' => t('The content area color has been changed to @code', array('@code' => $item['rgb'])),
+          '#attached' => array(
+            'css' => array(
+              array(
+                'data' => 'div.region-content { background-color:' . $item['rgb'] . ';}',
+                'type' => 'inline',
+              ),
+            ),
+          ),
+        );
+      }
+      break;
+  }
+
+  return $element;
+}
+
+//Amikor kiválasztjuk az "Example Color RGB" field-et, akkor felületi elem típusának, ezek a lehetőségek jönnek fel
+function field_example_field_widget_info() {
+  return array(
+    'field_example_text' => array(
+      'label' => t('RGB value as #ffffff'),
+      'field types' => array('field_example_rgb'),
+    ),
+    'field_example_3text' => array(
+      'label' => t('RGB text field'),
+      'field types' => array('field_example_rgb'),
+    ),
+    'field_example_colorpicker' => array(
+      'label' => t('Color Picker'),
+      'field types' => array('field_example_rgb'),
+    ),
+  );
+}
+
+//Amikor tartalmat viszünk fel, akkor a plussz mező így fog megjelenni az admin felületen
+function field_example_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $value = isset($items[$delta]['rgb']) ? $items[$delta]['rgb'] : '';
+
+  $widget = $element;
+  $widget['#delta'] = $delta;
+
+  switch ($instance['widget']['type']) {
+
+    case 'field_example_colorpicker':
+      $widget += array(
+        '#suffix' => '<div class="field-example-colorpicker"></div>',
+        '#attributes' => array('class' => array('edit-field-example-colorpicker')),
+        '#attached' => array(
+          'library' => array(
+            array('system', 'farbtastic'),
+          ),
+          'js' => array(drupal_get_path('module', 'field_example') . '/field_example.js'),
+        ),
+      );
+    case 'field_example_text':
+      $widget += array(
+        '#type' => 'textfield',
+        '#default_value' => $value,
+        '#size' => 7,
+        '#maxlength' => 7,
+      );
+      break;
+
+    case 'field_example_3text':
+      if (!empty($value)) preg_match_all('@..@', substr($value, 1), $match);
+      else $match = array(array());
+      $widget += array(
+        '#type' => 'fieldset',
+        '#element_validate' => array('field_example_3text_validate'),
+        '#delta' => $delta,
+        '#attached' => array(
+          'css' => array(drupal_get_path('module', 'field_example') . '/field_example.css'),
+        ),
+      );
+
+      foreach (array('r' => t('Red'), 'g' => t('Green'), 'b' => t('Blue')) as $key => $title) {
+        $widget[$key] = array(
+          '#type' => 'textfield',
+          '#title' => $title,
+          '#size' => 2,
+          '#default_value' => array_shift($match[0]),
+          '#attributes' => array('class' => array('rgb-entry')),
+          '#description' => t('The 2-digit hexadecimal representation of @color saturation, like "a1" or "ff"', array('@color' => $title)),
+        );
+        if ($instance['required'] == 1) {
+          $widget[$key]['#required'] = 1;
+        }
+      }
+      break;
+  }
+  $element['rgb'] = $widget;
+  return $element;
+}
+
+//Validate the individual fields and then convert to RGB string.
+function field_example_3text_validate($element, &$form_state) {
+  $delta = $element['#delta'];
+  $field = $form_state['field'][$element['#field_name']][$element['#language']]['field'];
+  $field_name = $field['field_name'];
+  if (isset($form_state['values'][$field_name][$element['#language']][$delta]['rgb'])) {
+    $values = $form_state['values'][$field_name][$element['#language']][$delta]['rgb'];
+    foreach (array('r', 'g', 'b') as $colorfield) {
+      $colorfield_value = hexdec($values[$colorfield]);
+      // If they left any empty, we'll set the value empty and quit.
+      if (strlen($values[$colorfield]) == 0) {
+        form_set_value($element, '', $form_state);
+        return;
+      }
+      // If they gave us anything that's not hex, reject it.
+      if ((strlen($values[$colorfield]) != 2) || $colorfield_value < 0 || $colorfield_value > 255) {
+        form_error($element[$colorfield], t("Saturation value must be a 2-digit hexadecimal value between 00 and ff."));
+      }
+    }
+
+    $value = sprintf('#%02s%02s%02s', $values['r'], $values['g'], $values['b']);
+    form_set_value($element, $value, $form_state);
+  }
+}
+
+function field_example_menu() {
+  $items['examples/field_example'] = array(
+    'title' => 'Field Example',
+    'page callback' => '_field_example_page',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+function _field_example_page() {
+  return t("The Field Example provides a field composed of an HTML RGB value, like #ff00ff. To use it, add the field to a content type.");
+}
+

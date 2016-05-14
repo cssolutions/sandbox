@@ -1,0 +1,8 @@
+OS
+Groups
+- Backend Developers
+- Frontend Developers
+- Database Administrators
+- mindenkinek külön felhasználó
+
+

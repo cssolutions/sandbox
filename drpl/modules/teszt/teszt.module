@@ -1,0 +1,429 @@
+<?php
+
+function teszt_help($path, $arg) {
+  switch ($path) {
+    case "admin/help#teszt":
+      return '' . t("Kis súgó szöveg a teszt modulhoz") . '';
+      break;
+  }
+}
+
+function teszt_menu() {
+	$items['teszt'] = array(
+		'title' => 'Teszt oldal címe',
+		'page callback' => 'teszt_page',
+		'access callback' => true,
+		'type' => MENU_CALLBACK,
+	);
+	$items['teszt/data'] = array(
+		'page callback' => 'teszt_data',
+		'access callback' => true,
+		'type' => MENU_CALLBACK,
+	);
+	$items['teszt/%/edit'] = array(
+		'page callback' => 'teszt_abc_edit',
+		'page arguments' => array(1),
+		'access callback' => true
+	);
+//	$items['teszt/%teszt_abc/edit'] = array(	//this will call teszt_abc_load
+//		'page callback' => 'teszt_abc_edit',
+//		'page arguments' => array(1),
+//		'access callback' => true
+//	);
+	$items['admin/config/system/teszt'] = array(
+	  'title' => 'Teszt settings',
+	  'type' => MENU_NORMAL_ITEM,
+	  'page callback' => 'teszt_page',
+	  'access callback' => true,
+	  'page arguments' => array(1),
+	);
+	$items['tv/csatornalista/channelviewupdate/%'] = array(
+	  'page callback' => 'teszt_ch_list_view_update',
+	  'page arguments' => array(3),
+	  'access callback' => true,
+	  'type' => MENU_CALLBACK,
+	);
+	$items['egyoldal'] = array(
+	  'title callback' => 'entity_label',
+	  'page callback' => '...',
+	  'page arguments' => array(1),
+	  'access callback' => 'entity_access',
+	  'access arguments' => array('view'),
+	  'file' => 'plugin_in_same_directory.inc',  
+	);
+	return $items;
+}
+
+function teszt_page() {
+	drupal_add_js(drupal_get_path('module', 'teszt').'/js/bootstrap-typeahead.js');
+	drupal_add_js(drupal_get_path('module', 'teszt').'/js/teszt.js');
+	return theme('teszt_page', array('rows' => ['első','második','harmadik']));
+}
+
+function teszt_block_info() {
+  $blocks['teszt'] = array(
+    'info' => 'Teszt 1',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+function teszt_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'teszt':
+      $block['subject'] = '';
+      $block['content'] = teszt_page();
+      break;
+  }
+  return $block;
+}
+
+function teszt_data() {
+	drupal_json_output(array('devices' =>  ['első','második','harmadik'])); 
+}
+
+function teszt_theme() {
+  return array(
+    'teszt_page' => array('template' => 'templates/teszt', 'arguments' => array('rows' => 1)),
+  );
+}
+
+function teszt_abc_edit($my_arg) {
+	return $my_arg;
+}
+
+function teszt_abc_load($my_arg) {
+	return 'gecó';
+}
+
+function teszt_ctools_plugin_directory($owner, $plugin_type) {
+	if ($owner == 'ctools' && $plugin_type == 'content_types') {
+		return 'plugins/'.$plugin_type;
+	}
+}
+
+
+//from cost calculator
+function teszt_entity_info_alter(&$info) {
+  foreach (array_keys($info) as $entity_type) {
+    if (in_array($entity_type, array('csomagok', 'ajanlat', 'multifield', 'commerce_product'))) {
+      if (!isset($info[$entity_type]['view modes']['something_good'])) {
+        $info[$entity_type]['view modes']['something_good'] = array(
+          'label' => t('Something Good'),
+          'custom settings' => FALSE,
+        );
+      }
+    }
+  }
+}
+
+function teszt_theme_registry_alter(&$theme_registry) {
+	$theme_registry['dc_ajax_shopping_cart']['template'] = drupal_get_path('module', 'something_good') . '/templates/cost-calculator-shopping-cart';
+}
+
+function teszt_commerce_cart_product_add($uid, $line_item_added, $combine = TRUE) {
+	
+}
+
+function teszt_field_attach_view_alter(&$output, $context) {
+  if (!empty($output['commerce_price'])) $output['commerce_price'][0]['#markup'] .=  '/hó';
+}
+
+function teszt_token_info() {
+	$info['types']['vmi'] = array(
+		'name' => 'VMI',
+		'description' => '',
+	);
+	$info['tokens']['vmi']['something_good'] = array(
+		'name' => t('Pussy calculator'),
+		'description' => 'Usage: [vmi:something_good:<type>:<subtype>]. [vmi:something_good:internet:lan], [vmi:something_good:internet:business], [vmi:something_good:tv:muholdastv]',
+		'dynamic' => true,
+	);
+	return $info;
+}
+
+function teszt_tokens($type, $tokens, array $data = array(), array $options = array()) {
+	$replacements = array();
+	foreach ($tokens as $name => $original) {
+		$arg = explode(':', $name);
+		$token = array_shift($arg);
+		if ($type == 'vmi') {
+			switch ($token) {
+				case 'something_good':
+					$type = array_shift($arg);
+					$subtype = array_shift($arg);
+					$flags = $arg ? array_shift($arg) : '';
+					$replacements[$original] = something_good_page($type, $subtype, $flags);
+					break;
+			}
+		}
+	}
+	return $replacements;
+}
+
+function teszt_page($type, $subtype, $flags = '') { //ok
+	$something_good_data = &drupal_static(__FUNCTION__);
+	if (empty($something_good_data)) {
+		$flags = explode(',', $flags);
+		array_walk($flags, 'trim');
+		$offers = array();
+		$query = new EntityFieldQuery();
+		$query->entityCondition('entity_type', 'commerce_product')->propertyCondition('status', 1);
+		$ajanlat_ids = $query->execute();
+		$entities = entity_load('commerce_product', array_keys($ajanlat_ids['commerce_product']));
+		if ($entities) {
+			drupal_add_js(drupal_get_path('module', 'something_good').'/js/something_good.js', 'file');
+			field_attach_prepare_view('commerce_product', $entities, 'something_good');
+			entity_prepare_view('commerce_product', $entities, 'something_good');
+			$bundle_types = array('ktv_tv_subscription' => 'tv', 'ktv_lan_subscription' => 'net', 'ktv_tel_subscription' => 'tel', 'dth_csomagok' => 'tv');
+			foreach ($entities as $product) {
+				$content = entity_view('commerce_product', array($product->product_id => $product), 'something_good');
+				$contents = $content['commerce_product'][$product->product_id];
+				foreach ($contents as $content) {
+					if(!is_object($content)) continue;
+					$product_property = 'field_' . str_replace('_subscription', '', $content->type) . '_subs_csomag';
+					$_type = $content->type;
+					$_huseg = @$content->field_loyalty['und'][0]['value'];
+					if (!array_key_exists($_type,$bundle_types)) continue;
+					$box = array_merge(['#prefix' => '<div class="inner">', '#suffix' => '</div>'], entity_view('commerce_product', array($content->product_id => $content), 'something_good'));
+					$offers[$_huseg][$bundle_types[$_type]][] = [
+						'title'     => $content->title,
+						'price_raw' => $content->commerce_price['und'][0]['amount'],
+						'key'       => str_replace(['-96','-48'], [''], $content->sku),
+						'box'       => drupal_render($box)
+					];
+				}
+			}
+			$loyalties = field_info_field('field_ajanlat_husegido');
+			$loyalties = array_slice($loyalties['settings']['allowed_values'], 0, 2);
+			foreach ($offers as &$offer) {
+				foreach ($bundle_types as $bundle_type) {
+					$offer[$bundle_type] = array_reverse($offer[$bundle_type]);
+				}
+			}
+			$something_good_data = ['type' => @$bundle_types[$_type], 'subtype' => $_type, 'offers' => $offers, 'loyalties' => $loyalties];
+			drupal_add_js(array('something_good' => $something_good_data), 'setting');
+		}
+	}
+	if (!empty($something_good_data['offers'])) return theme('calculator_page', $something_good_data);
+
+	return '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	<strong>Uh, OH!</strong>
+	  No offers to calculate...
+	</div>';
+}
+
+function teszt_ch_list_view_update($cableordth = 'kabel') {
+  $filter = get_some_filter();
+
+  drupal_add_http_header('Content-Type', 'application/json; charset=utf-8');
+  drupal_json_output(
+    array(
+      'data' => $filter,
+      'list' => teszt_ch_list_result($filter)));
+  drupal_exit();
+}
+
+function teszt_ch_list_result($filter) {
+	$h_list = db_select('channel_list', 'l')->distinct();
+	$h_list->addField('l', 'package', 'title');
+	$h_list->addExpression('IF(l.style_weight, 0, 1)', 'table_id');
+	$h_list->condition('package', '%RÁDIÓK%', 'not like');
+	$list->addExpression('CONCAT(REPLACE(l.name, \' \', \'\'), IF(l.style_weight, l.chid, \'\'))', 'row_key');
+}
+
+
+
+//rules integration
+function teszt_menu() {
+	return [];
+}
+
+function teszt_form_alter(&$form, &$form_state, $form_id) {
+	global $user;
+	rules_invoke_event('teszt_example_event', $user, 'Hello '.$user->name.'!', 15, 39);
+}
+
+function teszt_rules_event_info() {
+	return array(
+		'teszt_example_event' => array(
+			'group'   => t('TESZT'),
+			'label'   => t('Example teszt event!'),
+			'module'  => 'teszt',
+			'optional'=> '',
+			'variables' => array(
+				'current_user' => array('type' => 'user', 'label' => t('The current logged in user.')),
+				'some_text'    => array('type' => 'text', 'label' => t('Some arbitray text.')),
+				'length'       => array('type' => 'integer', 'label' => t('Length of the resulted hash.')),
+				'product'      => array('type' => 'integer', 'label' => t('ID of the product.'))
+			)
+		),
+	);
+}
+
+function teszt_rules_condition_info() {
+	return array(
+		'teszt_user_is_admin' => array(
+			'group'     => t('TESZT'),
+			'label'     => t('Termékek kötelező opcióinak meglétének ellenőrzése.'),
+			'parameter' => array('user' => array('type' => 'user', 'label' => t('Kosárhoz adott termék'))),
+		),
+	);
+	$b = '';
+}
+
+function teszt_user_is_admin($user) {
+	return !in_array('administrator', $user->roles);
+}
+
+function teszt_rules_action_info() {
+	return array(
+		'teszt_rules_action_create_hashed_string' => array(
+			'label' => t('Teszt custom rules action!'),
+			'group' => t('TESZT'),
+			'parameter' => array(
+				'current_user' => array('type' => 'user', 'label' => 'Subscribing user'),
+				'some_text'    => array('type' => 'text', 'label' => 'Text'),
+				'length'       => array('type' => 'integer', 'label' => t('The length of the returned string'), 'description' => t('Enter a number for the length of the hashed string that will be created.')),
+				'algorithm'    => array('type' => 'text', 'label' => t('Algorithm'), 'description' => t('Select a hash algorithm.'), 'options list' => 'teszt_algorithm_options', 'restriction' => 'input'),
+			),
+			'provides' => array(
+				'hashed_string' => array('type' => 'text', 'label' => t('Hashed string')),
+			),
+		),
+	);
+}
+
+function teszt_algorithm_options() {
+	return ['md4' => t('md4'), 'md5' => t('md5')];
+}
+
+function c_rules_action_create_hashed_string($user, $string, $length, $algorithm) {
+	if ($length <= 0) $string = hash('md5', $string);
+	else $string = substr(hash($algorithm, $string), 0, $length);
+	return array('hashed_string' => $string);
+}
+
+
+
+//product display helper to bypass nodes
+function teszt_helper_menu() {
+  $items['products/%commerce_product'] = array(
+    'title' => 'View',
+    'page callback' => 'teszt_helper_product_view',
+    'page arguments' => array(1),
+    'access callback' => 'commerce_product_access',
+    'access arguments' => array('view', 1),
+    'type' => MENU_CALLBACK
+  );
+  $items['admin/commerce/products/%commerce_product/view'] = array(
+    'title' => 'View',
+    'page callback' => 'teszt_helper_product_view',
+    'page arguments' => array(3),
+    'access callback' => 'commerce_product_access',
+    'access arguments' => array('view', 3),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => -10,
+  );
+  return $items;
+}
+
+function teszt_helper_product_view($product) {
+  return entity_view('commerce_product', array($product), 'full', NULL, TRUE);
+}
+
+function teszt_entity_view_alter(&$build, $type) {
+  if ($build['#view_mode'] == 'full' && $type == 'commerce_product') {
+    $line_item = commerce_product_line_item_new($build['#entity'], 1);
+    $line_item->data['context']['product_ids'] = [$build['#entity']->product_id];
+    $build['add_to_cart'] = drupal_get_form('commerce_cart_add_to_cart_form', $line_item) + ['#weight'=>100];
+  }
+}
+
+
+
+
+
+
+//contact form
+function contact_form_page($type) {
+	global $base_url;
+	
+	if (!empty($type) && in_array($type, array('valami',))) {
+		$form = drupal_get_form('form_'.$type, $type);
+		$ret = drupal_render($form);
+		return $ret;
+		//return theme('l_form', array('form'=> $form));  //then just echo form
+	} 
+	drupal_goto($base_url) ;
+}
+
+function form_valami($form, &$form_state, $type) {
+	$form['name'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Name'),
+		'#required' => TRUE,
+		'#maxlength' => 100,
+	);
+	$form['code'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Coupon code'),
+		'#maxlength' => 16,
+		'#required' => TRUE,
+		'#default_value' => '',
+	);
+	$form['phone'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Phone number'),
+		'#maxlength' => 20,
+		'#required' => TRUE,
+		'#default_value' => '+36',
+  );
+	$form['form_name'] = array(
+			'#type' => 'hidden',
+			'#value' => $type,
+	);
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Visszahívást kérek',
+  );
+	$form['#attributes']['role'][] = 'form';
+  return $form;
+}
+
+function form_valami_validate($form, &$form_state) {
+	
+	if (substr($form_state['values']['phone'], 0, 3) == '+36') $form_state['values']['phone'] = substr($form_state['values']['phone'], 3);
+	if (substr($form_state['values']['phone'], 0, 2) == '06') $form_state['values']['phone'] = substr($form_state['values']['phone'], 2);
+	if (empty($form_state['values']['phone'])) {
+		form_set_error("phone", 'Telefon required!');
+	}
+	if (empty($form_state['values']['code'])) {
+		form_set_error("code", 'Kód required!');
+	}
+	if (empty($form_state['values']['name'])) {
+		form_set_error("name", 'Név required!');
+	}
+}
+
+function form_valami_submit($form, $form_state) {
+	global $base_url;
+	
+	if (db_insert('contact_form')->fields(array('form_name' => $form_state['values']['form_name'], 'name' => $form_state['values']['name'], 'code' => $form_state['values']['code'], 'phone' => $form_state['values']['phone'], 'date' => date('Y-m-d H:i:s')))->execute()) {
+		$email = 'some@addressed.com';
+		$from = 'some@from.com';
+		$params = array(
+				'form_name' => $form_state['values']['form_name'],
+				'email' => $email,
+				'name' => $form_state['values']['name'],
+				'code' => $form_state['values']['code'],
+				'phone' => $form_state['values']['phone'],
+			);
+		drupal_mail('teszt_contact_form', '', $email, language_default(), $params, $from, true);
+		drupal_set_message('Siker vazzeg!');
+		drupal_goto($base_url.'/aloldal');
+	} else {
+		drupal_set_message('Nem siker vazzeg!', 'error');
+	}
+}
