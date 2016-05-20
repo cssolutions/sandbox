@@ -10,4 +10,29 @@ Felhasználók befizetési előzményei
     - újabb befizetés érkezik  (egy adott usernél)
     - befizetés módosult
     - befizetés törlődött
-    - ha a foreseen corn job lefutott (az összes usernél) akkor + 1 query, ami az összes user-nél null-ra állítja a financial_history értékét
+    - ha a foreseen corn job lefutot (az összes usernél) akkor + 1 query, ami az összes user-nél null-ra állítja a financial_history értékét
+
+A financial_history egy serialized medium blob cella
+
+
+befizetéskor a deposits táblába írjuk a befizetéssel kapcsolatos információkat
+hogy melyik lakásnak mennyit kellett eddig közös költségekre fizetni, azt a foreseen_charges táblából kérdezhető le
+   ez minden hónap végén cron job segítségével töltődik fel
+
+
+
+a lakások egyenlegeinek lekérdezése
+SELECT (SUM(deposits.money)-SUM(commonCharges.commonCharge)) as balance FROM `deposits` 
+LEFT JOIN commonCharges ON deposits.flatsId = commonCharges.flatsId
+WHERE deposits.flatsId = 45
+GROUP BY commonCharges.flatsId, deposits.flatId
+
+SELECT SUM(money) as deposit FROM deposits WHERE flatsId = 45;
+SELECT SUM(commonCharge) as charge FROM commonCharges WHERE flatsId = 45;
+
+SELECT (SUM(deposits.money)-SUM(commonCharges.commonCharge)) as balance,
+SUM(deposits.money) as money,
+SUM(commonCharges.commonCharge) as ccharge
+FROM `deposits` 
+JOIN commonCharges ON deposits.flatsId = commonCharges.flatsId
+WHERE deposits.flatsId = 45
