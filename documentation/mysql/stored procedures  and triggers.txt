@@ -41,6 +41,17 @@ CREATE PROCEDURE search()
 DELIMITER ;
 
 
+DROP PROCEDURE IF EXISTS fin_balance//
+CREATE PROCEDURE fin_balance(IN flatId INT, OUT deposit INT, OUT foreseen_charge INT, OUT balance INT)
+    BEGIN
+        SELECT SUM(money) FROM deposits WHERE flatId = flatsId INTO deposit;
+        SELECT SUM(commonCharge) FROM foreseen_charges WHERE flatId = flatsId INTO foreseen_charge;
+        SELECT deposit-foreseen_charge INTO balance;
+    END//
+CALL fin_balance(45, @deposit, @foreseen_charge, @balance);
+SELECT @deposit, @foreseen_charge, @balance;
+
+
 
 //procedure that doesn't return value
 CREATE PROCEDURE add_country (IN country_code CHAR(3),
