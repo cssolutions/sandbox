@@ -44,7 +44,7 @@ else {
 }
 
 
+//We are in the parent!
 
-//pcntl_waitpid($pid, $status);
-//var_dump(pcntl_wifsignaled($status));
+
 
