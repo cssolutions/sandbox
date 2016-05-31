@@ -1,0 +1,46 @@
+
+    Run once on a specific date/time:
+    AT ‘YYYY-MM-DD HH:MM.SS’
+    e.g. AT ‘2011-06-01 02:00.00’
+
+    Run once after a specific period has elapsed:
+    AT CURRENT_TIMESTAMP + INTERVAL n [HOUR|MONTH|WEEK|DAY|MINUTE]
+    e.g. AT CURRENT_TIMESTAMP + INTERVAL 1 DAY
+
+    Run at specific intervals forever:
+    EVERY n [HOUR|MONTH|WEEK|DAY|MINUTE]
+    e.g. EVERY 1 DAY
+
+    Run at specific intervals during a specific period:
+    EVERY n [HOUR|MONTH|WEEK|DAY|MINUTE] STARTS date ENDS date
+    e.g. EVERY 1 DAY STARTS CURRENT_TIMESTAMP + INTERVAL 1 WEEK ENDS ‘2012-01-01 00:00.00’
+
+
+
+
+DELIMITER $$
+
+CREATE 
+    EVENT `archive_blogs` 
+    ON SCHEDULE EVERY 1 WEEK STARTS '2011-07-24 03:00:00' 
+    DO BEGIN
+    
+        -- copy deleted posts
+        INSERT INTO blog_archive (id, title, content) 
+        SELECT id, title, content
+        FROM blog
+        WHERE deleted = 1;
+        
+        -- copy associated audit records
+        INSERT INTO audit_archive (id, blog_id, changetype, changetime) 
+        SELECT audit.id, audit.blog_id, audit.changetype, audit.changetime 
+        FROM audit
+        JOIN blog ON audit.blog_id = blog.id
+        WHERE blog.deleted = 1;
+        
+        -- remove deleted blogs and audit entries
+        DELETE FROM blog WHERE deleted = 1;
+        
+    END */$$
+
+DELIMITER ;
