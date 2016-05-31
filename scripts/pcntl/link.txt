@@ -7,3 +7,12 @@ SIGHUP   Terminal hangup
 SIGUSR1
 SIGUSR2
 SIGALRM  Alarm timeout
+
+
+PHP provides two ways of handing child exits:
+    pcntl_wait($status, $options) pcntl_wait() instructs the calling process to suspend execution until any of its children terminates. The PID of the exiting child process is returned, and $status is set to the return status of the function.
+    pcntl_waitpid($pid, $status, $options) pcntl_waitpid() is similar to pcntl_wait(), but it only waits on a particular process specified by $pid. $status contains the same information as it does for pcntl_wait().
+
+For both functions, $options is an optional bit field that can consist of the following two parameters:
+    WNOHANG Do not wait if the process information is not immediately available.
+    WUNtrACED Return information about children that stopped due to a SIGTTIN, SIGTTOU, SIGSTP, or SIGSTOP signal. (These signals are normally not caught by waitpid().)
