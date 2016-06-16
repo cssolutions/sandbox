@@ -60,6 +60,26 @@ preg_match("/[PH]{3,}/",  "PHP");          # match at least 3 characters from se
 //	(.*) 	Capture all
 //	(abc|def) 	Matches abc or def
 
+//név
+preg_match('/^([a-zA-Z \.]+)$/', 'Ide a Név');
+//személyi azonosító
+preg_match('/\d{1}-\d{6}-\d{4}/', 'Ide a Név');
+//cégjegyzékszám
+preg_match('/\d{2}-\d{2}-\d{6}/', 'Ide a Név');
+//adószám
+preg_match('/\d{8}-\d{1}-\d{2}/', 'Ide a Név');
+//bankszámlaszám
+preg_match('/\d{8}-\d{8}-\d{8}/', 'Ide a Név');
+
+//email validation
+filter_var($form_state['values']['customer_profile_billing']['field_e_mail_tother']['und'][0]['value'], FILTER_VALIDATE_EMAIL);
+//name validation
+preg_match('/^([a-zA-Z \.]+)$/', 'Ide a Név');
+//name validation
+preg_match('/^([a-zA-Z \.]+)$/', 'Ide a Név');
+
+
+
 
 
 //extracting data
