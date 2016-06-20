@@ -1,0 +1,19 @@
+div {
+  transition: background-color 0.5s ease;
+  background-color: red;
+}
+div:hover {
+  background-color: green;
+}
+
+div {
+  transition: background 0.2s ease,
+              padding 0.8s linear;
+}
+
+.example {
+    -webkit-transition: background-color 500ms ease-out 1s;
+    -moz-transition: background-color 500ms ease-out 1s;
+    -o-transition: background-color 500ms ease-out 1s;
+    transition: background-color 500ms ease-out 1s;
+}

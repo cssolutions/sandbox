@@ -1,0 +1,13 @@
+There is more than one possible way to do this.
+
+    If your users each have a shell account (perhaps limited), and each of them accessing git repositories via their own account, you can use filesystem permissions to control SSH access to git repositories. On Unix those would be write permissions on directories, perhaps with the help of creating a group and specific permissions for a group (with "sticky group ID" set).
+
+    Pushing requires git-receive-pack to be in $PATH of user, and be executable for them... although I am not sure how feasible this approach would be.
+
+    You can use update or pre-receive hook to do access control to repository, for example using update-paranoid example hook from contrib/hooks in git sources.
+
+    With larger number of users you could be better with using a tool to manage access to git repositories, like Gitosis (in Python, requires setuptools) or Gitolite (in Perl).
+
+    For read only access you can setup git daemon to provide read-only anonymous (and unauthenticated) access via git:// protocol, instead of access via SSH protocol.
+
+    See documentation for url.<base>.insteadOf config variable for a way to ease the transition from SSH to GIT protocol.
