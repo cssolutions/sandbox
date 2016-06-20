@@ -71,6 +71,16 @@ function Rabbit(name) {
 rabbit = new Rabbit("Rab");
 rabbit.run();    // inherited method
 //-------------------           -------------------           -------------------
+function Animal(name) {
+    
+return {
+    run: function() {
+      alert(name + " is running!");
+    }
+  }
+
+}
+
 //Factory
 var animal = Animal("fox");
 animal.run();
