@@ -1,0 +1,49 @@
+Search for a file by name and type
+
+types:
+    f: regular file
+    d: directory
+    l: symbolic link
+    c: character devices
+    b: block devices
+
+sizes:
+    c: bytes
+    k: Kilobytes
+    M: Megabytes
+    G: Gigabytes
+    b: 512-byte blocks
+
+
+find / -type f -name "error.log"
+
+
+To find all files that are exactly 50 bytes, type:                  find / -size 50c
+To find all files less than 50 bytes, we can use this form instead: find / -size -50c
+To Find all files more than 700 Megabytes, we can use this command: find / -size +700M
+
+To find files that have a modification time of a day ago, type:                        find / -mtime 1
+If we want files that were accessed in less than a day ago, we can type:               find / -atime -1
+To get files that last had their meta information changed more than 3 days ago, type:  find / -ctime +3
+
+Finding by Owner and Permissions
+You do this by using the "-user" and "-group" parameters respectively. Find a file that is owned by the "syslog" user by entering: find / -user syslog
+Similarly, we can specify files owned by the "shadow" group by typing: find / -group shadow
+If we want to match an exact set of permissions, we use this form: find / -perm 644
+If we want to specify anything with at least those permissions, you can use this form: find / -perm -644 This will match any files that have additional permissions. A file with permissions of "744" would be matched in this instance.
+
+
+
+
+Seach for a file containing the following text:
+
+-r or -R is recursive,
+-n is line number, and
+-w stands match the whole word.
+-l (lower-case L) can be added to just give the file name of matching files.
+Along with these, --exclude or --include parameter could be used for efficient searching. Something like below:
+
+sudo grep -rnw / -e "tm.dev"
+
+will exclude searching all the files ending with .o extension.: grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"
+grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
