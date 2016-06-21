@@ -1,0 +1,8 @@
+DHCP is what is used by the router to assign an IP address to a specific computer, while DNS is a service that translates website names 
+into the website's IP address. Therefore, DHCP assigns IP addresses, and DNS looks up already existing addresses.
+
+DNS stands for Domain Name System. Every website on the Internet has a unique IP address. IP addresses are very difficult to remember, as they are 
+just long strings of numbers. Instead of using IP addresses, websites use memorable names such as Google or eBay. 
+The issue is that computers are not able to identify words as easily as they can identify numbers. DNS is a system that is able to translate 
+website names into their specific IP addresses. When a website's name is typed as a URL, the computer uses DNS to translate
+the name into the IP address so that the computer knows which site to go to.

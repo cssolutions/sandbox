@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>DDoS Protection: APF, BFD, DDoS and RootKit Utilities</title>
+    	<meta name="description" content="This guide describes APF, BFD, DDoS and RootKit utilities to medigate DDOS attacks.">
+    	<meta name="keywords" content="ddos, denial of service, firewall, brute force, spyware, junkware, protection">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <!-- Favicons -->
+        <link rel="icon" href="https://www.iplocation.net/favicon.png">
+        
+        <!-- Styles -->
+        <link rel="stylesheet" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/normalize.css">
+        <link rel="stylesheet" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/fontawesome.css">
+        <link rel="stylesheet" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/colors.css">
+        <link rel="stylesheet" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/typography.css">
+        <link rel="stylesheet" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/trendyblog.css"> 
+        <link rel="stylesheet" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/style.css"> 
+        <link rel="stylesheet" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/vpn.css" type="text/css">
+        
+        <!-- Responsive -->
+        <link rel="stylesheet" type="text/css" media="(max-width:768px)" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/responsive-0.css">
+        <link rel="stylesheet" type="text/css" media="(min-width:769px) and (max-width:992px)" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/responsive-768.css">
+        <link rel="stylesheet" type="text/css" media="(min-width:993px) and (max-width:1200px)" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/responsive-992.css">
+        <link rel="stylesheet" type="text/css" media="(min-width:1201px)" href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/responsive-1200.css">
+        <link href="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/css.css" rel="stylesheet" type="text/css">
+
+        <script src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/analytics.js" async=""></script><script src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/ca-pub-1026064395378929.js"></script><script async="" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/cbgapi.loaded_1"></script><script async="" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/cbgapi.loaded_0"></script><script async="" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/adsbygoogle.js"></script>
+	</head>
+    <body>
+        <!-- Wrapper -->
+        <div id="wrapper" class="wide">            
+            <!-- Header -->
+            <header id="header" role="banner">                
+            <!-- Header main -->
+            <div id="header_main" class="header_main">
+                <div class="container" style="padding: 5px 15px 0px;">
+                    <!-- Logo -->
+                    <div class="site_brand">
+                        <a href="https://www.iplocation.net/"><img src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/logo.jpg" alt="IP Location Logo"></a>
+                    </div><!-- End Logo -->
+                    <div style="margin: 0; padding: 5px 0px; float: right;"><!-- IP-728x90-3 -->
+<ins data-adsbygoogle-status="done" class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1026064395378929" data-ad-slot="1628271901"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="90" width="728"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>                </div>
+            </div><!-- End Header main -->
+	    <div id="cssmenu">
+		<div class="container">
+				<nav class="cssmenu">
+		<center><a href="#" class="mobi-menu"><span>≡ Menu</span></a></center>
+		<ul>
+		   <li class="active"><a href="https://www.iplocation.net/"><span>Home</span></a></li>
+		   <li><a href="https://www.iplocation.net/find-ip-address"><span>What is My IP</span></a></li>
+		   <li><a href="https://www.iplocation.net/hide-ip-address"><span>Hide IP</span></a></li>
+		   <li><a href="https://www.iplocation.net/change-ip-address"><span>Change IP</span></a></li>
+		   <li><a href="https://www.iplocation.net/vpn-comparison"><span>VPN Comparison</span></a></li>
+		   <li class="last"><a href="http://forums.iplocation.net/"><span>Forums</span></a></li>
+		</ul>
+		</nav></div><!-- container -->
+	    </div><!-- cssmenu -->
+        </header><!-- End Header -->
+        <!-- Section -->
+        <section>
+            <div class="container">
+                <div class="row">
+<!-- Body content -->
+<div class="col col_8_of_12">
+	<!-- Page title -->
+	<div class="page_title">
+		<div>
+			<h1>DDoS Protection: APF, BFD, DDoS and RootKit Utilities</h1>
+		</div>
+	</div>
+    <script gapi_processed="true" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/platform.js" async="" defer="defer"></script>
+<center><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 106px; height: 24px;"><iframe title="+1" data-gapiattached="true" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/fastbutton.html" name="I1_1466502213087" id="I1_1466502213087" vspace="0" tabindex="0" style="position: static; top: 0px; width: 106px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" scrolling="no" marginwidth="0" marginheight="0" hspace="0" frameborder="0" width="100%"></iframe></div></center>
+<div class="clearfix"></div>
+<br>    <div class="clearfix"></div>
+        <!-- Row -->
+    <div class="row">
+    	<div class="col col_12_of_12">
+	<!-- Find-728x90-t -->
+<ins data-adsbygoogle-status="done" class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1026064395378929" data-ad-slot="2534247904"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="90" width="728"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>		</div>
+	</div>
+		<div class="row">
+		<div class="col col_12_of_12">
+			<p>
+Being a web host, your servers are constantly being attacked by hackers by
+<a href="https://www.iplocation.net/denial-of-service">denial-of-service (DoS)</a> and other brute
+force attacks. There is no foolproof
+method to stop 100% of all attacks, but there are ways to protect your servers
+by applying firewall rules, and detecting and banning attacking IPs.
+</p>
+<p>
+This article makes use of the <a href="http://www.rfxnetworks.com/apf.php">
+APF</a>, <a href="http://www.rfxnetworks.com/bfd.php">BFD</a>,
+<a href="http://deflate.medialayer.com/">DDoS Deflate</a> and
+<a href="http://www.rootkit.nl/projects/rootkit_hunter.html">RootKit</a> to
+detect and protect your server from denial-of-service type attacks. To apply
+those utilities, please follow the instructions below:
+</p>
+<p>
+To begin installation, login to your server as a root user.
+</p>
+<pre class="code">% ssh -l root [hostname]
+root@[hostname]'s password: [password]
+Last login: [Date] from [hostname]
+</pre>
+<br>
+<h2>APF -- Advanced Policy-based Firewall</h2>
+<p>Get the latest source from the rfxnetworks, and install the software.</p>
+<pre class="code"># cd /usr/src
+# mkdir utils
+# cd utils
+# wget http://rfxnetworks.com/downloads/apf-current.tar.gz
+# tar xfz apf-current.tar.gz
+# cd apf-*
+# ./install.sh
+</pre>
+<p>
+Read the README.apf and README.antidos for configuration options. Edit the
+/etc/apf/conf.apf and modify the following lines to your need.
+</p>
+<pre class="code">DEVEL_MODE="0"
+IG_TCP_CPORTS="21,22,25,53,80,110,143,443,3306"
+IG_UDP_CPORTS="53,111"
+USE_AD="1"
+</pre>
+<p>
+By default, APF is setup to run in development mode which flushes firewall
+rules every 5 minutes. Running in development mode defeats the purpose of
+running APF, as it will automatically flush every 5 minutes. Configure
+the Ingress (inbound) TCP and UDP ports that need to be opened. Finally,
+enable AntiDos by setting USE_AD="1".
+</p>
+<p>
+Edit the /etc/apf/ad/conf.antidos as you fit necessary, and start the APF
+firewall.
+</p>
+<pre class="code"># apf --start
+</pre>
+<h2>BFD -- Brute Force Detection</h2>
+<p>
+BFD is a shell script which parses security logs and detects 
+authentication failures. It is a brute force implementation without much
+ complexity, and it works in conjunction with a APF (Advanced 
+Policy-based Firewall).
+</p>
+<pre class="code">## Get the latest source and untar.
+# cd /usr/src/utils
+# wget http://rfxnetworks.com/downloads/bfd-current.tar.gz
+# tar xfz bfd-current.tar.gz
+# cd bfd-*
+# ./install.sh
+</pre>
+<p>
+Read the README file, and edit the configuration file located in /usr/local/bfd/conf.bfd. <br>
+Find <span style="color:orange;">ALERT="0"</span> and replace it with <span style="color:green;">ALERT="1"</span><br>
+Find <span style="color:orange;">EMAIL_USR="root"</span> and replace it with <span style="color:green;">EMAIL_USR="username@yourdomain.com"</span>
+</p>
+<p>
+Edit /usr/local/bfd/ignore.hosts file, and add your own trusted IPs. BFD
+ uses APF and hence it orverrides allow_hosts.rules, so it is important 
+that you add trusted <a href="https://www.iplocation.net/ip-address">IP addresses</a> to prevent yourself from being locked out.
+</p>
+<pre class="code">## Start the program.
+#  /usr/local/sbin/bfd -s
+</pre>
+<br><br>
+<h2>DDoS Deflate</h2>
+<pre class="code">## Get the latest source
+# cd /usr/src/utils
+# mkdir ddos
+# cd ddos
+# wget http://www.inetbase.com/scripts/ddos/install.sh
+# sh install.sh
+</pre>
+<p>
+Edit the configuration file, /usr/local/ddos/ddos.conf, and start the ddos.
+</p>
+<pre class="code"># /usr/local/ddos/ddos.sh -c
+</pre>
+<br>
+<h2>RootKit -- Spyware and Junkware detection and removal tool</h2>
+<p>Go to <a href="http://www.rootkit.nl/projects/rootkit_hunter.html">Rootkit Hunter</a> homepage, and download the latest release.
+</p><pre class="code">## Get the latest source and untar
+# cd /usr/src/utils
+# wget http://downloads.rootkit.nl/rkhunter-&lt;version&gt;.tar.gz
+# tar xfz rkhunter-*.gz
+# cd rkhunter
+# ./installer.sh
+## run rkhunter
+# rkhunter -c
+</pre>
+<br>
+<h2>Setup automatic protection on System Reboot</h2>
+<pre class="code">## Edit /etc/rc.d/rc.local
+##      (or similar file depending on Linux version)
+## Add the following lines at the bottom of the file
+
+/usr/local/sbin/apf --start
+/usr/local/ddos/ddos.sh -c
+</pre>
+<h2>Note:</h2>
+<p>
+The SYN Floods and ICMP DDoS may also be prevented by utilizing the Linux
+traffic control utility (<a href="https://www.iplocation.net/man/man8/tc.8.php">tc</a>). To view
+setup instructions, please see relevant sections of
+<a href="https://www.iplocation.net/lartc-ddos">Linux Advanced Routing &amp; Traffic Control
+HOWTO</a>.
+</p>
+<br>
+<p>
+<b>Notes from the users:</b><br><br>
+
+Some of the users experienced following errors while starting APF.
+</p><pre class="code">bash# apf --start<br>
+<font color="red">Unable to load iptables module (ip_tables), aborting.</font>
+</pre>
+
+According to Burst and Ryan of r-fx.org, changing the SET_MONOKERN variable in /etc/apf/conf.apf to "1" will correct the problem.
+<p></p>
+		</div>
+	</div>
+	    <div class="row">
+    	<div class="col col_12_of_12">
+			</div>
+	</div>
+	</div>
+<!-- End Body content -->
+                        <!-- Sidebar -->
+                        <div class="col col_4_of_12">
+                            <!-- Widget Search widget -->
+                            							<!-- Widget Search widget -->
+                            <div class="widget">
+                            	<div class="widget_title"><h3>Search Our Website</h3></div>
+                                <div class="tb_widget_search">
+<form action="/search" id="cse-search-box">
+    <input name="cx" value="partner-pub-1026064395378929:2796854705" type="hidden">
+    <input name="cof" value="FORID:10" type="hidden">
+    <input name="ie" value="UTF-8" type="hidden">
+                                        <input style="background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/en/google_custom_search_watermark.gif&quot;) no-repeat scroll left center;" name="q" type="text">
+                                        <input name="sa" value="Search" type="submit">
+                                    <input value="www.iplocation.net/apf-bfd-ddos-rootkit" name="siteurl" type="hidden"><input value="www.iplocation.net/subnet-mask" name="ref" type="hidden"><input name="ss" type="hidden"></form>
+                                </div>
+                            </div><!-- End Widget Search widget -->
+<script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/brand"></script>
+                            <div class="widget">
+	<div class="widget_title"><h3>IP Tools</h3></div>
+    <div class="tb_widget_socialize clearfix">
+		<span class="format" jquery="">Tool</span> <a href="https://www.iplocation.net/trace-email">Trace Email Source</a><br>
+		<span class="format" jquery="">Tool</span> <a href="https://www.iplocation.net/verify-email-address">Verify Email Address</a><br>
+		<span class="format" jquery="">Tool</span> <a href="https://www.iplocation.net/proxy-check">Proxy Check</a><br>
+		<span class="format" jquery="">Tool</span> <a href="https://www.iplocation.net/subnet-calculator">Subnet Calculator</a><br>
+    </div>
+</div>                            <div class="widget">
+	<div class="widget_title"><h3>Domain Tools</h3></div>
+    <div class="tb_widget_socialize clearfix">
+		<span class="format" jquery="">Tool</span> <a href="https://www.iplocation.net/who-is-hosting-website">Who is Hosting a Website</a><br>
+		<span class="format" jquery="">Tool</span> <a href="https://www.iplocation.net/reverse-dns">Reverse DNS Lookup</a><br>
+		<span class="format" jquery="">Tool</span> <a href="https://www.iplocation.net/http-server-header">HTTP Server Header Check</a><br>
+    </div>
+</div>                                                        <div class="widget">
+                            	<div class="widget_title"><h3>Advertisement</h3></div>
+                            	<div style="padding-left: 6px;">
+                       	    	<a href="https://www.iplocation.net/go/incapsula-ddos-calculator" target="_blank" rel="nofollow"><img src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/incapsula-calculator-336x280.png" alt="Incapsula DDos Calculator" border="0" height="280" width="336"></a>
+<img src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/4029.gif" style="position:absolute;visibility:hidden;" border="0" height="0" width="0">
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 991406091;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/conversion.js">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/991406091/?random=1466502212472&amp;cv=8&amp;fst=1466502212472&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1062&amp;u_aw=1871&amp;u_cd=24&amp;u_his=4&amp;u_tz=120&amp;u_java=true&amp;u_nplug=2&amp;u_nmime=40&amp;frm=0&amp;url=https%3A//www.iplocation.net/apf-bfd-ddos-rootkit&amp;ref=https%3A//www.iplocation.net/subnet-mask&amp;tiba=DDoS%20Protection%3A%20APF%2C%20BFD%2C%20DDoS%20and%20RootKit%20Utilities" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" frameborder="0" height="13" width="300"></iframe>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/991406091/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>                       	    	</div>
+                       	    </div>
+							<!-- Widget Social widget -->
+<div class="widget">
+	<div class="widget_title"><h3>IP Articles</h3></div>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/ip-address">What is an IP Address?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/ipv6-address">What is an IPv6 Address?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/subnet-mask">What is a Subnet Mask?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/mac-address">What is a MAC address?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/ethernet">What is an Ethernet?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/tcp-ip">What is a TCP/IP?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/dhcp">What is a DHCP?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/ipconfig">What is Ipconfig utility?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/ip-spoofing">What is IP Spoofing?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/public-vs-private-ip-address">What is public and private IP addresses?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/static-vs-dynamic-ip-address">What is static and dynamic IP addresses?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/ip-address-hacked">My IP address is hacked. What do I do?</a><br>
+</div><!-- End Widget Social widget -->                            <div class="widget">
+                            	<div class="widget_title"><h3>Advertisement</h3></div>
+                            	                                <div style="padding-left: 6px;">
+                       	    		<!-- IP-336x280-R1 -->
+<ins data-adsbygoogle-status="done" class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1026064395378929" data-ad-slot="1954406701"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="280" width="336"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>                       	    	</div>
+                       	    	                       	    </div>
+							<!-- Widget Social widget -->
+<div class="widget">
+	<div class="widget_title"><h3>VPN Articles</h3></div>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/vpn">What is a VPN?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/proxy-server">What is a Proxy Server?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/tor">What is Tor?</a><br>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/internet-censorship">What is Internet Censorship?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/personal-vpn">What is a Personal VPN?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/what-is-difference-between-proxies-and-vpn">What is difference between Proxy &amp; VPN?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/dns-leak">How to detect and prevent DNS Leak?</a><br>
+</div><!-- End Widget Social widget -->							<!-- Widget Social widget -->
+<div class="widget">
+	<div class="widget_title"><h3>Related Articles</h3></div>
+		<span class="format" jquery="">Wiki</span> <a href="https://www.iplocation.net/denial-of-service">What is denial of service (DoS) attack?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/find-network-printer-ip">Find IP address of a network printer?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/find-private-network-ip">Find IP addresses of a private network</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/apf-bfd-ddos-rootkit">How to protect from DDoS attack?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/traffic-control">How to shape bandwidth?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/lartc-ddos">DDoS Protection via Bandwidth Shaping</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/rj45-wiring">How to wire a RJ-45 cable?</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/email-delivery-problems">Email delivery problems explained</a><br>
+</div><!-- End Widget Social widget -->							<!-- Widget Social widget -->
+<div class="widget">
+	<div class="widget_title"><h3>Smartphone Articles</h3></div>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/track-lost-smartphone-with-ip-address">Track lost smartphone w/ IP Address</a><br>
+		<span class="format" jquery="">Article</span> <a href="https://www.iplocation.net/how-to-track-lost-android-phone">Locate your lost Android smartphone?</a><br>
+</div><!-- End Widget Social widget -->                        </div><!-- End Sidebar -->
+                    </div>
+                </div>
+            </section><!-- End Section -->
+			<!-- Footer -->
+            <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col col_3_of_12">
+                        <!-- Widget Text widget -->
+                        <div class="widget">
+                            <div class="widget_title"><h3>About Us</h3></div>
+                            <p>Welcome to IP Location, the home of IP Geolocation and IP Resources. 
+                            This website was built to offer tips, tutorials and articles on IPv4 and IPv6 
+                            addresses, and how it relates to TCP/IP and Internet.</p>
+                        </div><!-- End Widget text widget -->
+                        <!-- Widget Social widget -->
+                    </div>
+                    <div class="col col_3_of_12">
+                        <!-- Widget top rated -->
+                        <div class="widget">
+                            <div class="widget_title"><h3>Top Rated VPN Providers</h3></div>
+                            <div class="tb_widget_top_rated clearfix">
+                                                                <!-- Post item -->
+                                <div class="item clearfix">
+                                	<div style="width: 120px;">
+	                                    <div class="item_thumb clearfix">
+	                                        <a href="https://www.iplocation.net/click/5" rel="nofollow"><img src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/hma.png" alt="Hide My Ass (AVG Technologies)"></a>
+	                                    </div>
+										<div style="float: left; color: red;">
+                                $4.99/mo
+										</div>
+									</div>
+                                    <div class="item_content">
+                                    	<div class="vpn-rating-container">
+                                			<i class="vpn-rating rating-4-3qtr"></i>
+                            			</div>
+										<a href="https://www.iplocation.net/vpn/hidemyass/profile" style="color: white;">Company Review</a><br>
+										<a href="https://www.iplocation.net/click/5" rel="nofollow" style="color: white;">Visit Site</a>
+                                    </div>
+                                    <div class="order">1</div>
+                                </div><!-- End Post item -->
+								                                <!-- Post item -->
+                                <div class="item clearfix">
+                                	<div style="width: 120px;">
+	                                    <div class="item_thumb clearfix">
+	                                        <a href="https://www.iplocation.net/click/6" rel="nofollow"><img src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/vyprvpn.png" alt="Golden Frog VyprVPN"></a>
+	                                    </div>
+										<div style="float: left; color: red;">
+                                $5.00/mo
+										</div>
+									</div>
+                                    <div class="item_content">
+                                    	<div class="vpn-rating-container">
+                                			<i class="vpn-rating rating-4-3qtr"></i>
+                            			</div>
+										<a href="https://www.iplocation.net/vpn/vyprvpn/profile" style="color: white;">Company Review</a><br>
+										<a href="https://www.iplocation.net/click/6" rel="nofollow" style="color: white;">Visit Site</a>
+                                    </div>
+                                    <div class="order">2</div>
+                                </div><!-- End Post item -->
+								                                <!-- Post item -->
+                                <div class="item clearfix">
+                                	<div style="width: 120px;">
+	                                    <div class="item_thumb clearfix">
+	                                        <a href="https://www.iplocation.net/click/13" rel="nofollow"><img src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/expressvpn.png" alt="Express VPN"></a>
+	                                    </div>
+										<div style="float: left; color: red;">
+                                $8.32/mo
+										</div>
+									</div>
+                                    <div class="item_content">
+                                    	<div class="vpn-rating-container">
+                                			<i class="vpn-rating rating-4-3qtr"></i>
+                            			</div>
+										<a href="https://www.iplocation.net/vpn/expressvpn/profile" style="color: white;">Company Review</a><br>
+										<a href="https://www.iplocation.net/click/13" rel="nofollow" style="color: white;">Visit Site</a>
+                                    </div>
+                                    <div class="order">3</div>
+                                </div><!-- End Post item -->
+								                            </div>
+                        </div><!-- End widget top rated -->
+                    </div>
+                    <div class="col col_3_of_12">
+                        <div class="widget">
+                            <div class="widget_title"><h3>Blogroll</h3></div>
+                            <div class="tb_widget_categories">
+                                <ul>
+                                    <li><a href="http://www.topwebhosts.org/">Web Hosting Resources</a></li>
+                                    <li><a href="http://www.webtrafficexchange.com/">Webmaster Resources</a></li>
+                                    <li><a href="http://www.anyfiles.org/">Free File Hosting</a></li>
+                                    <li><a href="http://www.prepaidwirelessplans.net/">Prepaid Wireless Plans</a></li>
+                                    <li><a href="http://www.setup-website.com/">How to setup a Website?</a></li>
+                                                                    </ul>
+                            </div>
+                    	</div>
+                    </div>
+                    <div class="col col_3_of_12">
+                        <div class="widget">
+                            <div class="widget_title"><h3>Company Info</h3></div>
+                            <div class="tb_widget_categories">
+                                <ul>
+                                    <li><a href="https://www.iplocation.net/terms-of-service">Terms of Service</a></li>
+                                    <li><a href="https://www.iplocation.net/privacy-policy">Privacy Policy</a></li>
+                                    <!-- <li><a href="/sitemap">Sitemap</a></li>  -->
+                                    <li><a href="https://www.iplocation.net/advertise-with-us">Advertise With Us</a></li>
+                                    <li><a href="https://www.iplocation.net/contact-us">Contact Us</a></li>
+                                </ul>
+                            </div>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+            <!-- Copyright -->
+            <div id="copyright" role="contentinfo">
+                <div class="container">
+                    <p>© 2006 - 2016, Brand Media, Inc. All rights reserved.</p>
+                </div>
+            </div><!-- End Copyright -->
+        </div><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/postmessageRelay.html" id="oauth2relay642820736" name="oauth2relay642820736"></iframe><!-- End Wrapper (closing div from header.php) -->
+        <!-- Scripts -->
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/jqueryscript.js"></script>        
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/jqueryuiscript.js"></script>        
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/easing.js"></script>        
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/smoothscroll.js"></script>        
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/magnific.js"></script>        
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/bxslider.js"></script>        
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/fitvids.js"></script>
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/viewportchecker.js"></script>        
+        <script type="text/javascript" src="DDoS%20Protection:%20APF,%20BFD,%20DDoS%20and%20RootKit%20Utilities_elemei/init.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29058037-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+<!-- Served by web01.iplocation.net -->
+    
+
+</body></html>
