@@ -32,6 +32,9 @@ Similarly, we can specify files owned by the "shadow" group by typing: find / -g
 If we want to match an exact set of permissions, we use this form: find / -perm 644
 If we want to specify anything with at least those permissions, you can use this form: find / -perm -644 This will match any files that have additional permissions. A file with permissions of "744" would be matched in this instance.
 
+Finding those files in a directory, that last modification time is less or equal than a day
+find /direcotry -mtime -1 -ls
+
 
 
 

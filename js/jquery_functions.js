@@ -88,7 +88,7 @@ $( "a" ).showLinkLocation();
 		
 		function get_target_place() {
 			if (settings.target_place === 'self') return $form.parent();
-			else if (settings.target_place === 'self') return $('#modal_selector');
+			else if (settings.target_place === 'modal') return $('#modal_selector');
 			else return $(settings.parent_selector);
 		}
 		
