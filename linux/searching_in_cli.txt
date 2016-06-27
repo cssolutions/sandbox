@@ -14,9 +14,7 @@ sizes:
     G: Gigabytes
     b: 512-byte blocks
 
-
 find / -type f -name "error.log"
-
 
 To find all files that are exactly 50 bytes, type:                  find / -size 50c
 To find all files less than 50 bytes, we can use this form instead: find / -size -50c
@@ -34,7 +32,6 @@ If we want to specify anything with at least those permissions, you can use this
 
 Finding those files in a directory, that last modification time is less or equal than a day
 find /direcotry -mtime -1 -ls
-
 
 
 
