@@ -60,8 +60,7 @@ function Animal(name) {
 	};
 }
 function Rabbit(name) {
-	Animal.apply(this, arguments);
-	//Animal.call(this, "Mr. " + name.toUpperCase())    //with custom parameters too
+	Animal.apply(this, arguments); //Animal.call(this, "Mr. " + name.toUpperCase())    //with custom parameters too
 	var parentRun = this.run;  // keep parent method
 	this.run = function() {  
 		alert("bouncing "+this.name);
