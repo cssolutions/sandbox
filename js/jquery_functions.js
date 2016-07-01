@@ -50,7 +50,6 @@ $( "a" ).showLinkLocation();
 (function ( $ ) {
     $.fn.greenify = function( options ) {
         var settings = $.extend({
-            // These are the defaults.
             color: "#556b2f",
             backgroundColor: "white"
         }, options );
@@ -144,3 +143,52 @@ $( "a" ).showLinkLocation();
 
    };
 }( jQuery ));
+
+
+$.fn.checkall = function(selector) {
+	 //var context = $(selector);
+	 $(selector).find('input[type="checkbox"]').prop('checked', this.prop('checked'));
+	 return this;
+};
+
+$.fn.checkall = function(selector) {
+   var $control = this;
+	$control.change(function() {
+		$(selector).find('input[type="checkbox"]').prop('checked', $control.prop('checked'));
+	});
+	return this;
+};
+
+
+//<!DOCTYPE html>
+//<html>
+//<head>
+//<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+//<script>
+//$.fn.checkall = function(selector) {
+//	 //var context = $(selector);
+//	 $(selector).find('input[type="checkbox"]').prop('checked', this.prop('checked'));
+//	 return this;
+//};
+//$(document).ready(function(){
+//$('[name="checkall"]').checkall('.context');
+//});
+//</script>
+//</head>
+//<body>
+//
+//<p>If you click on me, I will disappear.</p>
+//<p><input type="checkbox" name='checkall' /></p>
+//<p>Click me too!</p>
+//
+//<div class="context">
+//<input type="checkbox" />
+//<input type="checkbox" />
+//<input type="checkbox" />
+//<input type="checkbox" />
+//<input type="checkbox" />
+//<input type="checkbox" />
+//</div>
+//
+//</body>
+//</html>
