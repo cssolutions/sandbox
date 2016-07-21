@@ -61,7 +61,7 @@ preg_match("/[PH]{3,}/",  "PHP");          # match at least 3 characters from se
 //	(abc|def) 	Matches abc or def
 
 //név
-preg_match('/^([a-zA-Z \.]+)$/', 'Ide a Név');
+preg_match('/^([a-zA-ZáéűúőóüöíÁÉŰÚŐÓÜÖÍ \.]+)$/u', 'Ide a Név');
 //személyi azonosító
 preg_match('/\d{1}-\d{6}-\d{4}/', 'Ide a Név');
 //cégjegyzékszám
