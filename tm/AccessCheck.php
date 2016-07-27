@@ -11,7 +11,8 @@
  * 
  * Először kigyűjteni jelenleg milyen privilégiumok vannak
  * Rájuk keresni, kicserélni őket   Read-Only=>Others,Users=>Tenant, Users=>Executive, Admin=>Admin
- * A bejelentkezési scriptet átírni
+ * Megkeresni, hol van lekérve a felhasználó authból a house, saircase, flat-id, majd azokat a lentebbeknek megfelelően átírni
+ * A route-oló scriptet átírni
  * 
  * )
  */
