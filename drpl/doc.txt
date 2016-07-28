@@ -1,2 +1,0 @@
-digi_commerce_salesweb.module
- - definiálja az autocomplete útvonalat

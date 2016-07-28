@@ -17,7 +17,15 @@
  * )
  */
 
-
+$user = [
+	'id'				=> 'uid',
+	'role'			=> 'roleId',
+	'name'			=> 'name',
+	'mail'			=> 'mail',
+	'house'			=> ['id' => 'houseId', 'name' => 'houseName'],
+	'staircase' => ['id' => 'stairId', 'name' => 'stairName'],
+	'flat'			=> ['id' => 'flatsId', 'name' => 'flatsName']
+];
 
 /**
  * Routing
@@ -38,26 +46,20 @@ $routes['Admin'] = $routes['Users'] + [
 	'MasodikController::ElsoAction' => 'Második admin 2',
 ];
 
+//getting the routes of the user
 $this->auth->getIdentity()['role'] = 'Admin';
 $userRoutes = unserialize($user->acl);
 $userRoutes = ['ElsoController::ElsoAction', 'ElsoController::MasodikAction', 'MasodikController::ElsoAction'];
 
+//if user has restriction on his level, this will pick the accessabble rutes for a user from routes
 if (is_array($userRoutes)) {
 	foreach ($routes[$this->auth->getIdentity()['role']] as $route => $route_name) if (!in_array($route, $userRoutes)) unset($routes[$route]);
 }
 
+//make the concrete access check
 if (!in_array($currentController . '::' . $currentAction, $routes)) $redirect;
 else $notRedirect;
 
-$user = [
-	'id'				=> 'uid',
-	'role'			=> 'roleId',
-	'name'			=> 'name',
-	'mail'			=> 'mail',
-	'house'			=> ['id' => 'houseId', 'name' => 'houseName'],
-	'staircase' => ['id' => 'stairId', 'name' => 'stairName'],
-	'flat'			=> ['id' => 'flatsId', 'name' => 'flatsName']
-];
 
 /**
  * Building up the privilege form
@@ -65,18 +67,18 @@ $user = [
 $flat_mates = ['uid1' => ['name' => 'Zsolt', 'mail' => 'zsolt@mail.hu', 'routes' => ['ElsoController::ElsoAction', 'ElsoController::MasodikAction']], 'uid2' => ['name' => 'Csaba', 'mail' => 'csaba@mail.hu', 'routes' => ['ElsoController::HarmadikAction']]];
 $flat_mates = $user->flatMates();
 echo '<tr>';
-foreach ($routes[$this->auth->getIdentity()['role']] as $route => $route_name) {
-	echo '<td>' . $route_name . '</td>';
-}	
+echo '<td></td>';
+foreach ($routes[$this->auth->getIdentity()['role']] as $route => $route_name) echo '<td>' . $route_name . '</td>';
 echo '</tr>';
-echo '<tr>';
 array_unshift($flat_mates, false);
-foreach ($flat_mates as $flat_mate_route) {
+foreach ($flat_mates as $uid => $user) {
+	echo '<tr>';
+	echo '<td>' . $user['name'] . '(' . $user['mail'] . ')' . '</td>';
 	foreach ($routes[$this->auth->getIdentity()['role']] as $route => $route_name) {
-		echo '<input type="checkbox" '. ((array_key_exists($flat_mate_route, $routes[$this->auth->getIdentity()['role']])) ? 'checked' : '' ).'>';
+		echo '<td><input name="routes[]" type="checkbox" '. ((in_array($route, $user['routes'])) ? 'checked' : '' ).'></td>';
 	}	
+	echo '</tr>';
 }
-echo '</tr>';
 
 /**
  * Receiving the privilege form
@@ -89,7 +91,8 @@ class faszom {
 			$routes_to_write = [];
 			foreach ($this->request->getPost('routes', null, []) as $route) if (array_key_exists($route, $routes)) $routes_to_write[] = $route;
 			$user->acl = serialize($routes_to_write);
-			$user->save();
+			if ($user->save()) exit(1);
+			else exit(0);
 		}
 	}	
 }
