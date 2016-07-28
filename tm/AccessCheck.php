@@ -14,9 +14,10 @@
  * Megkeresni, hol van lekérve a felhasználó authból a house, saircase, flat-id, majd azokat a lentebbeknek megfelelően átírni
  * A route-oló scriptet átírni
  * 
+ * Loginnál a felhasználónak a session-jében tárolni a route-okat serializálva
+ * 
  * )
  */
-
 $user = [
 	'id'				=> 'uid',
 	'role'			=> 'roleId',

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(i,e){console.log(i,e);
+     $.ajax({
+        type: "post",
+        url: "receive.php",
+        //dataType:"json",
+        data: {'a':'b'},
+        beforeSend: function(sg, sg2) {
+          console.log('Before send', xhr, sg2);
+          //sg: readyState: 4, responseText: "faszom", status: 404, statusText: "Nem lÃ©tezÅ cÃ­m"
+          //sg2: data, dataTypes, accept, async
+        },
+        error: function(sg, sg2) {  //runs if status code >= 300
+          console.log('Error', sg, sg2);
+          //sg: readyState: 4, responseText: "faszom", status: 404, statusText: "Nem lÃ©tezÅ cÃ­m"
+          //sg2: error/success
+        },
+        success: function (first, second, third) {
+          console.log('Success', first, second, third, third.responseText, third.responseJSON);
+          //console.log('Success', third.responseJSON);
+          //response: returned data
+          //sg: success
+        },
+        complete: function(sg, sg2) { //runs always
+          console.log('Complete', sg, sg2);
+          //sg: readyState: 4, responseText: "faszom", status: 404, statusText: "Nem lÃ©tezÅ cÃ­m"
+          //sg2: error/success
+        }
+  }).done(function(a, b) { //runs if status code < 300
+    console.log('Done', a, b);
+    //a: returned data
+    //b: success
+  });
+});});
+</script>
+</head>
+<body>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+
+</body>
+</html>

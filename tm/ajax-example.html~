@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+	document.Oninflo = {
+		button: {
+			beforeSend: function(xhr, options) {
+				console.warn('Before sended');
+			},
+			error: function(xhr, status) {
+				console.error('Error occured!');
+			},
+			success: {
+				before: function(data, status, xhr) {console.info('success before');},
+				after: function(data, status, xhr) {console.info('success after');}
+			},
+			complete: function() {
+				console.info('Complete');
+			}
+//			data: ['teszt']
+
+		}
+	};
+
+
+
+	$(document).on('click', '.oninflo-btn', function(e) {
+		e.preventDefault();
+		var $self = $(this), 
+			 $targetType = $self.data('target') || 'self',  //$targetType: self, parent, modal, page
+			 $target,
+			 $data,                                         //$data: href->data-datas  , action->form.serialize(),   document.Oninflo.button.data
+			 $url = $self.data('url');        //$url: href, action, valid url
+			 
+		switch($targetType) {
+			case 'parent':
+				$target = $self.closest('*').closest('*');
+				break;
+			case 'modal':
+				$target = $('#modal');
+				break;
+			case 'content':
+				$target = $('#content');
+				break;
+			case 'selector':
+				$target = $($self.data('selector'));
+				break;
+			case 'self':
+			default:
+				 $target = $self.closest('*');
+		}
+	
+		switch($url) {
+			case 'href':
+				$url = $self.attr('href');
+				$data = document.Oninflo.button.data || $self.data('datas');
+				break;
+			case 'action':
+				var $_form = $self.closest('form');
+				$url = $_form.attr('action');
+				$data = document.Oninflo.button.data || $_form.serialize();
+				break;
+			default:
+				$url = $self.data('url');
+				$data = document.Oninflo.button.data;
+				break;
+		}
+	
+		function place_content($_content) {
+			if ($targetType === 'modal' || $targetType === 'content' || $targetType === 'selector') $target.html($_content);
+			else $target.replaceWith($_content);	
+		}
+	
+		$.ajax({
+			type: "post",
+			url: $url,
+			data: $data,
+			beforeSend: function(xhr, options) {
+				document.Oninflo.button.beforeSend(xhr, options);
+			},
+			error: function(xhr, status) {
+				document.Oninflo.button.error(xhr, status);
+			},
+			success: function (data, status, xhr) {
+				document.Oninflo.button.success.before(data, status, xhr);
+				place_content(data);
+				document.Oninflo.button.success.after(data, status, xhr);
+			},
+			complete: function(xhr, status) { //runs always
+				document.Oninflo.button.complete(xhr, status);
+			}
+		});
+	
+	});
+
+    </script>
+  </head>
+  <body>
+
+      <div id="replace">This'll be replaced!</div>
+
+      <div class="holder"><a href='test.php' class='oninflo-btn' data-target="self" data-selector="#replace" data-url="href">Load content...</a></div>
+      <div class="holder"><a href='test.php' class='oninflo-btn' data-target="parent" data-selector="#replace" data-url="href">Load content...</a></div>
+      <div class="holder"><a href='test.php' class='oninflo-btn' data-target="modal" data-selector="#replace" data-url="href">Load content...</a></div>
+      <div class="holder"><a href='test.php' class='oninflo-btn' data-target="content" data-selector="#replace" data-url="href">Load content...</a></div>
+      <div class="holder"><a href='test.php' class='oninflo-btn' data-target="selector" data-selector="#replace" data-url="href">Load content...</a></div>
+
+      <div class="holder"><a href='test.php' class='oninflo-btn' data-target="selector" data-selector="#replace" data-url="test.php">Load content...</a></div>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(){
+     $.ajax({
+        type: "post",
+        url: "receive.php",
+        dataType:"json",
+        data: {'a':'b'},
+        beforeSend: function(sg, sg2) {
+          console.log('Before send', sg, sg2);
+          //sg: readyState: 4, responseText: "faszom", status: 404, statusText: "Nem lÃ©tezÅ cÃ­m"
+          //sg2: data, dataTypes, accept, async
+        },
+        error: function(sg, sg2) {  //runs if status code >= 300
+          console.log('Error', sg, sg2);
+          //sg: readyState: 4, responseText: "faszom", status: 404, statusText: "Nem lÃ©tezÅ cÃ­m"
+          //sg2: error
+        },
+        success: function (response, sg) {
+          console.log('Success', response, sg);
+          //response: readyState: 4, responseText: "faszom", status: 404, statusText: "Nem lÃ©tezÅ cÃ­m"
+          //sg: returned data
+        },
+        complete: function(sg, sg2) { //runs always
+          console.log('Complete', sg, sg2);
+          //sg: readyState: 4, responseText: "faszom", status: 404, statusText: "Nem lÃ©tezÅ cÃ­m"
+          //sg2: error
+        }
+  }).done(function(a, b) { //runs if status code < 300
+    console.log('Done', a, b);
+  });
+});});
+</script>
+</head>
+<body>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+
+</body>
+</html>
