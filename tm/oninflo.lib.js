@@ -16,19 +16,25 @@
 //<input type="submit" value="Submit" class="oninflo-btn" data-target="selector" data-selector="#replace" data-url="action" value="Replace">
 //</form>
 
-document.Oninflo = {
-	button: {
-		beforeSend: function(xhr, options) {},
-		error: function(xhr, status) {},
-		success: {
-			before: function(data, status, xhr) {},	
-			after: function(data, status, xhr) {}
-		},
-		complete: function() {}
+function Oninflo() {
+	return {
+		ajax_button: {
+			beforeSend: function(xhr, options) {},
+			error: function(xhr, status) {},
+			success: {
+				before: function(data, status, xhr) {},	
+				after: function(data, status, xhr) {}
+			},
+			complete: function() {}
+		}
 	}
-};
+}
 
-document.Oninflo.button.complete = function() {console.log('Really complete!!!!');};
+var App = Oninflo();
+
+App.ajax_button.complete = function() {
+	console.log('Really complete!!!!');
+};
 
 $(document).on('click', '.oninflo-btn', function(e) {
 	e.preventDefault();
@@ -40,7 +46,7 @@ $(document).on('click', '.oninflo-btn', function(e) {
 
 	switch($targetType) {
 		case 'parent':
-			$target = $self.parent().parent();
+			$target = $self.parent();
 			break;
 		case 'modal':
 			$target = $('#modal');
@@ -53,22 +59,22 @@ $(document).on('click', '.oninflo-btn', function(e) {
 			break;
 		case 'self':
 		default:
-			 $target = $self.parent();
+			 $target = $self;
 	}
 
 	switch($url) {
 		case 'href':
 			$url = $self.attr('href');
-			$data = document.Oninflo.button.data || $self.data('datas');
+			$data = App.ajax_button.data || $self.data('datas');
 			break;
 		case 'action':
 			var $_form = $self.closest('form');
 			$url = $_form.attr('action');
-			$data = document.Oninflo.button.data || $_form.serialize();
+			$data = App.ajax_button.data || $_form.serialize();
 			break;
 		default:
 			$url = $self.data('url');
-			$data = document.Oninflo.button.data;
+			$data = App.ajax_button.data;
 			break;
 	}
 
@@ -82,19 +88,19 @@ $(document).on('click', '.oninflo-btn', function(e) {
 		url: $url,
 		data: $data,
 		beforeSend: function(xhr, options) {
-			document.Oninflo.button.beforeSend(xhr, options);
+			App.ajax_button.beforeSend(xhr, options);
 		},
 		error: function(xhr, status) {
-			document.Oninflo.button.error(xhr, status);
+			App.ajax_button.error(xhr, status);
 		},
 		success: function (data, status, xhr) {
 			var content = (xhr.responseJSON) ? xhr.responseJSON.content : xhr.responseText;
-			document.Oninflo.button.success.before(data, status, xhr);
+			App.ajax_button.success.before(data, status, xhr);
 			place_content(content);
-			document.Oninflo.button.success.after(data, status, xhr);
+			App.ajax_button.success.after(data, status, xhr);
 		},
 		complete: function(xhr, status) {
-			document.Oninflo.button.complete(xhr, status);
+			App.ajax_button.complete(xhr, status);
 		}
 	});
 
