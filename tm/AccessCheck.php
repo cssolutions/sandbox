@@ -4,8 +4,6 @@
  *  - Admin (oldal kezelője, én)
  *  - Executive(közös képviselő, szövetkezeti vezető)
  *  - Tenant(lakó)
- *  - Owners(lakás tulajdonosai)
- *  - Others(publikus felhasználók
  * 
  * 
  * 
@@ -19,12 +17,12 @@
  * )
  */
 $user = [
-	'id'				=> 'uid',
-	'role'			=> 'roleId',
+	'id'			=> 'uid',
+	'role'			=> 'roleName',
 	'name'			=> 'name',
 	'mail'			=> 'mail',
 	'house'			=> ['id' => 'houseId', 'name' => 'houseName'],
-	'staircase' => ['id' => 'stairId', 'name' => 'stairName'],
+	'staircase' 	=> ['id' => 'stairId', 'name' => 'stairName'],
 	'flat'			=> ['id' => 'flatsId', 'name' => 'flatsName']
 ];
 

@@ -1,0 +1,106 @@
+DELIMITER $$
+CREATE FUNCTION F_Dist3D (x1 decimal, y1 decimal) 
+RETURNS decimal
+DETERMINISTIC
+BEGIN 
+  DECLARE dist decimal;
+  SET dist = SQRT(x1 - y1);
+  RETURN dist;
+END$$
+DELIMITER ;
+
+
+
+
+CREATE FUNCTION `getScore`(`a` DECIMAL(12,4), `b` DECIMAL(12,4), `c` DECIMAL(12,4)) RETURNS DECIMAL(12,4)
+BEGIN
+    RETURN a + b + c;
+END
+
+SELECT getScore(0.3, 0.4, 0.5)
+-> 1.2000
+
+
+MySQL function with a local variable
+
+DROP FUNCTION IF EXISTS hello_world;
+DELIMITER $$
+CREATE FUNCTION hello_world(addressee TEXT)
+  RETURNS TEXT
+BEGIN
+  DECLARE strlen INT;
+  SET strlen = LENGTH(addressee);
+  RETURN CONCAT('Hello ', addressee, ' - your parameter has ', strlen, ' characters');
+END;
+$$
+DELIMITER ;
+
+mysql> SELECT hello_world('Earth');
++-----------------------------------------------+
+| hello_world('Earth')                          |
++-----------------------------------------------+
+| Hello Earth - your parameter has 5 characters |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+
+
+MySQL function with a loop
+
+DROP FUNCTION IF EXISTS looptest;
+DELIMITER $$
+CREATE FUNCTION looptest()
+  RETURNS INT READS SQL DATA
+BEGIN
+  DECLARE v_total INT;
+
+  SET v_total = 0;
+
+  count_loop: LOOP
+    SET v_total = v_total + 1;
+
+    IF v_total = 10 THEN
+      LEAVE count_loop;
+    END IF;
+    
+  END LOOP;
+
+  RETURN v_total;
+END;
+$$
+DELIMITER ;
+
+
+
+MySQL function with a loop and cursor
+
+DROP FUNCTION IF EXISTS looptest;
+DELIMITER $$
+CREATE FUNCTION looptest()
+  RETURNS INT READS SQL DATA
+BEGIN
+  DECLARE v_total INT;
+  DECLARE v_counter INT;
+  DECLARE done INT DEFAULT FALSE;
+  DECLARE csr CURSOR FOR 
+    SELECT counter FROM items;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+  SET v_total = 0;
+  OPEN csr;
+  read_loop: LOOP
+    FETCH csr INTO v_counter;
+
+    IF done THEN
+      LEAVE read_loop;
+    END IF;
+
+    SET v_total = v_total + v_counter;
+  END LOOP;
+  CLOSE csr;
+
+  RETURN v_total;
+END;
+$$
+
+DELIMITER ;
