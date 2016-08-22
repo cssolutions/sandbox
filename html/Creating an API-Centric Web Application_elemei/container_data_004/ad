@@ -1,0 +1,103 @@
+if (!window.mraid) {document.write('\x3cdiv\x3e\x3cdiv style="position:relative; display:inline-block;"\x3e');}if (!window.mraid) {document.write('\x3cdiv class="GoogleActiveViewClass" ' +'id="DfaVisibilityIdentifier_2378557134"\x3e');}document.write('\x3cdiv style\x3d\x22display:table; width: 100%; height: 100%\x22\x3e\x3cdiv style\x3d\x22display:table-cell; vertical-align: middle\x22\x3e');
+        (function() {
+          var dcmAdResponseConfig = {
+            clickTags: [{name:'clickTag',url:'https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjstYQ1r5JxAya6vSm3iKh9XTztksoxvC0Mhadhx_eXKzqqnRr6ullnppkPmGWg786Zg7Mfqf5MXQjFpz0rjdId5itkn3rasf6sUzlaY5IEKzqU0zpGM2YWtA5YYoZgFVfFCWxFAVcxZig7exujS82E9FlcxIpgxTHDOfryucXk5Qzda4O5I0wo8eGlxHTs1RGSBeqHpxYd--FrxRzOvPZrmfjrYA2YAWAGegdSY5qGEovuf1iJrYuLZzH0kJSGiwAIK1vMrOFw_rqXMPY7jqVXcLekPhWAbKrFz502pKG4BVaGW--HWjdaTjNlQsB75ZdKUZUlG-TFEDKOmgMT_UOx7YOZ4GQgfdCxM_GletQeoch93P_GQX46r3mZoimAnyp4tkk1O-q5FK3FJ6fvtxm2bqm-nfgkyD9zYXjFkSl4UrPZ61f3CpUGBu6nC3T_UQxn8334hPGFqYZFhe9qoKIR-PSFPMqLmE_UABK1qVQ_IlXgzeYIlAfKDvT8NHDx7EiSlCXAk6y_VTnfV13ybFiNaeU3dzVN-KP-TQ_EPLNGTFcvJTZodh3BhvuHfmhxrt0M66vLGHk_PzylPKqtJATeqL5rYDuVTLookzRcADXTH140qRcszBWhDDJqDf9swkQDRNUkeJMM3M-S6X-LYZksYcTAyeXKFNCToeTdZbPJgn7r_-rslDptLmkRwEvFuDwOI6rTR-y_QC0DchLW3RUDia8OCOUz0JbN-6WaUnPI0Qag68suB8_qR__PHTPxbmKuiNmJAlgb6EmzE8LaPy4AK7Sc__5jgkPOtetIXOKpwq95na9IrcLgPCBDAvlGzLuARoYYBKuYfwJKSCwWkQaWYs4YU&sai=AMfl-YQ_skwgiSQkTDcptJpJQl6_6VrmGkDipL6Z-BGQp8RQndCGb7_F7COYhZlL-Z9e_80ZfU58snjhAQBRUYZSPHX4&sig=Cg0ArKJSzBnKWHsY_xLEEAE&urlfix=1&adurl=http://www.upc.hu/internet/internet-ajanlatok/24-honapos-szerzodessel%3FCMP%3DDFA:2527501:129183377:302107504:70890344%26sitekey%3DN33505.2237103DBM_HU_DRE'}],
+            creativeIframeId: "creativeIframe154393443",
+            primaryAssetPath: "https://s0.2mdn.net/4611251/1462801806624/master_upc_internet_q2_300x250.html",
+            creativeWidth: '300',
+            creativeHeight: '250',
+            backupImageUrl: "https://s0.2mdn.net/4611251/2-_HU_UPC_300x250_FiberPower_Q2.jpg",
+            backupImageClickTagUrl: "https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjstYQ1r5JxAya6vSm3iKh9XTztksoxvC0Mhadhx_eXKzqqnRr6ullnppkPmGWg786Zg7Mfqf5MXQjFpz0rjdId5itkn3rasf6sUzlaY5IEKzqU0zpGM2YWtA5YYoZgFVfFCWxFAVcxZig7exujS82E9FlcxIpgxTHDOfryucXk5Qzda4O5I0wo8eGlxHTs1RGSBeqHpxYd--FrxRzOvPZrmfjrYA2YAWAGegdSY5qGEovuf1iJrYuLZzH0kJSGiwAIK1vMrOFw_rqXMPY7jqVXcLekPhWAbKrFz502pKG4BVaGW--HWjdaTjNlQsB75ZdKUZUlG-TFEDKOmgMT_UOx7YOZ4GQgfdCxM_GletQeoch93P_GQX46r3mZoimAnyp4tkk1O-q5FK3FJ6fvtxm2bqm-nfgkyD9zYXjFkSl4UrPZ61f3CpUGBu6nC3T_UQxn8334hPGFqYZFhe9qoKIR-PSFPMqLmE_UABK1qVQ_IlXgzeYIlAfKDvT8NHDx7EiSlCXAk6y_VTnfV13ybFiNaeU3dzVN-KP-TQ_EPLNGTFcvJTZodh3BhvuHfmhxrt0M66vLGHk_PzylPKqtJATeqL5rYDuVTLookzRcADXTH140qRcszBWhDDJqDf9swkQDRNUkeJMM3M-S6X-LYZksYcTAyeXKFNCToeTdZbPJgn7r_-rslDptLmkRwEvFuDwOI6rTR-y_QC0DchLW3RUDia8OCOUz0JbN-6WaUnPI0Qag68suB8_qR__PHTPxbmKuiNmJAlgb6EmzE8LaPy4AK7Sc__5jgkPOtetIXOKpwq95na9IrcLgPCBDAvlGzLuARoYYBKuYfwJKSCwWkQaWYs4YU&sai=AMfl-YQ_skwgiSQkTDcptJpJQl6_6VrmGkDipL6Z-BGQp8RQndCGb7_F7COYhZlL-Z9e_80ZfU58snjhAQBRUYZSPHX4&sig=Cg0ArKJSzBnKWHsY_xLEEAE&urlfix=1&adurl=http://www.upc.hu/internet/internet-ajanlatok/24-honapos-szerzodessel%3FCMP%3DDFA:2527501:129183377:302107504:70890344%26sitekey%3DN33505.2237103DBM_HU_DRE",
+            backupTargetWindow: "_blank",
+            featureChecks: ['Modernizr.canvas','Modernizr.canvastext'],
+            centerStyle: "display:block; margin-left:auto; margin-right:auto",
+            modernizrSrc: "/ads/studio/cached_libs/modernizr_2.8.3_ec185bb44fe5e6bf7455d6e8ef37ed0e_no-classes.js",
+            servingDomain: "//s0.2mdn.net",
+            isInApp: "" == "1",
+            expandWidth: '300',
+            expandHeight: '250'
+          };
+          var $goog$now$$ = Date.now || function() {
+  return +new Date;
+};
+var $studio$codegen$DcmHtml5AdResponse$PROTOCOL_$$ = "https:" == window.location.protocol ? "https:" : "http:", $opt_object$$inline_17$$ = function($dcmAdResponseConfig$$) {
+  var $modernizrSrc_onloadRender$$ = $studio$codegen$DcmHtml5AdResponse$PROTOCOL_$$ + $dcmAdResponseConfig$$.servingDomain + $dcmAdResponseConfig$$.modernizrSrc, $isInApp_script$$3$$ = $dcmAdResponseConfig$$.isInApp, $creativeIframeId$$ = $dcmAdResponseConfig$$.creativeIframeId, $renderingMethod$$ = "renderCreative" + $goog$now$$(), $isMraid$$ = window.mraid && window.mraid.open, $divId$$ = "div_" + $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($creativeIframeId$$) + "_" + (new Date).getTime();
+  document.write('<div id="' + $divId$$ + '"></div>');
+  window.$dcmHtml5Rendering$ || (window.$dcmHtml5Rendering$ = {}, window.$dcmHtml5Rendering$.$modernizrLoaded$ = !!window.Modernizr || !1);
+  window.$dcmHtml5Rendering$[$renderingMethod$$] || (window.$dcmHtml5Rendering$[$renderingMethod$$] = {}, window.$dcmHtml5Rendering$[$renderingMethod$$].$config$ = $dcmAdResponseConfig$$);
+  $studio$codegen$DcmHtml5AdResponse$listen_$$(window, "message", $studio$codegen$DcmHtml5AdResponse$handleClickTagMessage_$$);
+  $isInApp_script$$3$$ && ($isInApp_script$$3$$ = $studio$codegen$DcmHtml5AdResponse$getScript_$$("mraid.js", $isMraid$$ ? "text/x-do-not-download" : "text/javascript"), document.getElementById($divId$$).appendChild($isInApp_script$$3$$));
+  window.$dcmHtml5Rendering$.$modernizrLoaded$ ? setTimeout(function() {
+    $studio$codegen$DcmHtml5AdResponse$renderAd_$$($dcmAdResponseConfig$$, $divId$$);
+  }, 0) : (window.$dcmHtml5Rendering$[$renderingMethod$$].$renderAd$ = $studio$codegen$DcmHtml5AdResponse$renderAd_$$, $isInApp_script$$3$$ = $studio$codegen$DcmHtml5AdResponse$getScript_$$($modernizrSrc_onloadRender$$, "text/javascript"), $modernizrSrc_onloadRender$$ = function() {
+    window.$dcmHtml5Rendering$[$renderingMethod$$].$renderAd$(window.$dcmHtml5Rendering$[$renderingMethod$$].$config$, $divId$$);
+  }, $isInApp_script$$3$$.onload = $modernizrSrc_onloadRender$$, $studio$codegen$DcmHtml5AdResponse$scriptOnload_$$($isInApp_script$$3$$, $modernizrSrc_onloadRender$$), document.getElementById($divId$$).appendChild($isInApp_script$$3$$));
+}, $parts$$inline_19$$ = ["studio", "codegen", "DcmHtml5AdResponse", "bootstrap"], $cur$$inline_20$$ = this;
+$parts$$inline_19$$[0] in $cur$$inline_20$$ || !$cur$$inline_20$$.execScript || $cur$$inline_20$$.execScript("var " + $parts$$inline_19$$[0]);
+for (var $part$$inline_21$$;$parts$$inline_19$$.length && ($part$$inline_21$$ = $parts$$inline_19$$.shift());) {
+  $parts$$inline_19$$.length || void 0 === $opt_object$$inline_17$$ ? $cur$$inline_20$$ = $cur$$inline_20$$[$part$$inline_21$$] ? $cur$$inline_20$$[$part$$inline_21$$] : $cur$$inline_20$$[$part$$inline_21$$] = {} : $cur$$inline_20$$[$part$$inline_21$$] = $opt_object$$inline_17$$;
+}
+var $studio$codegen$DcmHtml5AdResponse$renderAd_$$ = function($dcmAdResponseConfig$$1$$, $divId$$1$$) {
+  var $anchor$$inline_25_clickTags$$ = $dcmAdResponseConfig$$1$$.clickTags, $creativeIframeId$$1$$ = $dcmAdResponseConfig$$1$$.creativeIframeId, $primaryAssetPath$$ = $dcmAdResponseConfig$$1$$.primaryAssetPath, $creativeWidth$$ = $dcmAdResponseConfig$$1$$.creativeWidth, $creativeHeight$$ = $dcmAdResponseConfig$$1$$.creativeHeight, $backupImageUrl$$ = $dcmAdResponseConfig$$1$$.backupImageUrl, $backupImageClickTagUrl_image$$inline_29$$ = $dcmAdResponseConfig$$1$$.backupImageClickTagUrl, $backupTargetWindow$$ = 
+  $dcmAdResponseConfig$$1$$.backupTargetWindow, $featureChecks$$1$$ = $dcmAdResponseConfig$$1$$.featureChecks, $centerStyle$$ = $dcmAdResponseConfig$$1$$.centerStyle, $isInApp$$1$$ = $dcmAdResponseConfig$$1$$.isInApp, $expandWidth$$ = $dcmAdResponseConfig$$1$$.expandWidth, $expandHeight$$ = $dcmAdResponseConfig$$1$$.expandHeight, $div$$ = document.getElementById($divId$$1$$);
+  $featureChecks$$1$$.push("!!window.postMessage");
+  window.$dcmHtml5Rendering$.$modernizrLoaded$ = !0;
+  $studio$codegen$DcmHtml5AdResponse$checkHtml5Features_$$($featureChecks$$1$$) ? (0 == $creativeWidth$$ && ($creativeWidth$$ = $expandWidth$$ || 0), 0 == $creativeHeight$$ && ($creativeHeight$$ = $expandHeight$$ || 0), $studio$codegen$DcmHtml5AdResponse$renderHtml5Creative_$$($div$$, $creativeIframeId$$1$$, $isInApp$$1$$, $anchor$$inline_25_clickTags$$, $creativeWidth$$, $creativeHeight$$, $primaryAssetPath$$)) : ($anchor$$inline_25_clickTags$$ = document.createElement("a"), $anchor$$inline_25_clickTags$$.href = 
+  window.encodeURI($backupImageClickTagUrl_image$$inline_29$$), $anchor$$inline_25_clickTags$$.target = $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($backupTargetWindow$$), $backupImageClickTagUrl_image$$inline_29$$ = document.createElement("img"), $backupImageClickTagUrl_image$$inline_29$$.border = 0, $backupImageClickTagUrl_image$$inline_29$$.src = $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($backupImageUrl$$), $backupImageClickTagUrl_image$$inline_29$$.style.cssText = $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($centerStyle$$), 
+  $anchor$$inline_25_clickTags$$.appendChild($backupImageClickTagUrl_image$$inline_29$$), $studio$codegen$DcmHtml5AdResponse$renderCreative_$$($div$$, $anchor$$inline_25_clickTags$$));
+}, $studio$codegen$DcmHtml5AdResponse$renderHtml5Creative_$$ = function($div$$2$$, $creativeIframeId$$2_iframe$$, $isInApp$$2$$, $clickTags$$1$$, $creativeWidth$$1$$, $creativeHeight$$1$$, $primaryAssetPath$$1$$) {
+  var $iframeId$$ = "iframe_" + $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($creativeIframeId$$2_iframe$$) + "_" + (new Date).getTime();
+  $creativeIframeId$$2_iframe$$ = $studio$codegen$DcmHtml5AdResponse$getIframe_$$($iframeId$$, $primaryAssetPath$$1$$, $creativeWidth$$1$$, $creativeHeight$$1$$);
+  $studio$codegen$DcmHtml5AdResponse$listen_$$($creativeIframeId$$2_iframe$$, "load", function() {
+    document.getElementById($iframeId$$).contentWindow.postMessage(JSON.stringify({clickTags:$clickTags$$1$$, relegateNavigation:window.mraid && window.mraid.open && $isInApp$$2$$ ? "parent" : "inline", isInitClickTag:!0}), "*");
+  });
+  $studio$codegen$DcmHtml5AdResponse$renderCreative_$$($div$$2$$, $creativeIframeId$$2_iframe$$);
+}, $studio$codegen$DcmHtml5AdResponse$checkHtml5Features_$$ = function($featureChecks$$2$$) {
+  for (var $i$$12$$ = 0;$i$$12$$ < $featureChecks$$2$$.length;$i$$12$$++) {
+    if (!eval($featureChecks$$2$$[$i$$12$$])) {
+      return !1;
+    }
+  }
+  return !0;
+}, $studio$codegen$DcmHtml5AdResponse$renderCreative_$$ = function($div$$3$$, $creative$$) {
+  $div$$3$$.$isRendered$ || ($div$$3$$.appendChild($creative$$), $div$$3$$.$isRendered$ = !0);
+}, $studio$codegen$DcmHtml5AdResponse$getScript_$$ = function($src$$12$$, $type$$96$$) {
+  var $script$$4$$ = document.createElement("script");
+  $script$$4$$.src = $src$$12$$;
+  $script$$4$$.type = $type$$96$$;
+  return $script$$4$$;
+}, $studio$codegen$DcmHtml5AdResponse$getIframe_$$ = function($id$$4$$, $src$$14$$, $width$$12$$, $height$$11$$) {
+  var $iframe$$1$$ = document.createElement("iframe");
+  $iframe$$1$$.id = $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($id$$4$$);
+  $iframe$$1$$.src = $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($src$$14$$);
+  $iframe$$1$$.width = $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($width$$12$$);
+  $iframe$$1$$.height = $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$($height$$11$$);
+  $iframe$$1$$.frameBorder = "0";
+  $iframe$$1$$.scrolling = "no";
+  $iframe$$1$$.style.display = "block";
+  $iframe$$1$$.style.marginLeft = "auto";
+  $iframe$$1$$.style.marginRight = "auto";
+  return $iframe$$1$$;
+}, $studio$codegen$DcmHtml5AdResponse$escapeHtml_$$ = function($text$$11$$) {
+  var $div$$4$$ = document.createElement("div");
+  $div$$4$$.appendChild(document.createTextNode($text$$11$$));
+  return $div$$4$$.innerHTML;
+}, $studio$codegen$DcmHtml5AdResponse$handleClickTagMessage_$$ = function($e$$9$$) {
+  try {
+    var $eventData$$ = JSON.parse($e$$9$$.data);
+  } catch ($err$$) {
+    return;
+  }
+  $eventData$$.isPostClickTag && window.mraid && window.mraid.open && $eventData$$.clickTag && window.mraid.open($eventData$$.clickTag);
+}, $studio$codegen$DcmHtml5AdResponse$listen_$$ = function($target$$54$$, $type$$97$$, $handler$$2$$) {
+  window.addEventListener ? $target$$54$$.addEventListener($type$$97$$, $handler$$2$$, !1) : $target$$54$$.attachEvent("on" + $type$$97$$, $handler$$2$$);
+}, $studio$codegen$DcmHtml5AdResponse$scriptOnload_$$ = function($script$$5$$, $onload$$) {
+  "loaded" == $script$$5$$.readyState || "completed" == $script$$5$$.readyState ? $onload$$() : setTimeout(function() {
+    $studio$codegen$DcmHtml5AdResponse$scriptOnload_$$($script$$5$$, $onload$$);
+  }, 50);
+};
+
+
+          studio.codegen.DcmHtml5AdResponse.bootstrap(dcmAdResponseConfig);
+        })();
+      document.write('\n\x3cnoscript\x3e\x3ca href\x3d\x22https://adclick.g.doubleclick.net/pcs/click?xai\x3dAKAOjstYQ1r5JxAya6vSm3iKh9XTztksoxvC0Mhadhx_eXKzqqnRr6ullnppkPmGWg786Zg7Mfqf5MXQjFpz0rjdId5itkn3rasf6sUzlaY5IEKzqU0zpGM2YWtA5YYoZgFVfFCWxFAVcxZig7exujS82E9FlcxIpgxTHDOfryucXk5Qzda4O5I0wo8eGlxHTs1RGSBeqHpxYd--FrxRzOvPZrmfjrYA2YAWAGegdSY5qGEovuf1iJrYuLZzH0kJSGiwAIK1vMrOFw_rqXMPY7jqVXcLekPhWAbKrFz502pKG4BVaGW--HWjdaTjNlQsB75ZdKUZUlG-TFEDKOmgMT_UOx7YOZ4GQgfdCxM_GletQeoch93P_GQX46r3mZoimAnyp4tkk1O-q5FK3FJ6fvtxm2bqm-nfgkyD9zYXjFkSl4UrPZ61f3CpUGBu6nC3T_UQxn8334hPGFqYZFhe9qoKIR-PSFPMqLmE_UABK1qVQ_IlXgzeYIlAfKDvT8NHDx7EiSlCXAk6y_VTnfV13ybFiNaeU3dzVN-KP-TQ_EPLNGTFcvJTZodh3BhvuHfmhxrt0M66vLGHk_PzylPKqtJATeqL5rYDuVTLookzRcADXTH140qRcszBWhDDJqDf9swkQDRNUkeJMM3M-S6X-LYZksYcTAyeXKFNCToeTdZbPJgn7r_-rslDptLmkRwEvFuDwOI6rTR-y_QC0DchLW3RUDia8OCOUz0JbN-6WaUnPI0Qag68suB8_qR__PHTPxbmKuiNmJAlgb6EmzE8LaPy4AK7Sc__5jgkPOtetIXOKpwq95na9IrcLgPCBDAvlGzLuARoYYBKuYfwJKSCwWkQaWYs4YU\x26sai\x3dAMfl-YQ_skwgiSQkTDcptJpJQl6_6VrmGkDipL6Z-BGQp8RQndCGb7_F7COYhZlL-Z9e_80ZfU58snjhAQBRUYZSPHX4\x26sig\x3dCg0ArKJSzBnKWHsY_xLEEAE\x26urlfix\x3d1\x26adurl\x3dhttp://www.upc.hu/internet/internet-ajanlatok/24-honapos-szerzodessel%3FCMP%3DDFA:2527501:129183377:302107504:70890344%26sitekey%3DN33505.2237103DBM_HU_DRE\x22 target\x3d\x22_blank\x22\x3e\x3cimg border\x3d\x220\x22 style\x3d\x22display:block; margin-left:auto; margin-right:auto\x22 alt\x3d\x22Backup Image\x22 src\x3d\x22https://s0.2mdn.net/4611251/2-_HU_UPC_300x250_FiberPower_Q2.jpg\x22 /\x3e\x3c/a\x3e\x3c/noscript\x3e\x3c/div\x3e\x3c/div\x3e\x3cstyle\x3ediv,ul,li{margin:0;padding:0;}.abgc{height:15px;position:absolute;right:0px;top:0px;text-rendering:geometricPrecision;width:15px;z-index:9020;}.abgb{height:15px;width:15px;}.abgc img{display:block;}.abgc svg{display:block;}.abgs{display:none;height:100%;}.abgl{text-decoration:none;}.abgi{fill-opacity:1.0;fill:#00aecd;stroke:none;}.abgbg{fill-opacity:1.0;fill:#cdcccc;stroke:none;}.abgtxt{fill:black;font-family:\x27Arial\x27;font-size:100px;overflow:visible;stroke:none;}\x3c/style\x3e\x3cdiv id\x3dabgc class\x3dabgc dir\x3d\x27ltr\x27\x3e\x3cdiv id\x3dabgb class\x3d\x22abgb\x22\x3e\x3c/div\x3e\x3cdiv id\x3dabgs class\x3dabgs\x3e\x3ca id\x3dabgl class\x3dabgl href\x3d\x22https://www.google.com/url?ct\x3dabg\x26amp;q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3D%26gl%3DHU%26hl%3Den%26ai0%3D\x26amp;usg\x3dAFQjCNGfTGWdiDgPQZZg8Y2Lchuk75SJEQ\x22 target\x3d_blank\x3e\x3c/a\x3e\x3c/div\x3e\x3c/div\x3e');document.write('\n\x3cscript\x3evar abgp={elp:document.getElementById(\'abgcp\'),el:document.getElementById(\'abgc\'),ael:document.getElementById(\'abgs\'),iel:document.getElementById(\'abgb\'),hw:15,sw:96,hh:15,sh:15,himg:\'https://pagead2.googlesyndication.com\'+\'/pagead/images/abg/icon.png\',simg:\'https://pagead2.googlesyndication.com/pagead/images/abg/en.png\',alt:\'AdChoices\',t:\'Ads by\',tw:34,t2:\'Google\',t2w:38,tbo:0,att:\'adsbygoogle\',ff:\'\',halign:\'right\',fe:false,iba:false,lttp:false,umd:false,uic:false,uit:false,ict:document.getElementById(\'cbb\'),icd:undefined,uaal:true,opi: false};\x3c/script\x3e');document.write('\x3cscript src\x3d\x22https://pagead2.googlesyndication.com/pagead/js/r20160728/r20110914/abg.js\x22\x3e\x3c/script\x3e');if (!window.mraid) {document.write('\x3c/div\x3e');}if (!window.mraid) {document.write('\x3c/div\x3e\x3c/div\x3e');}if (!window.mraid) {(function() {var avDiv = document.getElementById("DfaVisibilityIdentifier_2378557134");if (!avDiv) {avDiv = {};window["DfaVisibilityIdentifier_2378557134_avData"] = avDiv;}if (avDiv) {avDiv['_avi_'] = 'BU0DjIAGjV86EDcW-WJjXuLACAAAAABABOAHgBAKIBZWZxASgBj8';avDiv['_avihost_'] = 'pagead2.googlesyndication.com';avDiv['_avm_'] = 'rda\x3d1\x26la\x3d0\x26';}var glidar = document.createElement('script');glidar.type = 'text/javascript';glidar.async = true;glidar.src = '//pagead2.googlesyndication.com/pagead/js/lidar.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glidar, s);})();} else {document.write('\x3cimg src="//pagead2.googlesyndication.com/activeview?avi\x3dBU0DjIAGjV86EDcW-WJjXuLACAAAAABABOAHgBAKIBZWZxASgBj8&id=lidar2&r=w&rs=5j" style="display:none;"\x3e\x3c/img\x3e');}
