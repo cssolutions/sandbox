@@ -1,0 +1,53 @@
+CREATE PROCEDURE [dbo].[spReopenClosed] (@Return_Message VARCHAR(1024) = ''  OUT, @IID uniqueidentifier, @OpenDate smalldatetime, @ReopenedBy uniqueidentifier)
+AS
+
+    SET NOCOUNT ON;
+
+    DECLARE     @ErrorCode  int  
+    DECLARE     @ErrorStep  varchar(200)
+
+    SELECT @ErrorCode = @@ERROR
+
+BEGIN TRY
+
+    BEGIN TRAN
+
+        SELECT @ErrorStep = 'Error in Copying from the archive';
+
+        INSERT INTO OPS.dbo.SM_T_In
+        SELECT *         
+        FROM OPS_ARCHIVE.Archive.SM_T_In
+        WHERE GUID = @IID AND W.OpenDate = @OpenDate
+
+        SELECT @ErrorStep = 'Error in copying the notes'
+
+        INSERT INTO OPS.dbo.SM_T_Notes
+        SELECT *
+        FROM OPS_ARCHIVE.Archive.SM_T_Notes
+        WHERE GUID = @IID
+
+        SELECT @ErrorStep = 'Error in deleting the items from the Archive'
+
+        DELETE
+        FROM OPS_ARCHIVE.Archive.SM_T_In
+        WHERE OPS_ARCHIVE.Archive.SM_T_In.GUID = @IID
+
+    COMMIT TRAN
+
+    SELECT  @ErrorCode  = 0, @Return_Message = 'All data was moved over'
+
+    RETURN @ErrorCode                               -- =0 if success,  <>0 if failure
+
+END TRY
+
+BEGIN CATCH
+    IF @@TRANCOUNT > 0 ROLLBACK
+
+    SELECT @ErrorCode = ERROR_NUMBER(), @Return_Message = @ErrorStep + ' '+ cast(ERROR_NUMBER() as varchar(20)) + ' line: '
+        + cast(ERROR_LINE() as varchar(20)) + ' ' 
+        + ERROR_MESSAGE() + ' > ' 
+        + ERROR_PROCEDURE()
+
+    RETURN @ErrorCode                               -- =0 if success,  <>0 if failure
+
+END CATCH

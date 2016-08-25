@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html class="js" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+<script src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/analytics.js" async=""></script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-9717036-1', 'auto');
+ga('send', 'pageview');
+</script>
+<meta name="google-site-verification" content="QpWyMvg8ku4uIowMrAtp8bFE93QekbHrbKMQRH4yrNo">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://www.leaseweb.com/labs/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="https://www.leaseweb.com/labs/wp-content/themes/leaseweb_labs/js/html5.js"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>Creating a simple REST API in PHP - LeaseWeb labs</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v3.2.5 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="The core of the php-crud-api script is only 45 lines of code that routes a JSON REST API request, converts it into SQL, executes it and responds using JSON.">
+<meta name="robots" content="noodp">
+<link rel="canonical" href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="LeaseWeb labs » Feed" href="https://www.leaseweb.com/labs/feed/">
+<link rel="alternate" type="application/rss+xml" title="LeaseWeb labs » Comments Feed" href="https://www.leaseweb.com/labs/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="LeaseWeb labs » Creating a simple REST API in PHP Comments Feed" href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/www.leaseweb.com\/labs\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/wp-emoji-release.js"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="twoclick-social-media-buttons-css" href="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/socialshareprivacy-min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-syntax-css-css" href="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/wp-syntax.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentyfifteen-fonts-css" href="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentyfifteen-style-css" href="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/style.css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='https://www.leaseweb.com/labs/wp-content/themes/leaseweb_labs/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='https://www.leaseweb.com/labs/wp-content/themes/leaseweb_labs/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="wpmu-animate-min-css-css" href="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/animate.css" type="text/css" media="all">
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/jquery_002.js"></script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/jquery-migrate.js"></script>
+<link rel="https://api.w.org/" href="https://www.leaseweb.com/labs/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.leaseweb.com/labs/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.leaseweb.com/labs/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.5.3">
+<link rel="shortlink" href="https://www.leaseweb.com/labs/?p=6498">
+<link rel="alternate" type="application/json+oembed" href="https://www.leaseweb.com/labs/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.leaseweb.com%2Flabs%2F2015%2F10%2Fcreating-a-simple-rest-api-in-php%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.leaseweb.com/labs/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.leaseweb.com%2Flabs%2F2015%2F10%2Fcreating-a-simple-rest-api-in-php%2F&amp;format=xml">
+
+<!-- OpenGraph Tags (added by 2-Click Social Media Buttons) -->
+<meta property="og:site_name" content="LeaseWeb labs">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Creating a simple REST API in PHP">
+<meta property="og:url" content="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/">
+<meta property="og:description" content="I'm the author of php-crud-api and I want to share the core of the application with you. It includes routing a JSON REST request, converting it into SQL, executing it and giving a meaningful response. I tried to write the application as short as possible and came up with these 65 lines of code:
+
+
+
+This code is written to show you how simple it is to make a fully operational REST API in PHP ...">
+<!-- /OpenGraph Tags -->
+
+
+<!-- This site is using AdRotate v3.15.3 to display their advertisements - https://ajdg.solutions/products/adrotate-for-wordpress/ -->
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<link href="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/shCore.css" type="text/css" rel="stylesheet"><link href="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/shThemeDefault.css" type="text/css" rel="stylesheet"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<style>
+.syntaxhighlighter {
+	font-size: 75% !important;
+}
+</style>
+</head>
+
+<body class="single single-post postid-6498 single-format-standard">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div style="top: 768.36669921875px;" id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+				<div class="lsw-labs-logo-wrapper">
+					<img src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/leaseweb_labs_logo.png" alt="Leaseweb Labs" class="lsw-labs-logo">
+				</div>
+										<p class="site-title"><a href="https://www.leaseweb.com/labs/" rel="home">LeaseWeb labs</a></p>
+											<p class="site-description">A blog about web hosting and software development</p>
+									<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="text-4" class="widget widget_text">			<div class="textwidget"><a href="https://www.leaseweb.com/labs/feed/">Subscribe to RSS feed</a></div>
+		</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+					<li>
+				<a href="https://www.leaseweb.com/labs/2016/02/leaseweb-cloud-ec2-support/">Leaseweb Cloud AWS EC2 support</a>
+						</li>
+					<li>
+				<a href="https://www.leaseweb.com/labs/2015/11/php-crud-api-now-supports-authorization-and-validation/">PHP-CRUD-API now supports authorization and validation</a>
+						</li>
+					<li>
+				<a href="https://www.leaseweb.com/labs/2015/11/php-script-to-tail-a-log-file-using-telnet/">PHP script to tail a log file using telnet</a>
+						</li>
+					<li>
+				<a href="https://www.leaseweb.com/labs/2015/10/simple-web-application-firewall-using-htaccess/">Simple web application firewall using .htaccess</a>
+						</li>
+					<li>
+				<a href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/">Creating a simple REST API in PHP</a>
+						</li>
+				</ul>
+		</aside>		<aside id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Brian</span> on <a href="https://www.leaseweb.com/labs/2015/10/rewritecond-and-rewriterule-tricks-for-htaccess/#comment-146653">RewriteCond and RewriteRule tricks for .htaccess</a></li><li class="recentcomments"><span class="comment-author-link">Jonder</span> on <a href="https://www.leaseweb.com/labs/2013/07/10-very-good-reasons-to-stop-using-javascript/#comment-133794">10 very good reasons to stop using JavaScript</a></li><li class="recentcomments"><span class="comment-author-link">janus rokkjær</span> on <a href="https://www.leaseweb.com/labs/2014/06/install-adminer-manually-ubuntu-14-04/#comment-133769">Install Adminer manually on Ubuntu 14.04</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://inorganik.github.io/" rel="external nofollow" class="url">Jamie</a></span> on <a href="https://www.leaseweb.com/labs/2013/07/10-very-good-reasons-to-stop-using-javascript/#comment-133493">10 very good reasons to stop using JavaScript</a></li><li class="recentcomments"><span class="comment-author-link">Maurits van der Schee (Innovation Engineer)</span> on <a href="https://www.leaseweb.com/labs/2013/07/10-very-good-reasons-to-stop-using-javascript/#comment-133463">10 very good reasons to stop using JavaScript</a></li></ul></aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widget-title">Tags</h2><div class="tagcloud"><a href="https://www.leaseweb.com/labs/tag/agile/" class="tag-link-220 tag-link-position-1" title="7 topics" style="font-size: 10.074074074074pt;">agile</a>
+<a href="https://www.leaseweb.com/labs/tag/analytics/" class="tag-link-89 tag-link-position-2" title="5 topics" style="font-size: 8.8296296296296pt;">analytics</a>
+<a href="https://www.leaseweb.com/labs/tag/apache/" class="tag-link-76 tag-link-position-3" title="10 topics" style="font-size: 11.525925925926pt;">Apache</a>
+<a href="https://www.leaseweb.com/labs/tag/api/" class="tag-link-69 tag-link-position-4" title="13 topics" style="font-size: 12.666666666667pt;">api</a>
+<a href="https://www.leaseweb.com/labs/tag/cakephp/" class="tag-link-117 tag-link-position-5" title="4 topics" style="font-size: 8pt;">cakephp</a>
+<a href="https://www.leaseweb.com/labs/tag/conference/" class="tag-link-22 tag-link-position-6" title="5 topics" style="font-size: 8.8296296296296pt;">conference</a>
+<a href="https://www.leaseweb.com/labs/tag/crud/" class="tag-link-121 tag-link-position-7" title="4 topics" style="font-size: 8pt;">crud</a>
+<a href="https://www.leaseweb.com/labs/tag/css/" class="tag-link-45 tag-link-position-8" title="4 topics" style="font-size: 8pt;">css</a>
+<a href="https://www.leaseweb.com/labs/tag/curl/" class="tag-link-104 tag-link-position-9" title="5 topics" style="font-size: 8.8296296296296pt;">curl</a>
+<a href="https://www.leaseweb.com/labs/tag/databases/" class="tag-link-59 tag-link-position-10" title="4 topics" style="font-size: 8pt;">databases</a>
+<a href="https://www.leaseweb.com/labs/tag/firefox/" class="tag-link-65 tag-link-position-11" title="6 topics" style="font-size: 9.5555555555556pt;">firefox</a>
+<a href="https://www.leaseweb.com/labs/tag/firewall/" class="tag-link-161 tag-link-position-12" title="5 topics" style="font-size: 8.8296296296296pt;">firewall</a>
+<a href="https://www.leaseweb.com/labs/tag/games/" class="tag-link-85 tag-link-position-13" title="5 topics" style="font-size: 8.8296296296296pt;">games</a>
+<a href="https://www.leaseweb.com/labs/tag/git/" class="tag-link-66 tag-link-position-14" title="6 topics" style="font-size: 9.5555555555556pt;">git</a>
+<a href="https://www.leaseweb.com/labs/tag/golang-2/" class="tag-link-331 tag-link-position-15" title="4 topics" style="font-size: 8pt;">golang</a>
+<a href="https://www.leaseweb.com/labs/tag/javascript/" class="tag-link-44 tag-link-position-16" title="10 topics" style="font-size: 11.525925925926pt;">javascript</a>
+<a href="https://www.leaseweb.com/labs/tag/linux/" class="tag-link-5 tag-link-position-17" title="33 topics" style="font-size: 16.607407407407pt;">linux</a>
+<a href="https://www.leaseweb.com/labs/tag/logging/" class="tag-link-130 tag-link-position-18" title="4 topics" style="font-size: 8pt;">logging</a>
+<a href="https://www.leaseweb.com/labs/tag/memcache/" class="tag-link-115 tag-link-position-19" title="7 topics" style="font-size: 10.074074074074pt;">memcache</a>
+<a href="https://www.leaseweb.com/labs/tag/methodology/" class="tag-link-273 tag-link-position-20" title="5 topics" style="font-size: 8.8296296296296pt;">methodology</a>
+<a href="https://www.leaseweb.com/labs/tag/mysql/" class="tag-link-12 tag-link-position-21" title="13 topics" style="font-size: 12.666666666667pt;">mysql</a>
+<a href="https://www.leaseweb.com/labs/tag/networking/" class="tag-link-145 tag-link-position-22" title="4 topics" style="font-size: 8pt;">networking</a>
+<a href="https://www.leaseweb.com/labs/tag/nginx/" class="tag-link-126 tag-link-position-23" title="7 topics" style="font-size: 10.074074074074pt;">nginx</a>
+<a href="https://www.leaseweb.com/labs/tag/nosql/" class="tag-link-17 tag-link-position-24" title="5 topics" style="font-size: 8.8296296296296pt;">nosql</a>
+<a href="https://www.leaseweb.com/labs/tag/php/" class="tag-link-3 tag-link-position-25" title="91 topics" style="font-size: 21.066666666667pt;">php</a>
+<a href="https://www.leaseweb.com/labs/tag/privacy/" class="tag-link-287 tag-link-position-26" title="8 topics" style="font-size: 10.592592592593pt;">privacy</a>
+<a href="https://www.leaseweb.com/labs/tag/programming/" class="tag-link-75 tag-link-position-27" title="111 topics" style="font-size: 22pt;">programming</a>
+<a href="https://www.leaseweb.com/labs/tag/proxy/" class="tag-link-57 tag-link-position-28" title="5 topics" style="font-size: 8.8296296296296pt;">proxy</a>
+<a href="https://www.leaseweb.com/labs/tag/python/" class="tag-link-4 tag-link-position-29" title="20 topics" style="font-size: 14.42962962963pt;">python</a>
+<a href="https://www.leaseweb.com/labs/tag/redis/" class="tag-link-53 tag-link-position-30" title="6 topics" style="font-size: 9.5555555555556pt;">redis</a>
+<a href="https://www.leaseweb.com/labs/tag/rest-api/" class="tag-link-423 tag-link-position-31" title="5 topics" style="font-size: 8.8296296296296pt;">REST API</a>
+<a href="https://www.leaseweb.com/labs/tag/scalability-2/" class="tag-link-15 tag-link-position-32" title="7 topics" style="font-size: 10.074074074074pt;">scalability</a>
+<a href="https://www.leaseweb.com/labs/tag/security/" class="tag-link-58 tag-link-position-33" title="19 topics" style="font-size: 14.222222222222pt;">security</a>
+<a href="https://www.leaseweb.com/labs/tag/selenium/" class="tag-link-24 tag-link-position-34" title="5 topics" style="font-size: 8.8296296296296pt;">selenium</a>
+<a href="https://www.leaseweb.com/labs/tag/software/" class="tag-link-200 tag-link-position-35" title="4 topics" style="font-size: 8pt;">software</a>
+<a href="https://www.leaseweb.com/labs/tag/software-development/" class="tag-link-27 tag-link-position-36" title="12 topics" style="font-size: 12.251851851852pt;">software development</a>
+<a href="https://www.leaseweb.com/labs/tag/symfony/" class="tag-link-37 tag-link-position-37" title="10 topics" style="font-size: 11.525925925926pt;">symfony</a>
+<a href="https://www.leaseweb.com/labs/tag/symfony2/" class="tag-link-47 tag-link-position-38" title="31 topics" style="font-size: 16.4pt;">symfony2</a>
+<a href="https://www.leaseweb.com/labs/tag/test/" class="tag-link-25 tag-link-position-39" title="4 topics" style="font-size: 8pt;">test</a>
+<a href="https://www.leaseweb.com/labs/tag/testing/" class="tag-link-71 tag-link-position-40" title="8 topics" style="font-size: 10.592592592593pt;">testing</a>
+<a href="https://www.leaseweb.com/labs/tag/ubuntu/" class="tag-link-8 tag-link-position-41" title="26 topics" style="font-size: 15.57037037037pt;">ubuntu</a>
+<a href="https://www.leaseweb.com/labs/tag/unit-testing/" class="tag-link-98 tag-link-position-42" title="4 topics" style="font-size: 8pt;">unit testing</a>
+<a href="https://www.leaseweb.com/labs/tag/video/" class="tag-link-18 tag-link-position-43" title="4 topics" style="font-size: 8pt;">video</a>
+<a href="https://www.leaseweb.com/labs/tag/videos/" class="tag-link-308 tag-link-position-44" title="6 topics" style="font-size: 9.5555555555556pt;">videos</a>
+<a href="https://www.leaseweb.com/labs/tag/wordpress-2/" class="tag-link-166 tag-link-position-45" title="6 topics" style="font-size: 9.5555555555556pt;">wordpress</a></div>
+</aside><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<label class="screen-reader-text" for="archives-dropdown-2">Archives</label>
+		<select id="archives-dropdown-2" name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			
+			<option selected="selected" value="">Select Month</option>
+				<option value="https://www.leaseweb.com/labs/2016/02/"> February 2016 &nbsp;(1)</option>
+	<option value="https://www.leaseweb.com/labs/2015/11/"> November 2015 &nbsp;(2)</option>
+	<option value="https://www.leaseweb.com/labs/2015/10/"> October 2015 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2015/09/"> September 2015 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2015/08/"> August 2015 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2015/07/"> July 2015 &nbsp;(7)</option>
+	<option value="https://www.leaseweb.com/labs/2015/06/"> June 2015 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2015/05/"> May 2015 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2015/04/"> April 2015 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2015/03/"> March 2015 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2015/02/"> February 2015 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2015/01/"> January 2015 &nbsp;(7)</option>
+	<option value="https://www.leaseweb.com/labs/2014/12/"> December 2014 &nbsp;(7)</option>
+	<option value="https://www.leaseweb.com/labs/2014/11/"> November 2014 &nbsp;(4)</option>
+	<option value="https://www.leaseweb.com/labs/2014/10/"> October 2014 &nbsp;(8)</option>
+	<option value="https://www.leaseweb.com/labs/2014/09/"> September 2014 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2014/08/"> August 2014 &nbsp;(7)</option>
+	<option value="https://www.leaseweb.com/labs/2014/07/"> July 2014 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2014/06/"> June 2014 &nbsp;(9)</option>
+	<option value="https://www.leaseweb.com/labs/2014/05/"> May 2014 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2014/04/"> April 2014 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2014/03/"> March 2014 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2014/02/"> February 2014 &nbsp;(7)</option>
+	<option value="https://www.leaseweb.com/labs/2014/01/"> January 2014 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2013/12/"> December 2013 &nbsp;(12)</option>
+	<option value="https://www.leaseweb.com/labs/2013/11/"> November 2013 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2013/10/"> October 2013 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2013/09/"> September 2013 &nbsp;(4)</option>
+	<option value="https://www.leaseweb.com/labs/2013/08/"> August 2013 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2013/07/"> July 2013 &nbsp;(8)</option>
+	<option value="https://www.leaseweb.com/labs/2013/06/"> June 2013 &nbsp;(8)</option>
+	<option value="https://www.leaseweb.com/labs/2013/05/"> May 2013 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2013/04/"> April 2013 &nbsp;(4)</option>
+	<option value="https://www.leaseweb.com/labs/2013/03/"> March 2013 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2013/02/"> February 2013 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2013/01/"> January 2013 &nbsp;(6)</option>
+	<option value="https://www.leaseweb.com/labs/2012/12/"> December 2012 &nbsp;(4)</option>
+	<option value="https://www.leaseweb.com/labs/2012/11/"> November 2012 &nbsp;(4)</option>
+	<option value="https://www.leaseweb.com/labs/2012/10/"> October 2012 &nbsp;(2)</option>
+	<option value="https://www.leaseweb.com/labs/2012/09/"> September 2012 &nbsp;(1)</option>
+	<option value="https://www.leaseweb.com/labs/2012/08/"> August 2012 &nbsp;(5)</option>
+	<option value="https://www.leaseweb.com/labs/2012/07/"> July 2012 &nbsp;(3)</option>
+	<option value="https://www.leaseweb.com/labs/2012/06/"> June 2012 &nbsp;(2)</option>
+	<option value="https://www.leaseweb.com/labs/2012/05/"> May 2012 &nbsp;(4)</option>
+	<option value="https://www.leaseweb.com/labs/2012/02/"> February 2012 &nbsp;(2)</option>
+	<option value="https://www.leaseweb.com/labs/2012/01/"> January 2012 &nbsp;(2)</option>
+	<option value="https://www.leaseweb.com/labs/2011/12/"> December 2011 &nbsp;(4)</option>
+	<option value="https://www.leaseweb.com/labs/2011/11/"> November 2011 &nbsp;(3)</option>
+	<option value="https://www.leaseweb.com/labs/2011/09/"> September 2011 &nbsp;(2)</option>
+	<option value="https://www.leaseweb.com/labs/2011/08/"> August 2011 &nbsp;(1)</option>
+	<option value="https://www.leaseweb.com/labs/2011/07/"> July 2011 &nbsp;(4)</option>
+
+		</select>
+		</aside><aside id="search-2" class="widget widget_search"><h2 class="widget-title">Search blog</h2><form role="search" method="get" class="search-form" action="https://www.leaseweb.com/labs/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input class="search-field" placeholder="Search …" name="s" type="search">
+				</label>
+				<input class="search-submit screen-reader-text" value="Search" type="submit">
+			</form></aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<!-- Error, Ad is not available at this time due to schedule/geolocation restrictions! -->		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+	<div id="content" class="site-content">
+	<div id="primary" class="content-area">
+
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-6498" class="post-6498 post type-post status-publish format-standard hentry category-programming tag-api tag-databases tag-mysql tag-php tag-rest tag-rest-api">
+
+	
+	<header class="entry-header">
+		<h1 class="entry-title">Creating a simple REST API in PHP</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>I’m the author of <a href="https://github.com/mevdschee/php-crud-api">php-crud-api</a> and I want to share the <a href="https://github.com/mevdschee/php-crud-api/blob/master/extras/core.php">core</a>
+ of the application with you. It includes routing a JSON REST request, 
+converting it into SQL, executing it and giving a meaningful response. I
+ tried to write the application as short as possible and came up with 
+these 65 lines of code:</p>
+<div><div id="highlighter_558420" class="syntaxhighlighter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div><div class="line number52 index51 alt1">52</div><div class="line number53 index52 alt2">53</div><div class="line number54 index53 alt1">54</div><div class="line number55 index54 alt2">55</div><div class="line number56 index55 alt1">56</div><div class="line number57 index56 alt2">57</div><div class="line number58 index57 alt1">58</div><div class="line number59 index58 alt2">59</div><div class="line number60 index59 alt1">60</div><div class="line number61 index60 alt2">61</div><div class="line number62 index61 alt1">62</div><div class="line number63 index62 alt2">63</div><div class="line number64 index63 alt1">64</div><div class="line number65 index64 alt2">65</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="php comments">// get the HTTP method, path and body of the request</code></div><div class="line number4 index3 alt1"><code class="php variable">$method</code> <code class="php plain">= </code><code class="php variable">$_SERVER</code><code class="php plain">[</code><code class="php string">'REQUEST_METHOD'</code><code class="php plain">];</code></div><div class="line number5 index4 alt2"><code class="php variable">$request</code> <code class="php plain">= </code><code class="php functions">explode</code><code class="php plain">(</code><code class="php string">'/'</code><code class="php plain">, trim(</code><code class="php variable">$_SERVER</code><code class="php plain">[</code><code class="php string">'PATH_INFO'</code><code class="php plain">],</code><code class="php string">'/'</code><code class="php plain">));</code></div><div class="line number6 index5 alt1"><code class="php variable">$input</code> <code class="php plain">= json_decode(</code><code class="php functions">file_get_contents</code><code class="php plain">(</code><code class="php string">'php://input'</code><code class="php plain">),true);</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="php comments">// connect to the mysql database</code></div><div class="line number9 index8 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">'localhost'</code><code class="php plain">, </code><code class="php string">'user'</code><code class="php plain">, </code><code class="php string">'pass'</code><code class="php plain">, </code><code class="php string">'dbname'</code><code class="php plain">);</code></div><div class="line number10 index9 alt1"><code class="php plain">mysqli_set_charset(</code><code class="php variable">$link</code><code class="php plain">,</code><code class="php string">'utf8'</code><code class="php plain">);</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="php comments">// retrieve the table and key from the path</code></div><div class="line number13 index12 alt2"><code class="php variable">$table</code> <code class="php plain">= preg_replace(</code><code class="php string">'/[^a-z0-9_]+/i'</code><code class="php plain">,</code><code class="php string">''</code><code class="php plain">,</code><code class="php functions">array_shift</code><code class="php plain">(</code><code class="php variable">$request</code><code class="php plain">));</code></div><div class="line number14 index13 alt1"><code class="php variable">$key</code> <code class="php plain">= </code><code class="php functions">array_shift</code><code class="php plain">(</code><code class="php variable">$request</code><code class="php plain">)+0;</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="php comments">// escape the columns and values from the input object</code></div><div class="line number17 index16 alt2"><code class="php variable">$columns</code> <code class="php plain">= preg_replace(</code><code class="php string">'/[^a-z0-9_]+/i'</code><code class="php plain">,</code><code class="php string">''</code><code class="php plain">,</code><code class="php functions">array_keys</code><code class="php plain">(</code><code class="php variable">$input</code><code class="php plain">));</code></div><div class="line number18 index17 alt1"><code class="php variable">$values</code> <code class="php plain">= </code><code class="php functions">array_map</code><code class="php plain">(</code><code class="php keyword">function</code> <code class="php plain">(</code><code class="php variable">$value</code><code class="php plain">) </code><code class="php keyword">use</code> <code class="php plain">(</code><code class="php variable">$link</code><code class="php plain">) {</code></div><div class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$value</code><code class="php plain">===null) </code><code class="php keyword">return</code> <code class="php plain">null;</code></div><div class="line number20 index19 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">mysqli_real_escape_string(</code><code class="php variable">$link</code><code class="php plain">,(string)</code><code class="php variable">$value</code><code class="php plain">);</code></div><div class="line number21 index20 alt2"><code class="php plain">},</code><code class="php functions">array_values</code><code class="php plain">(</code><code class="php variable">$input</code><code class="php plain">));</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="php comments">// build the SET part of the SQL command</code></div><div class="line number24 index23 alt1"><code class="php variable">$set</code> <code class="php plain">= </code><code class="php string">''</code><code class="php plain">;</code></div><div class="line number25 index24 alt2"><code class="php keyword">for</code> <code class="php plain">(</code><code class="php variable">$i</code><code class="php plain">=0;</code><code class="php variable">$i</code><code class="php plain">&lt;</code><code class="php functions">count</code><code class="php plain">(</code><code class="php variable">$columns</code><code class="php plain">);</code><code class="php variable">$i</code><code class="php plain">++) {</code></div><div class="line number26 index25 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$set</code><code class="php plain">.=(</code><code class="php variable">$i</code><code class="php plain">&gt;0?</code><code class="php string">','</code><code class="php plain">:</code><code class="php string">''</code><code class="php plain">).</code><code class="php string">'`'</code><code class="php plain">.</code><code class="php variable">$columns</code><code class="php plain">[</code><code class="php variable">$i</code><code class="php plain">].</code><code class="php string">'`='</code><code class="php plain">;</code></div><div class="line number27 index26 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$set</code><code class="php plain">.=(</code><code class="php variable">$values</code><code class="php plain">[</code><code class="php variable">$i</code><code class="php plain">]===null?</code><code class="php string">'NULL'</code><code class="php plain">:</code><code class="php string">'"'</code><code class="php plain">.</code><code class="php variable">$values</code><code class="php plain">[</code><code class="php variable">$i</code><code class="php plain">].</code><code class="php string">'"'</code><code class="php plain">);</code></div><div class="line number28 index27 alt1"><code class="php plain">}</code></div><div class="line number29 index28 alt2">&nbsp;</div><div class="line number30 index29 alt1"><code class="php comments">// create SQL based on HTTP method</code></div><div class="line number31 index30 alt2"><code class="php keyword">switch</code> <code class="php plain">(</code><code class="php variable">$method</code><code class="php plain">) {</code></div><div class="line number32 index31 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">'GET'</code><code class="php plain">:</code></div><div class="line number33 index32 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$sql</code> <code class="php plain">= </code><code class="php string">"select * from `$table`"</code><code class="php plain">.(</code><code class="php variable">$key</code><code class="php plain">?</code><code class="php string">" WHERE id=$key"</code><code class="php plain">:</code><code class="php string">''</code><code class="php plain">); </code><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number34 index33 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">'PUT'</code><code class="php plain">:</code></div><div class="line number35 index34 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$sql</code> <code class="php plain">= </code><code class="php string">"update `$table` set $set where id=$key"</code><code class="php plain">; </code><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number36 index35 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">'POST'</code><code class="php plain">:</code></div><div class="line number37 index36 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$sql</code> <code class="php plain">= </code><code class="php string">"insert into `$table` set $set"</code><code class="php plain">; </code><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number38 index37 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">'DELETE'</code><code class="php plain">:</code></div><div class="line number39 index38 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$sql</code> <code class="php plain">= </code><code class="php string">"delete `$table` where id=$key"</code><code class="php plain">; </code><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number40 index39 alt1"><code class="php plain">}</code></div><div class="line number41 index40 alt2">&nbsp;</div><div class="line number42 index41 alt1"><code class="php comments">// excecute SQL statement</code></div><div class="line number43 index42 alt2"><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">,</code><code class="php variable">$sql</code><code class="php plain">);</code></div><div class="line number44 index43 alt1">&nbsp;</div><div class="line number45 index44 alt2"><code class="php comments">// die if SQL statement failed</code></div><div class="line number46 index45 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$result</code><code class="php plain">) {</code></div><div class="line number47 index46 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">http_response_code(404);</code></div><div class="line number48 index47 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">die</code><code class="php plain">(mysqli_error());</code></div><div class="line number49 index48 alt2"><code class="php plain">}</code></div><div class="line number50 index49 alt1">&nbsp;</div><div class="line number51 index50 alt2"><code class="php comments">// print results, insert id or affected row count</code></div><div class="line number52 index51 alt1"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$method</code> <code class="php plain">== </code><code class="php string">'GET'</code><code class="php plain">) {</code></div><div class="line number53 index52 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$key</code><code class="php plain">) </code><code class="php functions">echo</code> <code class="php string">'['</code><code class="php plain">;</code></div><div class="line number54 index53 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">for</code> <code class="php plain">(</code><code class="php variable">$i</code><code class="php plain">=0;</code><code class="php variable">$i</code><code class="php plain">&lt;mysqli_num_rows(</code><code class="php variable">$result</code><code class="php plain">);</code><code class="php variable">$i</code><code class="php plain">++) {</code></div><div class="line number55 index54 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php plain">(</code><code class="php variable">$i</code><code class="php plain">&gt;0?</code><code class="php string">','</code><code class="php plain">:</code><code class="php string">''</code><code class="php plain">).json_encode(mysqli_fetch_object(</code><code class="php variable">$result</code><code class="php plain">));</code></div><div class="line number56 index55 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">}</code></div><div class="line number57 index56 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$key</code><code class="php plain">) </code><code class="php functions">echo</code> <code class="php string">']'</code><code class="php plain">;</code></div><div class="line number58 index57 alt1"><code class="php plain">} </code><code class="php keyword">elseif</code> <code class="php plain">(</code><code class="php variable">$method</code> <code class="php plain">== </code><code class="php string">'POST'</code><code class="php plain">) {</code></div><div class="line number59 index58 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php plain">mysqli_insert_id(</code><code class="php variable">$link</code><code class="php plain">);</code></div><div class="line number60 index59 alt1"><code class="php plain">} </code><code class="php keyword">else</code> <code class="php plain">{</code></div><div class="line number61 index60 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php plain">mysqli_affected_rows(</code><code class="php variable">$link</code><code class="php plain">);</code></div><div class="line number62 index61 alt1"><code class="php plain">}</code></div><div class="line number63 index62 alt2">&nbsp;</div><div class="line number64 index63 alt1"><code class="php comments">// close mysql connection</code></div><div class="line number65 index64 alt2"><code class="php plain">mysqli_close(</code><code class="php variable">$link</code><code class="php plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p>This code is written to show you how simple it is to make a fully operational REST API in PHP.</p>
+<h3>Running</h3>
+<p>Save this file as “api.php” in your (Apache) document root and call it using:</p>
+<pre>http://localhost/api.php/{$table}/{$id}</pre>
+<p>Or you can use the PHP built-in webserver from the command line using:</p>
+<pre>$ php -S localhost:8888 api.php</pre>
+<p>The URL when ran in from the command line is:</p>
+<pre>http://localhost:8888/api.php/{$table}/{$id}</pre>
+<p>NB: Don’t forget to adjust the ‘mysqli_connect’ parameters in the above script!</p>
+<h3>REST API in a single PHP file</h3>
+<p>Although the above code is not perfect it actually does do 3 important things:</p>
+<ol>
+<li>Support HTTP verbs GET, POST, UPDATE and DELETE</li>
+<li>Escape all data properly to avoid SQL injection</li>
+<li>Handle null values correctly</li>
+</ol>
+<p>One could thus say that the REST API is fully functional. You may run into missing features of the code, such as:</p>
+<ol>
+<li>No related data (automatic joins) supported</li>
+<li>No condensed JSON output supported</li>
+<li>No support for PostgreSQL or SQL Server</li>
+<li>No POST parameter support</li>
+<li>No JSONP/CORS cross domain support</li>
+<li>No base64 binary column support</li>
+<li>No permission system</li>
+<li>No search/filter support</li>
+<li>No pagination or sorting supported</li>
+<li>No column selection supported</li>
+</ol>
+<p>Don’t worry, all these features are available in <a href="https://github.com/mevdschee/php-crud-api">php-crud-api</a>,
+ which you can get from Github. On the other hand, now that you have the
+ essence of the application, you may also write your own!</p>
+<div class="twoclick_social_bookmarks_post_6498 social_share_privacy clearfix 1.6.4 locale-en_US sprite-en_US"><ul class="social_share_privacy_area_6498"><li class="twoclick-facebook"><div class="twoclick-button-container help_info"><span class="info">2-Click
+ Social Media Buttons: First click enables the social media button and 
+the second click sends your recommendation to Facebook.</span><span class="switch off">nicht mit Facebook verbunden</span><div class="fb_recommend_btn dummy_btn"><span class="fb_recommend_dummy twoclick-network">&nbsp;</span></div></div></li><li class="twoclick-twitter"><div class="twoclick-button-container help_info"><span class="info">2-Click
+ Social Media Buttons: First click enables the social media button and 
+the second click sends your recommendation to Twitter.</span><span class="switch off">nicht mit Twitter verbunden</span><div class="twitter_btn dummy_btn"><span class="twitter_dummy twoclick-network">&nbsp;</span></div></div></li><li class="twoclick-gplus"><div class="twoclick-button-container help_info"><span class="info">2-Click
+ Social Media Buttons: First click enables the social media button and 
+the second click sends your recommendation to Google+.</span><span class="switch off">nicht mit Google+verbunden</span><div class="gplusone_btn dummy_btn"><span class="gplus_one_dummy twoclick-network">&nbsp;</span></div></div></li><li class="twoclick-linkedin"><div class="twoclick-button-container help_info"><span class="info">2-Click
+ Social Media Buttons: First click enables the social media button and 
+the second click sends your recommendation to LinkedIn.</span><span class="switch off">nicht mit LinkedIn verbunden</span><div class="linkedin_btn dummy_btn"><span class="linkedin_dummy twoclick-network">&nbsp;</span></div></div></li><li class="settings_info"><div class="settings_menu off perma_option_off"></div></li></ul></div><div class="twoclick-js"><script type="text/javascript">/* <![CDATA[ */
+jQuery(document).ready(function($){if($('.twoclick_social_bookmarks_post_6498')){$('.twoclick_social_bookmarks_post_6498').socialSharePrivacy({"services":{"facebook":{"status":"on","txt_info":"2-Click Social Media Buttons: First click enables the social media button and the second click sends your recommendation to Facebook.","perma_option":"off","action":"recommend","language":"en_US"},"twitter":{"reply_to":"","tweet_text":"%20Creating%20a%20simple%20REST%20API%20in%20PHP%20%23api%20%23databases%20%23mysql%20%23php%20%23rest%20...","status":"on","txt_info":"2-Click Social Media Buttons: First click enables the social media button and the second click sends your recommendation to Twitter.","perma_option":"off","language":"en","referrer_track":""},"gplus":{"status":"on","txt_info":"2-Click Social Media Buttons: First click enables the social media button and the second click sends your recommendation to Google+.","perma_option":"off","referrer_track":""},"linkedin":{"status":"on","txt_info":"2-Click Social Media Buttons: First click enables the social media button and the second click sends your recommendation to LinkedIn.","perma_option":"off"}},"txt_help":"When you click to enable the social media button, information about your visit is sent to the servers of Facebook, Twitter and\/or LinkedIn. These services may be located in foreign countries and you information may be stored there.","settings_perma":"Permanent activation of social media button","info_link":"http:\/\/www.heise.de\/ct\/artikel\/2-Klicks-fuer-mehr-Datenschutz-1333879.html","uri":"https:\/\/www.leaseweb.com\/labs\/2015\/10\/creating-a-simple-rest-api-in-php\/","post_id":6498,"post_title_referrer_track":"Creating+a+simple+REST+API+in+PHP","display_infobox":"off"});}});
+/* ]]&gt; */</script></div>	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/" rel="bookmark"><time class="entry-date published" datetime="2015-10-20T01:10:36+00:00">October 20, 2015</time><time class="updated" datetime="2015-11-06T21:22:15+00:00">November 6, 2015</time></a></span><span class="byline"><span class="author vcard"><span class="screen-reader-text">Author </span><a class="url fn n" href="https://www.leaseweb.com/labs/author/m-vanderschee/">Maurits van der Schee (Innovation Engineer)</a></span></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://www.leaseweb.com/labs/category/programming/" rel="category tag">Programming</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://www.leaseweb.com/labs/tag/api/" rel="tag">api</a>, <a href="https://www.leaseweb.com/labs/tag/databases/" rel="tag">databases</a>, <a href="https://www.leaseweb.com/labs/tag/mysql/" rel="tag">mysql</a>, <a href="https://www.leaseweb.com/labs/tag/php/" rel="tag">php</a>, <a href="https://www.leaseweb.com/labs/tag/rest/" rel="tag">rest</a>, <a href="https://www.leaseweb.com/labs/tag/rest-api/" rel="tag">REST API</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-## -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			5 thoughts on “Creating a simple REST API in PHP”		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-132155" class="comment even thread-even depth-1">
+			<article id="div-comment-132155" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">Nico</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/#comment-132155">
+							<time datetime="2015-11-05T00:46:31+00:00">
+								November 5, 2015 at 12:46 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>please, read <a href="http://www.phptherightway.com/#mysql_extension" rel="nofollow">http://www.phptherightway.com/#mysql_extension</a><br>
+SQL Injection and more.</p>
+<p>Don’t use this code in prod.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-132225" class="comment byuser comment-author-m-vanderschee bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-132225" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">Maurits van der Schee (Innovation Engineer)</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/#comment-132225">
+							<time datetime="2015-11-05T18:06:51+00:00">
+								November 5, 2015 at 6:06 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@Nico: Thank you for sharing your concerns. It is great that you
+ are aware of “PHP the right way” (great reference isn’t it?). I am, 
+like you, very much concerned with SQL injection problems and therefor 
+the code is designed to not have any. Still I would be very grateful if 
+you would find a SQL injection bug in the above code. If you do, then 
+please report it, for everybody to see and comment on, in the issue 
+tracker on Github: <a href="https://github.com/mevdschee/php-crud-api" rel="nofollow">https://github.com/mevdschee/php-crud-api</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-132175" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://itfm.pro/php-%D0%B4%D0%B0%D0%B9%D0%B4%D0%B6%D0%B5%D1%81%D1%82-%E2%84%96-73-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BD%D1%8B%D0%B5-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8-%D0%BC%D0%B0%D1%82/" rel="external nofollow" class="url">PHP-Дайджест № 73 – интересные новости, материалы и инструменты (18 октября – 5 ноября 2015) - itfm.pro</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-132317" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-132317" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">Manuel</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/#comment-132317">
+							<time datetime="2015-11-09T22:40:05+00:00">
+								November 9, 2015 at 10:40 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi, i’m a web developer interested in building a hybrid app; at 
+the moment i’m learning angularjs and im using ionic framework, this 
+tools provide me enough resources to make a front development; my 
+problem is, i really don’t know how to implement a database management 
+for my app, as i want my users to be able to store data in a local 
+database and synchronize it to server, i use php and mysql; do you have 
+any recommendation on wich tools should i use? i’ve been searching but 
+there are lots of them, pouchdb, sqlite, couchdb, etc… wich of them 
+should i use knowing that i use php and mysql? Thank you for your help.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-132330" class="comment byuser comment-author-m-vanderschee bypostauthor even thread-even depth-1">
+			<article id="div-comment-132330" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">Maurits van der Schee (Innovation Engineer)</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/#comment-132330">
+							<time datetime="2015-11-10T13:07:58+00:00">
+								November 10, 2015 at 1:07 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@Manuel: Thank you for you comment. I have no experience 
+building hybrid apps, but pouchdb looks nice to me. Maybe some other 
+reader can advice you on this.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.leaseweb.com/labs/2015/10/creating-a-simple-rest-api-in-php/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="https://www.leaseweb.com/labs/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+					<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" size="30" maxlength="245" aria-required="true" required="required" type="text"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required" type="email"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" size="30" maxlength="200" type="url"></p>
+<p class="form-submit"><input name="submit" id="submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="6498" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="5f20b9c1c2" type="hidden"></p><p style="display: none;"></p>				<input id="ak_js" name="ak_js" value="1472055308648" type="hidden"></form>
+					</div><!-- #respond -->
+		
+</div><!-- .comments-area -->
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://www.leaseweb.com/labs/2015/10/php-crud-api-now-supports-postgresql-9/" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">PHP-CRUD-API now supports PostgreSQL 9</span></a></div><div class="nav-next"><a href="https://www.leaseweb.com/labs/2015/10/simple-web-application-firewall-using-htaccess/" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">Simple web application firewall using .htaccess</span></a></div></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<!-- .site-footer is moved to header -->
+
+</div><!-- .site -->
+
+<script>window._popup_data = {"ajaxurl":"https:\/\/www.leaseweb.com\/labs\/wp-admin\/admin-ajax.php","do":"get_data","ajax_data":{"orig_request_uri":"\/labs\/2015\/10\/creating-a-simple-rest-api-in-php\/"}};</script><script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/form.js"></script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/shCore.js"></script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/shBrushPhp.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://www.leaseweb.com/labs/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://www.leaseweb.com/labs/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['tab-size'] = 2;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/social_bookmarks-min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var click_object = {"ajax_url":"https:\/\/www.leaseweb.com\/labs\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/jquery.js"></script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/skip-link-focus-fix.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/functions.js"></script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/public.js"></script>
+<script type="text/javascript" src="Creating%20a%20simple%20REST%20API%20in%20PHP%20-%20LeaseWeb%20labs_files/wp-embed.js"></script>
+
+
+
+</body></html>
