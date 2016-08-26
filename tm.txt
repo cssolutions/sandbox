@@ -1,0 +1,115 @@
+DELIMITER $$
+
+USE `tm`$$
+DROP TRIGGER IF EXISTS `assign_flats_on_auction_creation`$$
+CREATE
+    TRIGGER `assign_flats_on_auction_insert` AFTER INSERT ON `auction` 
+    FOR EACH ROW BEGIN
+      INSERT INTO auction_bet (`text`, `aid`, `fid`)
+      SELECT f.text, NEW.`aid`, f.fid
+      FROM flats f
+      WHERE hid = NEW.`hid`;
+    END;
+$$
+
+DELIMITER ;
+
+
+#auction states: 1: created(editable, not betable), 2: verified(not editable, betable), 3: finished(not editable, betable only by admin),4: closed(not editable,  nor betable)
+#ezt még egy elágazással ki kell egészíteni, hogy a mezők alapján az alábbi jöjjön vissza: 1,2,3,4
+DELIMITER $$
+
+USE `tm`$$
+DROP FUNCTION IF EXISTS check_auction_state$$
+CREATE FUNCTION check_auction_state(a_id INT)
+  RETURNS TEXT
+BEGIN
+  DECLARE retval TEXT;
+  DECLARE date_start, date_end, verified, closed TEXT;
+  DECLARE v_cur CURSOR FOR SELECT IFNULL(date_start,'start') as date_start, IFNULL(date_end,'end') as date_end, IFNULL(verified,'verified') as verified, IFNULL(closed,'closed') as closed 
+                           FROM auction WHERE aid = a_id LIMIT 1;
+
+  OPEN v_cur;
+      FETCH v_cur INTO date_start, date_end, verified, closed;
+  CLOSE v_cur;
+
+  RETURN CONCAT(date_start, date_end, verified, closed);
+END;
+$$
+DELIMITER ;
+
+SELECT check_auction_state(1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aukció workflow:
+- admin létrehoz egy aukciót
+- admin szerkesztheti az aukciót
+- admin jóváhagyhatja kiírásra(ezután már nem szerkesztheti)
+- AUKCIÓ KEZDETE
+- admin/emberek szavazhatnak a lakás nevében(akinek joga van hozzá) -> jogot az emberek szerkesztésénél lehet adni. Ezt tud az admin és tud a tulajdonos. Amikor valaki lemegy, hogy hozzárendeltesse magát a házhoz,
+  akkor tulajdoni lappal igazolhatja magát(ekkor kap teljes jogot), de lemehet albérlőként is, ekkor nem kap jogot a szavazásra...
+- AUKCIÓ VÉGE
+- admin szavazhat lakások nevében(ahol a lakás még nem szavazott saját nevében)
+- admin jóváhagyja a lezárást -> lakásoknak üzenet ez eredményekről
+
+
+
+Aukció létrehozása(admin)
+ ACL alapján(- csak az admin - csak a hozzá tartozó házhoz - ha a hozzá tartozó házhoz van aukció létrehozási joga)
+ - ha a befejező dátum későbbi mint a kezdő dátum
+ - a description kötelező
+Szavazók hozzáadása(admin)
+ - autómatikusan stored proc-ból
+Opciók hozzáadása(admin)
+ - autómatikusan kóddal
+
+Aukció szerkesztése(admin)
+ ACL alapján(- csak az admin - csak a hozzá tartozó házhoz - ha a hozzá tartozó házhoz van aukciószerkesztési joga)
+ - ha a jóváhagyás kiírásról még nem történt meg
+ - ha a befejező dátum kisebb mint a kezdő dátum
+ - a description kötelező
+
+Opciók szerkesztése(admin)
+ ACL alapján(- csak az admin - csak a hozzá tartozó házhoz - ha a hozzá tartozó házhoz van aukció opcióinak szerkesztésének joga)
+ - ha a jóváhagyás kiírásról még nem történt meg
+ (- ha a befejező időpont nem telt el)
+
+(jóváhagyás akkor lehetséges, ha minden lakáshoz fel van víve a tulajdoni hányad, ellenkező esetben figyelmeztetés, hogy fel kell vinni)
+Aukció kiírásának jóváhagyása(admin)
+ ACL alapján(- csak az admin - csak a hozzá tartozó házhoz - ha a hozzá tartozó házhoz van aukciókiírási joga)
+ - ha a kezdő időpont nem telt el
+ - ha a jóváhagyás kiírásról nem történt meg
+
+AUKCIÓ KEZDETE
+
+Tét megrakása(admin (user)lakásnak, user saját lakásának)(2 action: bet, adminBet -> ugyanazt a helper fv-t hívja meg más paraméterekkel)(admin csak azoknak a lakásoknak adhat szavazatot, amelyek nem szavaztak)
+ - ha az aukció az adott időintervallumon belül van
+ - a jóváhagyás kiírásról megtörtént
+ - a jóváhagyás lezárásról nem történt meg
+ - a lakás ahhoz a házhoz tartozik, melyre az aukció történik
+
+AUKCIÓ VÉGE
+
+Aukció lezárásánask jóváhagyása(admin)
+ - ha a befejező időpont eltelt
+ - ha a jóváhagyás lezárásról nem történt meg
+ - ha a jóváhagyás kiírásról megtörtént
+
+
+
+auctionAdd {
+ - add an auction(and its flats to auction bet)
+ - rebuild options
+}

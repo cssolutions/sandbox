@@ -106,7 +106,34 @@ END;
 
 
 
+DELIMITER $$
 
+USE `sandbox`$$
+DROP PROCEDURE IF EXISTS add_auction$$
+CREATE PROCEDURE add_auction (IN houses_id INT, IN users_id INT, OUT retval VARCHAR(255))
+  BEGIN
+	SET @cond = 0;
+    SELECT (
+      CASE 
+          WHEN EXISTS(SELECT * FROM sandbox.webref_rss_details WHERE language='magyar') THEN 'exists'
+          ELSE 'not exists'
+      END) INTO @cond FROM sandbox.webref_rss_details;
+
+    IF @cond = 'exists' THEN
+       SET @income_level = 'Existing house';
+    ELSE
+       SET @income_level = 'Not Existing house';
+    END IF;
+    SELECT CONCAT('Is exists house: ', @income_level, ', houses_id: ', houses_id, ', users_id: ', users_id) INTO @cond;
+    SELECT @cond INTO retval;
+  END;
+$$
+
+DELIMITER ;
+
+
+CALL add_auction(1,2,@return_val);
+SELECT @return_val;
 
 
 

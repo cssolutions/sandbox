@@ -10,6 +10,6 @@ class MyAPI {
     }
 }
 
-$server = new SoapServer(NULL,['uri'=>'http://sandbox.local/soap/index.html']);
+$server = new SoapServer(NULL,['uri'=>'http://sandbox.local/php/soap/index.html']);
 $server->setClass('MyAPI');
 $server->handle();
