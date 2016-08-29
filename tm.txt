@@ -1,6 +1,33 @@
 DELIMITER $$
+DROP PROCEDURE IF EXISTS `add_auction_participants`$$
+CREATE PROCEDURE `add_auction_participants`(IN _house_id INT, IN _auction_id INT, OUT retval INT)
+BEGIN
+    DECLARE `_rollback` BOOL DEFAULT 0;
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET `_rollback` = 1;
+    SET retval = 1;
+    START TRANSACTION;
+    
+    INSERT INTO auction_bet (`text`, `aid`, `fid`)
+    SELECT f.text, _auction_id, f.fid
+    FROM flats f
+    WHERE hid = _house_id;
+    
+    IF `_rollback` THEN
+        ROLLBACK;
+        SET retval = 0;
+    END IF;
 
-USE `tm`$$
+END$$
+
+DELIMITER ;
+
+
+CALL add_auction_participants(1,25,@result);
+SELECT @result;
+
+#-------------------------------------------------------------------------------------------
+
+DELIMITER $$
 DROP TRIGGER IF EXISTS `assign_flats_on_auction_creation`$$
 CREATE
     TRIGGER `assign_flats_on_auction_insert` AFTER INSERT ON `auction` 
@@ -14,9 +41,9 @@ $$
 
 DELIMITER ;
 
+#-------------------------------------------------------------------------------------------
 
-#auction states: 1: created(editable, not betable), 2: verified(not editable, betable), 3: finished(not editable, betable only by admin),4: closed(not editable,  nor betable)
-#ezt még egy elágazással ki kell egészíteni, hogy a mezők alapján az alábbi jöjjön vissza: 1,2,3,4
+#auction states: 1: created(editable, not betable), 2: verified(not editable, betable), 3: closeable(not editable, betable only by admin),4: closed(not editable,  nor betable)
 DELIMITER $$
 
 USE `tm`$$

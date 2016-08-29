@@ -68,6 +68,7 @@ CREATE UNIQUE INDEX index_name ON table_name (column_name)
 
 CREATE INDEX PIndex ON Persons (LastName, FirstName)
 
+CREATE UNIQUE INDEX `unique_aid_fid` ON auction_bet (`aid`, `fid`)
 
 
 
