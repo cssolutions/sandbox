@@ -56,7 +56,8 @@ print "---------------------------------------------------- Cloning project ende
 
 //CREATE/CLONE DB
 print "---------------------------------------------------- Creating database $name...\n";
-passthru("/opt/lampp/bin/mysqldump -h localhost -u root  " . DB_TO_CLONE . " > $name.sql && /opt/lampp/bin/mysqladmin -h localhost -u root create $name && /opt/lampp/bin/mysql -h localhost -u root  $name < $name.sql");
+//passthru("/opt/lampp/bin/mysqldump -h localhost -u root  " . DB_TO_CLONE . " > $name.sql && /opt/lampp/bin/mysqladmin -h localhost -u root create $name && /opt/lampp/bin/mysql -h localhost -u root  $name < $name.sql");
+passthru("/opt/lampp/bin/mysql -h localhost -u root  $name < core.sql");
 print "---------------------------------------------------- Database $name has been created...\n";
 passthru('sudo mkdir ' . WWW_PATH . '/' . $name . '/app/cache/volt');
 passthru('sudo chmod -R 0777 ' . WWW_PATH . '/' . $name . '/app/cache');

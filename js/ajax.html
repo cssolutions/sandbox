@@ -11,7 +11,7 @@ $(document).ready(function(){
         //dataType:"json",
         data: {'a':'b'},
         beforeSend: function(sg, sg2) {
-          console.log('Before send', xhr, sg2);
+          console.log('Before send', sg, sg2);
           //sg: readyState: 4, responseText: "faszom", status: 404, statusText: "Nem lÃ©tezÅ cÃ­m"
           //sg2: data, dataTypes, accept, async
         },
@@ -21,10 +21,10 @@ $(document).ready(function(){
           //sg2: error/success
         },
         success: function (first, second, third) {
-          console.log('Success', first, second, third, third.responseText, third.responseJSON);
+          console.log('Success', first, second, third);
           //console.log('Success', third.responseJSON);
           //response: returned data
-          //sg: success
+          //sg: success//first equals to third.responseJSON, second=successm third is an object that contains repöonseText, responseJson, status, statusText, readyState
         },
         complete: function(sg, sg2) { //runs always
           console.log('Complete', sg, sg2);
