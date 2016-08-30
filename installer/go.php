@@ -49,6 +49,7 @@ print "---------------------------------------------------- Cloning project...\n
 passthru('git clone https://oninflo-csaba@bitbucket.org/oninflo-csaba/base-admin.git');
 passthru("mv base-admin $name");
 chdir($name);
+passthru("mv app/config/config.php app/config/$url.config.php");
 passthru('rm -rf repo.git');
 passthru('git init');
 passthru("git remote add origin https://oninflo-csaba@bitbucket.org/oninflo-csaba/$name.git");
