@@ -1,0 +1,9 @@
+Database support 	12 different drivers 	MySQL only
+API                 OOP                     OOP + procedural
+Connection          Easy                    Easy
+Named parameters 	Yes                     No
+Object mapping      Yes                     Yes
+Prepared statements
+(client side)       Yes                     No
+Performance         Fast                    Fast
+Stored procedures 	Yes                     Yes

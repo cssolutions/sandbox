@@ -1,44 +1,71 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "tm";
 
-$mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+$mysqli = new mysqli($servername, $username, $password, $dbname);
 
-/* check connection */
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
 
-
-$mysqli->query("CREATE TABLE myCity LIKE City");
-
-
-$query = "INSERT INTO myCity (Name, CountryCode, District) VALUES (?,?,?)";
-$stmt = $mysqli->prepare($query);
-$stmt->bind_param("sss", $val1, $val2, $val3);
+//CREATE ----------------------------------------------------------------------------------------
+//$mysqli->query("CREATE TABLE myCity LIKE City");
 
 
-$val1 = 'Stuttgart';
-$val2 = 'DEU';
-$val3 = 'Baden-Wuerttemberg';
-$stmt->execute();
+//INSERT ----------------------------------------------------------------------------------------
+//$query = "INSERT INTO houses (hid, text) VALUES (?,?)";
+//$stmt = $mysqli->prepare($query);
+//$stmt->bind_param("is", $val1, $val2);
+//
+//$val1 = '2';
+//$val2 = 'Második teszt';
+//$stmt->execute();
+//
+//$val1 = '3';
+//$val2 = 'Harmadik teszt';
+//$stmt->execute();
+//$stmt->close();
 
-$val1 = 'Bordeaux';
-$val2 = 'FRA';
-$val3 = 'Aquitaine';
-$stmt->execute();
-$stmt->close();
 
+//UPDATE ----------------------------------------------------------------------------------------
+//if ($mysqli->query("UPDATE houses SET text='Masodik' WHERE hid=2") === TRUE) echo "Record updated successfully";
+//else echo "Error updating record: " . $mysqli->error;
 
-$query = "SELECT Name, CountryCode, District FROM myCity";
-if ($result = $mysqli->query($query)) {
-    while ($row = $result->fetch_row()) {
-        printf("%s (%s,%s)\n", $row[0], $row[1], $row[2]);
-    }
-    $result->close();
-}
+//SELECT ----------------------------------------------------------------------------------------
+//$query = "SELECT hid, text FROM houses";
+//if ($result = $mysqli->query($query)) {
+//    while ($row = $result->fetch_row()) {
+//        printf("%s,%s\n", $row[0], $row[1]);
+//    }
+//    $result->close();
+//}
 
-if ($mysqli->query("UPDATE MyGuests SET lastname='Doe' WHERE id=2") === TRUE) echo "Record updated successfully";
-else echo "Error updating record: " . $mysqli->error;
+//SELECT PREPARED ----------------------------------------------------------------------------------------
+//$query = "SELECT hid, text FROM auction WHERE hid = ?";
+//$stmt = $mysqli->prepare($query);
+//$value = 1;
+//$stmt->bind_param("i", $value);
+//$result = $stmt->execute();
+//$stmt->bind_result($col1, $col2);
+//while ($stmt->fetch()) {
+//		printf("%s %s\n", $col1, $col2);
+//}
+
+//if ($result = $mysqli->query($query)) {
+//    while ($row = $result->fetch_row()) {
+//        printf("%s,%s\n", $row[0], $row[1]);
+//    }
+//    $result->close();
+//}
+
+//CALL PROCEDURE ----------------------------------------------------------------------------------------
+//$mysqli->query('CALL add_auction_participants(1,3,@ret,@rolled);');
+//$result = $mysqli->query('SELECT @ret, @rolled;');
+//var_dump($result->fetch_assoc()); //array (size=2)  '@ret' => string '3' (length=1)  '@rolled' => string '0' (length=1)
+
 
 
 $mysqli->close();
