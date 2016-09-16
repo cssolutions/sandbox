@@ -63,93 +63,11 @@ $( "a" ).showLinkLocation();
 
 
 
-(function ( $ ) {
-	
-   $.fn.oform = function( options ) {
-		var $form = this, data_settings = {};
-		if (this.hasAttr('target-place') && $form.attr('target-place') !== '') {
-			data_settings.target_place = $form.attr('target-place');
-		}
-		if ($form.hasAttr('data-parent-form') && $form.attr('data-parent-form') !== '') data_settings.parent_form = $form.attr('data-parent-form');
-		if ($form.hasAttr('data-form-url') && $form.attr('data-form-url') !== '') data_settings.form_url = $form.attr('data-form-url');
-		if ($form.hasAttr('data-paginator') && $form.attr('data-paginator') !== '') data_settings.paginator = $form.attr('data-paginator');
-		if ($form.hasAttr('data-validate-per-item') && $form.attr('data-validate-per-item') !== '') data_settings.validate_per_item = $form.attr('data-validate-per-item');
-
-		var settings = $.extend({
-			 target_place: "self",  //self|modal|selector                 Indicates that which place of the page to send the form  
-			 parent_form: "none",   //selector
-			 form_url: "none",
-			 paginator: 0,
-			 validate_per_item: 0
-		},
-		data_settings,
-		options);
-		
-		function get_target_place() {
-			if (settings.target_place === 'self') return $form.parent();
-			else if (settings.target_place === 'modal') return $('#modal_selector');
-			else return $(settings.parent_selector);
-		}
-		
-		function get_parent_form() {
-			if (settings.parent_form == 'none') return false;
-			else return $(settings.parent_form);
-		}
-		
-		/*
-		 * Make tabs based on an object configuration
-		 * Setting.paginator should looks like this: {'Tab1 neve':['selector1','selector2']}
-		 */
-		if (settings.paginator === 1) {
-			var $nav = $('<nav id="form-tabs"></nav>');
-			$('fieldset', $form).each(function(i,e) {
-				var $fieldset = $(e), $title = $fieldset.data('title'), $hash = $fieldset.attr('id');
-				$nav.append('<a href="#' + $hash + '">' + $title + '</a>');
-			});
-			$form.prepend($nav);
-			
-			$(window).hashchange( function(){
-				var $hash = location.hash;
-				$('#form-tabs a').removeClass('active');
-				$('#form-tabs a[href="' + $hash + '"]').addClass('active');
-//				$('#form-tabs a').each(function(){
-//					var $link = $(this);
-//					if ($link.attr('href') === $hash) $link.addClass('active');
-//				});
-				$('fieldset', $form).hide();
-				$($hash, $form).show();
-			});			
-		}
-		
-
-		
-		$('[type="submit"]', this).click(function() {
-			$.ajax({
-				method: this.attr('method'),
-				url: this.attr('action'),
-				data: this.serialize()
-			}).success(function(response) {
-				get_target_place().html(response);
-			}).done(function(response) {
-				get_target_place().html(response);
-			});			
-		});
-		
-//		return this.css({
-//			 color: settings.color,
-//			 backgroundColor: settings.backgroundColor
-//		});
-
-
-   };
-}( jQuery ));
-
-
-$.fn.checkall = function(selector) {
-	 //var context = $(selector);
-	 $(selector).find('input[type="checkbox"]').prop('checked', this.prop('checked'));
-	 return this;
-};
+//$.fn.checkall = function(selector) {
+//	 //var context = $(selector);
+//	 $(selector).find('input[type="checkbox"]').prop('checked', this.prop('checked'));
+//	 return this;
+//};
 
 $.fn.checkall = function(selector) {
    var $control = this;

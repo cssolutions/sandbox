@@ -1,0 +1,5 @@
+<?php
+
+$varr = [
+	'elso' => 'gecc'
+];
