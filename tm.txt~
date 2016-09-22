@@ -4,6 +4,7 @@ CREATE PROCEDURE `add_auction_participants`(IN _house_id INT, IN _auction_id INT
 BEGIN
     DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET `_rollback` = 1;
+    SET retval = 1;
     START TRANSACTION;
     
     INSERT INTO auction_bet (`text`, `aid`, `fid`)
@@ -14,11 +15,10 @@ BEGIN
     IF `_rollback` THEN
         ROLLBACK;
         SET retval = 0;
-    ELSE
-	SET retval = 1;
     END IF;
 
 END$$
+
 DELIMITER ;
 
 
