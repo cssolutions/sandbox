@@ -1,4 +1,6 @@
 <?php
+$memcache = new Memcache;
+$memcache->connect('localhost', 11211) or die ("Could not connect");
 $host = '127.0.0.1';$port = '8000';$null = NULL;
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, 1); //reuseable port
@@ -11,12 +13,11 @@ $messages = [];
 while (true) {  //start endless loop, so that our script doesn't stop
 	$changed = $clients;  //manage multipal connections
 	socket_select($changed, $null, $null, 0, 10); //returns the socket resources in $changed array
-	
 	if (in_array($socket, $changed)) {  //check for new socket
 		$socket_new = socket_accept($socket); //accpet new socket
 		//var_dump(stream_get_meta_data($socket_new));
 		$clients[] = $socket_new; //add socket to client array
-		
+		var_dump($socket);
 		$header = socket_read($socket_new, 1024); //read data sent by the socket
 		perform_handshaking($header, $socket_new, $host, $port); //perform websocket handshake
 		
