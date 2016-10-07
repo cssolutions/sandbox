@@ -1,0 +1,9 @@
+Finally, REST isn't for everyone, and a proof of that is how most people solve their problems very well with the HTTP APIs they call REST and never venture beyond that. 
+REST is hard to do sometimes, especially in the beginning, but it pays over time with easier evolution on the server side, and client's resilience to changes.
+
+
+Here we should consider a historical aspect. SOAP standards are much older than REST. 
+REST started to be a 'simpler' SOAP however many of the comprehensive features were not in initial focus of REST. For example features like validation (XML schema), security/encryption (WS-Security), reliability (WS-Reliability) existed since ages for SOAP are quite new to REST. 
+These standards may be complicated but they represent existing solutions for the common problems so people who never run into these issues are not ready to pay the 'complexity' price for them.
+Over the time REST community started to re-invent and re-implement some of these features.
+In my opinion the REST(y) implementations are most of the time simpler and more understandable than SOAP standards, however complexity can hardly be avoided (Oauth 2.0: The Good, the bad, the ugly)

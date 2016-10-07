@@ -1,0 +1,10 @@
+REST is an HTTP based protocol. Whereas XML-RPC is XML based.
+IMO, REST being an HTTP based protocol works best when the client is a browser. XML-RPC on the other hand is XML based. So no assumption is made about the client which is going to use the protocol.
+When the client is a browser, more efforts need to be put in by the client to use XML-RPC than to use REST.
+
+An advantage of REST over XML-RPC is that each object has its own URL and can easily be cached, copied, and bookmarked.
+
+Advantage of XML-RPC is that it is client independant. Any sort of client be it a desktop application a mobile application, a mashup using information from your site can easily integrate with XML-RPC.
+
+Overall I think REST has its advantages in the browser world. But as more and more applications are using the web as a platform and accessing it through a variety of methods other than web browsers XML-RPC has and 
+edge over REST.
