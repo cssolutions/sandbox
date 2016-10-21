@@ -15,6 +15,14 @@ session hijcaking
 
 
 
+Database
+- sql injection
+- mysql-user
+- ssl/ssh
+- encrypt db data
+INSERT INTO t VALUES (1,AES_ENCRYPT('text', UNHEX(SHA2('My secret passphrase',512))));
+
+
 
 
 use suhosin
