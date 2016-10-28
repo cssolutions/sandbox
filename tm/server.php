@@ -26,8 +26,10 @@ if (!socket_listen($socket)) {//listen to port
 }
 
 $clients = array($socket);//create & add listning socket to the list
-$chat_token__socket = array('a' => null, 'b' => null, 'c' => null, 'e' => null);  //this have to change when sb log's in/out, and it should be stored in a memcache array
-$uid__chat_token = array();
+$chat_token__socket = array('a' => null, 'b' => null, 'c' => null, 'e' => null);  //this have to change when sb log's in/out, and it should be stored in a memcache array. Socket added here
+//$chat_token__socket = Cache::getSocketByChatToken();
+$uid__chat_token = array(5 => 'a'); //this have to change when sb log's in/out, and it should be stored in a memcache array
+//$uid__chat_token = Cache::getChatTokenByUid();
 
 while (true) { //start endless loop, so that our script doesn't stop
 	$changed = $clients;//manage multipal connections
@@ -43,11 +45,12 @@ while (true) { //start endless loop, so that our script doesn't stop
 
 			if (preg_match('/server.php\?(.*) /i', $header, $matches)) {
 				if (isset($matches[1]) && array_key_exists($matches[1], $chat_token__socket)) { //if sockect user is authenticated
+					$chat_token__socket[$matches[1]] = end($clients);
 					perform_handshaking($header, $socket_new, $host, $port); //perform websocket handshake
 					socket_getpeername($socket_new, $ip); //get ip address of connected socket
 					$response = mask(json_encode(array('type' => 'system', 'message' => $ip.' connected'))); //prepare json data
-					send_message($response); //notify all users about new connection
 					$found_socket = array_search($socket, $changed);//make room for new socket
+					send_message($response); //notify all users about new connection
 					unset($changed[$found_socket]);		
 				} else { //if sockect user is not authenticated
 					echo 'Connection failed, wrong credentials!';
@@ -59,53 +62,60 @@ while (true) { //start endless loop, so that our script doesn't stop
 				}
 			}
 		}
-		
+
+		foreach ($changed as $changed_socket) {	 //loop through all connected sockets
+         /**
+                  * When somebody sends data thorough the socket
+                  */
+         while(socket_recv($changed_socket, $buf, 1024, 0) >= 1) { //check for any incomming data
+            $received_text = unmask($buf); //unmask data
+            $tst_msg = json_decode($received_text); //json decode 
+            if (is_object($tst_msg) && array_key_exists($tst_msg->wsdid, $chat_token__socket)) {
+               $user_name = $tst_msg->name; //sender name
+               $user_message = $tst_msg->message; //message text
+               $user_color = $tst_msg->color; //color
+               $response_text = mask(json_encode(array('type'=>'usermsg', 'name' => $user_name, 'message' => $user_message, 'color' => $user_color))); //prepare data to be sent to client
+               send_message($response_text); //send data	
+            }
+            break 2; //exist this loop
+         }
+         /**
+                   * When somebody disconnets
+                   */
+         $header = @socket_read($changed_socket, 1024, PHP_NORMAL_READ);
+         if ($header === false) { // check disconnected client
+            $found_socket = array_search($changed_socket, $clients); // remove client for $clients array
+            @socket_getpeername($changed_socket, $ip);
+            unset($clients[$found_socket]);
+
+            $response = mask(json_encode(array('type' => 'system', 'message' => $ip.' disconnected'))); //notify all users about disconnected connection
+            send_message($response);
+         }
+		}
+      
 		/**
 		 * When an action ocour that'll trigger a socket event.
 		 * This needs to be stored in a memcache array
 		 */
-		foreach (Events::getSendables() as $event) {
+		foreach (Cache::getSendables() as $event) {
+			$addresses_sockets = [];
 			foreach ($event['addresses'] as $uid) {
-				send_message($event['msg'], @$chat_token__socket[$uid__chat_token[$uid]]);
+				if (!is_null(@$chat_token__socket[$uid__chat_token[$uid]])) {
+					$addresses_sockets[] = $chat_token__socket[$uid__chat_token[$uid]];
+				}
 			}
-		}
-		foreach ($changed as $changed_socket) {	 //loop through all connected sockets
-					/**
-					 * When somebody sends data thorough the socket
-					 */
-					while(socket_recv($changed_socket, $buf, 1024, 0) >= 1) { //check for any incomming data
-						$received_text = unmask($buf); //unmask data
-						$tst_msg = json_decode($received_text); //json decode 
-						if (is_object($tst_msg) && array_key_exists($tst_msg->wsdid, $chat_token__socket)) {
-							$user_name = $tst_msg->name; //sender name
-							$user_message = $tst_msg->message; //message text
-							$user_color = $tst_msg->color; //color
-							$response_text = mask(json_encode(array('type'=>'usermsg', 'name' => $user_name, 'message' => $user_message, 'color' => $user_color))); //prepare data to be sent to client
-							send_message($response_text); //send data	
-						}
-						break 2; //exist this loop
-					}
-			}
-			/**
-			 * When somebody disconnets
-			 */
-			$header = @socket_read($changed_socket, 1024, PHP_NORMAL_READ);
-			if ($header === false) { // check disconnected client
-				$found_socket = array_search($changed_socket, $clients); // remove client for $clients array
-				@socket_getpeername($changed_socket, $ip);
-				unset($clients[$found_socket]);
-
-				$response = mask(json_encode(array('type' => 'system', 'message' => $ip.' disconnected'))); //notify all users about disconnected connection
-				send_message($response);
-			}
-		}
+			//sleep(2);
+			//send_message($event['msg'], $addresses_sockets);
+      }
+	}
 		//sleep(1);	
 
 }
 socket_close($socket); // close the listening socket
 
 function send_message($msg, $clients = array()) {
-	if (!$clients) global $clients;
+	if (empty($clients)) global $clients;
+	var_dump($clients);
 	foreach($clients as $changed_socket) {
 		@socket_write($changed_socket, $msg, strlen($msg));
 	}
@@ -172,17 +182,43 @@ function perform_handshaking($receved_header,$client_conn, $host, $port) {
 	socket_write($client_conn,$upgrade,strlen($upgrade));
 }
 
-class Events {
-	public static function getSendables() {
-		return [];
-		return [
-			[
-				'type' => 'event/notification',
-				'date' => '2016-12-11 10:00:00',
-				'msg'  => 'action', //belépett, kilépett
-				'person'=> 'Somebody', //aki belépett/ kilépett
-				'addresses' => ['chat-ids'] //akinek megy az üzenet
-			]
-		];
+class Cache {
+   public static $_memcache;
+   
+   public function getInstance() {
+      if (is_null(self::$_memcache)) {
+         self::$_memcache = new Memcache;
+         self::$_memcache->connect('localhost', 11211) or die("Could not connect");
+      }      
+   }
+   
+	public static function getSendables() {//return [];
+      self::getInstance();
+      $result = self::$_memcache->get('socket_notifications');
+      if ($result) {
+         self::$_memcache->delete('socket_notifications');
+         return $result;
+      }
+      return [];
 	}
+   
+   //setted when user logs in
+   public static function getSocketByChatToken() {
+      self::getInstance();
+      $result = self::$_memcache->get('socket__chat_token');
+      if ($result) {
+         return $result;
+      }
+      return [];
+   }
+   
+   //setted when user logs in
+   public static function getChatTokenByUid() {
+      self::getInstance();
+      $result = self::$_memcache->get('chat_token__uid');
+      if ($result) {
+         return $result;
+      }
+      return [];
+   }
 }
