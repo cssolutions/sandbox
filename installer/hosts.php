@@ -23,6 +23,9 @@ $content = <<<EOT
 	ServerName {$url}
 	ServerAlias www.{$url}
 	<Directory "{$www_dir}">
+		Options All
+		AllowOverride All
+		Allow from all
 		Require all granted
 	</Directory>
 </VirtualHost>		  
