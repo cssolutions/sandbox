@@ -29,6 +29,13 @@ if (!socket_listen($socket)) {//listen to port
 	die("socket_listen() failed: ".socket_strerror(socket_last_error()));
 }
 
+
+/**
+ * When a user logs in, 
+ *   his uid and chat_token'll be added to the $uid__chat_token
+ *   his uid'll be added to the $chat_token__socket array with null value
+ * After login, the user browser'll connect to the socket system, and based on the chat-id, the socket'll be assigned to that chat_token-id
+ */
 $clients = array($socket);//create & add listning socket to the list
 $chat_token__socket = array('a' => null, 'b' => null, 'c' => null, 'd' => null);  //this have to change when sb log's in/out, and it should be stored in a memcache array. Socket added here
 $uid__chat_token = array(5 => 'a', 6 => 'b'); //this have to change when sb log's in/out, and it should be stored in a memcache array
@@ -197,15 +204,9 @@ class Cache {
       }      
    }
    
-	public static function getSendables() {//return [];
-      self::getInstance();
-      $result = self::$_memcache->get('socket_notifications');
-      if ($result) {
-         self::$_memcache->delete('socket_notifications');
-         return $result;
-      }
-      return [];
-	}
+   public static function setSocketByChatToken() {
+      
+   }
    
    //setted when user logs in
    public static function getSocketByChatToken() {
