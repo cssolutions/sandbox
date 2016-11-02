@@ -39,7 +39,7 @@ $user_colour = array_rand($colours);
 
 <script language="javascript" type="text/javascript">  
 $(document).ready(function() {
-	document.wsdid = 'b';  //TODO: come from php at index.html
+	document.wsdid = 'c';  //TODO: come from php at index.html
 
 	if (typeof(WebSocket) != 'function') {
 		//long poling ajax

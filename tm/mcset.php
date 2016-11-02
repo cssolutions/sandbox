@@ -15,10 +15,12 @@
 include('Events.php');
 
 $events = new Events();
-$events->addSendable([
+$events->addSendable(
+      [
 			'type' => 'event',
 			'date' => '2016-12-11 10:00:00',
 			'msg'  => 'Message to be sended to the browser',
 			'person' => 'Somebody',
-			'addresses' => [5]
-		]);
+			'addresses' => [5, 6]
+		]
+ );

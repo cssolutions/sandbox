@@ -30,10 +30,8 @@ if (!socket_listen($socket)) {//listen to port
 }
 
 $clients = array($socket);//create & add listning socket to the list
-$chat_token__socket = array('a' => null, 'b' => null, 'c' => null, 'e' => null);  //this have to change when sb log's in/out, and it should be stored in a memcache array. Socket added here
-//$chat_token__socket = Cache::getSocketByChatToken();
-$uid__chat_token = array(5 => 'a'); //this have to change when sb log's in/out, and it should be stored in a memcache array
-//$uid__chat_token = Cache::getChatTokenByUid();
+$chat_token__socket = array('a' => null, 'b' => null, 'c' => null, 'd' => null);  //this have to change when sb log's in/out, and it should be stored in a memcache array. Socket added here
+$uid__chat_token = array(5 => 'a', 6 => 'b'); //this have to change when sb log's in/out, and it should be stored in a memcache array
 
 while (true) { //start endless loop, so that our script doesn't stop
 	$changed = $clients;//manage multipal connections
@@ -49,7 +47,7 @@ while (true) { //start endless loop, so that our script doesn't stop
 
 			if (preg_match('/server.php\?(.*) /i', $header, $matches)) {
 				if (isset($matches[1]) && array_key_exists($matches[1], $chat_token__socket)) { //if sockect user is authenticated
-					$chat_token__socket[$matches[1]] = end($clients);
+					$chat_token__socket[$matches[1]] = $socket_new;
 					perform_handshaking($header, $socket_new, $host, $port); //perform websocket handshake
 					socket_getpeername($socket_new, $ip); //get ip address of connected socket
 					$response = mask(json_encode(array('type' => 'system', 'message' => $ip.' connected'))); //prepare json data
@@ -103,28 +101,27 @@ while (true) { //start endless loop, so that our script doesn't stop
 		 */
       $addresses_sockets = [];
       if (!empty(($sendables = $events->getSendables()))) {
-         var_dump($sendables);
+         //var_dump($sendables);
          foreach ($sendables as $event) {
             if (isset($event->addresses)) {
                foreach ($event->addresses as $uid) {
                   if (!is_null(@$chat_token__socket[$uid__chat_token[$uid]])) {
+                     //var_dump($chat_token__socket[$uid__chat_token[$uid]]);
                      $addresses_sockets[] = $chat_token__socket[$uid__chat_token[$uid]];
                   }
                }  
             }
-            //sleep(2);
-            send_message($event->msg, $addresses_sockets);
+            //sleep(1);
+            send_message(mask(json_encode(['type' => 'system', 'message' => $event->msg])), $addresses_sockets);
          }  
       }
 	}
-		//sleep(1);	
 }
 socket_close($socket); // close the listening socket
 
 function send_message($msg, $clients = array()) {
 	if (empty($clients)) global $clients;
-	var_dump($clients);
-	foreach($clients as $changed_socket) {
+	foreach($clients as $changed_socket) {var_dump($msg);
 		@socket_write($changed_socket, $msg, strlen($msg));
 	}
 	return true;
