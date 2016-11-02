@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class=" js no-touch svg inlinesvg svgclippaths no-ie8compat js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style=""><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Last-Modified" content="Mon, 26 Jul 1997 05:00:00 GMT">
+  <meta name="description" content="City Network Control Panel">
+  <meta name="author" content="City Network AB">
+  <meta name="publisher" content="City Network AB">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>CityCloud Control Panel</title>
+  <link rel="icon" href="https://citycontrolpanel.com/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="CityCloud%20Control%20Panel_elemei/weebox.css" type="text/css">
+  <link rel="stylesheet" href="CityCloud%20Control%20Panel_elemei/jquery.css" type="text/css">
+  <link rel="stylesheet" href="CityCloud%20Control%20Panel_elemei/foundation.css" type="text/css">
+  <link rel="stylesheet" href="CityCloud%20Control%20Panel_elemei/normalize.css" type="text/css">
+  <link rel="stylesheet" href="CityCloud%20Control%20Panel_elemei/gthweb.css" type="text/css">
+		
+		
+  <link rel="stylesheet" href="CityCloud%20Control%20Panel_elemei/select2.css" type="text/css">
+  <link rel="stylesheet" href="CityCloud%20Control%20Panel_elemei/ui.css">
+  <link rel="stylesheet" type="text/css" media="screen, projection" href="CityCloud%20Control%20Panel_elemei/stylesheet.css">	
+  <link rel="stylesheet" type="text/css" media="screen, projection" href="CityCloud%20Control%20Panel_elemei/font-awesome.css">	
+  <link href="CityCloud%20Control%20Panel_elemei/css.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/jquery-1.js"></script>
+  <script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/jquery-ui.js"></script>
+	<script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/jquery.js"></script>
+	<script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/jquery_003.js"></script>
+	<script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/jquery_004.js"></script>
+  <script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/weebox.js"></script>
+	<script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/jquery_002.js"></script>
+	<script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/select2.js"></script>
+	<script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/jsrender.js"></script>
+  <script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/custom.js"></script>
+	<script type="text/javascript" src="CityCloud%20Control%20Panel_elemei/util.js"></script>
+  <script src="CityCloud%20Control%20Panel_elemei/highcharts.js"></script>
+  <script src="CityCloud%20Control%20Panel_elemei/baseCharts.js"></script>
+ </head>
+ <body onload="" class="page-api sub-example_scripts">
+  <div id="header">
+   <div id="headerContainer" class="row">
+    <div class="large-12 columns">
+		 <div class="row">
+		  <div class="columns large-6">
+				<a href="https://citycontrolpanel.com/" class="logo"> </a>
+		  </div>
+		  <div class="columns large-3"> 
+
+
+<div class="row">
+  <div class="large-6 columns">
+    <div class="mt10 headerTitle">Working project</div>
+    <div class="mt5" style="margin-right: 15px;">
+      <div style="width: 100%;" id="s2id_selectProject" class="select2-container select2-container-disabled"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span id="select2-chosen-1" class="select2-chosen">No projects available</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen1" class="select2-offscreen"></label><input disabled="disabled" id="s2id_autogen1" aria-labelledby="select2-chosen-1" class="select2-focusser select2-offscreen" aria-haspopup="true" role="button" type="text"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen1_search" class="select2-offscreen"></label>       <input placeholder="" id="s2id_autogen1_search" aria-owns="select2-results-1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" type="text">   </div>   <ul id="select2-results-1" class="select2-results" role="listbox">   </ul></div></div><select class="select2-offscreen" title="" tabindex="-1" id="selectProject" style="width: 100%;" disabled="disabled">
+											<option value="0" selected="selected">No projects available</option>
+        
+      </select>
+    </div>
+	</div>
+
+  <div class="large-6 columns">
+    <div class="pointer headerTitle hidden" id="ActiveZones"><span>0</span> active zones <div class="selector"></div></div>
+    <div class="hidden mt10" id="FilterZones">
+			<div class="mb10">Select zones to show</div>
+            <div class="row">
+        <div class="columns large-12 r">
+					<a href="javascript:void(0);" class="button">Save</a>
+				</div>
+			</div>
+    </div>
+  </div>
+</div>
+<script>
+    $(function() {
+
+selectedZones = [];
+
+$("#FilterZones input:checked").each(function() {
+  selectedZones.push($(this).val());
+});
+$("#ActiveZones span").html(selectedZones.length);
+
+$("#ActiveZones").on("click", function() {
+  $("#FilterZones").toggle();
+
+});
+});
+</script>
+</div>
+		  <div class="columns large-3">
+				 <div class="right mt25 leftpad10"></div>
+			   <div class="right mt25"></div>
+			</div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div id="pageArea">
+   <div id="pageContainer"><div class="row">
+  <div class="large-2 columns mt20">
+			<ul id="LeftMenu" class="white_box ml10">
+	<li>
+		<a href="https://citycontrolpanel.com/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a>
+	</li>
+			
+	
+		</ul>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+    var $active, $content, $links = $("#LeftMenu").find('a');
+	
+	  var currentHash = location.hash;
+	  var pathname    = location.pathname;
+	  if (pathname.charAt(pathname.length-1) == "/") {
+	    pathname = pathname.substr(0, pathname.length-1);
+	  }
+	  if (location.hash == "" && pathname == "/openstack") {
+	    currentHash = "#server_dashboard";
+	  }
+	  if (location.hash == "" && pathname == "/swift") {
+	    currentHash = "#storage_containers";
+	  }
+	  $active = $links.filter('[href="'+pathname+'"]');
+    if ($active.length == 0) {
+      $active = $links.filter('[href="'+currentHash+'"]');
+  	}
+
+    $active.parent().addClass("active");
+	  $active.trigger("click");
+  	$active.parentsUntil( $( "#LeftMenu" ), "li" ).addClass("active");
+	  $("#LeftMenu > li.active > a" ).addClass("subdrop");
+	  $("#LeftMenu a").on("click", function(e) {
+
+      if($(this).parent().hasClass("has_sub")) {
+        e.preventDefault();
+      }   
+
+      if(!$(this).hasClass("subdrop")) {
+        // hide any open menus and remove all other classes
+        $("ul",$(this).parents("ul:first")).slideUp(350);
+        $("a",$(this).parents("ul:first")).removeClass("subdrop");
+      
+        // open our new menu and add the open class
+        $(this).next("ul").slideDown(350);
+        $(this).addClass("subdrop");
+      }
+      else if($(this).hasClass("subdrop")) {
+        $(this).removeClass("subdrop");
+        $(this).next("ul").slideUp(350);
+      }
+
+	    if (!$(this).parent().hasClass("has-sub")) {
+	      $("#LeftMenu li.active").removeClass("active");
+    	  $(this).parentsUntil( $( "#LeftMenu" ), "li" ).addClass("active");
+	    }
+	  });
+
+	});
+
+</script>
+
+  </div>
+  <div class="large-10 columns">
+ <div class="row">
+  <div class="large-12 columns">
+   <div class="white_box mt20 pad20">
+    <a href="https://citycontrolpanel.com/api">&lt;- back to API main page</a>	  <div class="font20 bold mt20">PHP - Complete example with login, authentication and listing logs from MainServer</div>
+    <div class="smallfont mt20 lightgray_box"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br></span><span style="color: #FF8000">/**<br>&nbsp;*&nbsp;This&nbsp;is&nbsp;an&nbsp;example&nbsp;script&nbsp;for&nbsp;City&nbsp;Control&nbsp;API<br>&nbsp;*&nbsp;This&nbsp;example&nbsp;demonstrates&nbsp;how&nbsp;to&nbsp;perform&nbsp;a&nbsp;login,&nbsp;create&nbsp;authentication&nbsp;header&nbsp;and&nbsp;make&nbsp;a&nbsp;call&nbsp;to&nbsp;listLogs&nbsp;method&nbsp;located&nbsp;in&nbsp;MainServer<br>&nbsp;*&nbsp;For&nbsp;more&nbsp;information&nbsp;please&nbsp;visit:&nbsp;https://citycontrolpanel.com/api/<br>&nbsp;**/<br><br>//&nbsp;Login&nbsp;credentials<br></span><span style="color: #0000BB">$login&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;<br></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;<br><br></span><span style="color: #FF8000">//&nbsp;Path&nbsp;to&nbsp;API<br></span><span style="color: #0000BB">$apiHostPath&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"https://pubsoap.citynetwork.se/api"</span><span style="color: #007700">;<br><br></span><span style="color: #FF8000">//&nbsp;Perform&nbsp;login<br></span><span style="color: #0000BB">$AuthClient&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SoapClient</span><span style="color: #007700">(</span><span style="color: #0000BB">$apiHostPath</span><span style="color: #007700">.</span><span style="color: #DD0000">"/auth.wsdl"</span><span style="color: #007700">);<br><br></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$AuthClient</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">performLogin</span><span style="color: #007700">(</span><span style="color: #0000BB">$login</span><span style="color: #007700">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br></span><span style="color: #0000BB">$secret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br></span><span style="color: #FF8000">//&nbsp;Validate&nbsp;result<br></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">[</span><span style="color: #DD0000">"result"</span><span style="color: #007700">])&nbsp;{<br>case&nbsp;</span><span style="color: #DD0000">"login_ok"</span><span style="color: #007700">:<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Successful&nbsp;login,&nbsp;store&nbsp;secret&nbsp;key&nbsp;as&nbsp;we&nbsp;need&nbsp;to&nbsp;use&nbsp;this&nbsp;for&nbsp;future&nbsp;requests<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$secret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">[</span><span style="color: #DD0000">"secret"</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;You&nbsp;might&nbsp;want&nbsp;to&nbsp;store&nbsp;this&nbsp;in&nbsp;a&nbsp;session&nbsp;or&nbsp;cache&nbsp;as&nbsp;it&nbsp;can&nbsp;be&nbsp;used&nbsp;many&nbsp;times.<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">break;<br>case&nbsp;</span><span style="color: #DD0000">"login_failure"</span><span style="color: #007700">:<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Invalid&nbsp;credentials.&nbsp;Login&nbsp;failed\n"</span><span style="color: #007700">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit();<br>&nbsp;&nbsp;&nbsp;&nbsp;break;<br>case&nbsp;</span><span style="color: #DD0000">"twofactor_required"</span><span style="color: #007700">:<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;This&nbsp;user&nbsp;has&nbsp;two&nbsp;factor&nbsp;authentication&nbsp;set.<br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Make&nbsp;a&nbsp;call&nbsp;to&nbsp;request&nbsp;the&nbsp;code&nbsp;by&nbsp;SMS&nbsp;and&nbsp;then&nbsp;perform&nbsp;a&nbsp;two&nbsp;factor&nbsp;login<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Two&nbsp;factor&nbsp;login.&nbsp;Not&nbsp;handled&nbsp;in&nbsp;this&nbsp;example.&nbsp;Exiting\n"</span><span style="color: #007700">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit();<br>&nbsp;&nbsp;&nbsp;&nbsp;break;<br>default:<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Unexcepted&nbsp;return&nbsp;value:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$ret</span><span style="color: #007700">[</span><span style="color: #DD0000">"result"</span><span style="color: #007700">]}</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit();<br>&nbsp;&nbsp;&nbsp;&nbsp;break;<br>}<br><br>if&nbsp;(</span><span style="color: #0000BB">$secret&nbsp;</span><span style="color: #007700">!=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Valid&nbsp;secret&nbsp;key&nbsp;meaning&nbsp;we&nbsp;have&nbsp;a&nbsp;valid&nbsp;login&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;make&nbsp;API&nbsp;calls<br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;We&nbsp;test&nbsp;here&nbsp;by&nbsp;setting&nbsp;up&nbsp;a&nbsp;soap&nbsp;client&nbsp;against&nbsp;MainServer<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$MainClient&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SoapClient</span><span style="color: #007700">(</span><span style="color: #0000BB">$apiHostPath</span><span style="color: #007700">.</span><span style="color: #DD0000">"/main.wsdl"</span><span style="color: #007700">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;To&nbsp;authenticate&nbsp;we&nbsp;create&nbsp;an&nbsp;authentication&nbsp;soap&nbsp;header&nbsp;as&nbsp;defined&nbsp;in&nbsp;authentication.xsd&nbsp;using&nbsp;the&nbsp;secret&nbsp;key<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$authenticationHeader&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">createAuthenticationHeader</span><span style="color: #007700">(</span><span style="color: #0000BB">$apiHostPath</span><span style="color: #007700">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$login</span><span style="color: #007700">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$secret</span><span style="color: #007700">);<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Set&nbsp;the&nbsp;authentication&nbsp;header&nbsp;in&nbsp;our&nbsp;soap&nbsp;client&nbsp;as&nbsp;the&nbsp;first&nbsp;element<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$MainClient</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">__setSoapHeaders</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$authenticationHeader</span><span style="color: #007700">));<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Now&nbsp;we&nbsp;are&nbsp;all&nbsp;set&nbsp;to&nbsp;perform&nbsp;api&nbsp;calls.&nbsp;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Make&nbsp;a&nbsp;test&nbsp;call&nbsp;against&nbsp;listLogs<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$logs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$MainClient</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">listLogs</span><span style="color: #007700">();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;catch&nbsp;(</span><span style="color: #0000BB">SoapFault&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Caught&nbsp;soap&nbsp;fault&nbsp;error:&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Print&nbsp;result<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$logs</span><span style="color: #007700">);<br>}<br><br><br></span><span style="color: #FF8000">//&nbsp;Utility&nbsp;function&nbsp;to&nbsp;create&nbsp;a&nbsp;SoapHeader&nbsp;used&nbsp;for&nbsp;authenticate&nbsp;login<br></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">createAuthenticationHeader</span><span style="color: #007700">(</span><span style="color: #0000BB">$apiHostPath</span><span style="color: #007700">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$login</span><span style="color: #007700">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$secret</span><span style="color: #007700">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$authHeader&nbsp;</span><span style="color: #007700">=<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"&lt;ns1:Authentication&gt;"</span><span style="color: #007700">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"&nbsp;&lt;ns1:Login&gt;</span><span style="color: #007700">{</span><span style="color: #0000BB">$login</span><span style="color: #007700">}</span><span style="color: #DD0000">&lt;/ns1:Login&gt;"</span><span style="color: #007700">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"&nbsp;&lt;ns1:Secret&gt;</span><span style="color: #007700">{</span><span style="color: #0000BB">$secret</span><span style="color: #007700">}</span><span style="color: #DD0000">&lt;/ns1:Secret&gt;"</span><span style="color: #007700">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"&lt;/ns1:Authentication&gt;"</span><span style="color: #007700">;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$authenticationHeader&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SoapHeader</span><span style="color: #007700">(</span><span style="color: #0000BB">$apiHostPath</span><span style="color: #007700">.</span><span style="color: #DD0000">"/authentication.xsd"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Authentication"</span><span style="color: #007700">,&nbsp;new&nbsp;</span><span style="color: #0000BB">SoapVar</span><span style="color: #007700">(</span><span style="color: #0000BB">$authHeader</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">XSD_ANYXML</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$authenticationHeader</span><span style="color: #007700">;<br>}<br><br></span><span style="color: #0000BB">?&gt;<br></span>
+</span>
+</code></div>
+    <div class="mt40"><a href="https://citycontrolpanel.com/api/example_scripts">More example scripts</a></div>   </div>
+  </div>
+ </div>
+</div>
+ </div>
+</div>   </div><!-- pageContainer-->
+  
+  <div id="footer">
+   <div id="footerContainer">
+    <hr>
+    <div class="row"><div class="large-3 columns">
+<div class="bold font20 mb10">Get started</div>
+<div class="mt5"><a target="_blank" href="https://www.citycloud.com/city-cloud/creating-servers-in-city-cloud/">Create a server</a></div>
+<div class="mt5"><a target="_blank" href="https://www.citycloud.com/city-cloud/managing-your-city-cloud-server/">Manage your servers</a></div>
+<div class="mt5"><a target="_blank" href="https://www.citycloud.com/city-cloud/first-major-update-of-city-control-panel/">Groups and users</a></div>
+<div class="mt5"><a target="_blank" href="https://www.citycloud.com/city-cloud/two-factor-authentication/">Two factor authentication</a></div>
+</div><div class="large-3 columns">
+<div class="bold font20 mb10">Developer</div>
+<div class="mt5"><a href="https://citycontrolpanel.com/api">API</a></div>
+</div><div class="large-3 columns">
+<div class="bold font20 mb10">Support</div>
+<div class="mt5"><a target="_blank" href="https://www.citycloud.com/support/">Contact us</a></div>
+</div>		 <div class="large-3 columns">
+			<div class="chat-button chatstarter offline">
+			CHAT <span>OFFLINE</span>
+			</div>
+			
+		 </div>
+    </div>
+   </div>
+  </div>
+  <br class="clear">
+	 
+  <div id="renderTemplates"></div>
+  <script src="CityCloud%20Control%20Panel_elemei/foundation_004.js"></script>
+  <script src="CityCloud%20Control%20Panel_elemei/foundation.js"></script>
+  <script src="CityCloud%20Control%20Panel_elemei/foundation_002.js"></script>
+  <script src="CityCloud%20Control%20Panel_elemei/foundation_003.js"></script>
+  <script>
+    $(document).foundation();
+    $(function() {
+				$(document).tooltip({
+					items: "[data-tooltip-title]",
+					content: function () {
+							
+							return $(this).data("tooltip-title");
+						}
+					});
+
+				$("#selectProject").select2();
+
+			});
+		Highcharts.setOptions({
+			global: {
+				useUTC: false
+		  }
+    });
+
+  </script>
+
+<link rel="stylesheet" title="IntelecomChatCustomCss" href="CityCloud%20Control%20Panel_elemei/intelecom-light.css" type="text/css">
+<script src="CityCloud%20Control%20Panel_elemei/jquery-intelecomchat.js"></script>
+<script src="CityCloud%20Control%20Panel_elemei/jquery-intelecomchat_002.js"></script>
+<div id="someID" class="intelecomchat"><div class="intelecomchatstarter itc_Chat__starter intelecomStarterRight intelecomStarterMiddle" style="display:none;"></div></div>
+<script>
+	$(document).ready(function () {
+		
+		$('#someID').intelecomChat({
+			customerKey: '400277',
+			queueKey: 'chat_city_cloud',
+			showStarter: false,
+			languageCode: "EN",
+			showNumberInQueueInIntro: true,
+			visualQueueId: "29500",
+			timeId: "16626_Time City Network Chat",
+			timeOpenExits: ["Open"],
+			onChatStart: function () {
+					$(this).intelecomChat('reloadOptions', {
+						//nickName: document.getElementById('nickName').value,
+						//chatId: document.getElementById('chatId').value,
+						variables: {
+								"gthId": "--no id--",
+								"gthLogin": "--no login--",
+								"url": window.location.href
+						}
+						});
+			},
+			visualQueueExpression: function (q) {
+				return (q && q.AgentsLoggedIn > 0 && q.AgentsLoggedIn > q.AgentsInPause);
+			},
+			// function that returns false when chat should be closed
+			//       msgNoAgents: 'Hi, sorry, there are no agents available at the moment.', //text message
+			//       msgClosedHeader: 'Hi, sorry we are closed', // text message
+			//       msgTimeClosed: 'Hi, sorry we are closed', // text message
+			onContactCenterClosed: function(e) {
+
+					$(".chat-button").each(function() {
+							if (!$(this).hasClass("offline")) {
+								$(this).addClass("offline").removeClass("online");
+								$("span", $(this)).text("OFFLINE");
+							}
+						});
+			},
+			onChatWindowShow: function () {
+			},
+			onChatWindowMinimize: function () {
+			},
+			onChatWindowClose: function () {
+			}
+			
+		});
+  });
+
+</script>
+ 
+<span class="select2-hidden-accessible" aria-live="polite" role="status"></span></body></html>

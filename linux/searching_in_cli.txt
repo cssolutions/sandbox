@@ -24,6 +24,8 @@ To find files that have a modification time of a day ago, type:                 
 If we want files that were accessed in less than a day ago, we can type:               find / -atime -1
 To get files that last had their meta information changed more than 3 days ago, type:  find / -ctime +3
 
+find /my/directory -newermt '-15 seconds' -not -newermt '-2 seconds'
+
 Finding by Owner and Permissions
 You do this by using the "-user" and "-group" parameters respectively. Find a file that is owned by the "syslog" user by entering: find / -user syslog
 Similarly, we can specify files owned by the "shadow" group by typing: find / -group shadow

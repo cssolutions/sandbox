@@ -1,0 +1,366 @@
+/*
+
+	Theme Name: Cedar
+	Theme URI: http://ecko.me/themes/wordpress/cedar/
+	Description: Cedar Theme for WordPress developed by EckoThemes.
+	Author: EckoThemes
+	Author URI: http://ecko.me/
+	Version: 3.4.0
+	License: GNU General Public License version 3.0
+	License URI: http://www.gnu.org/licenses/gpl-3.0.html
+	Tags: white
+	Text Domain: cedar
+
+*/
+
+@import 'assets/css/theme.min.css';
+@import 'assets/css/bootstrap.min.css';
+@import 'assets/css/custom.css';
+
+.gallery-row{padding:15px 0}
+.aligncenter{display:block;margin:0 auto}
+.alignleft{float:left}
+.alignright{float:right}
+figure.alignnone{margin-left:0;margin-right:0}
+.wrap.container {
+    padding-top: 112px;
+}
+.sidebar {
+    padding-top: 24px;
+}
+.home.blog article.post.type-post,
+.archive article.post.type-post,
+.category  article.post.type-post,
+.tag article.post.type-post,
+.search article.post.type-post {
+    border-bottom: 1px solid #EBEFFF;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+.home.blog article.post.type-post header,
+.archive article.post.type-post header,
+.category article.post.type-post header,
+.tag article.post.type-post header,
+.search article.post.type-post header {
+    margin-bottom: 20px;
+}
+.entry-summary .entry-excerpt p a {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+}
+/** POST META **/
+.rh-post-meta {
+}
+.rh-post-meta p {
+    float: left;
+    padding: 0 5px;
+}
+.rh-post-meta p span.span-meta-last {
+    margin-right: 5px;
+}
+.rh-leave-reply {
+}
+/*promo-blog*/
+.promo-blog {
+  color: #FFF;
+  float: left;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 13px 0 0 92px;
+  text-shadow: 0 1px 1px #000;
+}
+.promo-blog > a {
+  color: #84FF00;
+  padding-left: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.promo-blog > a:hover {
+  color: #DFFFC1;
+}
+.promo-blog span {
+  font-weight: 600;
+}
+.textwidget {
+    margin-top: 25px;
+}
+.textwidget .try-rosehosting {
+    background-color: #E7F8EE;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 -1px 1px #D6ECC0 inset;
+    height: 192px;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
+.toptext {
+    color: #000000;
+    font-size: 17px;
+    margin: 0 0 20px;
+    padding-top: 10px;
+    line-height: 23px;
+}
+.bottomtext {
+    color: #445539;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 20px;
+}
+.button-1 {
+    font-size: 14px;
+    padding: 9px 14px;
+    border-radius: 6px 6px 6px 6px;
+}
+.button-2 {
+    background-color: #006CCC;
+    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.button-3 {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    line-height: 20px;
+    text-align: center;
+}
+/** entry-content **/
+.entry-content p a img {
+    margin-right: 10px;
+}
+/**UPDATES SUBSCRIBE**/
+#updates-subscribe {
+}
+    #updates-subscribe section.text-9 {
+        border: 1px solid #ccc !important;
+        padding: 10px 20px 10px;
+    }
+    .widget_wysija_cont form#mc-embedded-subscribe-form {
+    }
+    #updates-subscribe section.text-9 div.textwidget #mc_embed_signup {
+        width: 100%;
+    }
+    #updates-subscribe section.text-9 div.textwidget #mc_embed_signup form {
+        padding: 0;
+    }
+    section.text-9 div.textwidget {
+        margin: 0;
+    }
+    #updates-subscribe section.widget, #updates-subscribe section.text-9 {
+        border: 1px solid #ccc;
+        color: #333;
+        border-radius: 4px 4px 4px 4px;
+        padding: 10px 20px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    #updates-subscribe section.widget_text{
+        border: 0px none;
+    }
+    #updates-subscribe section.widget.text-6{
+        border: 0px none;
+        padding: 0px;
+        margin-bottom: 30px;
+    }
+    #updates-subscribe section.widget.text-6 div.textwidget {
+        margin: 0px;
+    }
+        #updates-subscribe section.widget h3 {
+            padding: 0px;
+            margin: 0px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #updates-subscribe section.widget div form p.wysija-paragraph {
+            float: left;
+            width: 50%;
+        }
+            #updates-subscribe section.widget div form p.wysija-paragraph input.wysija-input {
+                width: 100%;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+                color: #555;
+                display: block;
+                font-size: 14px;
+                height: 34px;
+                line-height: 1.42857;
+                padding: 6px 12px;
+            }
+        #updates-subscribe section.widget div form input.wysija-submit {
+            background-color: #428bca;
+            border-color: #357ebd;
+            color: #fff;
+            -moz-user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            margin-bottom: 0;
+            padding: 6px 30px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+            width: 46%;
+            margin-left: 4%;
+            margin-top: 0px !important;
+        }
+        #updates-subscribe section.widget div form input.wysija-submit:hover {
+            background-color: #3276b1;
+            border-color: #285e8e;
+            color: #fff;
+            text-decoration: none;
+        }
+/*SOCIAL BUTTONS*/
+.follow-item-list {
+    padding: 12px 0 0;
+    margin: 0px;
+    font-size: 0;
+}
+.follow-item {
+    width: 27.65%;
+    margin: 0 1.4% 0 0;
+    display: inline-block;
+    vertical-align: top;
+    max-height: 36px;
+    overflow: hidden;
+}
+.follow-item-rss {
+    width: 12.85%;
+    margin-right: 0;
+}
+.follow-item>a {
+    display: table;
+    height: 36px;
+    color: #fff;
+    line-height: 16px;
+    font-size: 14px;
+    padding: 0;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    position: relative;
+}
+.follow-item>a, .follow-item>a:before {
+    -moz-box-shadow: 0 1px 0 rgba(248, 250, 255, .9);
+    -webkit-box-shadow: 0 1px 0 rgba(248, 250, 255, .9);
+    box-shadow: 0 1px 0 rgba(248, 250, 255, .9);
+    background-image: url(data:image/svg+xml;
+    base64, PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDM3IDM3IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImhhdDAiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiB4MT0iNTAlIiB5MT0iMTAwJSIgeDI9IjUwJSIgeTI9Ii0xLjQyMTA4NTQ3MTUyMDJlLTE0JSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwMDAiIHN0b3Atb3BhY2l0eT0iMC4xNyIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMC4xNyIvPgogICA8L2xpbmVhckdyYWRpZW50PgoKPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
+    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, .17) 0%, rgba(255, 255, 255, .17) 100%);
+    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, .17) 0%, rgba(255, 255, 255, .17) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .17) 0%, rgba(255, 255, 255, .17) 100%);
+    background-image: linear-gradient(bottom, rgba(0, 0, 0, .17) 0%, rgba(255, 255, 255, .17) 100%);
+}
+.follow-item>a:before {
+    content: " ";
+    display: block;
+    width: 37px;
+    //height: 36px;
+    line-height: 36px;
+    float: left;
+    margin: 0;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.follow-item>a>span {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    padding: 0 5px;
+}
+.follow-item-facebook>a {
+    background-color: #2f498b;
+    position: relative;
+}
+.follow-item-facebook>a:before {
+    background-color: #213979;
+    display: inline-block;
+    font-family: FontAwesome;
+    content: "\f09a";
+    position: relative;
+    //top:10px;
+    font-size: 24px;
+}
+.follow-item-twitter>a {
+    background-color: #2ca9e1;
+}
+.follow-item-twitter>a:before {
+    background-color: #1f99cf;
+    display: inline-block;
+    font-family: FontAwesome;
+    content: "\f099";
+    position: relative;
+    //top:10px;
+    font-size: 24px;
+}
+.follow-item-gplus>a {
+    background-color: #cd3d15;
+}
+.follow-item-gplus>a:before {
+    background-color: #bb3009;
+    display: inline-block;
+    font-family: FontAwesome;
+    content: "\f0d5";
+    position: relative;
+    //top:10px;
+    font-size: 24px;
+}
+.follow-item-rss>a {
+    background-color: #eb630f;
+}
+.follow-item-rss>a:before {
+    background-color: #df5700;
+    display: inline-block;
+    font-family: FontAwesome;
+    content: "\f09e";
+    position: relative;
+    //top:10px;
+    font-size: 24px;
+}
+.social-item-wide {
+    margin: 0 0 24px;
+}
+.social-item-small {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 20px 0 0;
+}
+.social-item-facebook {
+    height: 48px;
+}
+.social-item-twitter, .social-item-rss {
+    height: 24px;
+}
+.social-item-gplus {
+    height: 60px;
+}
+.social-item-gplus>div {
+}
+.social-item-gplus>div, .social-item-gplus>div>iframe {
+    height: 56px!important;
+    width: 150px!important;
+}
+.social-item-gplus>div>iframe {
+    border-right: 1px solid #dcdcdc!important;
+}
+
+

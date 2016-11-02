@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+http://rosskevin.github.io/bootstrap-material-design/material-design/forms/
+-->
+<html>
+  <head>
+    <title>Accounting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://rosskevin.github.io/bootstrap-material-design/dist/docs.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="acc.js"></script>
+    <script src="http://rosskevin.github.io/bootstrap-material-design/dist/docs-vendor.min.js"></script>
+    <style type="text/css">
+      form:after {
+        content: '';
+        float: none;
+        clear: both;
+        display: block;
+      }
+      form > div {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-group header">
+      <div data-row-id="" class="bd-row">
+        <form>
+          <div class="form-group bmd-form-group col-xs-1 pull-left">
+            <label class="bmd-label-floating" for="acc_type">Típus</label>
+            <select id="acc_type" name="acc_type" class="form-control">
+              <option value="ks">KS</option>
+              <option value="bs">BS</option>
+              <option value="vs">VS</option>
+              <option value="bk">BK</option>
+            </select>
+          </div>
+          <div class="form-group bmd-form-group col-xs-1 pull-left">
+            <label class="bmd-label-floating" for="acc_date_of_completition">Teljesítés dátuma</label>
+            <input type="text" id="acc_date_of_completition" class="form-control">
+            <!--<span class="bmd-help">We'll never share your email with anyone else.</span>-->
+          </div>
+          <div class="form-group bmd-form-group col-xs-1">
+            <label class="bmd-label-floating" for="acc_no">Számla sorszáma</label>
+            <input type="text" id="acc_no" class="form-control">
+          </div>
+          <div class="form-group bmd-form-group col-xs-4">
+            <label class="bmd-label-floating" for="acc_desc">Leírás</label>
+            <input type="text" id="acc_desc" class="form-control">
+          </div>
+          <div class="form-group bmd-form-group col-xs-3">
+            <label class="bmd-label-floating" for="acc_sum">Összeg</label>
+            <input type="number" id="acc_sum" class="form-control">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

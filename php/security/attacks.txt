@@ -1,9 +1,9 @@
-Brute Force
-DoS
+Brute Force (trying and trying the passwd for example)
+DoS (denial attack of service until the server gives up)
 
 sql injection
-xss
-csrf - tokennel
+xss - a postban egy script-et helyezek el(ezt helyes validáássa ki lehet küszöbölni)
+csrf - tokennel (postolok egy másik site-ra)(ezt tokenekkel lehet kiküszöbölni)
 remote file inclusion
  - allow_url_fopen: indicates that, external files can be inculded -> set to false
  - allow_url_include: indicates whether the include(), require(), include_once(), and require_once() functions can reference remote files. The default sets this off, and setting allow_url_fopen off forces this off too.
@@ -13,6 +13,14 @@ session hijcaking
 
 
 
+
+
+Database
+- sql injection
+- mysql-user
+- ssl/ssh
+- encrypt db data
+INSERT INTO t VALUES (1,AES_ENCRYPT('text', UNHEX(SHA2('My secret passphrase',512))));
 
 
 

@@ -40,8 +40,7 @@ $user_colour = array_rand($colours);
 <script language="javascript" type="text/javascript">  
 $(document).ready(function(){
 	//create a new WebSocket object.
-	var wsUri = "ws://sandbox.local:8000/php/socket/brilliant_example/server.php"; 	
-	websocket = new WebSocket(wsUri); 
+	websocket = new WebSocket("ws://sandbox.local:8000/php/socket/brilliant_example/server.php"); 
 	
 	websocket.onopen = function(ev) { // connection is open 
 		$('#message_box').append("<div class=\"system_msg\">Connected!</div>"); //notify user

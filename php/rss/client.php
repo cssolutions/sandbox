@@ -12,5 +12,5 @@ function getFeed($feed_url) {
 	 return $x;
 }
 
-$xml = getFeed('http://sandbox.local/rss/server.php');
+$xml = getFeed('http://sandbox.local/php/rss/server.php');
 echo $xml->channel->title;

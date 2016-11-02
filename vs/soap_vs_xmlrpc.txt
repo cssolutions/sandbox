@@ -1,0 +1,7 @@
+XML-RPC and SOAP are very similar protocols from a high-level perspective.  Both utilize XML for web service method request/response encapsulation.  
+However, XML-RPC could be described as a subset of SOAP functionality.  
+For protocol, XML-RPC can only make requests using an HTTP/S connection; meanwhile, SOAP commonly uses HTTP/S but it can be run over a variety of other protocols.  
+For security, XML-RPC is limited to basic access authentication (HTTP AUTH), while the SOAP protocol allows for a range of security implementations (HTTP AUTH, WS-Security, et cetera).  
+The biggest advantage SOAP has over XML-RPC is its support for the WSDL specification, which makes discovery and integration with a remote web service very straightforward.  
+The SOAP implementation is language-specific, but in a language like PHP, a WSDL can be used to dynamically instantiate an object that presents each of the remote methods as member functions.  
+The object functions act exactly as if you were calling a local function, making the client integration very straightforward.

@@ -1,0 +1,7 @@
+Definition of a ENUM or SET column does act as a constraint on values entered into the column. An error occurs for values that do not satisfy these conditions:
+
+An ENUM value must be one of those listed in the column definition, or the internal numeric equivalent thereof. The value cannot be the error value (that is, 0 or the empty string). 
+(For a column defined as ENUM('a','b','c'), values such as '', 'd', or 'ax' are illegal and are rejected.)
+
+A SET value must be the empty string or a value consisting only of the values listed in the column definition separated by commas. 
+(For a column defined as SET('a','b','c'), values such as 'd' or 'a,b,c,d' are illegal and are rejected.)
