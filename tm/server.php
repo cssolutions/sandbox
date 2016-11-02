@@ -7,6 +7,10 @@
  */
 set_time_limit(0);
 
+include_once 'Events.php';
+
+$events = new Events;
+
 $host = '127.0.0.1'; //host
 $port = '8000'; //port
 $null = NULL;   //null var
@@ -97,19 +101,23 @@ while (true) { //start endless loop, so that our script doesn't stop
 		 * When an action ocour that'll trigger a socket event.
 		 * This needs to be stored in a memcache array
 		 */
-		foreach (Cache::getSendables() as $event) {
-			$addresses_sockets = [];
-			foreach ($event['addresses'] as $uid) {
-				if (!is_null(@$chat_token__socket[$uid__chat_token[$uid]])) {
-					$addresses_sockets[] = $chat_token__socket[$uid__chat_token[$uid]];
-				}
-			}
-			//sleep(2);
-			//send_message($event['msg'], $addresses_sockets);
+      $addresses_sockets = [];
+      if (!empty(($sendables = $events->getSendables()))) {
+         var_dump($sendables);
+         foreach ($sendables as $event) {
+            if (isset($event->addresses)) {
+               foreach ($event->addresses as $uid) {
+                  if (!is_null(@$chat_token__socket[$uid__chat_token[$uid]])) {
+                     $addresses_sockets[] = $chat_token__socket[$uid__chat_token[$uid]];
+                  }
+               }  
+            }
+            //sleep(2);
+            send_message($event->msg, $addresses_sockets);
+         }  
       }
 	}
 		//sleep(1);	
-
 }
 socket_close($socket); // close the listening socket
 

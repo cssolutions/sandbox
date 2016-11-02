@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html class="wf-proximanova-n4-active wf-proximanova-n3-active wf-proximanova-i3-active wf-proximanova-n6-active wf-active"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Thread carefully - madewithlove</title>
+  <meta name="description" content="An introduction to threading in PHP">
+  <link rel="stylesheet" href="Thread%20carefully%20-%20madewithlove_elemei/madewithlove-styles.css">
+  <link rel="stylesheet" href="Thread%20carefully%20-%20madewithlove_elemei/main.css">
+  <link rel="canonical" href="https://blog.madewithlove.be/post/thread-carefully/">
+  <link rel="alternate" type="application/atom+xml" title="madewithlove blog" href="https://blog.madewithlove.be/feed.xml">
+  <!-- favicons -->
+  <link rel="shortcut icon" type="image/png" href="https://blog.madewithlove.be/assets/favicon.png">
+  <link rel="apple-touch-icon" href="https://blog.madewithlove.be/assets/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="https://blog.madewithlove.be/assets/favicon.png">
+  <script src="Thread%20carefully%20-%20madewithlove_elemei/analytics.js" async=""></script><script src="Thread%20carefully%20-%20madewithlove_elemei/gmx5gab.js"></script>
+  <style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}</style><style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/275e5f/000000000000000000017827/27/l?subset_id=2&fvd=n6) format("woff2");font-weight:600;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/6324fc/000000000000000000017823/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:400;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/425691/000000000000000000017821/27/l?subset_id=2&fvd=n3) format("woff2");font-weight:300;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/2963e1/000000000000000000017822/27/l?subset_id=2&fvd=i3) format("woff2");font-weight:300;font-style:italic;}</style><script>try{Typekit.load();}catch(e){}</script>
+  <!-- twitter cards -->
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@madewithlove">
+    
+    <meta name="twitter:title" content="Thread carefully">
+    <meta name="twitter:description" content="An introduction to threading in PHP">
+    
+      <meta name="twitter:image" content="https://blog.madewithlove.be/assets/twitter-card-default.png">
+    
+  
+<script data-timestamp="1477660581947" src="Thread%20carefully%20-%20madewithlove_elemei/embed.js"></script><script charset="UTF-8" async="" src="Thread%20carefully%20-%20madewithlove_elemei/alfie.js"></script></head>
+
+
+  <body>
+
+    <header class="site-header">
+  <div class="header-wrapper">
+    <h1 class="branding">
+      <a href="https://madewithlove.be/">
+        <img src="Thread%20carefully%20-%20madewithlove_elemei/logo.svg" alt="madewithlove logo"><span>made<strong>with</strong>love</span>
+      </a>
+    </h1>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="https://madewithlove.be/work">work</a>
+            </li>
+            <li>
+                <a href="https://madewithlove.be/culture">culture</a>
+            </li>
+            <li>
+                <a href="https://madewithlove.be/about">about</a>
+            </li>
+            <li class="active">
+                <a href="https://blog.madewithlove.be/">blog</a>
+            </li>
+        </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="blog-post column-12 centered">
+  <header>
+    <h1>Thread carefully</h1>
+    <p class="meta">
+      
+
+
+
+
+    </p><p class="date-author">November 13th, 2015 by
+        
+            
+             <span class="author">
+                
+                    <a href="https://twitter.com/anahkiasen">Maxime Fabre</a>
+                
+                
+              </span>
+            
+        
+    </p>
+
+
+    <p></p>
+  </header>
+
+  <article>
+    <div class="content">
+      <p><img src="Thread%20carefully%20-%20madewithlove_elemei/jFDknKy.png" alt=""></p>
+
+<p>As far as I can remember, PHP has always had a terrible reputation at
+ handling very heavy (or asynchronous) tasks. For a long while if you 
+wanted to parallelize long tasks you had to resort to forking through <code class="highlighter-rouge">pcntl_fork</code> which had its own issues, and you couldn’t really handle the results of those tasks properly, etc.</p>
+
+<p>As such, a habit has kind of developed where we go straight for more 
+intricate solutions such as queuing (which just delays your task if 
+anything), React PHP, or even using another language altogether. But PHP
+ can do threading, and more importantly <em>it’s a lot easier than you probably think</em>.</p>
+
+<p>In this article I’m going to dive into the <strong>pthreads</strong> 
+extension (short for POSIX Threads). It has been around for a while 
+(since 2012) but I feel like too many people forget it exists or assume 
+it is going to be painful to use –&nbsp;mostly because the official 
+documentation is rather slim about it.</p>
+
+<p>For those not familiar with threading, the author of pthreads has a very nice summary of it which I’m just going to quote here:</p>
+
+<blockquote>
+  <p>Threading is about dividing your instructions into units of 
+execution, and distributing those units among your processors and/or 
+cores in such a way as to maximize the throughput of your application.</p>
+</blockquote>
+
+<p>Now threading does not fit all use cases, you can’t just parallelize 
+all the things and expect it to be faster, PHP or not. It is reserved 
+for specific cases, but when in these situations, you’ll now be able to 
+do it in PHP, with your existing domain logic.</p>
+
+<h2 id="getting-to-know-pthreads">Getting to know pthreads</h2>
+
+<h3 id="setup">Setup</h3>
+
+<p>First of all we need to make sure we have the extension. If you’re 
+sailing the Homebrew version of PHP, nothing simpler, you install it 
+like any other extension:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>brew install php56-pthreads
+</code></pre>
+</div>
+
+<p>One small note: pthreads is compiled with PHP as it requires the <code class="highlighter-rouge">--with-thread-safety</code> flag. As such once it’s done installing you will effectively be running a <em>different</em> version of PHP called the <strong>ZTS (Zend Thread Safety)</strong>  version. Most extensions shouldn’t care but if you do get warnings like this when running <code class="highlighter-rouge">php --version</code>:</p>
+
+<blockquote>
+  <p>Error something: mcrypt was compiled with a different version of PHP</p>
+</blockquote>
+
+<p>Simply reinstall the extension, per example <code class="highlighter-rouge">brew reinstall php56-mcrypt</code>,
+ and you should be good to go. If you have the Blackfire extension 
+enabled I also recommend disabling it for now as ZTS support is still 
+experimental and you might encounter some issues.</p>
+
+<h3 id="nomenclature">Nomenclature</h3>
+
+<p>The <strong>pthreads</strong> extension has a lot of different 
+concepts that aren’t necessarily explained very well and that can prove 
+to be confusing at first. All you need to know is there are three types 
+of classes provided by the extension:</p>
+
+<ul>
+  <li><strong>Threaded objects</strong> are tasks that can be threaded, they’re your jobs, what you want to execute asynchronously.</li>
+  <li><strong>Workers</strong> are the classes responsible for running those jobs and synchronizing their results.</li>
+  <li><strong>Pools</strong> are responsible for managing multiple <strong>workers</strong> and dispatching jobs between them.</li>
+</ul>
+
+<p>And that’s all. Now, the extension provides a handful of classes, but they <em>simply derive from those</em>:</p>
+
+<p><img src="Thread%20carefully%20-%20madewithlove_elemei/x2gowir.png" alt=""></p>
+
+<p>As you can see that in the diagram, at its core every class is a child of <code class="highlighter-rouge">Threaded</code>,
+ it’s the base class of the extension. Nonetheless you will rarely use 
+it by itself as its children provide more convenient methods and are 
+generally speaking easier to deal with.</p>
+
+<h2 id="a-simple-asynchronous-example">A simple asynchronous example</h2>
+
+<blockquote>
+  <p>Note: for brevity’s sake I won’t declare properties on the classes 
+in the examples nor add docblocks, but you totally should. If you don’t,
+ I will find you, and I will kill you.</p>
+</blockquote>
+
+<p>Let’s start off easy with a simple web crawling example. We’ll start by creating our job, a class extending <code class="highlighter-rouge">Thread</code> which itself extends <code class="highlighter-rouge">Threaded</code>. All classes extending <code class="highlighter-rouge">Threaded</code> must have a <strong>run</strong> method defining what should be the task to thread, so in our case it’ll be a simple <code class="highlighter-rouge">file_get_contents</code> of a Google search, to keep it simple:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">SearchGoogle</span> <span class="k">extends</span> <span class="nx">Thread</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$query</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">query</span> <span class="o">=</span> <span class="nv">$query</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">html</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'http://google.fr?q='</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Let’s try creating an instance of this, to per example, search cats. To start the job, we call the <code class="highlighter-rouge">start</code> method on it. It won’t return anything, but the job will start in a separate thread.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'cats'</span><span class="p">);</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Now once a job is started, there are several methods you can call to check on it, such as <code class="highlighter-rouge">$job-&gt;isRunning()</code>, but the one we want is the <code class="highlighter-rouge">join</code> method which will make the <em>parent thread</em> wait for the task to be finished and “join it back” into the main thread. Basically this is what is happening:</p>
+
+<p><img src="Thread%20carefully%20-%20madewithlove_elemei/GjTkzpN.png" alt=""></p>
+
+<p>Once <code class="highlighter-rouge">join</code> is called, we can be sure the class is holding our results:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'cats'</span><span class="p">);</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// Wait for the job to be finished and print results
+</span><span class="nv">$job</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$job</span><span class="o">-&gt;</span><span class="na">html</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>With that in mind, we can now per example start multiple searches at the same time and get the results:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$searches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cats'</span><span class="p">,</span> <span class="s1">'dogs'</span><span class="p">,</span> <span class="s1">'birds'</span><span class="p">];</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$searches</span> <span class="k">as</span> <span class="o">&amp;</span><span class="nv">$search</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$search</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="nv">$search</span><span class="p">);</span>
+    <span class="nv">$search</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$searches</span> <span class="k">as</span> <span class="nv">$search</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$search</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">();</span>
+    <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$search</span><span class="o">-&gt;</span><span class="na">html</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>If we print out a timestamp within our job class:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>public function run()
+{
+    echo microtime(true).PHP_EOL;
+
+    $this-&gt;html = file_get_contents('http://google.fr?q='.$this-&gt;query);
+}
+</code></pre>
+</div>
+
+<p>And run our file, we’ll see that all three jobs indeed started at the same time:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php multiple.php
+1446987102.4479
+1446987102.4503
+1446987102.4525
+
+&lt;!doctype html&gt;&lt;html
+&lt;!doctype html&gt;&lt;html
+&lt;!doctype html&gt;&lt;html
+</code></pre>
+</div>
+
+<h2 id="managing-jobs-with-workers">Managing jobs with workers</h2>
+
+<p>Now this was relatively easy, but ideally you don’t want to have to 
+manage your jobs yourself, ie. you don’t want to have to start each of 
+them individually and then join them one by one. You might want to just,
+ throw your jobs somewhere and let them do their thing, and then get 
+their results when all of them are done. That’s where workers come into 
+play.</p>
+
+<p>Workers are a class on top of which you can stack jobs, to start and join all of them at once:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">Searcher</span> <span class="k">extends</span> <span class="nx">Worker</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Running '</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getStacked</span><span class="p">()</span><span class="o">.</span><span class="s1">' jobs'</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Stack our jobs on our worker
+</span><span class="nv">$worker</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">Searcher</span><span class="p">();</span>
+<span class="nv">$searches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'dogs'</span><span class="p">,</span> <span class="s1">'cats'</span><span class="p">,</span> <span class="s1">'birds'</span><span class="p">];</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$searches</span> <span class="k">as</span> <span class="o">&amp;</span><span class="nv">$search</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$search</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="nv">$search</span><span class="p">);</span>
+    <span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">stack</span><span class="p">(</span><span class="nv">$search</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Start all jobs
+</span><span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// Join all jobs and close worker
+</span><span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">shutdown</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>This would print out something like this:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Running 3 <span class="nb">jobs
+</span>1446989108.5938
+1446989108.6898
+1446989108.9086
+</code></pre>
+</div>
+
+<h3 id="gathering-the-results">Gathering the results</h3>
+
+<p>Now in order for our worker to keep track of the results of each of 
+its job, we can simply add a method on it, and call it from the jobs. 
+When you stack a job onto a worker, said job will then be aware of the 
+worker and will be able to access it through <code class="highlighter-rouge">$this-&gt;worker</code>. So let’s do just that, and gather the HTML fetched by our jobs:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">Searcher</span> <span class="k">extends</span> <span class="nx">Worker</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$data</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Running '</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getStacked</span><span class="p">()</span><span class="o">.</span><span class="s1">' jobs'</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+     * To avoid corrupting the array
+     * we use array_merge here instead of just
+     * $this-&gt;data[] = $html
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">,</span> <span class="p">[</span><span class="nv">$data</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">SearchGoogle</span> <span class="k">extends</span> <span class="nx">Threaded</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$query</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">query</span> <span class="o">=</span> <span class="nv">$query</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="nb">microtime</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">worker</span><span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span>
+            <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'http://google.fr?q='</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Stack our jobs on our worker
+</span><span class="nv">$worker</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">Searcher</span><span class="p">();</span>
+<span class="nv">$searches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'dogs'</span><span class="p">,</span> <span class="s1">'cats'</span><span class="p">,</span> <span class="s1">'birds'</span><span class="p">];</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$searches</span> <span class="k">as</span> <span class="o">&amp;</span><span class="nv">$search</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$search</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="nv">$search</span><span class="p">);</span>
+    <span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">stack</span><span class="p">(</span><span class="nv">$search</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Start all jobs
+</span><span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// Join all jobs and close worker
+</span><span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">shutdown</span><span class="p">();</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">data</span> <span class="k">as</span> <span class="nv">$html</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$html</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>If we run this we’ll get the proper result:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Running 3 <span class="nb">jobs
+</span>1446989506.0509
+1446989507.938
+1446989510.4684
+&lt;!doctype html&gt;&lt;html
+&lt;!doctype html&gt;&lt;html
+&lt;!doctype html&gt;&lt;html
+</code></pre>
+</div>
+
+<p>Now, you may notice I’m not doing <code class="highlighter-rouge">$worker-&gt;stack(new SearchGoogle($search))</code>.
+ This is because the worker has to keep track of references to its jobs,
+ ie. when you start the worker, all the jobs you stacked onto it have to
+ still reference to something in the main thread. As this is rather 
+cumbersome, a class was created for this, called the <strong>Pool</strong> class. Let’s look into it:</p>
+
+<h2 id="pooling-jobs">Pooling jobs</h2>
+
+<p>A <strong>Pool</strong> is a class whose purpose is to dispatch jobs 
+onto one or more workers, and manage those jobs. It is described as such
+ in the documentation:</p>
+
+<blockquote>
+  <p>Pooling provides a higher level abstraction of the Worker 
+functionality, including the management of references in the way 
+required by pthreads.</p>
+</blockquote>
+
+<p>Let’s rewrite our previous example with pooling. When you create a pool you need to pass it three arguments:</p>
+
+<ul>
+  <li>The number of workers the pool should be able to use at the same time</li>
+  <li>The kind of worker the pool should use (a class name string)</li>
+  <li>Facultative arguments to pass the workers when creating them</li>
+</ul>
+
+<p>In our case we’ll use the native pool and worker class so our new instance will look like this:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pool</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">Worker</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>We can then submit jobs to the pool by calling <code class="highlighter-rouge">$pool-&gt;submit(&lt;Threaded&gt;)</code>.
+ Main difference with workers is that a job starts as soon as you submit
+ it to the pool, and you don’t have to handle references anymore:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="c1">// Create a pool and submit jobs to it
+</span><span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pool</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">Worker</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'cats'</span><span class="p">));</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'dogs'</span><span class="p">));</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'birds'</span><span class="p">));</span>
+
+<span class="c1">// Close the pool once done
+</span><span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">shutdown</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>If we do this, same as before, we’ll see all our jobs start at the 
+same time. Everything works fine. Now let’s gather the results. In order
+ to interact with the jobs in a pool without having to loop through 
+workers and such, the pool has a convenient <code class="highlighter-rouge">collect</code>
+ methods which acts as a filter of sorts. You’ll pass it a closure in 
+which you’ll return whether a job should stay in the pool or not. 
+Usually you return whether the job is done.</p>
+
+<p>For this, pthreads provides a <code class="highlighter-rouge">Collectable</code> class which extends <code class="highlighter-rouge">Threaded</code> and which has two additional methods: <code class="highlighter-rouge">setGarbage</code> and <code class="highlighter-rouge">isGarbage</code>
+ to mark a job as done and ready to be collected by the garbage 
+collector. Let’s write our own Pool class that gathers the results from 
+our jobs and then discards them:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">SearchPool</span> <span class="k">extends</span> <span class="nx">Pool</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$data</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">process</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Run this loop as long as we have
+</span>        <span class="c1">// jobs in the pool
+</span>        <span class="k">while</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">work</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">collect</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">SearchGoogle</span> <span class="nv">$job</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// If a job was marked as done
+</span>                <span class="c1">// collect its results
+</span>                <span class="k">if</span> <span class="p">(</span><span class="nv">$job</span><span class="o">-&gt;</span><span class="na">isGarbage</span><span class="p">())</span> <span class="p">{</span>
+                    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="nv">$job</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$job</span><span class="o">-&gt;</span><span class="na">html</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="k">return</span> <span class="nv">$job</span><span class="o">-&gt;</span><span class="na">isGarbage</span><span class="p">();</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+
+        <span class="c1">// All jobs are done
+</span>        <span class="c1">// we can shutdown the pool
+</span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">shutdown</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>That also means we need to edit our <code class="highlighter-rouge">SearchGoogle</code> job to extend <code class="highlighter-rouge">Collectable</code> and call <code class="highlighter-rouge">setGarbage</code> at the end of the run method:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">SearchGoogle</span> <span class="k">extends</span> <span class="nx">Collectable</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$query</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">query</span> <span class="o">=</span> <span class="nv">$query</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="nb">microtime</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">html</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'http://google.fr?q='</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setGarbage</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>We can now do the following:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="c1">// Create a pool and submit jobs to it
+</span><span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchPool</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">Worker</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'cats'</span><span class="p">));</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'dogs'</span><span class="p">));</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'birds'</span><span class="p">));</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'planes'</span><span class="p">));</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">SearchGoogle</span><span class="p">(</span><span class="s1">'cars'</span><span class="p">));</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">();</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>If we run this, not only will we see that all our 5 jobs were 
+executed at the same time, but they completed at the same time and we 
+were able to yield their results easily:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">time </span>php pooling.php
+1446990493.7183
+1446990493.7205
+1446990493.7227
+1446990493.7247
+1446990493.7266
+array<span class="o">(</span>5<span class="o">)</span> <span class="o">{</span>
+  <span class="s1">'birds'</span> <span class="o">=</span>&gt; <span class="o">(</span>53230<span class="o">)</span> <span class="s2">"&lt;!doctype html&gt;"</span>...
+  <span class="s1">'cats'</span> <span class="o">=</span>&gt; <span class="o">(</span>53211<span class="o">)</span> <span class="s2">"&lt;!doctype html&gt;"</span>...
+  <span class="s1">'cars'</span> <span class="o">=</span>&gt; <span class="o">(</span>53250<span class="o">)</span> <span class="s2">"&lt;!doctype html&gt;"</span>...
+  <span class="s1">'dogs'</span> <span class="o">=</span>&gt; <span class="o">(</span>53244<span class="o">)</span> <span class="s2">"&lt;!doctype html&gt;"</span>...
+  <span class="s1">'planes'</span> <span class="o">=</span>&gt; <span class="o">(</span>53267<span class="o">)</span> <span class="s2">"&lt;!doctype html&gt;"</span>...
+<span class="o">}</span>
+php pooling.php  0.51s user 0.03s system 100% cpu 0.940 total
+</code></pre>
+</div>
+
+<h2 id="autoloading-and-context-inheritance">Autoloading and context inheritance</h2>
+
+<p>All these examples were rather basic, and when you start delving into
+ more advanced examples you’ll most likely hit one common speed-bump: 
+child threads don’t inherit classes autoloaded in their parent’s 
+context.</p>
+
+<p>To understand this, you have to grasp that child threads don’t <em>necessarily</em>
+ inherit their parent’s context, in some contexts it might even be 
+inconvenient when your job just has to do one small stand-alone task and
+ you don’t want it to load all of the shit happening upstairs in memory.</p>
+
+<p>For this you can pass <em>options</em> to the <code class="highlighter-rouge">-&gt;start()</code> method of <code class="highlighter-rouge">Thread</code> instances, which limits how much is passed from their parent:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'MY_CONSTANT'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="k">function</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{}</span>
+<span class="k">class</span> <span class="nc">Foobar</span> <span class="p">{}</span>
+
+<span class="k">class</span> <span class="nc">Example</span> <span class="k">extends</span> <span class="nx">Thread</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nb">defined</span><span class="p">(</span><span class="s1">'MY_CONSTANT'</span><span class="p">));</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="s1">'test'</span><span class="p">));</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nb">class_exists</span><span class="p">(</span><span class="s1">'Foobar'</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// true true true
+</span><span class="nv">$job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Example</span><span class="p">();</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span> <span class="c1">// default argument is PTHREADS_INHERIT_ALL
+</span><span class="nv">$job</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">();</span>
+
+<span class="c1">// false false true
+</span><span class="nv">$job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Example</span><span class="p">();</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="nx">PTHREADS_INHERIT_CLASSES</span><span class="p">);</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">();</span>
+
+<span class="c1">// true true true
+</span><span class="nv">$job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Example</span><span class="p">();</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">(</span><span class="nx">PTHREADS_INHERIT_CLASSES</span> <span class="o">|</span> <span class="nx">PTHREADS_INHERIT_CONSTANTS</span> <span class="o">|</span> <span class="nx">PTHREADS_INHERIT_FUNCTIONS</span><span class="p">);</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Now let’s require something through Composer, per example <code class="highlighter-rouge">symfony/var-dumper</code> which is a nicer-looking wrapper around <code class="highlighter-rouge">var_dump</code>. And let’s try to use the provided <code class="highlighter-rouge">dump()</code> function in a job:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Example</span> <span class="k">extends</span> <span class="nx">Thread</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">dump</span><span class="p">(</span><span class="s1">'foobar'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Example</span><span class="p">();</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>If you do this, it’ll fail and throw the following Exception:</p>
+
+<blockquote>
+  <p>Class ‘Symfony\Component\VarDumper\VarDumper’ not found</p>
+</blockquote>
+
+<p>Because while that class was loaded in the main thread, it wasn’t in 
+the child thread. Now there are multiple ways to circumvent this, the 
+easiest one of course is to just <code class="highlighter-rouge">require 'vendor/autoload.php'</code> in the <code class="highlighter-rouge">run</code> of your Job but, that is pretty disgusting.</p>
+
+<p>A nicer way to go about it, is to create a Worker class dedicated to 
+setting up autoloading before running its jobs. Same idea, but now you 
+don’t have to require anything in any of your job classes:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">AutoloadingWorker</span> <span class="k">extends</span> <span class="nx">Worker</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Create our worker and stack our job on it
+</span><span class="nv">$worker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AutoloadingWorker</span><span class="p">();</span>
+
+<span class="nv">$job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Example</span><span class="p">();</span>
+<span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">stack</span><span class="p">(</span><span class="nv">$job</span><span class="p">);</span>
+
+<span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="nv">$worker</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">();</span>
+
+<span class="c1">// Or use a pool and specify our custom worker
+</span><span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pool</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">AutoloadingWorker</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">Example</span><span class="p">());</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">shutdown</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Which would then yield the correct result:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php autoloading.php                                                                                                                                                                             <span class="s2">"foobar"</span>
+<span class="s2">"foobar"</span>
+</code></pre>
+</div>
+
+<h3 id="the-case-of-closures">The case of closures</h3>
+
+<p>This far we’ve been dealing with classes everywhere but closures can 
+also be a good source of headaches if you’re not aware that context is 
+not fully preserved. Per example here is some code that you’ll probably 
+think should work:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">ClosureRunner</span> <span class="k">extends</span> <span class="nx">Collectable</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$closure</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">closure</span> <span class="o">=</span> <span class="nv">$closure</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$closure</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">closure</span><span class="p">;</span>
+        <span class="nv">$closure</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setGarbage</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$foo</span> <span class="o">=</span> <span class="s1">'test'</span><span class="p">;</span>
+
+<span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pool</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">Worker</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">ClosureRunner</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$foo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$foo</span><span class="p">);</span>
+<span class="p">}));</span>
+
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">shutdown</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>But it won’t, because closures are compiled <em>in the main thread</em>
+ with a reference to the variable there, and then passed to your job, 
+which tries to run it in the child thread, where the reference won’t 
+point to an existing variable. It all boils down to PHP’s difficulties 
+to serialize closures.</p>
+
+<p>That being said, there does exist a convenience method to create jobs from closures with proper serialization, through the <code class="highlighter-rouge">Threaded::from</code> method (which means it’s available in all its children). Per example, the following would work:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pool</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">Worker</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="nv">$foo</span> <span class="o">=</span> <span class="s1">'test'</span><span class="p">;</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="nx">Collectable</span><span class="o">::</span><span class="na">from</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$foo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$foo</span><span class="p">);</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setGarbage</span><span class="p">();</span>
+<span class="p">}));</span>
+
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">shutdown</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<h2 id="synchronization-and-notifications">Synchronization and notifications</h2>
+
+<p>So far we haven’t shown great interest into what our child threads 
+were doing, but a situation may arise where you need to coordinate what 
+is happening in your main thread with what is happening in your child 
+thread.</p>
+
+<p>This is done through the <code class="highlighter-rouge">wait</code> and <code class="highlighter-rouge">notify</code> methods, and their related helpers such as <code class="highlighter-rouge">isWaiting</code>.
+ Say per example we have something to do in the parent thread and some 
+other task to do in parallel in a child thread. But we need the results 
+from the child thread to complete our main task, in the parent thread, 
+we would do it like so:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">Job</span> <span class="k">extends</span> <span class="nx">Thread</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isWaiting</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// Do some work here as long
+</span>            <span class="c1">// as we're not waiting for parent
+</span>        <span class="p">}</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synchronized</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">result</span> <span class="o">=</span> <span class="s1">'DONE'</span><span class="p">;</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">notify</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Job</span><span class="p">();</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+<span class="c1">// Do some operation in the main thread here
+</span><span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// Notify the child thread that we need it
+// and get its results
+</span><span class="nv">$job</span><span class="o">-&gt;</span><span class="na">synchronized</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$job</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$job</span><span class="o">-&gt;</span><span class="na">wait</span><span class="p">();</span>
+    <span class="k">echo</span> <span class="nv">$job</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">;</span>
+<span class="p">},</span> <span class="nv">$job</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Note how we wrap every call to <code class="highlighter-rouge">wait</code> and <code class="highlighter-rouge">notify</code> in a <code class="highlighter-rouge">$job-&gt;synchronized()</code> call, this is to ensure everything is synchronized when we make these calls and that both parties are ready.</p>
+
+<p>So, we do our work in the main thread, then synchronize with the job and wait for a notification, which it then sends. This is <em>different</em> from simply doing <code class="highlighter-rouge">$job-&gt;join()</code>,
+ as your child thread won’t be merged back into the main thread, it will
+ continue to live its life and you can do things after your <code class="highlighter-rouge">synchronized</code> call. To call back to our previous diagram, here’s what a notify/wait routine would look like:</p>
+
+<p><img src="Thread%20carefully%20-%20madewithlove_elemei/YdA4HGA.png" alt=""></p>
+
+<p>This might not seem very useful at first but it can allow a lot of things. Per example we can create a <strong>very</strong> stripped down equivalent to promises through this, by creating a <code class="highlighter-rouge">Promise</code> class that waits for its closure to be completed in a child thread to then report it to the main thread:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">Promise</span> <span class="k">extends</span> <span class="nx">Thread</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">Closure</span> <span class="nv">$closure</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">closure</span> <span class="o">=</span> <span class="nv">$closure</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synchronized</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nv">$closure</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">closure</span><span class="p">;</span>
+
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">result</span> <span class="o">=</span> <span class="nv">$closure</span><span class="p">();</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">notify</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">then</span><span class="p">(</span><span class="nx">callable</span> <span class="nv">$callback</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">synchronized</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$callback</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">wait</span><span class="p">();</span>
+            <span class="p">}</span>
+
+            <span class="nv">$callback</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'http://google.fr'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nv">$promise</span><span class="o">-&gt;</span><span class="na">then</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$results</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">echo</span> <span class="nv">$results</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>This also highlights something essential: waiting and notifications 
+don’t have to be in different threads. You can make a child thread wait 
+on itself, or on another child thread, or you can make the main thread 
+notify all child threads, and so on.</p>
+
+<h2 id="bonus-round-threading-a-command-bus">Bonus round: threading a command bus</h2>
+
+<p>All the examples we’ve seen previously were very basic for the sake 
+of comprehension. But the tasks you’d ideally want to thread are most 
+likely much bigger than that, have more complex dependencies, and so on.</p>
+
+<p>A common case for modern PHP projects is to be backed by a command 
+bus (Laravel’s, Tactician, whatever rows your boat). Threading can 
+easily be integrated into this context through a custom Worker class 
+which would receive the command bus instance and execute the command, 
+like so:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">League\Tactician\CommandBus</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CommandBusWorker</span> <span class="k">extends</span> <span class="nx">Worker</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">CommandBus</span> <span class="nv">$bus</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bus</span> <span class="o">=</span> <span class="nv">$bus</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">handle</span><span class="p">(</span><span class="nv">$command</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">bus</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">(</span><span class="nv">$command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">CommandJob</span> <span class="k">extends</span> <span class="nx">Collectable</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$command</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">command</span> <span class="o">=</span> <span class="nv">$command</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">worker</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pool</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">CommandBusWorker</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span><span class="k">new</span> <span class="nx">CommandBus</span><span class="p">()]);</span>
+
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">CommandJob</span><span class="p">(</span><span class="k">new</span> <span class="nx">Command</span><span class="p">(</span><span class="nv">$some</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)));</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">CommandJob</span><span class="p">(</span><span class="k">new</span> <span class="nx">AnotherCommand</span><span class="p">(</span><span class="nv">$some</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)));</span>
+</code></pre>
+</div>
+
+<p>And there you have it, your two commands would be threaded and would 
+run in parallel, with all the benefits of the command bus on top of it. 
+You could even create a special pool that would eliminate all the 
+boilerplate:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">CommandBusPool</span> <span class="k">extends</span> <span class="nx">Pool</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">CommandBus</span> <span class="nv">$bus</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">CommandBusWorker</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span><span class="nv">$bus</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">submit</span><span class="p">(</span><span class="nv">$command</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">CommandJob</span><span class="p">(</span><span class="nv">$command</span><span class="p">));</span>        
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CommandBusPool</span><span class="p">(</span><span class="k">new</span> <span class="nx">CommandBus</span><span class="p">());</span>
+<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="nx">Command</span><span class="p">(</span><span class="nv">$some</span><span class="p">,</span> <span class="nv">$argument</span><span class="p">));</span>
+</code></pre>
+</div>
+
+<p>One thing to watch out for though: any dependencies passed to a worker like we’re doing here <strong>needs to be serializable</strong> if it is not a child of <code class="highlighter-rouge">Threaded</code>
+ (or a scalar). That means they must not have any properties containing 
+closures. If they do, the simplest way is to recreate the instances in 
+the child thread (through a container and service providers per 
+example), or any other technique to resolve the command bus instance 
+within the child thread.</p>
+
+<h2 id="on-resources-and-other-pitfalls">On resources, and other pitfalls</h2>
+
+<h3 id="resources">Resources</h3>
+
+<p>The command bus example highlights something which you should absolutely watch out for: resources <strong>can not</strong>
+ be passed from the main thread to child threads. This is because of 
+limitations in the inner workings of PHP, and while it is being worked 
+on and will work in some edge cases, it is recommended to steer clear 
+from passing resources around between threads.</p>
+
+<p>What do I mean by resources? I mean sockets, database connections, 
+streams and so on. If you need your database in a child thread, create a
+ worker that connects to your database in its own context. If you need a
+ socket, same thing, connect to the socket within the child thread 
+instead of in the main thread.</p>
+
+<p>There <em>are</em> ways to circumvent this but you’ll save yourself 
+major headaches by not trying to. The more you think of your child 
+threads as a completely different context the better you’ll come off.</p>
+
+<h3 id="data-corruption">Data corruption</h3>
+
+<p>Another pitfall (which I’ve ignored in this article’s examples for 
+brievty) is data corruption. Say your worker holds an array which your 
+jobs access. If two jobs modify it at the same time, even in a way that 
+seems safe, your array <em>will</em> get corrupted. This is not a 
+limitation of pthreads in itself, it’s an issue with threading in 
+general: if two threads modify the same value at the same time, shit 
+happens. To go around this, pthreads provides a <code class="highlighter-rouge">Stackable</code> class which you can extend to create thread safe data synchronization, you use it as such:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">Results</span> <span class="k">extends</span> <span class="nx">Stackable</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Job</span> <span class="k">extends</span> <span class="nx">Thread</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$test</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">test</span> <span class="o">=</span> <span class="nv">$test</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">test</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$results</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Results</span><span class="p">();</span>
+
+<span class="nv">$jobs</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">@</span><span class="nv">$i</span><span class="o">++</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$jobs</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Job</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$jobs</span> <span class="k">as</span> <span class="nv">$job</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$job</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Should print 100
+</span><span class="nb">var_dump</span><span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$results</span><span class="p">));</span>
+</code></pre>
+</div>
+
+<p>If you run this you’ll get <code class="highlighter-rouge">100</code> as count of the array, as expected. But now try with a standard array like so <code class="highlighter-rouge">$results = []</code>, you will get <code class="highlighter-rouge">0</code>, <em>every</em> time. Because any structure not extending <code class="highlighter-rouge">Threaded</code>
+ is serialized and doesn’t reference the original variable anymore, so 
+while its value will be correct in the child threads, it won’t be in the
+ main threads.</p>
+
+<p>As much as possible, if you have to move around data between threads, try to always pass children of <code class="highlighter-rouge">Threaded</code> (like <code class="highlighter-rouge">Stackable</code>), they won’t be serialized and were made specially to be transported across threads with no data corruption or memory issues.</p>
+
+<h2 id="what-are-you-waiting-for">What are you waiting for?</h2>
+
+<p>So here we go, that was an in-depth introduction to threading in PHP 
+through pthreads. I hope next time you have a bunch of things to do at 
+the same time, you’ll think twice before discarding PHP as an option 
+completely. Threading won’t <em>always</em> be the solution, it’s for 
+specific use cases that can be split into separate units of works (hence
+ why the command bus fits into it so nicely), but it is nonetheless a 
+solid tool to have in your toolbox.</p>
+
+<p>The pthreads extension is <em>crazy good</em>, it’s well maintained, 
+it’s already compatible with PHP7 and a new version just came out – 
+version used in this article’s examples was 2.0.10, latest is 3.0.8 for 
+PHP7).</p>
+
+<p><em>Even better</em>, the extension’s repository is available <a href="https://github.com/krakjoe/pthreads">on Github</a> and it is rife with examples, documentation and explanations about the inner mechanics of it all.
+The author (krakjoe) also has a very good series of <a href="https://gist.github.com/krakjoe/6437782">gists</a> to explain the reasoning behind pthreads and threading in PHP in general, which I highly recommend.</p>
+
+<p>All the examples in this article are available <a href="https://github.com/madewithlove/threading-article">in a repository</a> if you need them again.</p>
+
+<p>So go away my friends, and thread carefully!</p>
+
+<h3 id="some-links">Some links</h3>
+
+<ul>
+  <li><a href="http://php.net/manual/en/book.pthreads.php">Official documentation</a></li>
+  <li><a href="https://github.com/krakjoe/pthreads">Repository</a></li>
+  <li><a href="http://pthreads.org/">Website</a></li>
+  <li><a href="https://github.com/madewithlove/threading-article">Examples from the article</a></li>
+</ul>
+
+
+    <aside class="social-media-links"><ul><li class="share-twitter"><a href="https://twitter.com/intent/tweet?text=Thread%20carefully&amp;url=https%3A%2F%2Fblog.madewithlove.be%2Fpost%2Fthread-carefully%2F&amp;via=madewithlove">Tweet this blogpost</a></li><li class="share-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.madewithlove.be%2Fpost%2Fthread-carefully%2F">Post on Facebook</a></li><li class="share-buffer"><a class="buffer-add-button click-to-activate" data-activate-src="https://d389zggrogs7qo.cloudfront.net/js/button.js" data-via="madewithlove" data-count="horizontal" data-url="https://blog.madewithlove.be/post/thread-carefully/" data-text="Thread carefully" href="http://bufferapp.com/add">Add to Buffer</a></li><li class="share-pocket"><a href="https://getpocket.com/save?url=https%3A%2F%2Fblog.madewithlove.be%2Fpost%2Fthread-carefully%2F&amp;title=Thread%20carefully">Add to Pocket</a></li></ul></aside></div>
+
+    <div class="blog-post__comments">
+      <h2>Comments</h2>
+      <div id="disqus_thread"><iframe verticalscrolling="no" horizontalscrolling="no" src="Thread%20carefully%20-%20madewithlove_elemei/a.html" style="width: 1px ! important; min-width: 100% ! important; border: medium none ! important; overflow: hidden ! important; height: 1413px ! important;" title="Disqus" tabindex="0" scrolling="no" allowtransparency="true" name="dsq-app1" id="dsq-app1" frameborder="0" width="100%"></iframe></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "https://blog.madewithlove.be/post/thread-carefully/";
+        this.page.identifier = "/post/thread-carefully";
+    };
+
+    function downloadJSAtOnload() {
+        var d = document, s = d.createElement('script');
+        s.src = '//mwl-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    }
+
+    if (window.addEventListener) {
+        window.addEventListener('load', downloadJSAtOnload, false);
+    } else if (window.attachEvent) {
+        window.attachEvent('onload', downloadJSAtOnload);
+    } else {
+        window.onload = downloadJSAtOnload;
+    }
+</script>
+
+    </div>
+  </article>
+</main>
+
+
+    <footer class="site-footer blog-footer">
+  <div class="contact">
+    <div>
+      <p>Subscribe <a href="https://blog.madewithlove.be/feed.xml">via RSS</a>.</p>
+      <p>Search the <a href="https://blog.madewithlove.be/archive/">full archive</a>.</p>
+      <p>Follow us on Twitter: <a href="https://twitter.com/madewithlove">@madewithlove</a>.</p>
+      <p>Want to work for us? We have <a href="https://madewithlove.be/jobs">job openings</a>.</p>
+    </div>
+    <div>
+      <p>
+        Content is published under the <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">Creative Commons BY-SA</a> license.
+        More info and the source material <a href="https://github.com/madewithlove/blog">can be found on GitHub</a>.
+      </p>
+    </div>
+  </div>
+  <p class="copyright">© 2016 madewithlove</p>
+</footer>
+
+
+    <script src="Thread%20carefully%20-%20madewithlove_elemei/social.js"></script>
+    <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-58380511-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+  
+
+
+<iframe style="display: none;"></iframe></body></html>
