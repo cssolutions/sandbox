@@ -1,0 +1,3 @@
+if somebody send a message:
+1. an ajax request executed
+2. if there is a socket_event array in the response, that'll trigger a socket message for a group
