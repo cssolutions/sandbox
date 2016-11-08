@@ -1,11 +1,5 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 
 //echo memory_get_usage() . " byte<br />"; // 36640
 //echo memory_get_peak_usage() . " byte(peak)<br />"; // 36640
@@ -35,4 +29,10 @@ class MemoryUsage {
 	}
 }
 
-echo MemoryUsage::init();
+echo MemoryUsage::start();
+for ($i=0; $i<=10000; $i++) {
+   $a = new stdClass();
+   $a->elso = 'egy';
+}
+echo MemoryUsage::end();
+

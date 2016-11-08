@@ -1,5 +1,31 @@
-1. get an ubuntu instance:
+Get an ubuntu instance:
 sudo docker run -t -i ubuntu /bin/bash
+
+IMAGES
+Getting a new image
+docker pull debian
+
+Build own image(based on Dockerfile)
+docker build -t docker-whale .
+
+
+Make a container from image
+docker run -t -i [image-name] /bin/bash
+
+Delete an image
+sudo docker rmi 1f025ed91d79
+
+
+
+
+
+
+
+
+
+
+
+CONTAINERS
 
 2. list actual docker containers
 sudo docker ps -a
@@ -8,4 +34,16 @@ sudo docker ps -a
 sudo docker start 94fae7f38287
 
 4. log into the container
+docker exec -it [container-id] bash
+
+5. stop a container
+sudo docker stop 94fae7f38287
+
+6. remove a container
+sudo docker rm -v ee3488c00abe
+docker rm $(docker ps -a -q)     //remove all the container
+
+
+
+
 sudo docker attach 94fae7f38287
