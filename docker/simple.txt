@@ -47,3 +47,18 @@ docker rm $(docker ps -a -q)     //remove all the container
 
 
 sudo docker attach 94fae7f38287
+
+
+
+
+
+
+
+
+
+
+
+Creating a new container:
+sudo docker run -it ubuntu bash
+apt-get update
+apt-get install nano
