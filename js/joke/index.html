@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TODO supply a title</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<style type="text/css">
+			#toggable {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -45px;
+				margin-left: -100px;
+				width: 200px;
+				height: 90px;
+				border: 1px solid #dddddd;
+			}
+			.button-holder > span {
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="toggable">
+			<div class="content"></div>
+			<div class="button-holder">
+				<span id="no"><button>Nem</button></span>
+				<span id="yes"><button>Igen</button></span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			(function($) {
+				$(document).ready(function() {
+					var no = $('#no > button'),
+						yes = $('#yes > button'),
+						btn_holder = $('.button-holder');
+
+					function log(text) {
+						console.log(text);
+					}
+
+					function disable(condition) {
+						if (condition) {
+							no.attr('disabled','disabled');
+						}
+						else {console.log('removing attrt');
+							no.removeAttr('disabled');
+						}
+					}
+
+					function flip() {
+						log('flip()');
+						btn_holder.children('span:last-child').prependTo(btn_holder);
+					}
+
+					function isDisabled() {
+						log('isDisabled()');
+						return (typeof no.attr('disabled') && no.attr('disabled') === 'disabled');
+					}
+
+					$('#no').mouseenter(function(i,e) {
+						log('mouseenter()');
+						if (isDisabled()) flip();
+						else disable(true);
+					});
+
+					$('#no').mouseleave(function(i,e) {
+						log('mouseleave()');
+						disable(false);
+					});
+
+					$('#no').mousedown(function() {
+						log('click()');
+						if (isDisabled()) flip();
+						else disable(true);
+					});
+
+					$('#no').click(function() {
+						console.log('FASZOMAT');
+					})
+
+					// $(document).on('click', '#no', function() {
+					// 	log('click()');
+					// 	if (isDisabled()) flip();
+					// 	else disable(true);
+					// });
+
+					// no.click(function() {
+					// 	log('click()');
+					// 	if (isDisabled()) flip();
+					// 	else disable(true);
+					// });
+					// var toggable = $('#toggable'),
+					// 	width = toggable.width(),
+					// 	height = toggable.height(),
+					// 	tlx = toggable.position().left,
+					// 	tly = toggable.position().top;
+					// function rectanglePosition() {
+					// 	return {
+
+					// 	}
+					// }
+		//   			$(document).bind('mousemove',function(e){ 
+		  //       	console.log("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY);
+
+				// });
+				});
+			})(jQuery);
+		</script>
+  </body>
+</html>

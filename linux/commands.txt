@@ -1,0 +1,14 @@
+vmstat
+iostat
+free
+uname -a                provide information about kernel and linux distribution
+pwd                     what is the current working dir
+ls -d -*                allow regexp
+|                       take the ls command output and pass to the filter: ls -lt | sort/uniq/grep
+sort < ex > sortedex    fikrst sort the ex file lines, than put into the sortedex
+>                       replace the content of a file
+>>                      append a content to the file
+&                       Run two command in background, simultaneously(egyidejűleg): apt-get update & apt-get upgrade
+;                       The semi-colon operator makes it possible to run, several commands in a single go and the execution of command occurs sequentially(egymás után).
+&&                      The AND Operator (&&) would execute the second command only, if the execution of first command SUCCEEDS
+||                      The AND Operator (&&) would execute the second command only, if the execution of first command FAILS
