@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo `uname -a`
+
+print -e "Please type a word: "
+read word
+print ${word}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+setInterval(function(){tab_status();},500);
+ 
+tab_status = function(){
+     var hidden, state; 
+ 
+     if (typeof document.hidden !== "undefined") {
+          state = "visibilityState";
+     } else if (typeof document.mozHidden !== "undefined") {
+          state = "mozVisibilityState";
+     } else if (typeof document.msHidden !== "undefined") {
+          state = "msVisibilityState";
+     } else if (typeof document.webkitHidden !== "undefined") {
+          state = "webkitVisibilityState";
+     }
+	
+     if(document[state] == "hidden")
+          document.title = "Inactive";
+     else
+          document.title = "Active";
+};$(window).bind("beforeunload", function() { 
+    return confirm("Do you really want to close?"); 
+});
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
