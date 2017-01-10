@@ -1,11 +1,11 @@
-node, npm installation needed
-go to project folder
-npm init
-sudo npm install -g gulp 
-npm install --save-dev gulp
-npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename --save-dev 
+//node, npm installation needed
+//go to project folder
+//npm init
+//sudo npm install -g gulp 
+//npm install --save-dev gulp
+//npm install jshint gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename --save-dev 
 
-usage:
+//usage:
 // Include gulp
 var gulp = require('gulp'); 
 
@@ -54,9 +54,9 @@ gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
 
 
 
-starting it
-gulp = gulp default
-gulp sass  //opcionally
+//starting it
+//gulp = gulp default
+//gulp sass  //opcionally
 
 
 
