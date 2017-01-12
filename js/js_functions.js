@@ -13,3 +13,6 @@ function myFunction(a, b) {
 }
 myArray = [10, 2];
 myObject = myFunction.apply(myObject, myArray);  // Will also return 20 
+
+
+

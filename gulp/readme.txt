@@ -12,6 +12,6 @@ bower register bs-bootbox https://github.com/makeusabrew/bootbox -f'
 
 assets/custom   custom js and css files. Ide manuálisan kell a fileokat létrehozni, szerkeszteni
 assets/vendor   vendor js and css files. Ide a bower install -al kerülnek fel a fileok
-dev/            custom.css cusjtom.js vendor.css cendor.js not in minified format but in concatinated. - recompile_vendor(if added) - watch custom if modified
+dev/            custom.css cusjtom.js vendor.css cendor.js not in minified format but in concatinated. - recompile_vendor(if added) - watch_custom if modified
 prod/           final.css final.js in minified format derviced from concatinated custom and vendor css and js files - production
 
