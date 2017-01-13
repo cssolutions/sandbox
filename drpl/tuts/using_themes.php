@@ -4,7 +4,7 @@
  * In a .module
  * notification-box.tpl.php in a mymodule/theme with html content
  */
-function digi_commerce_checkout_theme() {
+function mymodule_theme() {
 	return array(
     'notification_box' => array(
       'variables' => array('address' => NULL),
