@@ -10,10 +10,10 @@ Federated: Offers the ability to link separate MySQL servers to create one logic
 Example: This engine serves as an example in the MySQL source code that illustrates how to begin writing new storage engines. It is primarily of interest to developers. The storage engine is a “stub” that does nothing. You can create tables with this engine, but no data can be stored in them or retrieved from them. 
 
 
- 	PDO 	MySQLI 	Natív MysQL
-Adatbázis támogatás 	12 különböző driver 	csak mysql 	csak mysql
-API 	OOP 	OOP + procedurális 	proceduráis
-Kapcsolódás 	egyszerű (connection string) 	egyszerű (paraméterezett) 	egyszerű (paraméterezett)
+                           PDO                  MySQLI               Natív MysQL
+Adatbázis támogatás     12 különböző driver 	csak mysql              csak mysql
+API                        OOP            OOP + procedurális         proceduráis
+Kapcsolódás             egyszerű (connection string) 	egyszerű (paraméterezett) 	egyszerű (paraméterezett)
 Nevesített paraméterek 	Van 	Nincs 	Nincs
 Előkészített lekárdezések (kliens oldalon) 	Van 	Van 	Nincs
 Teljesítmény 	Gyors 	Jelenleg leggyorsabb Mysql-ben 	Gyors
