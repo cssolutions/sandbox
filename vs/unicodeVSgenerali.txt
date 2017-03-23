@@ -1,0 +1,38 @@
+ accepted
+	
+
+These two collations are both for the UTF-8 character encoding. The differences are in how text is sorted and compared.
+
+Note: Since MySQL 5.5.3 you should use utf8mb4 rather than utf8. They both refer to the UTF-8 encoding, but the older utf8 had a MySQL-specific limitation preventing use of characters numbered above 0xFFFD.
+
+    Accuracy
+
+    utf8mb4_unicode_ci is based on the Unicode standard for sorting and comparison, which sorts accurately in a very wide range of languages.
+
+    utf8mb4_general_ci fails to implement all of the Unicode sorting rules, which will result in undesirable sorting in some situations, such as when using particular languages or characters.
+
+    Performance
+
+    utf8mb4_general_ci is faster at comparisons and sorting, because it takes a bunch of performance-related shortcuts.
+
+    On modern servers, this performance boost will be all but negligible. It was devised in a time when servers had a tiny fraction of the CPU performance of today's computers.
+
+    utf8mb4_unicode_ci, which uses the Unicode rules for sorting and comparison, employs a fairly complex algorithm for correct sorting in a wide range of languages and when using a wide range of special characters. These rules need to take into account language-specific conventions; not everybody sorts their characters in what we would call 'alphabetical order'.
+
+As far as Latin (ie "European") languages go, there is not much difference between the Unicode sorting and the simplified utf8mb4_general_ci sorting in MySQL, but there are still a few differences:
+
+    For examples, the Unicode collation sorts "ß" like "ss", and "Œ" like "OE" as people using those characters would normally want, whereas utf8mb4_general_ci sorts them as single characters (presumably like "s" and "e" respectively).
+
+    Some Unicode characters are defined as ignorable, which means they shouldn't count toward the sort order and the comparison should move on to the next character instead. utf8mb4_unicode_ci handles these properly.
+
+In non-latin languages, such as Asian languages or languages with different alphabets, there may be a lot more differences between Unicode sorting and the simplified utf8mb4_general_ci sorting. The suitability of utf8mb4_general_ci will depend heavily on the language used. For some languages, it'll be quite inadequate.
+
+What should you use?
+
+There is almost certainly no reason to use utf8mb4_general_ci anymore, as we have left behind the point where CPU speed is low enough that the performance difference would be important. Your database will almost certainly be limited by other bottlenecks than this.
+
+The difference in performance is only going to be measurable in extremely specialised situations, and if that's you, you probably already know about it. If you're experiencing slow sorting, in almost all cases it'll be an issue with your indexes/query plan. Changing your collation function should not be high on the list of things to troubleshoot.
+
+In the past, some people recommended to use utf8mb4_general_ci except when accurate sorting was going to be important enough to justify the performance cost. Today, that performance cost has all but disappeared, and developers are treating internationalization more seriously.
+
+One other thing I'll add is that even if you know your application only supports the English language, it may still need to deal with people's names, which can often contain characters used in other languages in which it is just as important to sort correctly. Using the Unicode rules for everything helps add peace of mind that the very smart Unicode people have worked very hard to make sorting work properly.
