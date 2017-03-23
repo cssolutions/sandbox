@@ -1,0 +1,122 @@
+function adjustSectionPlacement(section) {
+    var header = $jQuery(section).find('.ls-section__container');
+    var carousel = $jQuery(section).find('.ls-inner-carousel .fp-tableCell');
+    var carouselItem = $jQuery(carousel).find('.item .col-xs-6');
+
+    var sectionHeight = $jQuery(section)[0].scrollHeight - 130;
+    var headerHeight = $jQuery(header)[0].scrollHeight;
+    var carouselHeight = $jQuery(carousel)[0].scrollHeight;
+    var carouselItemHeight = $jQuery(carouselItem)[0].scrollHeight == 0 ? carouselHeight / 2 - 15 : $jQuery(carouselItem)[0].scrollHeight;
+
+    if (sectionHeight >= headerHeight + carouselHeight) {
+        $jQuery(carousel).animate({ 'bottom': '0px' }, 500);
+        $jQuery(header).css('position', 'absolute');
+        $jQuery(header).animate({ 'bottom': (carouselHeight + (sectionHeight - carouselHeight - headerHeight) / 2) + 'px' }, 500);
+    } else if (sectionHeight >= headerHeight + carouselItemHeight) {
+        $jQuery(carousel).animate({ 'bottom': (-1 * carouselItemHeight - 15) + 'px' }, 500);
+        $jQuery(header).css('position', 'absolute');
+        $jQuery(header).animate({ 'bottom': (carouselItemHeight + (sectionHeight - carouselItemHeight - headerHeight) / 2) + 'px' }, 500);
+    } else {
+        $jQuery(carousel).animate({ 'bottom': -1 * carouselHeight + 'px' }, 500);
+        $jQuery(header).animate({ 'bottom': (sectionHeight - headerHeight) / 2 + 'px' }, 1500);
+    }
+}
+
+$jQuery('#fullpage').fullpage({
+    slidesNavigation: true,
+    lockAnchors: false,
+    navigation: true,
+    navigationPosition: 'left',
+    showActiveTooltip: false,
+    slidesNavPosition: 'bottom',
+
+    //Scrolling
+    css3: true,
+    scrollingSpeed: 700,
+    autoScrolling: true,
+    fitToSection: true,
+    fitToSectionDelay: 1000,
+    scrollBar: false,
+    easing: 'easeInOutCubic',
+    easingcss3: 'ease',
+    loopBottom: false,
+    loopTop: false,
+    loopHorizontal: true,
+    continuousVertical: false,
+    normalScrollElements: '#element1, .element2',
+    scrollOverflow: false,
+    touchSensitivity: 15,
+    normalScrollElementTouchThreshold: 5,
+
+    //Accessibility
+    keyboardScrolling: true,
+    animateAnchor: true,
+    recordHistory: true,
+
+    //Design
+    controlArrows: true,
+    verticalCentered: true,
+    paddingTop: '3em',
+    paddingBottom: '10px',
+    fixedElements: '#header, .footer',
+    responsiveWidth: 0,
+    responsiveHeight: 0,
+
+    //Custom selectors
+    sectionSelector: '.section',
+    slideSelector: '.slide',
+
+    onLeave: function(index, nextIndex, direction) {
+        if ($('.ls-language-container').hasClass('is-opened')) {
+            return false;
+        } else {
+            var section = '.ls-section--' + nextIndex;
+            $(section).find('.ls-animation-bottom-top').addClass('visible');
+            if ($(section).find('.ls-inner-carousel').css('bottom') == '-1000px')
+                $(section).find('.ls-section__container').css('bottom', 'initial');
+            if (nextIndex === 4) {
+                $('.ls-animation-scale').addClass('activated');
+            }
+        }
+    },
+    afterLoad: function(anchorLink, index) {
+        var section1 = $jQuery('.ls-section--2');
+        var section2 = $jQuery('.ls-section--3');
+
+        adjustSectionPlacement(section1);
+        adjustSectionPlacement(section2);
+        try {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'EAEvents',
+                eventAction: 'Home Scroll',
+                eventLabel: 'Slide Number ' + index
+            });
+        } catch (e) {}
+    },
+    afterRender: function() {},
+    afterResize: function() {
+        var pluginContainer = $(this);
+        var section1 = $jQuery('.ls-section--2');
+        var section2 = $jQuery('.ls-section--3');
+
+        adjustSectionPlacement(section1);
+        adjustSectionPlacement(section2);
+
+    },
+    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {},
+    onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {}
+});
+
+
+jQuery('.ls-button__sign-up').click(function() {
+    try {
+        ga('send', {
+            hitType: 'event',
+            eventCategory: 'EAEvents',
+            eventAction: 'Register',
+            eventLabel: 'Button clicked on homepage'
+        });
+    } catch (e) {}
+
+});
