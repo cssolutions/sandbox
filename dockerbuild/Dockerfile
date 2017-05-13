@@ -1,3 +1,2 @@
 FROM scratch
-RUN apt-get -y update && apt-get install apache2-mpm-event
-RUN service apache2 start
+RUN apt-get -y update && apt-get install php7.0

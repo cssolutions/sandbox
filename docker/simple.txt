@@ -1,3 +1,8 @@
+IMAGES
+
+List docker images
+sudo docker images
+
 Get an ubuntu instance:
 sudo docker run -t -i ubuntu /bin/bash
 
@@ -14,14 +19,6 @@ docker run -t -i [image-name] /bin/bash
 
 Delete an image
 sudo docker rmi 1f025ed91d79
-
-
-
-
-
-
-
-
 
 
 
@@ -45,12 +42,10 @@ docker rm $(docker ps -a -q)     //remove all the container
 
 
 
-
-sudo docker attach 94fae7f38287
-
-
-
-
+Commiting and pushing images to repository
+docker commit [container-id] oninflo/phalcon-phpunit:v1
+docker login
+docker push oninflo/phalcon-phpunit:v1
 
 
 
@@ -58,7 +53,246 @@ sudo docker attach 94fae7f38287
 
 
 
-Creating a new container:
-sudo docker run -it ubuntu bash
-apt-get update
-apt-get install nano
+
+
+
+
+DOCKERFILE
+----------
+----------
+
+ENTRYPOINT VS CMD
+-----------------
+ENTRYPOINT ["/bin/echo", "Hello"]
+CMD ["world"]
+when container runs as docker run -it <image> will produce output
+Hello world
+but when container runs as docker run -it <image> Manu will result in
+Hello Manu
+
+LABELS VS ENV
+----------------
+Labels are similar to environment variables in that they are key value pairs attached to an image or a container.
+Labels are different from environment variable in that they are not visible to the running application and they can also be used for fast
+look-up of images and containers.
+
+VOLUMES
+-------
+Mindíg a legfrisseb tartalmát mutatáják a host ról, vagy volumes ből behúzott könyvtárnak
+Valamint meg is lehet osztani volumeket a containerek között
+
+ADD AND COPY
+-------------
+COPY doesn't support URLs as a <src> argument so it can't be used to download files from remote locations. Anything that you want to COPY
+into the container must be present in the local build context.
+Also, COPY doesn't give any special treatment to archives. If you COPY an archive file it will land in the container exactly as it appears
+in the build context without any attempt to unpack it.
+COPY is really just a stripped-down version of ADD that aims to meet the majority of the "copy-files-to-container" use cases without any surprises.
+
+
+
+Build image based on the dockerfile
+docker build -f /path/to/a/Dockerfile .
+
+You can specify a repository and tag at which to save the new image if the build succeeds:
+docker build -t shykes/myapp .
+
+FROM <image>:<tag>
+The FROM instruction sets the Base Image for subsequent instructions. As such, a valid Dockerfile must have FROM as its first instruction. The image can be
+any valid image – it is especially easy to start by pulling an image from the Public Repositories.
+FROM must be the first non-comment instruction in the Dockerfile.
+FROM can appear multiple times within a single Dockerfile in order to create multiple images. Simply make a note of the last image ID output by the commit
+before each new FROM command.
+The tag or digest values are optional. If you omit either of them, the builder assumes a latest by default. The builder returns an error if it cannot match
+the tag value.
+
+
+RUN
+---
+
+RUN has 2 forms:
+RUN <command> (shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows)
+RUN ["executable", "param1", "param2"] (exec form)
+
+The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed
+image will be used for the next step in the Dockerfile.
+
+In the shell form you can use a \ (backslash) to continue a single RUN instruction onto the next line. For example, consider these two lines:
+RUN /bin/bash -c 'source $HOME/.bashrc; \
+echo $HOME'
+
+Together they are equivalent to this single line:
+
+RUN /bin/bash -c 'source $HOME/.bashrc; echo $HOME'
+
+
+RUN ["/bin/bash", "-c", "echo hello"]
+
+
+CMD
+---
+The CMD instruction has three forms:
+CMD ["executable","param1","param2"] (exec form, this is the preferred form)
+CMD ["param1","param2"] (as default parameters to ENTRYPOINT)
+CMD command param1 param2 (shell form)
+
+There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect.
+
+The main purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they
+can omit the executable, in which case you must specify an ENTRYPOINT instruction as well.
+
+
+LABEL
+-----
+LABEL <key>=<value> <key>=<value> <key>=<value> ...
+
+The LABEL instruction adds metadata to an image. A LABEL is a key-value pair. To include spaces within a LABEL value, use quotes and backslashes as
+you would in command-line parsing. A few usage examples:
+
+An image can have more than one label.
+LABEL "com.example.vendor"="ACME Incorporated"
+LABEL com.example.label-with-value="foo"
+OR
+LABEL multi.label1="value1" multi.label2="value2" other="value3"
+LABEL multi.label1="value1" \
+      multi.label2="value2" \
+      other="value3"
+
+To view an image’s labels, use the docker inspect command.
+
+"Labels": {
+  "com.example.vendor": "ACME Incorporated"
+  "com.example.label-with-value": "foo",
+  "version": "1.0",
+  "description": "This text illustrates that label-values can span multiple lines.",
+  "multi.label1": "value1",
+  "multi.label2": "value2",
+  "other": "value3"
+},
+
+
+ENV
+---
+ENV myName="John Doe" myDog=Rex\ The\ Dog \
+    myCat=fluffy
+
+
+EXPOSE
+------
+
+EXPOSE <port> [<port>...]
+
+
+ADD
+---
+
+ADD has two forms:
+
+ADD <src>... <dest>
+ADD ["<src>",... "<dest>"] (this form is required for paths containing whitespace)
+
+The ADD instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>.
+Multiple <src> resource may be specified but if they are files or directories then they must be relative to the source directory that is being
+built (the context of the build).
+
+Each <src> may contain wildcards and matching will be done using Go’s filepath.Match rules. For example:
+
+ADD hom* /mydir/        # adds all files starting with "hom"
+ADD hom?.txt /mydir/    # ? is replaced with any single character, e.g., "home.txt"
+
+The <dest> is an absolute path, or a path relative to WORKDIR, into which the source will be copied inside the destination container.
+
+ADD test relativeDir/          # adds "test" to `WORKDIR`/relativeDir/
+ADD test /absoluteDir/         # adds "test" to /absoluteDir/
+
+
+
+COPY
+----
+
+COPY has two forms:
+
+COPY <src>... <dest>
+COPY ["<src>",... "<dest>"] (this form is required for paths containing whitespace)
+
+The COPY instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.
+
+Multiple <src> resource may be specified but they must be relative to the source directory that is being built (the context of the build).
+
+Each <src> may contain wildcards and matching will be done using Go’s filepath.Match rules. For example:
+
+COPY hom* /mydir/        # adds all files starting with "hom"
+COPY hom?.txt /mydir/    # ? is replaced with any single character, e.g., "home.txt"
+
+
+USER
+----
+USER daemon
+
+The USER instruction sets the user name or UID to use when running the image and for any RUN, CMD and ENTRYPOINT instructions that follow it in the Dockerfile.
+
+
+ENTRYPOINT has two forms:
+-------------------------
+    ENTRYPOINT ["executable", "param1", "param2"] (exec form, preferred)
+    ENTRYPOINT command param1 param2 (shell form)
+
+An ENTRYPOINT allows you to configure a container that will run as an executable.
+
+Exec form ENTRYPOINT example
+FROM ubuntu
+ENTRYPOINT ["top", "-b"]
+CMD ["-c"]
+
+Shell form ENTRYPOINT example
+ROM ubuntu
+ENTRYPOINT exec top -b
+
+
+Understand how CMD and ENTRYPOINT interact
+------------------------------------------
+Both CMD and ENTRYPOINT instructions define what command gets executed when running a container. There are few rules that describe their co-operation.
+Dockerfile should specify at least one of CMD or ENTRYPOINT commands.
+ENTRYPOINT should be defined when using the container as an executable.
+CMD should be used as a way of defining default arguments for an ENTRYPOINT command or for executing an ad-hoc command in a container.
+CMD will be overridden when running the container with alternative arguments.
+
+
+VOLUME
+------
+
+VOLUME ["/data"]
+
+The VOLUME instruction creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other
+containers. The value can be a JSON array, VOLUME ["/var/log/"]
+
+
+WORKDIR
+-------
+
+WORKDIR /path/to/workdir
+
+The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile.
+
+It can be used multiple times in the one Dockerfile. If a relative path is provided, it will be relative to the path of the previous WORKDIR instruction. For example:
+WORKDIR /a
+WORKDIR b
+WORKDIR c
+RUN pwd
+
+The WORKDIR instruction can resolve environment variables previously set using ENV. You can only use environment variables explicitly set in the Dockerfile. For example:
+ENV DIRPATH /path
+WORKDIR $DIRPATH/$DIRNAME
+RUN pwd
+
+
+
+ARG
+---
+ARG <name>[=<default value>]
+
+The ARG instruction defines a variable that users can pass at build-time to the builder with the docker build command
+using the --build-arg <varname>=<value> flag. If a user specifies a build argument that was not defined in the Dockerfile, the build outputs a warning.
+
+
+
