@@ -1,0 +1,5 @@
+version: '2'
+services:
+  docker-whale:
+    image: docker-whale
+    build: .
