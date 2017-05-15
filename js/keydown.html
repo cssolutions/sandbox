@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+
+ <input id="AppFirstName" class="number-only" style="width: 150px;" type="text" maxlength="30" title="textonly"/>
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+<script type="text/javascript">
+$(document).ready(function() {
+   function validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+   }
+   
+   var input = $("input.number-only");
+   input.bind({
+      keydown: function(e) {
+         if(e) {
+              e = e;
+         } else {
+              e = window.event;
+         }
+
+         if(e.which){ 
+              var keycode = e.which;
+         } else {
+              var keycode = e.keyCode;
+         }
+
+         if (
+            (keycode >= 65 && keycode <= 90 && e.shiftKey) || //if a letter is uppercase
+            keycode === 32 || //contains space
+            keycode === 0 || //contains accents
+            keycode ==  186 || keycode == 187 || keycode == 191 || keycode == 192 || keycode == 219 || keycode == 220 || keycode == 221 || keycode == 222 //contains accents chrome
+         ) { 
+            return false;
+         }
+      },
+      keyup: function(e) {
+         console.log(input.val(), validateEmail(input.val()));
+      }
+   });
+});
+</script>
+
+</body>
+</html>
