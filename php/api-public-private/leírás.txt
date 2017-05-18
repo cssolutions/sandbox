@@ -1,0 +1,23 @@
+Publikus szerver:
+ - Fogadja a böngészős fh-kat
+ - Fogadja az api-s hívásokat
+   - Annyiban különböznek csak, hogy a böngészős hívásokat cookie-ban tárolják
+   - Ezek adatait továbbküldi a priv-szervernek, ahová csak a oninflo pub szerverek van hozzáférése
+
+Felhasználó begépeli a jelszót, az továbbítódik a publik szerverhez, majd onnan api kérés formájában a priv szerverhez.
+
+
+
+
+Kell
+ - minden public browseres híváshoz egy útvonal
+ - minden public api-s híváshoz egy útvonal
+ - mindegyik úgyanúgy hívja meg az apit, a különbség csupán annyi, hogy amiket átad neki paraméternek, azokat 
+   - browseres hívás esetén cookie-ból szedi, majd ami visszajön a private szervertől jwt, azt beállítja cookie-ba 
+   - api-s hívás esetén pedig header-ből, majd ami visszajön a private szervertől jwt, azt headerbe állítja
+
+
+
+
+http://stackoverflow.com/questions/4904096/whats-the-difference-between-unit-functional-acceptance-and-integration-test
+https://github.com/firebase/php-jwt
