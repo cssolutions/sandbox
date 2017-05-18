@@ -1,0 +1,30 @@
+/* 
+    Created on : 2017.05.18., 10:02:56
+    Author     : csaba
+*/
+
+/*
+Az em az elem font-size-ához igazodik, ha meg van adva, egyébként a parent-hez
+*/
+h1 {
+  font-size: 2em; /* 1em = 16px */
+  margin-bottom: 1em; /* 1em = 32px */
+}
+
+p {
+  font-size: 1em; /* 1em = 16px */
+  margin-bottom: 1em; /* 1em = 16px */
+}
+
+/*
+Az em az root font-size-ához igazodik
+*/
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem; /* 1rem = 16px */
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem; /* 1rem = 16px */
+}

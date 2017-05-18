@@ -1,0 +1,62 @@
+/*
+Bootstrap media queries
+*/
+@media only screen and (max-device-width : 767px) {  /*xs*/
+
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 991px) {  /*sm*/
+
+}
+
+@media only screen and (min-device-width : 992px) and (max-device-width : 1199px) {  /*m*/
+
+}
+
+@media only screen and (min-device-width : 1200px) {  /*lg*/
+
+}
+
+
+/*
+Media queries for display sizes
+*/
+@media only screen and (max-device-width : 320px) and (max-device-width : 639px) {
+
+}
+
+@media only screen and (min-device-width : 640px) and (max-device-width : 799px) {
+
+}
+
+@media only screen and (min-device-width : 800px) and (max-device-width : 959px) {
+
+}
+
+@media only screen and (min-device-width : 960px) and (max-device-width : 1023px) {
+
+}
+
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1279px) {
+
+}
+
+@media only screen and (min-device-width : 1152px) and (max-device-width : 1919px) {
+
+}
+
+@media only screen and (min-device-width : 1280px) and (max-device-width : 1439px) {
+
+}
+
+@media only screen and (min-device-width : 1440px) and (max-device-width : 1679px) {
+
+}
+
+@media only screen and (min-device-width : 1680px) and (max-device-width : 1919px) {
+
+}
+
+@media only screen and (min-device-width : 1920px) {
+
+}
