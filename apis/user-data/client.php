@@ -58,7 +58,7 @@ class UserCredentialsApi {
             throw new \Exception('Invalid credentials!');
         }
 
-        return $this->determineCurl($curl);
+        return $tokenResult;
     }
 
     public function getUser($token, $username, $pass) {
@@ -111,25 +111,43 @@ $api = new UserCredentialsApi([
  * Usually in login controller/action
  * In the login controller/action there should be a private function like getAccessToken() which is pull token first from memcache(which ttl is less than a server token ttl), secondly from the server
  */
-$errorMsg = '';
+class SessionController {
 
-try {
-    $token = $api->getAccessToken();
-} catch (\Exception $e) {
-    $errorMsg = $e->getMessage();
-}
+    public function login() {
+        //...
+        $user = $this->getUser('username', 'password');
+        if (is_string($user)) {
+            //invalid user credentials
+        }
+    }
 
-if (!$errorMsg) {
-    try {
-        $user = $api->getUser($token, 'username', 'password');
-    } catch (\Exception $e) {
-        $errorMsg = $e->getMessage();
+    private function getUser($username, $password) {
+        $api = $this->userapi;
+
+        $errorMsg = '';
+        $token = '';//get from cache which ttl is less than server ttl
+
+        if (!$token) {
+            try {
+                $token = $api->getAccessToken();
+            } catch (\Exception $e) {
+                $errorMsg = $e->getMessage();
+            }
+        }
+
+        if (!$errorMsg) {
+            try {
+                $user = $api->getUser($token, $username, $password);
+            } catch (\Exception $e) {
+                $errorMsg = $e->getMessage();
+            }
+        }
+
+        if (!$errorMsg) {
+            return $user;
+        }
+
+        return $errorMsg;
     }
 }
-
-if (!$errorMsg) {
-    return $user;
-}
-
-return $errorMsg;
 

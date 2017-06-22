@@ -58,17 +58,16 @@ try {
      * Add your routes here
      */
     $app->post('/get-access-token', function () use ($app) {
-        //check in redis
-        //if not found, get from mongo_db
-        //return it as a string
-        require __DIR__ . "/../views/index.phtml";
+        $name = '';
+        $pass = '';
+        echo ServerUser::getUserAccessToken($name, $pass);
     });
 
     $app->post('/get-user/:user', function () use ($app) {
-        //check in redis
-        //if not found, get from mongo_db
-        //return it as a string
-        require __DIR__ . "/../views/index.phtml";
+        //check the access token in redis
+        //get user data from mongodb
+        //return it as json
+        echo json_encode([],1);
     });
 
     /**

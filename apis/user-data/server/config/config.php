@@ -7,7 +7,7 @@ return new Config(
         'database'    => [
             'adapter'  => 'Mysql',
             'host'     => 'localhost',
-            'username' => 'root',
+            'username' => 'user_manager',
             'password' => '',
             'name'     => 'test',
         ],
