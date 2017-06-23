@@ -58,16 +58,22 @@ try {
      * Add your routes here
      */
     $app->post('/get-access-token', function () use ($app) {
-        $name = '';
-        $pass = '';
-        echo ServerUser::getUserAccessToken($name, $pass);
+        echo ServerUser::getUserAccessToken($app->request->getPost('clientId'), $app->request->getPost('clientSecret'));
     });
 
     $app->post('/get-user/:user', function () use ($app) {
-        //check the access token in redis
-        //get user data from mongodb
-        //return it as json
-        echo json_encode([],1);
+        $user = Users::findFirst(
+            [
+                "conditions" => "username = ?1 AND password = ?2",
+                "bind"       => [
+                    1 => $app->request->getPost('username'),
+                    2 => $app->request->getPost('password')
+                ]
+            ]
+        );
+
+        $user = $user ?: [];
+        echo json_encode($user->toArray(),1);
     });
 
     /**

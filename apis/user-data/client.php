@@ -98,12 +98,12 @@ class UserCredentialsApi {
  * Register in dependency injection
  */
 $api = new UserCredentialsApi([
-    'token_url'      => 'http://localhost:8010/identity/connect/token',
+    'token_url'      => 'http://localhost/userapi/get-access-token',
     'token_credentials' => [
         'clientId'      => 'felhasználónév',
         'clientSecret'  => 'Jelszó'
     ],
-    'api_url'        => 'http://esweb:8010/ecogatewebapi/igeny/adasok',
+    'api_url'        => 'http://localhost/userapi/get-user',
 ]);
 
 /**
@@ -114,7 +114,7 @@ $api = new UserCredentialsApi([
 class SessionController {
 
     public function login() {
-        //...
+        //...Validate username and password
         $user = $this->getUser('username', 'password');
         if (is_string($user)) {
             //invalid user credentials
