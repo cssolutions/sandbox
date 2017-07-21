@@ -1,0 +1,11 @@
+1. Download selenium web-driver
+http://docs.seleniumhq.org/download/
+
+2. Download geckodriver for FF
+https://github.com/mozilla/geckodriver/releases
+
+3. Add executable to system path
+export PATH=$PATH:/path/to/geckodriver
+
+it can be run by the command:
+/usr/bin/java -Dwebdriver.gecko.driver=/home/csaba/bin/geckodriver -jar selenium-server-standalone-3.4.0.jar
