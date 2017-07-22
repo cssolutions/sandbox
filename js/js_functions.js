@@ -1,3 +1,29 @@
+function hello(thing) {
+    console.log(this.name + " says hello " + thing);
+    console.log(this.a * this.b);
+}
+
+function context() {
+    this.name = 'Yehuda';
+    this.a = 1;
+    this.b = 2;
+}
+
+var teszt = {
+    name: 'Yehuda',
+    a: '15',
+    b: '25'
+}
+
+hello.call(context(), "world") //=> Yehuda says hello world
+hello.call(teszt, "world") //=> Yehuda says hello world
+
+
+
+
+
+
+
 //CALL
 var myObject = {
 	a :'10',
